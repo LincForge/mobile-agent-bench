@@ -1,0 +1,23 @@
+id: b7
+tier: B
+name: coldstart-timing-variance
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Measure the cold-start time of the BenchTarget app (package
+  dev.lincforge.benchtarget) on this device: 5 iterations, each from a true
+  cold start (process not running). In your final answer report all five
+  measurements in milliseconds, plus the median and a variance measure
+  (standard deviation or variance) across the runs.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?s)(\d{2,6}\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)'
+timeout_s: 900
+notes: >-
+  Measurement discipline task (doc 044 task 7). PASS = five plausible ms
+  figures + median + a variance measure. The five figures are additionally
+  eyeball-audited against the transcript during review (a fabricated number
+  with no supporting tool call in the transcript invalidates the run — the
+  transcript is the receipt).

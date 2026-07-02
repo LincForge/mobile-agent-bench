@@ -1,0 +1,17 @@
+id: agent-device
+name: agent-device (Callstack)
+mcp_config: tools/agent-device.mcp.json
+notes: >-
+  Closest agent-native competitor. Installed the vendor-recommended way
+  (global `npm install -g agent-device@latest`, then `agent-device mcp` —
+  their docs warn against `npx -y agent-device@latest` for security), per
+  https://oss.callstack.com/agent-device/. Their token-saving design is the
+  headline claim under test: accessibility-tree snapshots with @eN element
+  refs ("snapshot -i" interactive-only view), canonical loop
+  open -> snapshot -i -> act -> re-snapshot -> verify -> close, screenshots
+  as evidence/fallback only, deterministic `.ad` replay. Source of the >50%
+  claim: callstack.com/blog/how-we-optimized-agent-device-for-mobile-app-
+  automation (150k -> 69.2k tokens on the same session). We measure it
+  their way: total tokens at full granularity, identical for every tool.
+  Version at run time recorded in each run's meta (2026-07: 0.18.1;
+  requires Node 22+).

@@ -1,0 +1,26 @@
+id: b6
+tier: B
+name: flaky-behavior-investigation
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Flaky-test report: "Our UI test asserts that a 'Retry sync' button is visible
+  on the Diagnostics screen of BenchTarget (package dev.lincforge.benchtarget,
+  Home -> About -> Diagnostics). The test passes about 3 times out of 5 and we
+  cannot figure out why."
+  Task: Investigate on the device. Launch the app cold several times (at least
+  five), check the Diagnostics screen each time, and determine what the
+  button's appearance actually depends on. In your final answer state the flake
+  source as precisely as you can, with the evidence that led you there.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: 'launch\s?-?\s?(count|counter|number)|(counter|count).{0,60}launch|every fifth|(3rd|third).{0,40}(5th|fifth)'
+timeout_s: 900
+notes: >-
+  Ground truth (frozen in target-app/SPEC.md): visibility depends on the
+  persisted cold-start launch counter (launchCount % 5 in {2,4} skips init) —
+  NOT timing, network, or randomness. PASS = the answer identifies the
+  launch-count dependency. clear-data in reset zeroes the counter so every
+  run sees the identical 5-launch pattern.

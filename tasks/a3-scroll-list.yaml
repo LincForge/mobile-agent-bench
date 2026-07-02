@@ -1,0 +1,20 @@
+id: a3
+tier: A
+name: scroll-to-item-tap
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget), open the
+  Catalog, scroll to the item named "Item 073", and tap it. Report the header
+  text of the screen you land on.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: shell
+  cmd: >-
+    S=$(adb -s "$BENCH_DEVICE_SERIAL" shell cat
+    /sdcard/Android/data/dev.lincforge.benchtarget/files/state.json) &&
+    echo "$S" | grep -q '"screen": *"detail"' &&
+    echo "$S" | grep -q '"selectedItem": *"Item 073"'
+timeout_s: 600
+notes: Long-list scroll to off-screen target + detail assertion (doc 044 task 3).

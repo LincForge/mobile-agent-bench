@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "linc-nerve": {
+      "command": "nerve",
+      "args": ["bellows"]
+    },
+    "linc-crucible": {
+      "command": "crucible",
+      "args": ["bellows"]
+    },
+    "linc-spectra": {
+      "command": "spectra",
+      "args": ["bellows"]
+    }
+  }
+}

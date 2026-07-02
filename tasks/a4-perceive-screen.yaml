@@ -1,0 +1,17 @@
+id: a4
+tier: A
+name: screenshot-describe
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget) and,
+  without navigating away from its first screen, describe what is currently on
+  the screen: the app title and every navigation option/button you can see,
+  by their exact labels.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)'
+timeout_s: 600
+notes: Agent perception check — must name all four Home nav targets (doc 044 task 4).
