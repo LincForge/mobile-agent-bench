@@ -1,0 +1,3 @@
+# Frozen run defaults (part of the v1-prereg freeze — see PREREGISTRATION.md).
+model: claude-sonnet-5
+runs_per_task: 5

@@ -1,0 +1,17 @@
+# machine-local configuration (never committed — sanitization rule)
+bench.local.yaml
+tools/*.local.mcp.json
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+
+# gradle / android (target-app)
+target-app/**/build/
+target-app/.gradle/
+target-app/local.properties
+*.apk
+!results/**  # raw run logs are the product; never ignore them

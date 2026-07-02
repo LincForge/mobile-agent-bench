@@ -1,0 +1,16 @@
+id: a1
+tier: A
+name: launch-navigate-assert
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget). From its
+  Home screen, navigate to About, then to Diagnostics. Read the "Build channel"
+  value shown on the Diagnostics screen and report it exactly in your final answer.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: 'BENCH-STABLE'
+timeout_s: 600
+notes: 3-screens-deep navigation + element-text assertion (doc 044 task 1).

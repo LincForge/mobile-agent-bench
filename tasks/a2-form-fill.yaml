@@ -1,0 +1,22 @@
+id: a2
+tier: A
+name: form-fill-submit
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget) and open
+  the Form screen. Enter the name "Avery Quinn", turn the Subscribe switch ON,
+  select "Pro" from the Tier dropdown, and press Submit. Report the confirmation
+  text shown after submitting.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: shell
+  cmd: >-
+    S=$(adb -s "$BENCH_DEVICE_SERIAL" shell cat
+    /sdcard/Android/data/dev.lincforge.benchtarget/files/state.json) &&
+    echo "$S" | grep -q '"Avery Quinn"' &&
+    echo "$S" | grep -q '"tier": *"Pro"' &&
+    echo "$S" | grep -q '"subscribed": *true'
+timeout_s: 600
+notes: Text + toggle + dropdown + submit; verified against the app state contract (doc 044 task 2).

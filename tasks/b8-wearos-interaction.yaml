@@ -1,0 +1,21 @@
+id: b8
+tier: B
+name: wearos-launch-interact
+capability_row: true
+prompt: |
+  You are operating a real Wear OS smartwatch through the tools available to
+  you. Task: Launch the BenchTarget app (package dev.lincforge.benchtarget) on
+  the WATCH, tap its "Ping" button three times, and report the counter text
+  the app then displays.
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: 'Pings:\s*3'
+timeout_s: 900
+notes: >-
+  CAPABILITY ROW (doc 044 task 8): reported separately, never averaged into
+  cross-tool means — pre-registered expectation is that only the LINC stack
+  completes it. Requires the harness device to be the Wear OS watch
+  (BENCH_DEVICE_SERIAL points at the watch for this task only).

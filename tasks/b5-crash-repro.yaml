@@ -1,0 +1,23 @@
+id: b5
+tier: B
+name: crash-repro-evidence
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Bug report: "BenchTarget (package dev.lincforge.benchtarget) crashes when
+  exporting a catalog item, but I don't remember which one — it was somewhere
+  in the early part of the list."
+  Task: Reproduce this crash on the device. In your final answer provide:
+  (1) exact reproduction steps, (2) the crash exception class and message from
+  the device logs, and (3) any additional evidence you collected (screenshots,
+  recordings, log excerpts).
+app:
+  package: dev.lincforge.benchtarget
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?=.*IllegalStateException)(?=.*export buffer not initialized)(?=.*Item 013)'
+timeout_s: 900
+notes: >-
+  Repro-from-vague-report + evidence quality (doc 044 task 5). PASS requires the
+  correct item, exception class, and exact message — all three are in the frozen
+  app spec ground truth.

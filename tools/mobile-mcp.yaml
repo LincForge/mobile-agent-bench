@@ -1,0 +1,13 @@
+id: mobile-mcp
+name: mobile-mcp (mobile-next)
+mcp_config: tools/mobile-mcp.mcp.json
+notes: >-
+  Community MCP server, configured exactly as the README recommends
+  (`npx -y @mobilenext/mobile-mcp@latest`). Default interaction mode is
+  accessibility-first with screenshot-coordinate fallback ("Uses native
+  accessibility trees for most interactions, or screenshot based coordinates
+  where a11y labels are not available"). Version at run time recorded in
+  each run's meta (2026-07: 0.0.60). Telemetry disabled for runs via
+  MOBILEMCP_DISABLE_TELEMETRY to keep transcripts clean.
+env:
+  MOBILEMCP_DISABLE_TELEMETRY: "1"

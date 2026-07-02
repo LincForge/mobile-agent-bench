@@ -1,0 +1,11 @@
+id: linc
+name: LINC nerve + crucible + spectra
+mcp_config: tools/linc.mcp.json
+notes: >-
+  The stack under test from LincForge: nerve (device observe/act, 36 tools,
+  MJPEG streaming enabled per fairness rules), crucible (quality analysis /
+  ship gate), spectra (DAP runtime debugging). All three run as MCP stdio
+  servers via their console scripts. The committed config assumes the
+  `nerve` / `crucible` / `spectra` entry points are on PATH; use
+  tools/linc.local.mcp.json (gitignored) for machine-specific interpreter
+  paths.

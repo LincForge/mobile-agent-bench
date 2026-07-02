@@ -1,0 +1,12 @@
+id: maestro
+name: Maestro MCP (mobile.dev)
+mcp_config: tools/maestro.mcp.json
+notes: >-
+  Official MCP server shipped inside the Maestro CLI (`maestro mcp`), per
+  https://docs.maestro.dev/get-started/maestro-mcp — their Claude Code
+  one-liner is `claude mcp add maestro -- maestro mcp`. Vendor-recommended
+  usage is hierarchy-first (`inspect_screen` compact-JSON view hierarchy
+  before targeting; screenshots as disambiguation supplement); the agent
+  authors Maestro flow YAML via `cheat_sheet` and executes with `run`.
+  Prereqs: Java 17+ with JAVA_HOME set, Android platform-tools. Benchmarked
+  CLI version recorded in each run's meta (installed 2026-07: 2.6.1).

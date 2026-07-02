@@ -1,0 +1,7 @@
+# Copy to bench.local.yaml (gitignored). Everything here is machine-local and
+# must never reach the repo: the sanitizer redacts these literals from every
+# transcript at capture time.
+device_serial: "ABC123XYZ"
+redact:
+  - "my-internal-hostname.example"
+  - "my-username"
