@@ -1,0 +1,35 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T21:01:12+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 35043,
+    "cache_read_tokens": 917501,
+    "input_tokens": 4068,
+    "num_turns": 21,
+    "output_tokens": 3359,
+    "source": "result-record",
+    "total_billed": 959971,
+    "total_cost_usd": 0.5487693,
+    "total_uncached": 42470
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*3' answer[-500:]='All three taps registered successfully. The counter text the app displays is:\\n\\n**Pings: 3**'",
+  "wall_time_s": 86.32
+}
