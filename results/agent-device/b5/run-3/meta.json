@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:41:01+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 114997,
+    "cache_read_tokens": 8274338,
+    "input_tokens": 5813,
+    "num_turns": 120,
+    "output_tokens": 25382,
+    "source": "result-record",
+    "total_billed": 8420530,
+    "total_cost_usd": 3.571171400000002,
+    "total_uncached": 146192
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "ort.\\n- `02-post-crash-home-screen.png` \u2014 screenshot showing the app has died and Android fell back to the launcher.\\n- `crash-log-excerpt.txt` \u2014 full logcat excerpt for the crashing process (PID 25492), including the `IllegalStateException` stack trace and terminal `FATAL EXCEPTION: main` block.\\n- Root cause confirmed in source: `target-app/.../core/ExportPolicy.kt` explicitly throws for `CRASH_ITEM = \"Item 013\"` \u2014 this is a deliberately seeded, deterministic crash (not flaky/timing-related).'",
+  "wall_time_s": 677.36
+}

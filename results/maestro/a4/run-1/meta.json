@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:15:57+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31253,
+    "cache_read_tokens": 277779,
+    "input_tokens": 4370,
+    "num_turns": 7,
+    "output_tokens": 2105,
+    "source": "result-record",
+    "total_billed": 315507,
+    "total_cost_usd": 0.3162137,
+    "total_uncached": 37728
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "' answer[-500:]='Launched `dev.lincforge.benchtarget` on device `<REDACTED-2>` and inspected its first screen without navigating further.\\n\\n**Screen contents:**\\n- **Title:** \"BenchTarget\"\\n- **Navigation option/button:** \"Catalog\" (a single pill-shaped button)\\n\\nThat\\'s the only labeled interactive element visible \u2014 the screen (a compact square layout, likely the Wear/watch surface) shows just the app title and one button, \"Catalog\". No other labeled options are present on this first screen.'",
+  "wall_time_s": 51.2
+}

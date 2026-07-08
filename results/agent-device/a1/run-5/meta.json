@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T17:12:16+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 50096,
+    "cache_read_tokens": 1565137,
+    "input_tokens": 4233,
+    "num_turns": 34,
+    "output_tokens": 4102,
+    "source": "result-record",
+    "total_billed": 1623568,
+    "total_cost_usd": 0.8450281000000003,
+    "total_uncached": 58431
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]=\"I've navigated Home \u2192 About \u2192 Diagnostics on the BenchTarget app (Pixel 8 Pro device). The Diagnostics screen shows:\\n\\n**Build channel: BENCH-STABLE**\"",
+  "wall_time_s": 118.08
+}

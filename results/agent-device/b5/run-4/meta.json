@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:45:56+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 62815,
+    "cache_read_tokens": 3062648,
+    "input_tokens": 4710,
+    "num_turns": 62,
+    "output_tokens": 11875,
+    "source": "result-record",
+    "total_billed": 3142048,
+    "total_cost_usd": 1.4886684000000006,
+    "total_uncached": 79400
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "wing an in-app error).\\n- Source confirmation: `target-app/app/src/main/java/dev/lincforge/benchtarget/core/ExportPolicy.kt` explicitly documents this as seeded crash ground truth (\"task b5\"): `CRASH_ITEM = \"Item 013\"`.\\n\\nOne transparency note: during navigation a scroll gesture briefly pulled down the notification shade (exposing some notification previews). I closed it immediately via back-press without reading or interacting with any of that content, and it\\'s unrelated to the reproduction.'",
+  "wall_time_s": 293.91
+}

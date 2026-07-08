@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:24:39+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 62451,
+    "cache_read_tokens": 2383523,
+    "input_tokens": 4547,
+    "num_turns": 52,
+    "output_tokens": 7145,
+    "source": "result-record",
+    "total_billed": 2457666,
+    "total_cost_usd": 1.2112978999999997,
+    "total_uncached": 74143
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "ediately before tapping Export.\\n- `02-post-crash-launcher.png` \u2014 screenshot showing the device kicked back to the home launcher after the crash (app no longer in foreground).\\n- `logcat-excerpt.txt` \u2014 full logcat excerpt from the moment before the tap through the complete stack trace and process kill.\\n\\nThe root cause is in `dev.lincforge.benchtarget.core.ExportPolicy.export()` at `ExportPolicy.kt:11`, which throws when the export buffer isn't initialized \u2014 specific to the Item 013 code path.\"",
+  "wall_time_s": 203.7
+}

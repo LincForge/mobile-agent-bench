@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:29:42+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 88885,
+    "cache_read_tokens": 3604284,
+    "input_tokens": 4863,
+    "num_turns": 71,
+    "output_tokens": 12751,
+    "source": "result-record",
+    "total_billed": 3710783,
+    "total_cost_usd": 1.8211632,
+    "total_uncached": 106499
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "een, Export button visible, immediately before the crashing tap.\\n- `04-post-crash-launcher-rerun.png` \u2014 device kicked to the home launcher after the crash (app process died).\\n- `05-logcat-excerpt-rerun.txt` \u2014 full logcat trace for PID 22410 (fresh, this session).\\n- Pre-existing `01-.../02-.../logcat-excerpt.txt` from an earlier reproduction (different PID, timestamp `13:23:58` vs. `13:28:23`) \u2014 same exception at the same file/line, corroborating that this is fully deterministic for Item 013.'",
+  "wall_time_s": 302.47
+}
