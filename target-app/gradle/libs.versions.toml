@@ -1,0 +1,34 @@
+# Versions pinned to what the LINC fleet already resolves on the bench host
+# (Gradle cache-verified 2026-07-08) — reproducible from public repos.
+[versions]
+agp = "8.8.2"
+kotlin = "2.3.20"
+android-compileSdk = "35"
+android-minSdk = "24"
+android-minSdkWear = "30"
+android-targetSdk = "35"
+compose = "1.9.4"
+compose-material3 = "1.4.0"
+activity-compose = "1.10.1"
+lifecycle = "2.9.4"
+wear-compose = "1.4.0"
+kotlinx-serialization = "1.9.0"
+junit = "4.13.2"
+
+[libraries]
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "compose" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "compose-material3" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+wear-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "wear-compose" }
+wear-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "wear-compose" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit", version.ref = "kotlin" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
