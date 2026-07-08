@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:49:17+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 59312,
+    "cache_read_tokens": 2404747,
+    "input_tokens": 4537,
+    "num_turns": 51,
+    "output_tokens": 8128,
+    "source": "result-record",
+    "total_billed": 2476724,
+    "total_cost_usd": 1.2135561,
+    "total_uncached": 71977
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "rpt.txt` \u2014 full logcat excerpt with the `FATAL EXCEPTION` stack trace above, timestamped immediately after an `agent-device` log marker I set right before tapping Export, confirming causality.\\n\\nRoot cause pointer for engineering: `ExportPolicy.kt:11` throws `IllegalStateException(\"export buffer not initialized\")` \u2014 the export buffer appears to only get initialized for a subset of catalog items (or lazily on some other path), and Item 013 hits the export code before that initialization occurs.'",
+  "wall_time_s": 200.31
+}

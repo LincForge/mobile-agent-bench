@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:52:35+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 86930,
+    "cache_read_tokens": 2307164,
+    "input_tokens": 5196,
+    "num_turns": 37,
+    "output_tokens": 9282,
+    "source": "result-record",
+    "total_billed": 2408572,
+    "total_cost_usd": 1.3692662000000002,
+    "total_uncached": 101408
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "eenshots/log file are on the host at `/var/folders/.../nerve-output/7602e5aae0d4/` (files `<REDACTED-1>_0008_screenshot.png` pre-crash, `<REDACTED-1>_0009_screenshot.png` post-crash, `<REDACTED-1>_0010_logcat.txt` full log). I noticed the repo already has prior reproduction artifacts for this same bug under `results/bugrepro/{catalog-export-crash,export-crash-item013,item013-export-crash}/` from earlier runs \u2014 let me know if you'd like me to copy this run's evidence into that directory as well.\"",
+  "wall_time_s": 196.56
+}

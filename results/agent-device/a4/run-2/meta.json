@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:09:20+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 11603,
+    "cache_read_tokens": 220515,
+    "input_tokens": 3750,
+    "num_turns": 6,
+    "output_tokens": 854,
+    "source": "result-record",
+    "total_billed": 236722,
+    "total_cost_usd": 0.1605095,
+    "total_uncached": 16207
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]='The screenshot alone gives a clear answer. Here\\'s what\\'s on the BenchTarget app\\'s first screen (running on the connected Google Pixel Watch 2):\\n\\n- **App title:** \"BenchTarget\"\\n- **Navigation option/button:** \"Catalog\" (a single purple pill-shaped button)\\n\\nThat\\'s the only interactive element visible on this initial screen \u2014 no other buttons or nav options are present.'",
+  "wall_time_s": 34.68
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T17:39:28+00:00",
+  "task": "a2",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 72177,
+    "cache_read_tokens": 3222216,
+    "input_tokens": 4712,
+    "num_turns": 62,
+    "output_tokens": 9324,
+    "source": "result-record",
+    "total_billed": 3308429,
+    "total_cost_usd": 1.5544018000000004,
+    "total_uncached": 86213
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "",
+  "wall_time_s": 274.34
+}

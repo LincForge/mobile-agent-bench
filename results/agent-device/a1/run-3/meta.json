@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T17:05:15+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 43396,
+    "cache_read_tokens": 1150073,
+    "input_tokens": 4076,
+    "num_turns": 27,
+    "output_tokens": 3347,
+    "source": "result-record",
+    "total_billed": 1200892,
+    "total_cost_usd": 0.6685029,
+    "total_uncached": 50819
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='I successfully navigated Home \u2192 About \u2192 Diagnostics on the BenchTarget app (dev.lincforge.benchtarget) running on the Pixel 8 Pro.\\n\\n**Build channel: `BENCH-STABLE`**'",
+  "wall_time_s": 107.53
+}

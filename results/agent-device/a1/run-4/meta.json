@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T17:10:17+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 76115,
+    "cache_read_tokens": 3320425,
+    "input_tokens": 4708,
+    "num_turns": 59,
+    "output_tokens": 11123,
+    "source": "result-record",
+    "total_billed": 3412371,
+    "total_cost_usd": 1.6344635000000003,
+    "total_uncached": 91946
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "ern='BENCH-STABLE' answer[-500:]=\"I successfully navigated Home \u2192 About \u2192 Diagnostics on the BenchTarget app (Pixel 8 Pro).\\n\\n**Build channel: BENCH-STABLE**\\n\\nNote: along the way, the default device session was initially bound to a personal Samsung Galaxy phone rather than the intended Pixel 8 Pro. I caught this before installing anything there, cleaned up a stray search-box entry I'd typed, and switched to the correct device (serial `<REDACTED-1>`, session `pixel8pro`) to complete the task.\"",
+  "wall_time_s": 300.3
+}

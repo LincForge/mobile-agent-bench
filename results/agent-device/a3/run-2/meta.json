@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T19:10:20+00:00",
+  "task": "a3",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34957,
+    "cache_read_tokens": 2980035,
+    "input_tokens": 4718,
+    "num_turns": 55,
+    "output_tokens": 8993,
+    "source": "result-record",
+    "total_billed": 3028703,
+    "total_cost_usd": 1.2534755000000004,
+    "total_uncached": 48668
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "cat: /sdcard/Android/data/dev.lincforge.benchtarget/files/state.json: No such file or directory\n",
+  "wall_time_s": 296.9
+}

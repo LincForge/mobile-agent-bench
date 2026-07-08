@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T20:16:57+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 19435,
+    "cache_read_tokens": 293379,
+    "input_tokens": 4370,
+    "num_turns": 7,
+    "output_tokens": 2575,
+    "source": "result-record",
+    "total_billed": 319759,
+    "total_cost_usd": 0.2570357,
+    "total_uncached": 26380
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "\"\\n- **Button:** \"Catalog\" (the only visibly labeled, clickable element)\\n\\nOne additional note from the view hierarchy: there\\'s a second clickable region directly below the Catalog button (occupying the remaining screen space) that has no visible text, icon, or label \u2014 it doesn\\'t render as a distinguishable navigation option in the screenshot, just an interactive area with no affordance shown. Aside from that, the only navigation option visible on this first screen is the **Catalog** button.'",
+  "wall_time_s": 58.91
+}
