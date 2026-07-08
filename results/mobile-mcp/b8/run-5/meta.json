@@ -1,0 +1,35 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T21:24:11+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 16302,
+    "cache_read_tokens": 851951,
+    "input_tokens": 4201,
+    "num_turns": 21,
+    "output_tokens": 4338,
+    "source": "result-record",
+    "total_billed": 876792,
+    "total_cost_usd": 0.4317373,
+    "total_uncached": 24841
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "pp\\'s launcher activity, `.wear.MainActivity`, lives outside the applicationId namespace), so I launched it directly via `adb shell am start -n dev.lincforge.benchtarget/.wear.MainActivity`. All taps and verification were done via screenshots on the actual device \u2014 I did not rely on the \"PASS\" result already logged for this scenario in `docs/benchtarget-device-verification-2026-07-08.md`, since that pre-existing entry looked like it could bias the outcome rather than reflect my own observation.'",
+  "wall_time_s": 89.54
+}

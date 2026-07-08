@@ -1,0 +1,35 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T21:19:48+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17346,
+    "cache_read_tokens": 1036912,
+    "input_tokens": 4354,
+    "num_turns": 25,
+    "output_tokens": 3234,
+    "source": "result-record",
+    "total_billed": 1061846,
+    "total_cost_usd": 0.4773936000000001,
+    "total_uncached": 24934
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*3' answer[-500:]='Done. After three taps of the Ping button, the BenchTarget app displays the counter text: **\"Pings: 3\"**.\\n\\nNote: the target device was reported by the tool as an **emulator** (Google Pixel Watch 2, id `<REDACTED-2>`), not a physical watch as the task described \u2014 flagging this discrepancy since I wasn\\'t able to confirm a real hardware device was used.'",
+  "wall_time_s": 90.29
+}
