@@ -60,10 +60,10 @@ Modules: `:app` (phone), `:wear` (watch). Both `applicationId dev.lincforge.benc
 4. **Wear module** — Ping screen + state writer.
 5. **Local verify (Stage 4 L1)** — `./gradlew clean test` (all unit tests) +
    `assembleStockDebug assembleSeededDebug :wear:assembleDebug`.
-6. **Device verify** — S10 `R38M30344NJ`: stock smoke (launch → state.json, Item 013
+6. **Device verify** — bench phone (serial via `bench.local.yaml`): stock smoke (launch → state.json, Item 013
    crash signature in logcat, 5-cold-start flake pattern, checkout $50, factor absent
-   from logcat); seeded: tier defect + a11y defect present. Pixel Watch 2
-   `39071RTJWNBY75`: Ping ×3 → `Pings: 3`.
+   from logcat); seeded: tier defect + a11y defect present. Bench watch (Pixel
+   Watch 2, serial via fleet registry): Ping ×3 → `Pings: 3`.
 7. **CI (Stage 4 L2)** — add `.github/workflows/test.yml`: uv pytest (harness) +
    `gradle testStockDebugUnitTest testSeededDebugUnitTest :wear:assembleDebug
    assembleStockDebug assembleSeededDebug`. Branch `benchtarget-app` → PR → green → merge.
