@@ -64,7 +64,9 @@ def test_committed_files_contain_no_internal_topology():
     for path in ROOT.rglob("*"):
         if path.is_dir() or path.resolve() == this_file:
             continue
-        if {".git", ".venv", "__pycache__", ".pytest_cache"} & set(path.parts):
+        # build/.gradle are gitignored Gradle outputs (target-app/**/build/) —
+        # they embed absolute host paths by design and are never committed.
+        if {".git", ".venv", "__pycache__", ".pytest_cache", "build", ".gradle"} & set(path.parts):
             continue
         if path.name in {"bench.local.yaml"} or path.name.endswith(".local.mcp.json"):
             continue  # gitignored by design
