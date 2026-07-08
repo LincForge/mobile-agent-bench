@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-08T16:58:05+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 54148,
+    "cache_read_tokens": 2161094,
+    "input_tokens": 5010,
+    "num_turns": 37,
+    "output_tokens": 11427,
+    "source": "result-record",
+    "total_billed": 2231679,
+    "total_cost_usd": 1.1603231999999999,
+    "total_uncached": 70585
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='Reached the Diagnostics screen (on the Pixel 8 Pro, device `<REDACTED-1>`). It shows:\\n\\n**Build channel: BENCH-STABLE**\\n\\nNavigation path confirmed: Home (Catalog/Form/About/Checkout) \u2192 tapped **About** \u2192 tapped **Diagnostics** \u2192 screen displays \"Build channel: BENCH-STABLE\" along with a Sync status section.'",
+  "wall_time_s": 388.4
+}

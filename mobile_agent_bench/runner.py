@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import os
 import statistics
 import sys
 from pathlib import Path
@@ -24,6 +25,15 @@ from .schema import Task, Tool, load_all_tasks, load_all_tools
 
 ROOT = Path(".")
 BENCH_CONFIG = ROOT / "bench.yaml"
+
+
+def results_root() -> Path:
+    """Where run artifacts land. Defaults to ``results/`` (the pre-registered
+    layout for the Pixel 8 Pro canonical grid). Set BENCH_RESULTS_DIR to keep a
+    second device's runs in a separate tree (e.g. ``results_s10`` for the
+    disclosed cross-device addendum) so run paths don't collide and resume-skip.
+    """
+    return Path(os.environ.get("BENCH_RESULTS_DIR", "results"))
 
 
 def load_bench_config() -> dict:
@@ -73,7 +83,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     for tool in sel_tools:
         for task in sel_tasks:
             for n in range(1, runs + 1):
-                out_dir = ROOT / "results" / tool.id / task.id / f"run-{n}"
+                out_dir = results_root() / tool.id / task.id / f"run-{n}"
                 if (out_dir / "meta.json").exists() and not args.force:
                     print(f"skip {tool.id}/{task.id}/run-{n} (exists; --force to redo)")
                     continue
@@ -92,7 +102,7 @@ def cmd_report(_args: argparse.Namespace) -> int:
     import json
 
     rows = []
-    for meta in sorted((ROOT / "results").glob("*/*/run-*/meta.json")):
+    for meta in sorted(results_root().glob("*/*/run-*/meta.json")):
         rows.append(json.loads(meta.read_text()))
     if not rows:
         print("no results yet")
