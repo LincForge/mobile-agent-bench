@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T17:11:35+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 21081,
+    "cache_read_tokens": 192487,
+    "input_tokens": 3727,
+    "num_turns": 6,
+    "output_tokens": 682,
+    "source": "result-record",
+    "total_billed": 217977,
+    "total_cost_usd": 0.20631510000000003,
+    "total_uncached": 25490
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]='The BenchTarget app launched successfully. Its first screen shows:\\n\\n**Title:** BenchTarget\\n\\n**Navigation buttons (in order top to bottom):**\\n1. Catalog\\n2. Form\\n3. About\\n4. Checkout'",
+  "wall_time_s": 41.81
+}
