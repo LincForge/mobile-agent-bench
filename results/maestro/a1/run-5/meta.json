@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T16:50:51+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 21064,
+    "cache_read_tokens": 312666,
+    "input_tokens": 3880,
+    "num_turns": 10,
+    "output_tokens": 1077,
+    "source": "result-record",
+    "total_billed": 338687,
+    "total_cost_usd": 0.2486558,
+    "total_uncached": 26021
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='Navigated Home \u2192 About \u2192 Diagnostics successfully. The **Build channel** value shown on the Diagnostics screen is:\\n\\n**BENCH-STABLE**'",
+  "wall_time_s": 46.53
+}
