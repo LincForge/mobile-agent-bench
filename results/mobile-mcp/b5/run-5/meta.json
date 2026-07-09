@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T19:45:55+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 52649,
+    "cache_read_tokens": 4368789,
+    "input_tokens": 5148,
+    "num_turns": 92,
+    "output_tokens": 13710,
+    "source": "result-record",
+    "total_billed": 4440296,
+    "total_cost_usd": 1.848343699999999,
+    "total_uncached": 71507
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "ctory.\\n- Sanity check: exported Items 001 through 012 individually beforehand, each succeeded without error, isolating the defect to Item 013.\\n\\n**Root cause pointer for engineering:** `ExportPolicy.export()` at `ExportPolicy.kt:11` throws when its \"export buffer\" isn\\'t initialized \u2014 this is likely a lazy/conditional-initialization path that isn\\'t triggered for whatever data condition Item 013 has (e.g., a specific field value, size threshold, or category that other early items don\\'t hit).'",
+  "wall_time_s": 430.38
+}

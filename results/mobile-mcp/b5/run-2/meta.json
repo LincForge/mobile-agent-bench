@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T19:18:02+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 136901,
+    "cache_read_tokens": 11893420,
+    "input_tokens": 5570,
+    "num_turns": 162,
+    "output_tokens": 18921,
+    "source": "result-record",
+    "total_billed": 12054812,
+    "total_cost_usd": 4.690670999999999,
+    "total_uncached": 161392
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "tionService already registered\") also appears in the device crash list \u2014 that\\'s automation-tooling noise from the test harness, not a BenchTarget bug, and was excluded from the analysis.\\n\\n**Root cause hint for engineering:** `ExportPolicy.kt:11` throws when its internal export buffer isn\\'t initialized before `export()` is called \u2014 likely a lazy-init/state ordering bug that\\'s item-index-dependent (e.g., triggered on every Nth item, or by some property specific to Item 013\\'s catalog entry).'",
+  "wall_time_s": 647.71
+}

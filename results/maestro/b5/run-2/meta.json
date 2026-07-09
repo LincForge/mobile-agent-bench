@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T18:30:08+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 186985,
+    "cache_read_tokens": 7792657,
+    "input_tokens": 16816,
+    "num_turns": 79,
+    "output_tokens": 32460,
+    "source": "result-record",
+    "total_billed": 8028918,
+    "total_cost_usd": 3.9977740999999996,
+    "total_uncached": 236261
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "rrent automated processes (visible unrelated `UiAutomationService already registered` crash spam in the log from other tooling), and Android's crash-reporting IPC to ActivityManager appears degraded (`Bad file descriptor` errors), so my two live repro attempts didn't get freshly timestamped crash-buffer entries of their own \u2014 but the exception signature exactly matches every prior capture of this same bug, and the live behavior (app instantly replaced by the home screen) is identical each time.\"",
+  "wall_time_s": 739.64
+}

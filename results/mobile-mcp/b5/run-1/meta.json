@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T19:07:13+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 60215,
+    "cache_read_tokens": 5378624,
+    "input_tokens": 5303,
+    "num_turns": 99,
+    "output_tokens": 13837,
+    "source": "result-record",
+    "total_billed": 5457979,
+    "total_cost_usd": 2.1990602000000004,
+    "total_uncached": 79355
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "749` (first repro)\\n  - `2026-07-09_12:06:36.732_5803` (second repro, confirming determinism)\\n- Screenshots saved locally:\\n  - `/tmp/benchtarget_item013_crash_home.png` \u2014 device bounced to home screen after first crash\\n  - `/tmp/benchtarget_item013_crash_confirm2.png` \u2014 device bounced to home screen after second crash\\n- Verified negative control: Items 001\u2013012 were each opened and exported individually with no crash, confirming Item 013 is the specific trigger in the early part of the list.'",
+  "wall_time_s": 447.59
+}

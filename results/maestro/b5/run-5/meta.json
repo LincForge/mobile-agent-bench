@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T18:59:44+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 191809,
+    "cache_read_tokens": 6507661,
+    "input_tokens": 20007,
+    "num_turns": 71,
+    "output_tokens": 22295,
+    "source": "result-record",
+    "total_billed": 6741772,
+    "total_cost_usd": 3.4983222999999994,
+    "total_uncached": 234111
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " crash. Re-tapping with a precise coordinate inside the row reached the actual detail screen and reproduced the genuine `IllegalStateException` above.\\n\\n**Root cause pointer for engineering:** `ExportPolicy.kt:11` throws when its internal buffer isn't initialized before `export()` is called for Item 013 \u2014 worth checking whether `ExportPolicy`'s buffer init is scoped/keyed in a way that misses this particular item (e.g., an off-by-one or a lazy-init path that isn't triggered for the 13th item).\"",
+  "wall_time_s": 546.32
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T18:50:37+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 90141,
+    "cache_read_tokens": 2685277,
+    "input_tokens": 4524,
+    "num_turns": 42,
+    "output_tokens": 13365,
+    "source": "result-record",
+    "total_billed": 2793307,
+    "total_cost_usd": 1.5611901000000001,
+    "total_uncached": 108030
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": " \u2192 same failure at Item 013, screenshot again shows launcher (app gone), confirming determinism.\\n- Maestro's flow-runner error text both times: `Failed to run flow: Element not found: Text matching regex: Export` (thrown because the app process had already died by the time Maestro looked for the button).\\n\\nLet me know if you'd like me to also check whether the crash reproduces on the other connected devices, or whether you can get me logcat/shell access so I can nail down the exact exception.\"",
+  "wall_time_s": 435.25
+}
