@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:48:27+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 14885,
+    "cache_read_tokens": 266111,
+    "input_tokens": 4517,
+    "num_turns": 9,
+    "output_tokens": 2575,
+    "source": "result-record",
+    "total_billed": 288088,
+    "total_cost_usd": 0.2220213,
+    "total_uncached": 21977
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "D` via `adb shell am force-stop` + `pm clear` immediately before `am start -W`:\\n\\n| Run | TotalTime (ms) |\\n|---|---|\\n| 1 | 603 |\\n| 2 | 456 |\\n| 3 | 390 |\\n| 4 | 399 |\\n| 5 | 417 |\\n\\n- **Median:** 417 ms\\n- **Mean:** 453 ms\\n- **Standard deviation:** 78.3 ms (population) / 87.6 ms (sample, n\u22121)\\n- **Variance:** 6138 ms\u00b2 (population) / 7672.5 ms\u00b2 (sample)\\n\\nRun 1 (603 ms) is a notable outlier vs. the other four (390\u2013456 ms), likely first-launch disk/JIT warmup effects even after `pm clear`.'",
+  "wall_time_s": 63.04
+}

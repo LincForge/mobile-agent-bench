@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:38:57+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17248,
+    "cache_read_tokens": 428732,
+    "input_tokens": 4717,
+    "num_turns": 14,
+    "output_tokens": 4796,
+    "source": "result-record",
+    "total_billed": 455493,
+    "total_cost_usd": 0.3189006,
+    "total_uncached": 26761
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "----|-----------------|\\n| 1 | 466 ms |\\n| 2 | 435 ms |\\n| 3 | 445 ms |\\n| 4 | 434 ms |\\n| 5 | 427 ms |\\n\\n**Summary statistics:**\\n- Median: **435 ms**\\n- Mean: 441.4 ms\\n- Sample standard deviation (n\u22121): **\u224815.2 ms** (sample variance \u2248 230.3 ms\u00b2)\\n- Population standard deviation (n): \u224813.6 ms (population variance \u2248 184.2 ms\u00b2)\\n\\nAll five launches were confirmed cold (`LaunchState: COLD` in each `am start -W` output, with a `force-stop` + `ps` check beforehand verifying the process was dead).'",
+  "wall_time_s": 92.76
+}

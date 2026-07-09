@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:46:53+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 87354,
+    "cache_read_tokens": 7187004,
+    "input_tokens": 6101,
+    "num_turns": 105,
+    "output_tokens": 19859,
+    "source": "result-record",
+    "total_billed": 7300318,
+    "total_cost_usd": 2.9971322000000007,
+    "total_uncached": 113314
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "both with identical stack traces, confirming determinism.\\n- Note: this same crash (same exception, same item) was also present in pre-existing evidence folders under `results/bugrepro/` from earlier sessions, corroborating that this is a stable, reproducible bug rather than a one-off flake.\\n\\nRoot cause appears to be in `ExportPolicy.kt:11` \u2014 the export buffer isn't initialized for at least this one catalog entry's code path, thrown from the `Export` button's click handler in `Screens.kt:90`.\"",
+  "wall_time_s": 467.25
+}

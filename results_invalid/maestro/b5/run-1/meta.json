@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:16:52+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 71459,
+    "cache_read_tokens": 1435615,
+    "input_tokens": 4841,
+    "num_turns": 32,
+    "output_tokens": 8335,
+    "source": "result-record",
+    "total_billed": 1520250,
+    "total_cost_usd": 0.9997005,
+    "total_uncached": 84635
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "enchtarget/.MainActivity\\n```\\n\\nOne caveat from the reproduction process itself (not part of the bug): on this device's screen, Item 013's list row initially rendered right at the bottom edge overlapping the gesture-nav taskbar, so a direct tap there landed on the system nav bar instead of the app (sent the app to background without crashing). Scrolling one row further so Item 013 sat mid-screen before tapping avoided that false negative \u2014 worth noting for anyone else trying to reproduce this.\"",
+  "wall_time_s": 180.0
+}

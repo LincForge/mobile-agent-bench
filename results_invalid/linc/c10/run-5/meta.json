@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:50:43+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 53351,
+    "cache_read_tokens": 2302747,
+    "input_tokens": 5194,
+    "num_turns": 37,
+    "output_tokens": 9309,
+    "source": "result-record",
+    "total_billed": 2370601,
+    "total_cost_usd": 1.1668511000000001,
+    "total_uncached": 67854
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "$totalDollars\"\\n}\\n```\\n\\nWith `currentQuantity = 7` (confirmed via the UI):\\n\\n`discountFactor = 1.0 - min(7, 10) * 0.035 = 1.0 - 0.245 = 0.755`\\n\\nCross-check against the observed UI output: `9.37 * 7 * 0.755 = 49.51945` \u2192 rounds to `$50`, which matches exactly what the device displayed after pressing \"Apply discount.\" That agreement confirms the running app executed this exact formula with quantity 7, corroborating the value even though I couldn\\'t read it directly off a debugger breakpoint.'",
+  "wall_time_s": 186.53
+}

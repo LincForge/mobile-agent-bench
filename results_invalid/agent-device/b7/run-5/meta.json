@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:37:23+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 29072,
+    "cache_read_tokens": 434514,
+    "input_tokens": 3901,
+    "num_turns": 9,
+    "output_tokens": 3041,
+    "source": "result-record",
+    "total_billed": 470528,
+    "total_cost_usd": 0.3628112,
+    "total_uncached": 36014
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "d `LaunchState: COLD`.\\n\\n**TotalTime per run (ms):** 457, 435, 441, 453, 454\\n\\n| Run | TotalTime (ms) | WaitTime (ms) |\\n|---|---|---|\\n| 1 | 457 | 460 |\\n| 2 | 435 | 437 |\\n| 3 | 441 | 443 |\\n| 4 | 453 | 455 |\\n| 5 | 454 | 456 |\\n\\n- **Median:** 453 ms\\n- **Mean:** 448 ms\\n- **Standard deviation:** \u22488.49 ms (population) / \u22489.49 ms (sample, n\u22121)\\n- **Variance:** \u224872 ms\u00b2 (population) / \u224890 ms\u00b2 (sample)\\n\\nCold starts were consistent, with a spread of only ~22 ms (435\u2013457 ms) across the 5 runs.'",
+  "wall_time_s": 67.73
+}

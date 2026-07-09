@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:34:29+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 16822,
+    "cache_read_tokens": 441461,
+    "input_tokens": 3905,
+    "num_turns": 13,
+    "output_tokens": 4077,
+    "source": "result-record",
+    "total_billed": 466265,
+    "total_cost_usd": 0.30694229999999995,
+    "total_uncached": 24804
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "` by the platform itself, so the measurements are true cold starts (not just app-not-in-foreground).\\n\\n**TotalTime per run (ms):**\\n1. 459 ms\\n2. 438 ms\\n3. 438 ms\\n4. 454 ms\\n5. 449 ms\\n\\n**Median:** 449 ms\\n**Mean:** 447.6 ms\\n**Standard deviation:** \u22488.4 ms (population), \u22489.45 ms (sample, n\u22121)\\n**Variance:** \u224871.4 ms\u00b2 (population), \u224889.3 ms\u00b2 (sample)\\n\\nCold starts were tight and consistent (range 438\u2013459 ms, ~2% spread), suggesting no I/O contention or thermal throttling affected the runs.'",
+  "wall_time_s": 94.86
+}

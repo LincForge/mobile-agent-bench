@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:58:50+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 8093,
+    "cache_read_tokens": 271045,
+    "input_tokens": 3792,
+    "num_turns": 8,
+    "output_tokens": 3225,
+    "source": "result-record",
+    "total_billed": 286155,
+    "total_cost_usd": 0.19032449999999998,
+    "total_uncached": 15110
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "-W`, using Android's reported `TotalTime` (standard cold-start metric). All 5 runs confirmed `LaunchState: COLD`.\\n\\n| Run | TotalTime (ms) |\\n|-----|-----------------|\\n| 1 | 466 |\\n| 2 | 439 |\\n| 3 | 450 |\\n| 4 | 456 |\\n| 5 | 452 |\\n\\n- **Median: 452 ms**\\n- **Mean: 452.6 ms**\\n- **Standard deviation: 9.79 ms** (sample, n\u22121) / 8.75 ms (population)\\n- **Variance: 95.8 ms\u00b2** (sample) / 76.64 ms\u00b2 (population)\\n\\nLow variance (~2% of the mean) indicates consistent cold-start behavior across runs.\"",
+  "wall_time_s": 74.57
+}

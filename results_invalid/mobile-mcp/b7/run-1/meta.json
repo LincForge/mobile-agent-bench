@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:55:45+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 22505,
+    "cache_read_tokens": 122317,
+    "input_tokens": 3877,
+    "num_turns": 5,
+    "output_tokens": 2456,
+    "source": "result-record",
+    "total_billed": 151155,
+    "total_cost_usd": 0.22089810000000001,
+    "total_uncached": 28838
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "n\\n**Results (dev.lincforge.benchtarget, Pixel 8 Pro):**\\n\\n| Run | Cold-start time (ms) |\\n|-----|----------------------|\\n| 1 | 494 |\\n| 2 | 450 |\\n| 3 | 454 |\\n| 4 | 439 |\\n| 5 | 440 |\\n\\n- **Median:** 450 ms\\n- **Mean:** 455.4 ms\\n- **Standard deviation:** \u224822.5 ms (sample, n\u22121) / \u224820.1 ms (population)\\n- **Variance:** \u2248506.8 ms\u00b2 (sample) / \u2248405.4 ms\u00b2 (population)\\n\\nRun 1 was the slowest (likely first-cold-start filesystem/cache effects), with runs 2\u20135 clustering tighter around 440\u2013454 ms.'",
+  "wall_time_s": 71.82
+}

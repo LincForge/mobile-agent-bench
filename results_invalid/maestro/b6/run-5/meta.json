@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:08:38+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 58620,
+    "cache_read_tokens": 2326276,
+    "input_tokens": 5004,
+    "num_turns": 38,
+    "output_tokens": 8068,
+    "source": "result-record",
+    "total_billed": 2397968,
+    "total_cost_usd": 1.1864197999999997,
+    "total_uncached": 71692
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "haredPreferences` since the last `pm clear`/uninstall. If the test suite doesn't clear app data before each run, whichever launch number in the mod-5 cycle it happens to land on determines pass/fail, producing an apparently random ~60% pass rate. Fix: either clear app data before each test run and assert only on launch counts not in {2,4} mod 5, or (if this is real product behavior worth testing) make the test aware of the counter and assert the correct state for whatever `launchCount` it's on.\"",
+  "wall_time_s": 211.71
+}

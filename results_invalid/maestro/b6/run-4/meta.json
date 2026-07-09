@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:05:06+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 49943,
+    "cache_read_tokens": 1540772,
+    "input_tokens": 4847,
+    "num_turns": 32,
+    "output_tokens": 7452,
+    "source": "result-record",
+    "total_billed": 1603014,
+    "total_cost_usd": 0.8890005999999999,
+    "total_uncached": 62242
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " installed app across launches), so the 3rd and 5th run in any 5-run window silently land on the hidden-button case. It isn't randomness \u2014 it's a counter walking through a fixed modulo pattern.\\n\\n**Fix direction (for whoever owns the test/app):** either the test should assert only after clearing app data and controlling for launch index, or \u2014 if this counter-driven hide behavior is unintentional product behavior \u2014 `SyncPolicy`'s `initSkipValues = setOf(2, 4)` is the line to remove/investigate.\"",
+  "wall_time_s": 186.73
+}

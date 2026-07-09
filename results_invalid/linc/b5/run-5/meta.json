@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:13:51+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 82819,
+    "cache_read_tokens": 1800700,
+    "input_tokens": 5181,
+    "num_turns": 36,
+    "output_tokens": 7427,
+    "source": "result-record",
+    "total_billed": 1896127,
+    "total_cost_usd": 1.1647859999999999,
+    "total_uncached": 95427
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": " `state.json` pulled from `/sdcard/Android/data/dev.lincforge.benchtarget/files/state.json` at time of crash: `{\"screen\":\"detail\",\"selectedItem\":\"Item 013\",\"launchCount\":1}` \u2014 corroborates the selected item was \"Item 013\" at crash time.\\n- Full `logcat -b main` crash buffer (`AndroidRuntime` tag) saved locally with the complete stack trace above.\\n- `BenchTarget`-tagged app logs show the last logged transition was `catalog -> detail` (the app doesn\\'t log the Export tap itself before crashing).'",
+  "wall_time_s": 133.87
+}

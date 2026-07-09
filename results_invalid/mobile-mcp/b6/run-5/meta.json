@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:29:03+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 32467,
+    "cache_read_tokens": 3370182,
+    "input_tokens": 5020,
+    "num_turns": 68,
+    "output_tokens": 12111,
+    "source": "result-record",
+    "total_billed": 3419780,
+    "total_cost_usd": 1.4033615999999998,
+    "total_uncached": 49598
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "e`, `launchCount=3 skip=false`, `launchCount=4 skip=true` \u2014 a 1:1 match to what appeared on screen each time.\\n\\n**Fix implication for the test:** the button's presence depends on app-level persisted state (`launchCount` in SharedPreferences), not on any race condition. The test needs to either `pm clear` (or otherwise reset app data) before each run and account for the counter, or assert on the counter-derived expected state rather than assuming the button is always present after a cold start.\"",
+  "wall_time_s": 284.89
+}

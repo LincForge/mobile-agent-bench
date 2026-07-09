@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:26:44+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 62484,
+    "cache_read_tokens": 2567733,
+    "input_tokens": 4695,
+    "num_turns": 49,
+    "output_tokens": 9792,
+    "source": "result-record",
+    "total_billed": 2644704,
+    "total_cost_usd": 1.3069489,
+    "total_uncached": 76971
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "`pm clear` the app's data (or otherwise reset `launchCount`) before each run, each successive CI/local run lands on a different point in that 5-launch cycle, so the assertion passes or fails depending on run history rather than on any real defect.\\n\\n**Fix:** have the test clear app data (`pm clear dev.lincforge.benchtarget` or equivalent instrumentation reset) before each cold-start, or assert against a specific known `launchCount`/screen state instead of assuming the button is always present.\"",
+  "wall_time_s": 232.39
+}

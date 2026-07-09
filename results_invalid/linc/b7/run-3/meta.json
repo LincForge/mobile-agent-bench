@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:43:20+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 98099,
+    "cache_read_tokens": 3233768,
+    "input_tokens": 5181,
+    "num_turns": 40,
+    "output_tokens": 10819,
+    "source": "result-record",
+    "total_billed": 3347867,
+    "total_cost_usd": 1.7372543999999999,
+    "total_uncached": 114099
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "timestamps to confirm it corresponded to my own launch and not stray activity.\\n\\n| Iteration | Cold-start time (ms) |\\n|---|---|\\n| 1 | 443 |\\n| 2 | 435 |\\n| 3 | 440 |\\n| 4 | 439 |\\n| 5 | 448 |\\n\\n**Summary:**\\n- Mean: 441.0 ms\\n- Median: 440 ms\\n- Sample standard deviation (n\u22121): \u22484.85 ms (variance \u224823.5 ms\u00b2)\\n- Population standard deviation (n): \u22484.34 ms (variance \u224818.8 ms\u00b2)\\n\\nResults are tight (range 435\u2013448 ms, ~3% spread), consistent with a stable, low-variance cold start on this device.'",
+  "wall_time_s": 174.33
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:35:34+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 66193,
+    "cache_read_tokens": 4139895,
+    "input_tokens": 5532,
+    "num_turns": 57,
+    "output_tokens": 13594,
+    "source": "result-record",
+    "total_billed": 4225214,
+    "total_cost_usd": 1.8604125000000007,
+    "total_uncached": 85319
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "`skip` flag, the source formula, and the observed UI. No relation to timing, network, animation, or randomness \u2014 the comment in `SyncPolicy.kt` even states this explicitly as intentional ground truth for a benchmark task (\"Not timing, not network, not randomness\").\\n\\n**Fix for the test**: `pm clear` (or reinstall) the app before each test run to reset the counter to a known state (0), or assert against the deterministic cycle instead of assuming the button is always present on a \"cold\" launch.'",
+  "wall_time_s": 275.57
+}

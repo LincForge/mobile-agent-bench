@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:08:54+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 53774,
+    "cache_read_tokens": 1348780,
+    "input_tokens": 4370,
+    "num_turns": 37,
+    "output_tokens": 7000,
+    "source": "result-record",
+    "total_billed": 1413924,
+    "total_cost_usd": 0.8461679999999999,
+    "total_uncached": 65144
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "c component on the 3rd and 5th cold start of every 5-launch cycle since the last `pm clear`. A UI test that force-stops/reinstalls between runs but doesn\\'t reset or pin this counter will hit the hidden-button state exactly 2 times out of every 5 runs, producing the reported \"passes ~3/5\" behavior. Fix: either reset `launchCount` (clear app data / reinstall) before each test run, or make the test assert against the counter-derived expected state instead of assuming the button is always present.'",
+  "wall_time_s": 178.43
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:57:29+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 43707,
+    "cache_read_tokens": 1772436,
+    "input_tokens": 4660,
+    "num_turns": 42,
+    "output_tokens": 8889,
+    "source": "result-record",
+    "total_billed": 1829692,
+    "total_cost_usd": 0.9420018,
+    "total_uncached": 57256
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "h`).\\n- Prior corroborating evidence already present under `results/bugrepro/catalog-export-crash/`, `results/bugrepro/export-crash-item013/`, and `results/bugrepro/item013-export-crash/` \u2014 same exception, same line, from separate earlier runs.\\n- Negative control: Item 001's Export button was exercised and confirmed **not** to crash (app remained the resumed foreground activity per `adb dumpsys activity`), narrowing the defect to Item 013 specifically rather than the Export feature as a whole.\"",
+  "wall_time_s": 169.37
+}

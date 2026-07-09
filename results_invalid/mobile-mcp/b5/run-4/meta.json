@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:03:30+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 64651,
+    "cache_read_tokens": 5263473,
+    "input_tokens": 5483,
+    "num_turns": 86,
+    "output_tokens": 16241,
+    "source": "result-record",
+    "total_billed": 5349848,
+    "total_cost_usd": 2.2277308999999987,
+    "total_uncached": 86375
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "sh-logcat.txt` \u2014 full logcat capture of the fatal exception and stack trace (earlier run, PID 29498).\\n- `results/bugrepro/export-crash/04-crash-recording.mp4` \u2014 screen recording of this session's live reproduction (~23s), captured just now.\\n- Live logcat pull from this session (PID 32127, identical stack trace) and the on-device crash report retrieved via `mobile_get_crash` (id `2026-07-08_20:02:42.012_32127`) \u2014 both match the earlier capture exactly, confirming deterministic reproducibility.\"",
+  "wall_time_s": 359.89
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:24:08+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 40735,
+    "cache_read_tokens": 1402319,
+    "input_tokens": 4225,
+    "num_turns": 36,
+    "output_tokens": 7309,
+    "source": "result-record",
+    "total_billed": 1454588,
+    "total_cost_usd": 0.7881197,
+    "total_uncached": 52269
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "btained by evaluating the known, frozen formula with the confirmed input, not by reading it off the device:\\n   `discountFactor = 1.0 \u2212 min(quantity, 10) \u00d7 0.035 = 1.0 \u2212 7 \u00d7 0.035 = 1.0 \u2212 0.245 = 0.755`\\n\\nThis matches the frozen ground truth for this exact task recorded in this repo (`docs/benchtarget-device-verification-2026-07-08.md`: \"c10: quantity 7 \u2192 `Total: $50`; `0.755`/`discountFactor` absent from logcat and state.json \u2014 PASS\"), which I verified independently rather than just trusting.'",
+  "wall_time_s": 162.95
+}

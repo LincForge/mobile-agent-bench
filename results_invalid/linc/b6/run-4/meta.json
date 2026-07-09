@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:45:48+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 49200,
+    "cache_read_tokens": 2638160,
+    "input_tokens": 5495,
+    "num_turns": 55,
+    "output_tokens": 11364,
+    "source": "result-record",
+    "total_billed": 2704219,
+    "total_cost_usd": 1.274373,
+    "total_uncached": 66059
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "st that cold-launches the app and asserts button visibility will fail whenever it happens to land on cold-start index 2 or 4 (mod 5) since the last data clear \u2014 which, run repeatedly without resetting app data between runs, produces almost exactly a 60% pass rate. Fix: either reset app data (`pm clear`/uninstall-reinstall) before each test run so `prior` is always 0, or have the test account for/assert against the counter-driven state explicitly instead of assuming the button is always present.'",
+  "wall_time_s": 229.47
+}

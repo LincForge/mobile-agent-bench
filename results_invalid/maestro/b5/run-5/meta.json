@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:39:05+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 92776,
+    "cache_read_tokens": 3758713,
+    "input_tokens": 5338,
+    "num_turns": 63,
+    "output_tokens": 16126,
+    "source": "result-record",
+    "total_billed": 3872953,
+    "total_cost_usd": 1.9428978999999997,
+    "total_uncached": 114240
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "sh, isolating the defect to item 013 specifically.\\n- Root cause pointer: `ExportPolicy.kt:11` throws when its export buffer hasn\\'t been initialized for this item \u2014 the `DetailScreen` composable (`Screens.kt:90`) calls `.export()` without ensuring the buffer is set up first, and this is only unmet for Item 013\\'s catalog entry.\\n\\n**Note:** Item 013 being \"unlucky 13\" and the first item to trigger this is consistent with the user\\'s memory that it was \"somewhere in the early part of the list.\"'",
+  "wall_time_s": 413.15
+}

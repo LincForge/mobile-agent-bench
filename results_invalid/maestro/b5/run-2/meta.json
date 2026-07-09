@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:24:39+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 83128,
+    "cache_read_tokens": 3613223,
+    "input_tokens": 6071,
+    "num_turns": 76,
+    "output_tokens": 18928,
+    "source": "result-record",
+    "total_billed": 3721350,
+    "total_cost_usd": 1.8855818999999998,
+    "total_uncached": 108127
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "sys activity` confirming BenchTarget's task was force-finished (`Force finishing activity dev.lincforge.benchtarget/.MainActivity`, process killed with `SIG 9`).\\n\\n**Note on methodology:** the catalog list's bottom-most visible row can render underneath the 3-button nav bar overlay when unscrolled; a tap there can be swallowed by the system Home button instead of reaching the app. I scrolled the list so Item 013 was clear of the nav bar before tapping, to get a clean, unambiguous reproduction.\"",
+  "wall_time_s": 465.08
+}

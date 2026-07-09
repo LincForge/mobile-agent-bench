@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:29:57+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 67635,
+    "cache_read_tokens": 2074575,
+    "input_tokens": 5292,
+    "num_turns": 57,
+    "output_tokens": 11155,
+    "source": "result-record",
+    "total_billed": 2158657,
+    "total_cost_usd": 1.2120975,
+    "total_uncached": 84082
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "sh ground truth\" for a benchmark task \u2014 Export on \"Item 013\" always throws.\\n- **Process check** \u2014 `adb shell pidof dev.lincforge.benchtarget` returned empty immediately after the tap (process gone), confirming a real crash rather than a UI glitch.\\n- **Screenshot** \u2014 post-crash state shows the Android launcher home screen (app force-closed), captured during the session.\\n- I manually verified Items 001\u2013012 do *not* crash on Export before finding 013, ruling out a broader \"early items\" pattern.'",
+  "wall_time_s": 317.21
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:57:34+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 24066,
+    "cache_read_tokens": 284581,
+    "input_tokens": 4028,
+    "num_turns": 10,
+    "output_tokens": 5688,
+    "source": "result-record",
+    "total_billed": 318363,
+    "total_cost_usd": 0.32788629999999996,
+    "total_uncached": 33782
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "s) |\\n|---|---|\\n| 1 | 464 |\\n| 2 | 465 |\\n| 3 | 451 |\\n| 4 | 448 |\\n| 5 | 465 |\\n\\n- **Median: 464 ms**\\n- **Mean: 458.6 ms**\\n- **Standard deviation: \u22487.50 ms (population), \u22488.38 ms (sample, n\u22121)** \u2014 variance \u224856.24 ms\u00b2 (population) / \u224870.3 ms\u00b2 (sample)\\n\\nMethod: each iteration force-stopped the app, verified via `pidof` that no process was running (guaranteeing a true cold start), then launched with `am start -W`, which reports `TotalTime` \u2014 the time from launch intent to first frame drawn.'",
+  "wall_time_s": 108.13
+}

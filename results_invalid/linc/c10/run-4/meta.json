@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:47:35+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 32892,
+    "cache_read_tokens": 1930906,
+    "input_tokens": 5645,
+    "num_turns": 42,
+    "output_tokens": 10792,
+    "source": "result-record",
+    "total_billed": 1980235,
+    "total_cost_usd": 0.9561328000000001,
+    "total_uncached": 49329
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "oof of, due to rounding) the computed factor.\\n\\nNote: I saw that `results/agent-device/c10/` and `results/linc/c10/` already contain prior transcripts for this exact task \u2014 I deliberately did not read them, since that would just be pulling the answer from a benchmark log rather than deriving it.\\n\\nIf you'd like the literal live-memory value (not just the deterministic recomputation), I can install `kotlin-debug-adapter` and retry the Spectra breakpoint \u2014 let me know if you want me to do that.\"",
+  "wall_time_s": 242.14
+}

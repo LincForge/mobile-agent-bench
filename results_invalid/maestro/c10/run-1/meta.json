@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:52:51+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 58806,
+    "cache_read_tokens": 641280,
+    "input_tokens": 4672,
+    "num_turns": 17,
+    "output_tokens": 4693,
+    "source": "result-record",
+    "total_billed": 709451,
+    "total_cost_usd": 0.6303350000000001,
+    "total_uncached": 68171
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "nt.\" The view hierarchy afterward showed `Quantity: 7` and `Total: $50`.\\n\\n   Working backward: `9.37 \u00d7 7 \u00d7 0.755 = 49.52045`, which `roundToInt()` rounds to **$50** \u2014 matching the observed display exactly. This confirms 0.755 is the correct runtime value (the UI\\'s rounding makes exact back-division impossible on its own, e.g. $50/65.59 only bounds the factor to roughly [0.7478, 0.7630], but the source formula pins it precisely at 0.755, and the observed total is consistent with that number).'",
+  "wall_time_s": 127.27
+}

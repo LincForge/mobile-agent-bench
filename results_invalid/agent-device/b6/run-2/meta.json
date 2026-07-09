@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:12:57+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 49059,
+    "cache_read_tokens": 2836592,
+    "input_tokens": 4557,
+    "num_turns": 54,
+    "output_tokens": 8494,
+    "source": "result-record",
+    "total_billed": 2898702,
+    "total_cost_usd": 1.2871925999999998,
+    "total_uncached": 62110
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "e test intermittently fails:** the test presumably force-stops/relaunches the app between runs but never clears app storage, so `launchCount` keeps incrementing across runs instead of resetting, and the assertion for \"Retry sync visible\" hits the two hidden positions in every 5-launch cycle. A test that clears app data (`pm clear dev.lincforge.benchtarget`) before each cold launch would always land on prior=0 and never see the flake \u2014 which would itself be a strong confirming/diagnostic signal.'",
+  "wall_time_s": 241.52
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:03:42+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 15743,
+    "cache_read_tokens": 338292,
+    "input_tokens": 4032,
+    "num_turns": 12,
+    "output_tokens": 5130,
+    "source": "result-record",
+    "total_billed": 363197,
+    "total_cost_usd": 0.28569360000000005,
+    "total_uncached": 24905
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "he output, verifying true cold starts.\\n\\n| Iteration | TotalTime (ms) |\\n|---|---|\\n| 1 | 471 |\\n| 2 | 428 |\\n| 3 | 433 |\\n| 4 | 428 |\\n| 5 | 428 |\\n\\n- **Median:** 428 ms\\n- **Mean:** 437.6 ms\\n- **Standard deviation:** 16.8 ms (population) / 18.8 ms (sample, n-1)\\n- **Variance:** 282.6 ms\u00b2 (population) / 353.3 ms\u00b2 (sample)\\n\\nThe first run was the outlier (471 ms), and runs 2\u20135 were tightly clustered (428\u2013433 ms), consistent with typical first-run-after-install disk/JIT effects settling out.'",
+  "wall_time_s": 106.21
+}
