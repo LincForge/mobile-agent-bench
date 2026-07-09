@@ -1,0 +1,21 @@
+---
+linc-agent-version: 1
+type: project
+---
+
+# Mobile Agent Bench — Project Instructions
+
+Benchmark harness comparing mobile-automation tool stacks (LINC nerve/crucible/spectra,
+mobile-mcp, agent-device, …) driving agents against the BenchTarget app on the physical
+device bench. Scored device: Pixel 8 Pro (pre-registered); results in `BENCH_RESULTS_DIR`.
+
+## Operational Notes
+
+<!-- BEGIN AUTO-GENERATED FROM joey.db — do not edit between markers -->
+- **A headless benchmark agent with Bash + the repo as cwd silently bypasses the tool-under-test (runs adb directly, reads ground truth from SPEC.md/source), voiding the comparison — block shell+search; a screenshot-Read is fine since without enumeration the agent can't discover the repo path.**
+- **Never run pytest or commit while a `bench run` is in flight — the repo topology scanner reads the not-yet-sanitized in-flight transcript and trips on raw serials; commit only at quiescent points.**
+- **The no-internal-topology pytest is strongest only on a maintainer machine (redact patterns come from gitignored bench.local.yaml) — CI green does NOT prove committed docs are serial-free; run pytest locally after writing any doc that references devices.**
+- **The wear APK launcher activity is dev.lincforge.benchtarget/.wear.MainActivity (module namespace ≠ applicationId) — launch via LAUNCHER intent/monkey, never a hardcoded .MainActivity component.**
+- **Tool stacks enumerate ALL connected adb devices, not just BENCH_DEVICE_SERIAL — every fleet serial must be on the bench.local.yaml redact list or sibling serials leak into transcripts.**
+- **`claude -p --strict-mcp-config` restricts ONLY MCP servers, NOT Claude Code built-in tools (Bash/Read/Grep/Glob) — for real tool-isolation also pass --disallowedTools AND run the agent from a neutral cwd outside the repo.**
+<!-- END AUTO-GENERATED FROM joey.db -->
