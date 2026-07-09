@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:37:23+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 72929,
+    "cache_read_tokens": 4554753,
+    "input_tokens": 4685,
+    "num_turns": 89,
+    "output_tokens": 18327,
+    "source": "result-record",
+    "total_billed": 4650694,
+    "total_cost_usd": 2.0937249,
+    "total_uncached": 95941
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": " the test \u2014 the outcome is baked in before the screen is even reached and won\\'t change no matter how long the test waits on that screen. The test will keep failing on whatever fraction of cold starts land in the \"unavailable\" branch. A real fix needs to either make BenchTarget\\'s sync-status initialization deterministic (or injectable/mockable for tests) rather than randomized at startup, or have the test explicitly force/wait-for a known sync state before asserting on \"Retry sync\" visibility.'",
+  "wall_time_s": 392.98
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:03:04+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 59428,
+    "cache_read_tokens": 3354370,
+    "input_tokens": 5028,
+    "num_turns": 60,
+    "output_tokens": 20884,
+    "source": "result-record",
+    "total_billed": 3439710,
+    "total_cost_usd": 1.6919979999999997,
+    "total_uncached": 85340
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "amount of added `waitFor`/idling in the test will help, since the button is conditionally absent by design/bug in `SyncComponent`, not slow to appear. Whoever owns BenchTarget should either fix `SyncComponent`'s skip logic (if unintended) or, if intentional (this looks like a purpose-built bench/flake-injection target), the test needs to either reset/seed the launch-counter state before asserting, or assert conditionally on the sync-status text rather than assuming the button is always present.\"",
+  "wall_time_s": 394.63
+}

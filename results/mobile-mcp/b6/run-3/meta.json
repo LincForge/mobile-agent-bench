@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:45:34+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 67250,
+    "cache_read_tokens": 3219569,
+    "input_tokens": 4381,
+    "num_turns": 69,
+    "output_tokens": 27672,
+    "source": "result-record",
+    "total_billed": 3318872,
+    "total_cost_usd": 1.7983586999999996,
+    "total_uncached": 99303
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "rk around with a longer wait \u2014 it\\'s effectively a coin flip baked into app cold-start, landing \"unready\" (button hidden) roughly 25\u201340% of the time. That\\'s a genuine app-side bug, not a test problem: the UI test\\'s \"assert visible\" step needs either a fix in the app (make the buffer init deterministic/eagerly-ready before Diagnostics is reachable) or, if unfixable short-term, the test should assert on whichever of the two valid states appears rather than assuming the button is always present.'",
+  "wall_time_s": 489.11
+}

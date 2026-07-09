@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:50:57+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 41168,
+    "cache_read_tokens": 2613379,
+    "input_tokens": 4353,
+    "num_turns": 57,
+    "output_tokens": 16261,
+    "source": "result-record",
+    "total_billed": 2675161,
+    "total_cost_usd": 1.2887757,
+    "total_uncached": 61782
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "ndering flake or a flaky click target. The instrumented test is essentially rolling dice against how much of that init window has elapsed by the time it asserts \u2014 which lines up with the observed ~3-out-of-5 pass rate.\\n\\n**Fix direction:** either (a) have the Diagnostics UI observe the sync-status as reactive state (recompose when init completes) instead of snapshotting it once, or (b) on the test side, add an idling resource/wait for sync-client initialization before asserting on Diagnostics.'",
+  "wall_time_s": 322.66
+}

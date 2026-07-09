@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:30:49+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 44645,
+    "cache_read_tokens": 2688019,
+    "input_tokens": 4363,
+    "num_turns": 60,
+    "output_tokens": 12925,
+    "source": "result-record",
+    "total_billed": 2749952,
+    "total_cost_usd": 1.2820097000000004,
+    "total_uncached": 61933
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "vity check.\\n\\n**Conclusion:** the flaky test isn\\'t an automation/timing issue \u2014 it\\'s the app itself. On roughly 2 out of every 5 cold starts, BenchTarget\\'s Diagnostics screen initializes into a \"Sync unavailable\" state that conditionally removes the `Retry sync` button from the composition. The test needs to either stub/force the sync status to a known value before asserting, or assert conditionally based on the \"Sync status\" text, rather than assuming the button is unconditionally present.'",
+  "wall_time_s": 278.6
+}

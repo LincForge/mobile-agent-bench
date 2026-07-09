@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T20:43:16+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 72784,
+    "cache_read_tokens": 3169323,
+    "input_tokens": 4885,
+    "num_turns": 55,
+    "output_tokens": 15455,
+    "source": "result-record",
+    "total_billed": 3262447,
+    "total_cost_usd": 1.6347608999999996,
+    "total_uncached": 93124
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "rection:** the test should `pm clear`/uninstall-reinstall (or the app should provide a way to reset) before each run so `launchCount` starts at 0, or better, the test's assertion needs to account for the app's real skip-sync-on-even-launch behavior. The underlying app behavior (hiding the retry affordance entirely on alternate launches once `launchCount\u22652`) is also worth flagging to the app team \u2014 it looks like unintended logic in `SyncComponent`'s init path rather than an intentional UX state.\"",
+  "wall_time_s": 301.6
+}

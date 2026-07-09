@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:18:16+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 85708,
+    "cache_read_tokens": 2334104,
+    "input_tokens": 4359,
+    "num_turns": 35,
+    "output_tokens": 9888,
+    "source": "result-record",
+    "total_billed": 2434059,
+    "total_cost_usd": 1.3766462,
+    "total_uncached": 99955
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "l-looking nondeterministic app state. The UI test\\'s assertion that \"Retry sync\" is visible is only valid when the app cold-starts into the \"Sync idle\" state; it will legitimately fail whenever the app starts in \"Sync unavailable\" (~35-40% of cold launches in this sample). To de-flake, the test needs to either force/mock a deterministic sync state before asserting, or first assert on which \"Sync status\" value appeared and branch/skip the \"Retry sync\" visibility check for the \"unavailable\" case.'",
+  "wall_time_s": 266.71
+}
