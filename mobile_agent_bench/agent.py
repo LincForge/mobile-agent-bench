@@ -15,6 +15,7 @@ import json
 import os
 import re
 import subprocess
+import tempfile
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -22,6 +23,31 @@ from pathlib import Path
 from .sanitize import sanitize_file
 from .schema import Task, Tool
 from .tokens import TokenReport, parse_transcript
+
+# Fairness confinement (pre-registration intent: "the MCP surface is the only
+# capability"). --strict-mcp-config restricts only MCP *servers*, NOT Claude
+# Code's built-in tools — so without this the agent has a full shell + repo
+# access and can run adb directly (bypassing the tool-under-test) or discover &
+# read SPEC.md / source for the frozen ground-truth answers.
+#
+# Isolation standard (CEO decision 2026-07-09): deny every built-in that runs a
+# shell, searches/enumerates the filesystem, writes, or reaches the web/subagents
+# — but ALLOW `Read`. Rationale: some tools (agent-device, and nerve) hand the
+# agent a screenshot *file path* and expect it to open the image; blocking Read
+# blinds them below their real-world capability (a strawman), whereas Bash/Grep/
+# Glob are what let the agent *discover* the repo path in the first place. With
+# no shell and no file search, the agent has no way to find SPEC.md/source (the
+# process runs from AGENT_CWD, outside the repo), so ground-truth stays
+# unreachable while file-based screenshots still work. ToolSearch is allowed
+# (MCP tools are deferred; it loads their schemas, never touches the filesystem).
+CONFINE_DISALLOWED_TOOLS = (
+    "Bash,BashOutput,KillShell,KillBash,Edit,MultiEdit,Write,NotebookEdit,"
+    "Glob,Grep,WebFetch,WebSearch,Task,Agent,TodoWrite,ExitPlanMode"
+)
+
+# Neutral working directory for the agent process — outside the benchmark repo,
+# so even a missed tool finds no source / ground-truth / results to read.
+AGENT_CWD = Path(tempfile.gettempdir()) / "mab-agent-cwd"
 
 
 @dataclass(frozen=True)
@@ -38,7 +64,9 @@ def resolve_mcp_config(tool: Tool) -> str:
     so committed configs stay free of local paths while runs still work."""
     committed = Path(tool.mcp_config)
     local = committed.with_name(committed.name.replace(".mcp.json", ".local.mcp.json"))
-    return str(local if local.exists() else committed)
+    # Absolute — the agent runs from AGENT_CWD (outside the repo), so a relative
+    # config path would not resolve.
+    return str((local if local.exists() else committed).resolve())
 
 
 def build_command(task: Task, tool: Tool, model: str) -> list[str]:
@@ -47,17 +75,19 @@ def build_command(task: Task, tool: Tool, model: str) -> list[str]:
         "-p", task.prompt,
         "--model", model,
         "--mcp-config", resolve_mcp_config(tool),
-        "--strict-mcp-config",
+        "--strict-mcp-config",           # only the tool-under-test's MCP servers
+        "--disallowedTools", CONFINE_DISALLOWED_TOOLS,  # + no built-in shell/fs/web tools
         "--output-format", "stream-json",
         "--verbose",
-        "--dangerously-skip-permissions",  # headless; MCP surface is the only capability
+        "--dangerously-skip-permissions",  # headless; confined MCP surface is the only capability
     ]
 
 
 def run_agent(task: Task, tool: Tool, model: str, out_dir: Path) -> AgentRun:
     out_dir.mkdir(parents=True, exist_ok=True)
-    transcript = out_dir / "transcript.jsonl"
+    transcript = out_dir.resolve() / "transcript.jsonl"  # absolute: subprocess cwd differs
     env = {**os.environ, **tool.env}
+    AGENT_CWD.mkdir(parents=True, exist_ok=True)
 
     start = time.monotonic()
     timed_out = False
@@ -70,6 +100,7 @@ def run_agent(task: Task, tool: Tool, model: str, out_dir: Path) -> AgentRun:
                 text=True,
                 timeout=task.timeout_s,
                 env=env,
+                cwd=str(AGENT_CWD),  # neutral dir outside the repo — no ground-truth reachable
             )
             exit_code = proc.returncode
             stderr_tail = (proc.stderr or "")[-4000:]

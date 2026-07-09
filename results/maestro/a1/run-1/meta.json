@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T13:37:49+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 36820,
+    "cache_read_tokens": 981128,
+    "input_tokens": 4196,
+    "num_turns": 25,
+    "output_tokens": 4172,
+    "source": "result-record",
+    "total_billed": 1026316,
+    "total_cost_usd": 0.5911084000000001,
+    "total_uncached": 45188
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='Found it. On the Diagnostics screen, the text reads: `Build channel: BENCH-STABLE`.\\n\\n**Build channel: BENCH-STABLE**\\n\\nNavigation path: Home \u2192 About \u2192 Diagnostics (on device `<REDACTED-1>`).'",
+  "wall_time_s": 141.79
+}
