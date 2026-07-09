@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T19:38:43+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 68742,
+    "cache_read_tokens": 6578190,
+    "input_tokens": 5472,
+    "num_turns": 107,
+    "output_tokens": 15904,
+    "source": "result-record",
+    "total_billed": 6668308,
+    "total_cost_usd": 2.641604,
+    "total_uncached": 90118
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "enchtarget_crash_repro.mp4`\\n- Screenshot of the post-crash state (app killed, dumped to launcher): `/tmp/benchtarget_crash_postcrash_homescreen.png`\\n\\n**Root cause hint:** `ExportPolicy.kt:11` throws when its export buffer isn't initialized before `DetailScreen`'s export click handler (`Screens.kt:90`) calls `export()` \u2014 Item 013 appears to be a specific catalog entry whose data doesn't populate/initialize that buffer before the export path runs (other early items 001\u2013012 initialize it fine).\"",
+  "wall_time_s": 528.33
+}

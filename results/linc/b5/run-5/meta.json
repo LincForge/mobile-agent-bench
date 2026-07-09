@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": -1,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T18:10:04+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 339664,
+    "cache_read_tokens": 22975302,
+    "input_tokens": 13379,
+    "num_turns": 245,
+    "output_tokens": 5681,
+    "source": "summed-messages",
+    "total_billed": 23334026,
+    "total_cost_usd": null,
+    "total_uncached": 358724
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*IllegalStateException)(?=.*export buffer not initialized)(?=.*Item 013)' answer[-500:]=''",
+  "wall_time_s": 900.02
+}

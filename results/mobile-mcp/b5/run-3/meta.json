@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T19:29:54+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 82778,
+    "cache_read_tokens": 8350514,
+    "input_tokens": 5957,
+    "num_turns": 133,
+    "output_tokens": 22901,
+    "source": "result-record",
+    "total_billed": 8462150,
+    "total_cost_usd": 3.3639221999999993,
+    "total_uncached": 111636
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": " the app has crashed to the home screen right after tapping Export: `/tmp/benchtarget_item013_post_crash_home.png`\\n- Screen recording of the live crash (tap \u2192 crash \u2192 home screen): `/tmp/benchtarget_item013_crash.mp4` (~17s)\\n\\nGiven the exception message (\"export buffer not initialized\") and that it\\'s specific to Item 013 rather than a general failure, this looks like an initialization/state bug in `ExportPolicy` scoped to that particular catalog entry rather than a universal export failure.'",
+  "wall_time_s": 710.29
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T17:55:03+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 108596,
+    "cache_read_tokens": 8973220,
+    "input_tokens": 6328,
+    "num_turns": 124,
+    "output_tokens": 21142,
+    "source": "result-record",
+    "total_billed": 9109286,
+    "total_cost_usd": 3.6803700000000004,
+    "total_uncached": 136066
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "p 192 357'` (the Export button coordinates) immediately preceded the `10:52:33.365` FATAL EXCEPTION on PID 17285.\\n- `ActivityManager` log confirms process death: `Process dev.lincforge.benchtarget (pid 17285) has died: fg TOP`.\\n\\nItems 001 through 012 were individually tested (export tapped, app inspected for crashes) and did **not** crash, isolating the defect specifically to Item 013's export path \u2014 likely a hardcoded/off-by-one condition in `ExportPolicy` for that particular catalog index.\"",
+  "wall_time_s": 648.94
+}

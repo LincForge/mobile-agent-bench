@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T18:43:20+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 249864,
+    "cache_read_tokens": 11457834,
+    "input_tokens": 43569,
+    "num_turns": 86,
+    "output_tokens": 32801,
+    "source": "result-record",
+    "total_billed": 11784068,
+    "total_cost_usd": 5.5599752,
+    "total_uncached": 326234
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "that row's rendered bounds happen to overlap the device's gesture/nav-bar hit region on this screen size (`[401,2127]-[605,2239]` for the Home button vs. `[41,2104]-[967,2244]` for the row) \u2014 this makes the app merely background rather than crash. I worked around this by tapping a point higher in the row to reliably reach the detail screen, which is what surfaced the real `IllegalStateException` above. This UI overlap is itself worth flagging separately, but is distinct from the reported crash.\"",
+  "wall_time_s": 790.56
+}
