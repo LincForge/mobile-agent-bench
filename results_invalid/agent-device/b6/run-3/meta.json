@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:17:38+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 65469,
+    "cache_read_tokens": 2295655,
+    "input_tokens": 4542,
+    "num_turns": 49,
+    "output_tokens": 9247,
+    "source": "result-record",
+    "total_billed": 2374913,
+    "total_cost_usd": 1.2346314999999999,
+    "total_uncached": 79258
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "per launch and never reset except by `pm clear` (or uninstall/reinstall). Any test suite that cold-launches the app repeatedly without clearing app data will land on the \"skip\" launches (#3, #5, #8, #10, #13, #15\u2026) roughly 2 times out of every 5, giving the observed ~60% pass rate. The fix isn\\'t a flakiness workaround \u2014 the test needs to either clear app data before each run (deterministic), or assert on `launchCount % 5 \u2208 {2,4}` as the expected no-button state instead of treating it as a bug.'",
+  "wall_time_s": 280.6
+}

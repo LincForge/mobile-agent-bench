@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:20:49+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 46398,
+    "cache_read_tokens": 2448316,
+    "input_tokens": 4646,
+    "num_turns": 54,
+    "output_tokens": 15086,
+    "source": "result-record",
+    "total_billed": 2514446,
+    "total_cost_usd": 1.2538907999999998,
+    "total_uncached": 66130
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": " at whatever value it left off at. If the harness doesn\\'t `pm clear` between runs, the counter just keeps advancing through the same mod-5 cycle, so roughly 2 out of every 5 test invocations land on a \"skip\" value and the assertion fails \u2014 not flaky in the nondeterministic sense, but **stateful/order-dependent**. The fix is either to `pm clear`/reinstall before each test run (and expect the button on launches 1,2,4 but not 3,5), or to have the test explicitly account for the persisted counter.'",
+  "wall_time_s": 276.3
+}

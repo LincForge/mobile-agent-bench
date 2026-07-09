@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:36:14+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 38566,
+    "cache_read_tokens": 1361094,
+    "input_tokens": 4221,
+    "num_turns": 24,
+    "output_tokens": 6661,
+    "source": "result-record",
+    "total_billed": 1410542,
+    "total_cost_usd": 0.7530042,
+    "total_uncached": 49448
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "topped the app (`close`, confirmed via `closedApp`), then launched it (`open`), reading the tool-native `startup.durationMs` (method: `open-command-roundtrip`) from the response.\\n\\n| Run | Cold-start time |\\n|---|---|\\n| 1 | 1255 ms |\\n| 2 | 843 ms |\\n| 3 | 1135 ms |\\n| 4 | 956 ms |\\n| 5 | 1089 ms |\\n\\n- **Median: 1089 ms**\\n- **Mean: 1055.6 ms**\\n- **Standard deviation (sample, n\u22121): \u2248 159.9 ms** (variance \u2248 25,574.8 ms\u00b2)\\n  \u2014 population stdev \u2248 143.0 ms (variance \u2248 20,459.8 ms\u00b2) if preferred'",
+  "wall_time_s": 104.13
+}

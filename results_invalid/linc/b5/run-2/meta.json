@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T01:57:52+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 102853,
+    "cache_read_tokens": 5307579,
+    "input_tokens": 5836,
+    "num_turns": 69,
+    "output_tokens": 11472,
+    "source": "result-record",
+    "total_billed": 5427740,
+    "total_cost_usd": 2.3997086999999993,
+    "total_uncached": 120161
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": ", post-crash home-launcher screen showing the app was killed).\\n- Full logcat capture of the crash saved to `/var/folders/bz/hl7cbz_x2634qr0d_wwd9ww00000gn/T/nerve-output/e0096b38fcb1/<REDACTED-1>_0014_logcat.txt`.\\n- Screen recording of the full repro (navigation \u2192 tap Export \u2192 crash \u2192 return to launcher): `/Users/<REDACTED>/.linc/nerve/recordings/android_<REDACTED-1>_1783562261.mp4`.\\n- `nerve_inspect` confirmed the process was no longer running (`\"running\": false`) immediately after the tap.'",
+  "wall_time_s": 312.98
+}

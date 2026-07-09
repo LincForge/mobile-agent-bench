@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:12:38+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 41608,
+    "cache_read_tokens": 2341954,
+    "input_tokens": 4839,
+    "num_turns": 50,
+    "output_tokens": 10061,
+    "source": "result-record",
+    "total_billed": 2398462,
+    "total_cost_usd": 1.1184362,
+    "total_uncached": 56508
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "asses ~3/5\" symptom reported. If the UI test doesn\\'t `pm clear` (or reinstall) the app before each run, whether it lands on a \"skip\" launch depends purely on how many cold starts have accumulated since the last data wipe, which explains why it looks random across CI runs. Fix: either have the test force-clear app data before every run and always expect the button on launch #1, or make the test assert against the actual `Sync unavailable` state rather than assuming the button is always present.'",
+  "wall_time_s": 239.13
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:16:11+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31834,
+    "cache_read_tokens": 1884374,
+    "input_tokens": 4815,
+    "num_turns": 51,
+    "output_tokens": 12470,
+    "source": "result-record",
+    "total_billed": 1933493,
+    "total_cost_usd": 0.9585812000000001,
+    "total_uncached": 49119
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "n them. Because most UI-test harnesses don\\'t wipe app storage between consecutive test executions, the counter keeps climbing test-run over test-run, and the button silently disappears on whichever two out of every five runs land on a `prior % 5` of 2 or 4 \u2014 producing the reported \"passes ~3 times out of 5\" pattern. The fix (test-side) is to `pm clear` (or otherwise reset app state) before each test invocation, or to have the test avoid asserting on the button when `launchCount % 5` is 2 or 4.'",
+  "wall_time_s": 211.96
+}

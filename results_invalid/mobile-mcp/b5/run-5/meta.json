@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:05:54+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34051,
+    "cache_read_tokens": 1312463,
+    "input_tokens": 4360,
+    "num_turns": 32,
+    "output_tokens": 6596,
+    "source": "result-record",
+    "total_billed": 1357470,
+    "total_cost_usd": 0.7107789,
+    "total_uncached": 45007
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "reen with Export button, pre-crash\\n  - `02-post-crash-launcher.png` / `fresh-02-post-crash-launcher.png` \u2014 device dumped to home launcher post-crash\\n  - `03-crash-logcat.txt` / `fresh-03-crash-logcat.txt` \u2014 full logcat with identical `IllegalStateException` trace\\n  - `04-crash-recording.mp4` \u2014 screen recording of the crash occurring live\\n\\nRoot cause is in `ExportPolicy.kt:11`, invoked from the Export button\\'s click handler in `Screens.kt:90`, specifically for the \"Item 013\" catalog entry.'",
+  "wall_time_s": 142.82
+}

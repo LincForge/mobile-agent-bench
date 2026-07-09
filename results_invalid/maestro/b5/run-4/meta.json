@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:32:10+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 39171,
+    "cache_read_tokens": 1144690,
+    "input_tokens": 4837,
+    "num_turns": 26,
+    "output_tokens": 5946,
+    "source": "result-record",
+    "total_billed": 1194644,
+    "total_cost_usd": 0.682853,
+    "total_uncached": 49954
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": ", captured live around the crash): full stack trace above, PID 25381, timestamp `07-08 19:31:46.204`, preceded by `beginning of crash` / `Shutting down VM`.\\n- Cross-checked against `target-app/SPEC.md` and a prior device-verification note (`docs/benchtarget-device-verification-2026-07-08.md`) which independently documents this same ground-truth crash (Item 013 \u2192 `IllegalStateException(\"export buffer not initialized\")`), confirming this is the intended/known defect rather than a new regression.'",
+  "wall_time_s": 132.39
+}

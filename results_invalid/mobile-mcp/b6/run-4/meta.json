@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:24:17+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 29631,
+    "cache_read_tokens": 2226744,
+    "input_tokens": 4729,
+    "num_turns": 50,
+    "output_tokens": 9897,
+    "source": "result-record",
+    "total_billed": 2271001,
+    "total_cost_usd": 1.0092162,
+    "total_uncached": 44257
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "-start count (`priorCount % 5 \u2208 {2,4}`), which only resets when app data is cleared. A UI test that doesn't control for this counter (e.g., doesn't `pm clear` before each run, or runs in a suite where prior test runs already bumped the counter) will hit the hidden state on 2 of every 5 cold starts \u2014 explaining the ~60% pass rate. Fix: either assert conditionally on `launchCount % 5`, or clear app data immediately before the test so the launch is always prior-count 0 (deterministically visible).\"",
+  "wall_time_s": 207.02
+}

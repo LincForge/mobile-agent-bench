@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:41:58+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 77718,
+    "cache_read_tokens": 4537486,
+    "input_tokens": 5587,
+    "num_turns": 74,
+    "output_tokens": 19772,
+    "source": "result-record",
+    "total_billed": 4640563,
+    "total_cost_usd": 2.1416698000000003,
+    "total_uncached": 103077
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "nc is visible\" is true 3/5 of the time purely as a function of how many prior cold starts have accumulated since the app was last installed/data-cleared \u2014 a hidden, stateful dependency the test author didn\\'t account for.\\n\\n### Fix direction\\nEither the test should `pm clear`/reinstall before every run (forces `priorColdStarts=0`, deterministically visible), or the assertion needs to branch on the \"Sync status\" text (idle vs. unavailable) instead of hard-asserting the button is always present.'",
+  "wall_time_s": 383.46
+}

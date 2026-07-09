@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:52:20+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 59526,
+    "cache_read_tokens": 3262771,
+    "input_tokens": 5506,
+    "num_turns": 61,
+    "output_tokens": 15754,
+    "source": "result-record",
+    "total_billed": 3343557,
+    "total_cost_usd": 1.5895952999999998,
+    "total_uncached": 80786
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "n\\n### Fix\\nEither (a) have the test clear app data (`pm clear`) before each run so it always starts at a known, button-visible launch count, or (b) if this is intentional flakiness for benchmarking (the source comments explicitly tag it \"SPEC.md \u00a7 Screens 6, flake ground truth, task b6\" \u2014 this looks like a deliberately-seeded bug in the BenchTarget benchmark app rather than a real product defect), the test should assert conditionally on the known formula rather than assuming static visibility.'",
+  "wall_time_s": 390.33
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:12:02+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 46232,
+    "cache_read_tokens": 1809960,
+    "input_tokens": 4235,
+    "num_turns": 36,
+    "output_tokens": 7170,
+    "source": "result-record",
+    "total_billed": 1867597,
+    "total_cost_usd": 0.9413339999999999,
+    "total_uncached": 57637
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "t/CheckoutViewModel.kt:25`:\\n   ```kotlin\\n   val discountFactor = 1.0 - min(currentQuantity, 10) * 0.035\\n   ```\\n   For `currentQuantity = 7`: `1.0 - 7 * 0.035 = 1.0 - 0.245 = 0.755`.\\n3. Verified consistency against the observed runtime output: `UNIT_PRICE * quantity * discountFactor = 9.37 * 7 * 0.755 = 49.52045`, which `roundToInt()`s to `50` \u2014 exactly matching the on-device \"Total: $50\" result, confirming 0.755 is the actual runtime value used in that interaction (not just a static read).'",
+  "wall_time_s": 173.26
+}

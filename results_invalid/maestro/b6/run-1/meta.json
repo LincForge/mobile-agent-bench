@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:55:14+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 62768,
+    "cache_read_tokens": 1537945,
+    "input_tokens": 4988,
+    "num_turns": 34,
+    "output_tokens": 7910,
+    "source": "result-record",
+    "total_billed": 1613611,
+    "total_cost_usd": 0.9723805,
+    "total_uncached": 75666
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " no exceptions \u2014 no correlation with battery/charging state, network signal, or timing was observed (those stayed constant throughout).\\n\\n**Fix direction:** the test is flaky because it runs against installed app state instead of a clean install. Either reset app data (`adb shell pm clear dev.lincforge.benchtarget`) before each test run so `launchCount` prior is always 0, or make the test assert on the actual persisted counter's expected state rather than assuming the button is always present.\"",
+  "wall_time_s": 173.74
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:58:28+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 46697,
+    "cache_read_tokens": 1530815,
+    "input_tokens": 4992,
+    "num_turns": 38,
+    "output_tokens": 8764,
+    "source": "result-record",
+    "total_billed": 1591268,
+    "total_cost_usd": 0.8866375000000003,
+    "total_uncached": 60453
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "m clear` (or otherwise resets app data) before every run, repeated CI executions will drift through the 5-cycle and fail on cold-starts #3 and #5 of every 5. Fix is either: (a) `pm clear`/reinstall before each test run so it\\'s always launch #1 (counter=0, always visible), or (b) if the test is meant to only cover the \"visible\" case, assert conditionally on `launchCount % 5` (readable via the `SyncComponent init` debug log or an exposed diagnostics field) rather than assuming static visibility.'",
+  "wall_time_s": 192.33
+}

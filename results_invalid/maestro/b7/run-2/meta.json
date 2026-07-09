@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:49:31+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 8096,
+    "cache_read_tokens": 199425,
+    "input_tokens": 4513,
+    "num_turns": 9,
+    "output_tokens": 2721,
+    "source": "result-record",
+    "total_billed": 214755,
+    "total_cost_usd": 0.1634595,
+    "total_uncached": 15330
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "CTED-1>).\\n\\n**Cold-start times (TotalTime, ms):**\\n1. 454 ms\\n2. 442 ms\\n3. 450 ms\\n4. 441 ms\\n5. 459 ms\\n\\n**Median:** 450 ms\\n**Mean:** 449.2 ms\\n**Standard deviation:** \u22486.91 ms (population), \u22487.73 ms (sample, n\u22121)\\n**Variance:** \u224847.76 ms\u00b2 (population), \u224859.7 ms\u00b2 (sample, n\u22121)\\n\\nEach iteration followed the same protocol: `am force-stop` \u2192 verify no PID via `pidof` \u2192 return to home screen \u2192 `am start -W`, reading `TotalTime` from the launch report (confirmed `LaunchState: COLD` each time).'",
+  "wall_time_s": 62.47
+}

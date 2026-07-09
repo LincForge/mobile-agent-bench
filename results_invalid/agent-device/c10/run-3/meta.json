@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:14:26+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33691,
+    "cache_read_tokens": 1352280,
+    "input_tokens": 4229,
+    "num_turns": 34,
+    "output_tokens": 6697,
+    "source": "result-record",
+    "total_billed": 1396897,
+    "total_cost_usd": 0.7216759999999998,
+    "total_uncached": 44617
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "/main/java/dev/lincforge/benchtarget/CheckoutViewModel.kt:25`:\\n   ```kotlin\\n   val discountFactor = 1.0 - min(currentQuantity, 10) * 0.035\\n   ```\\n   At quantity 7: `1.0 - min(7,10) \u00d7 0.035 = 1.0 - 0.245 = 0.755`.\\n4. Cross-checked: `9.37 \u00d7 7 \u00d7 0.755 = 49.52045...`, which rounds to `50` \u2014 matching the on-device total exactly, confirming this is the value the running process actually computed for this interaction (as opposed to some other quantity-7 formula that happens to also round to $50).'",
+  "wall_time_s": 142.81
+}

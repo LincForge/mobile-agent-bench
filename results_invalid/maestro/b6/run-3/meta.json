@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:01:58+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 53992,
+    "cache_read_tokens": 1907460,
+    "input_tokens": 4998,
+    "num_turns": 34,
+    "output_tokens": 9289,
+    "source": "result-record",
+    "total_billed": 1975739,
+    "total_cost_usd": 1.0512989999999998,
+    "total_uncached": 68279
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "ctly. Because the test suite doesn't `pm clear` before every run, it's silently riding whatever phase of this 5-launch cycle the device happens to be in, so pass/fail looks random from the outside even though it's a pure function of launch count.\\n\\n**Fix for the test**: `pm clear` the app (or otherwise reset `launchCount`) before each test run, and either assert against launch #1/#2/#4 only, or assert `priorColdStarts % 5 !in {2,4}` explicitly rather than assuming the button is always visible.\"",
+  "wall_time_s": 208.92
+}

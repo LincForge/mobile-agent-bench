@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:53:23+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28997,
+    "cache_read_tokens": 424532,
+    "input_tokens": 4521,
+    "num_turns": 15,
+    "output_tokens": 5740,
+    "source": "result-record",
+    "total_billed": 463790,
+    "total_cost_usd": 0.40171160000000006,
+    "total_uncached": 39258
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "ple, n\u22121):** \u2248292.3 ms\u00b2\\n- (population variants: stdev \u224815.3 ms, variance \u2248233.8 ms\u00b2)\\n\\nMethod: each iteration force-stopped the app, verified `pidof` returned empty (no process running), returned to home, then launched via `adb shell am start -W -n dev.lincforge.benchtarget/.MainActivity`, reading `TotalTime` from the confirmed-`COLD` launch report. Iteration 1 is the highest at 480ms \u2014 plausible first-cold-boot cost after the `pm clear` reset; iterations 2\u20135 cluster tightly around 440\u2013444ms.'",
+  "wall_time_s": 102.03
+}

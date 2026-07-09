@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:59:54+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 44364,
+    "cache_read_tokens": 871904,
+    "input_tokens": 5226,
+    "num_turns": 24,
+    "output_tokens": 10383,
+    "source": "result-record",
+    "total_billed": 931877,
+    "total_cost_usd": 0.6998872,
+    "total_uncached": 59973
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "jdb` returned `discountFactor = 0.755`, confirmed twice (`print` and `locals`).\\n6. Resumed the thread (`cont`), let the app finish normally, and verified the UI showed `Total: $50` as expected, then tore down the port forward and jdb session.\\n\\nThis matches the source formula `1.0 \u2212 min(quantity,10) \u00d7 0.035 = 1.0 \u2212 7\u00d70.035 = 0.755`, but the value was captured from the running process's actual memory, not just read off source \u2014 the app deliberately never logs, displays, or persists this value.\"",
+  "wall_time_s": 203.19
+}

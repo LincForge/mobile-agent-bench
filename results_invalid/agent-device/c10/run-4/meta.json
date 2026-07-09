@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 1,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:21:24+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 47059,
+    "cache_read_tokens": 1999916,
+    "input_tokens": 4736,
+    "num_turns": 41,
+    "output_tokens": 9224,
+    "source": "result-record",
+    "total_billed": 2060935,
+    "total_cost_usd": 1.0735396,
+    "total_uncached": 61019
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='0[.,]755' answer[-500:]='API Error: Server error mid-response. The response above may be incomplete.'",
+  "wall_time_s": 417.1
+}

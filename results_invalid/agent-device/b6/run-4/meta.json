@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:22:51+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 75380,
+    "cache_read_tokens": 5157592,
+    "input_tokens": 5034,
+    "num_turns": 78,
+    "output_tokens": 11975,
+    "source": "result-record",
+    "total_billed": 5249981,
+    "total_cost_usd": 2.1950645999999994,
+    "total_uncached": 92389
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "tart of every 5-launch cycle since the last data clear/reinstall. It has nothing to do with timing, network, or randomness \u2014 a test suite that runs launches back-to-back without resetting app data (or that happens to land on the 3rd/5th run of a cycle) will deterministically hit the buttonless state ~2 times out of 5, exactly the observed 3/5 pass rate. Fix/mitigation: either have the test clear app data before each run, or fix the app to not gate button visibility on a rotating launch counter.'",
+  "wall_time_s": 311.77
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:40:25+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 53435,
+    "cache_read_tokens": 454910,
+    "input_tokens": 4709,
+    "num_turns": 9,
+    "output_tokens": 3159,
+    "source": "result-record",
+    "total_billed": 516213,
+    "total_cost_usd": 0.519297,
+    "total_uncached": 61303
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "op` before each launch to kill the process, then `am start -W` to time it. All 5 runs confirmed `LaunchState: COLD`.\\n\\n| Run | TotalTime (ms) |\\n|---|---|\\n| 1 | 450 |\\n| 2 | 449 |\\n| 3 | 434 |\\n| 4 | 438 |\\n| 5 | 428 |\\n\\n**Summary:**\\n- Median: **438 ms**\\n- Mean: 439.8 ms\\n- Sample standard deviation (n\u22121): **\u22489.55 ms** (variance \u2248 91.2 ms\u00b2)\\n- Population standard deviation: \u22488.54 ms (variance \u2248 72.96 ms\u00b2)\\n\\nCold starts were tight and consistent (428\u2013450 ms range, <5% spread), no outliers.'",
+  "wall_time_s": 87.14
+}

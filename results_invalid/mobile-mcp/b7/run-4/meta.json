@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T05:01:54+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 29948,
+    "cache_read_tokens": 2055057,
+    "input_tokens": 4529,
+    "num_turns": 43,
+    "output_tokens": 9676,
+    "source": "result-record",
+    "total_billed": 2099210,
+    "total_cost_usd": 0.9556340999999999,
+    "total_uncached": 44153
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "8,918 ms\u00b2 (population) / \u224861,148 ms\u00b2 (sample)\\n\\nNote on methodology: since the available device-control tools don't expose `am start -W`/logcat-level timing, each measurement is the wall-clock delta between issuing the launch command and visually confirming the app's UI was fully rendered \u2014 this includes tool round-trip overhead on top of the device's actual process-start time, so treat these as an upper-bound/black-box estimate of true cold start rather than a kernel-level `TotalTime` figure.\"",
+  "wall_time_s": 183.64
+}

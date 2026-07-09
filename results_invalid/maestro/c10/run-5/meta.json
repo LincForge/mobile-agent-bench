@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T06:01:35+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 43027,
+    "cache_read_tokens": 736008,
+    "input_tokens": 4676,
+    "num_turns": 20,
+    "output_tokens": 4443,
+    "source": "result-record",
+    "total_billed": 788154,
+    "total_cost_usd": 0.5603414,
+    "total_uncached": 52146
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "(9.37 \u00d7 7 \u00d7 0.755) = round(49.5185\u2026) = 50`, matching the on-device `Total: $50` I observed \u2014 confirming this source-derived value is consistent with the live run rather than contradicted by it.\\n\\nSo the on-device interaction verifies the *behavior* (quantity 7 \u2192 $50, no leak of the factor anywhere observable), while the exact `0.755` value itself comes from reading the app's source, since that's the only place it exists \u2014 it's designed to be unrecoverable from runtime UI/log observation alone.\"",
+  "wall_time_s": 100.48
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:31:53+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 54287,
+    "cache_read_tokens": 1696594,
+    "input_tokens": 4231,
+    "num_turns": 31,
+    "output_tokens": 10859,
+    "source": "result-record",
+    "total_billed": 1765971,
+    "total_cost_usd": 1.0109802,
+    "total_uncached": 69377
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "0 ms |\\n| 4 | 841 ms |\\n| 5 | 1234 ms |\\n\\n- **Median: 976 ms**\\n- **Mean: 1052.6 ms**\\n- **Standard deviation (sample, n\u22121): \u2248 190.0 ms** (variance \u2248 36,090.8 ms\u00b2)\\n  \u2014 population stdev \u2248 169.9 ms (variance \u2248 28,872.6 ms\u00b2) if preferred\\n\\nMethod: each iteration force-stopped the app (`close`, confirming `closedApp`) to guarantee the process wasn't running, then launched it via `open`, which reports `startup.durationMs` (method `open-command-roundtrip`) \u2014 the tool-native cold-start measurement.\"",
+  "wall_time_s": 168.79
+}

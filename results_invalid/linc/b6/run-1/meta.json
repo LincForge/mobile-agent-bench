@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T03:30:57+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 65672,
+    "cache_read_tokens": 4014701,
+    "input_tokens": 5679,
+    "num_turns": 60,
+    "output_tokens": 11735,
+    "source": "result-record",
+    "total_billed": 4097787,
+    "total_cost_usd": 1.7922743,
+    "total_uncached": 83086
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "the counter only resets on `pm clear` (data wipe), not on a normal cold start. So any test suite that force-stops and relaunches the app repeatedly \u2014 without clearing app data between runs \u2014 will hit the hidden-button case on whichever runs land on counter values \u2261 2 or 4 (mod 5), independent of device, network, or load. Fix/mitigation: either clear app data before each test run, or have the test assert against the counter-derived expected state instead of assuming the button is always present.'",
+  "wall_time_s": 251.97
+}

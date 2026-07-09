@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T04:51:39+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 21846,
+    "cache_read_tokens": 437855,
+    "input_tokens": 4523,
+    "num_turns": 17,
+    "output_tokens": 7425,
+    "source": "result-record",
+    "total_billed": 471649,
+    "total_cost_usd": 0.3880785,
+    "total_uncached": 33794
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "TotalTime (ms) |\\n|---|---|\\n| 1 | 468 |\\n| 2 | 435 |\\n| 3 | 465 |\\n| 4 | 455 |\\n| 5 | 452 |\\n\\n- **Median: 455 ms**\\n- **Mean: 455 ms**\\n- **Sample standard deviation (n\u22121): \u224813.0 ms** (sample variance \u2248169.5 ms\u00b2)\\n- Population stdev \u224811.6 ms (population variance \u2248135.6 ms\u00b2), if preferred\\n\\nMethod: `TotalTime` is Android's own launch-to-first-frame metric reported by `am start -W`; each run began with `am force-stop` and a `pidof` check confirming the process had fully exited before relaunch.\"",
+  "wall_time_s": 127.63
+}

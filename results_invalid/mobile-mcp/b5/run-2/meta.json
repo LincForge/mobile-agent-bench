@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:54:39+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 99262,
+    "cache_read_tokens": 5431037,
+    "input_tokens": 5780,
+    "num_turns": 93,
+    "output_tokens": 19390,
+    "source": "result-record",
+    "total_billed": 5555469,
+    "total_cost_usd": 2.533792100000001,
+    "total_uncached": 124432
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "o/export-crash/03-crash-logcat.txt`.\\n- Confirmed against source: `target-app/app/src/main/java/dev/lincforge/benchtarget/core/ExportPolicy.kt` explicitly hardcodes this as the crash ground truth \u2014 `check(item != \"Item 013\") { \"export buffer not initialized\" }` \u2014 so the behavior is intentional/seeded, not flaky.\\n- Verified independently on 3 separate app sessions (fresh launches) on the Pixel 8 Pro emulator (<REDACTED-1>, Android 16); all three produced the identical exception and stack trace.'",
+  "wall_time_s": 464.6
+}

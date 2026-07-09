@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T02:04:18+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 96061,
+    "cache_read_tokens": 4406963,
+    "input_tokens": 5819,
+    "num_turns": 78,
+    "output_tokens": 14794,
+    "source": "result-record",
+    "total_billed": 4523637,
+    "total_cost_usd": 2.1385459,
+    "total_uncached": 116674
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": " died and the launcher is now foregrounded (`pidof` returned empty, `mCurrentFocus` fell back to `NexusLauncherActivity`).\\n\\nRoot cause is trivially visible in source: `target-app/app/src/main/java/dev/lincforge/benchtarget/core/ExportPolicy.kt` has a comment literally documenting this as \"crash ground truth (task b5)\" \u2014 `CRASH_ITEM = \"Item 013\"`, with `check(item != CRASH_ITEM)` throwing on match. This looks like an intentional seeded bug for benchmarking rather than an accidental regression.'",
+  "wall_time_s": 384.6
+}
