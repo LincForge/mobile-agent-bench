@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T13:35:26+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 30356,
+    "cache_read_tokens": 1203850,
+    "input_tokens": 4402,
+    "num_turns": 30,
+    "output_tokens": 5490,
+    "source": "result-record",
+    "total_billed": 1244098,
+    "total_cost_usd": 0.6395140000000001,
+    "total_uncached": 40248
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='I successfully navigated Home \u2192 About \u2192 Diagnostics in the BenchTarget app.\\n\\n**Build channel: BENCH-STABLE**'",
+  "wall_time_s": 142.29
+}

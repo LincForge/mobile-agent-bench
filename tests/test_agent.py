@@ -25,7 +25,29 @@ def test_build_command_pins_model_and_strict_mcp(tmp_path):
     assert cmd[:3] == ["claude", "-p", "do the thing"]
     assert "--strict-mcp-config" in cmd
     assert cmd[cmd.index("--model") + 1] == "claude-sonnet-5"
-    assert cmd[cmd.index("--mcp-config") + 1] == "tools/x.mcp.json"
+    # mcp-config is now absolute (agent runs from a neutral cwd) but still points
+    # at the tool's config file.
+    mcp = cmd[cmd.index("--mcp-config") + 1]
+    assert mcp.endswith("tools/x.mcp.json")
+    assert mcp.startswith("/")
+
+
+def test_build_command_confines_agent_to_tool_under_test(tmp_path):
+    """Fairness invariant: no built-in shell/fs/web/subagent tools reach the
+    agent — only the tool-under-test's MCP surface (+ ToolSearch to load it)."""
+    tool = Tool(id="x", name="x", mcp_config="tools/x.mcp.json")
+    cmd = build_command(_task(Verify(type="manual")), tool, "claude-sonnet-5")
+    assert "--disallowedTools" in cmd
+    denied = cmd[cmd.index("--disallowedTools") + 1].split(",")
+    # Shell / file-search / write / web / subagent are denied (adb-bypass +
+    # ground-truth-discovery vectors).
+    for banned in ("Bash", "Write", "Edit", "Grep", "Glob", "WebFetch", "WebSearch", "Task"):
+        assert banned in denied, f"{banned} must be denied"
+    # Read is ALLOWED (CEO 2026-07-09): tools that hand back screenshot file paths
+    # need it; without Bash/Grep/Glob the agent can't discover ground-truth paths.
+    assert "Read" not in denied
+    # ToolSearch must NOT be denied — MCP tools are deferred and need it to load.
+    assert "ToolSearch" not in denied
 
 
 def test_answer_verification_pass_and_fail(tmp_path):
