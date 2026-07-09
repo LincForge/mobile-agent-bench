@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:13:48+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 76882,
+    "cache_read_tokens": 2242663,
+    "input_tokens": 4365,
+    "num_turns": 35,
+    "output_tokens": 11688,
+    "source": "result-record",
+    "total_billed": 2335598,
+    "total_cost_usd": 1.3232708999999998,
+    "total_uncached": 92935
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "imply doesn\\'t exist in that composition.\\n\\nThis means the flaky test isn\\'t racing a slow animation or network call \u2014 it\\'s asserting on a genuinely randomized app state that BenchTarget (by design, as a benchmark target) generates fresh on every cold launch. The fix isn\\'t a `waitFor`/retry in the test; the test needs to either force the app into \"Sync idle\" state deterministically (e.g., via a test hook/intent extra) or assert conditionally on whichever of the two valid sync states appears.'",
+  "wall_time_s": 303.93
+}

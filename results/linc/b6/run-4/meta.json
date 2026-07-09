@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T20:56:28+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 86351,
+    "cache_read_tokens": 4639790,
+    "input_tokens": 5031,
+    "num_turns": 63,
+    "output_tokens": 16057,
+    "source": "result-record",
+    "total_billed": 4747229,
+    "total_cost_usd": 2.166766,
+    "total_uncached": 107439
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": " immediately on screen render, not delayed), and screen density (all present in logs/screenshots but uncorrelated).\\n\\n**Fix direction:** Either the test should `pm clear` the app before each run to pin `launchCount=0`, or (better) the app's `SyncComponent` shouldn't gate a stable UI element's existence on a hidden, persisted modulo-5 counter meant for bench/demo purposes \u2014 the test should instead assert against an explicit, test-controlled sync state rather than relying on cold-launch cadence.\"",
+  "wall_time_s": 334.98
+}

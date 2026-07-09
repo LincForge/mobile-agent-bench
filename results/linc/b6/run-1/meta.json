@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T20:38:13+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 72180,
+    "cache_read_tokens": 3185858,
+    "input_tokens": 5026,
+    "num_turns": 59,
+    "output_tokens": 13945,
+    "source": "result-record",
+    "total_billed": 3277009,
+    "total_cost_usd": 1.6138754000000004,
+    "total_uncached": 91151
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "is wiped before each run.\\n\\n**Fix direction:** either (a) have the test call `pm clear`/uninstall-reinstall before each run so `launchCount` always starts at 0, or (b) if this behavior is intentional simulated flakiness in BenchTarget (per its \"About\" text, it\\'s a benchmark target for reproducible agent runs), the test needs to account for the skip cycle rather than assert unconditional visibility \u2014 e.g., assert on the Sync status text/branch rather than assuming the button is always present.'",
+  "wall_time_s": 297.64
+}

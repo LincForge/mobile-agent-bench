@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:22:05+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 60629,
+    "cache_read_tokens": 1503301,
+    "input_tokens": 4204,
+    "num_turns": 28,
+    "output_tokens": 9337,
+    "source": "result-record",
+    "total_billed": 1577471,
+    "total_cost_usd": 0.9681913,
+    "total_uncached": 74170
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "run, it gets a new random draw each time, so the button assertion passes only on the \"idle\" runs \u2014 reproducing the observed ~3/5 pass rate.\\n\\n**Fix direction:** the test shouldn\\'t assert unconditional visibility of \"Retry sync\" against a non-deterministic app state. Either the app needs a deterministic/injectable sync state for test builds (e.g., a debug flag or test hook that forces \"idle\"), or the test should branch on the \"Sync status\" text and only assert the button when status is \"idle.\"'",
+  "wall_time_s": 228.18
+}

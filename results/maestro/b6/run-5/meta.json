@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T21:26:10+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 58230,
+    "cache_read_tokens": 1377614,
+    "input_tokens": 4202,
+    "num_turns": 26,
+    "output_tokens": 10882,
+    "source": "result-record",
+    "total_billed": 1450928,
+    "total_cost_usd": 0.9392802,
+    "total_uncached": 73314
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " it inherits this app-level ~60% success rate directly \u2014 explaining the \"passes about 3 times out of 5\" symptom almost exactly.\\n\\n**Recommendation for the test team:** this isn\\'t a test-authoring bug (no need for extra waits/retries) \u2014 the app itself needs either a deterministic sync-status value for test/bench builds, or the test needs to first assert on/handle the `Sync status` text and only assert the button when it\\'s `Sync idle` (or trigger a state that guarantees idle before asserting).'",
+  "wall_time_s": 243.68
+}
