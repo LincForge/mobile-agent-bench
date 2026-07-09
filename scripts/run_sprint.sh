@@ -67,6 +67,11 @@ case "$seg" in
   *) echo "usage: TOOLS=.. PHONE=.. WATCH=.. $0 [stock|seeded|watch]"; exit 1 ;;
 esac
 
+# Optional: narrow to a subset of the segment's tasks (tier-major / per-task
+# boundaries). Must be a subset of the segment's build — e.g. ONLY_TASKS="b5"
+# with seg=stock. The segment still governs APK/device/hygiene.
+[ -n "${ONLY_TASKS:-}" ] && TASKS="$ONLY_TASKS"
+
 log "SPRINT seg=$seg tools=[$TOOLS] tasks=[$TASKS] runs=$RUNS results=${BENCH_RESULTS_DIR:-results}"
 for tool in $TOOLS; do
   for t in $TASKS; do
