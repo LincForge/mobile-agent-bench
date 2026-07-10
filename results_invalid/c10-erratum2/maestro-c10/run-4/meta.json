@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T13:47:20+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 90991,
+    "cache_read_tokens": 2340070,
+    "input_tokens": 4367,
+    "num_turns": 37,
+    "output_tokens": 20135,
+    "source": "result-record",
+    "total_billed": 2455563,
+    "total_cost_usd": 1.5637969999999997,
+    "total_uncached": 115493
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "lone \u2014 e.g. $65.59 \u00d7 0.762 \u2248 $49.98, which rounds to $50 and is my single best-guess point estimate, but I cannot confirm the exact value (like 0.76 vs 0.762 vs some other figure) without reading the app's internals directly.\\n\\nIf you want the exact value, I'd need either: (a) shell/adb access to pull logcat or attach a debugger to the running process, or (b) the app's source so I can read `applyDiscount()` directly. Let me know if either becomes available and I can get you the precise number.\"",
+  "wall_time_s": 383.59
+}

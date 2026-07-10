@@ -16,3 +16,4 @@ target-app/local.properties
 *.apk
 !results/**  # raw run logs are the product; never ignore them
 IMPROVEMENTS.md  # generated from reactor data (linc-export-improvements) — never commit
+IMPROVEMENTS.md

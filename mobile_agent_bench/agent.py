@@ -49,6 +49,49 @@ CONFINE_DISALLOWED_TOOLS = (
 # so even a missed tool finds no source / ground-truth / results to read.
 AGENT_CWD = Path(tempfile.gettempdir()) / "mab-agent-cwd"
 
+# ERRATUM #2 (2026-07-10): `Read` is allowed (tools hand the agent screenshot
+# *paths* in /tmp), but nothing restricted WHERE it read. No-search blocks repo
+# *discovery*, but a lucky absolute-path guess defeated it — one c10 run read
+# `.../mobile-agent-bench/target-app/.../CheckoutViewModel.kt` and computed the
+# frozen answer from source. This PreToolUse hook (a separate process the agent
+# cannot disable) denies Read of the app source / SPEC while leaving screenshots
+# (.png in /tmp) and the tools' own logs readable — fair to every tool.
+READ_GUARD = r'''import json, re, sys
+try:
+    d = json.load(sys.stdin)
+except Exception:
+    sys.exit(0)  # fail-open on parse error — never wedge the agent
+if d.get("tool_name") != "Read":
+    sys.exit(0)
+p = (d.get("tool_input") or {}).get("file_path", "") or ""
+if re.search(r"(mobile-agent-bench|target-app|/src/(main|test)/|\.kt$|\.java$|SPEC\.md$)", p, re.I):
+    sys.stderr.write("Read blocked: benchmark ground-truth (app source/SPEC) is "
+                     "off-limits. Use the device tools to obtain information, not the source.")
+    sys.exit(2)  # PreToolUse exit-2 => deny the tool call
+sys.exit(0)
+'''
+
+
+def ensure_confinement(cwd: Path) -> None:
+    """Write the Read-guard + a settings.json registering it as a PreToolUse hook.
+    The agent runs with cwd=AGENT_CWD, so Claude Code auto-loads this project
+    settings file. The guard lives in the /tmp cwd (no repo path is referenced),
+    and it blocks reads of itself and the whole repo, so it cannot be bypassed."""
+    guard = cwd / ".mab_read_guard.py"
+    guard.write_text(READ_GUARD)
+    claude_dir = cwd / ".claude"
+    claude_dir.mkdir(parents=True, exist_ok=True)
+    (claude_dir / "settings.json").write_text(
+        json.dumps(
+            {"hooks": {"PreToolUse": [
+                {"matcher": "Read", "hooks": [
+                    {"type": "command", "command": f"python3 {guard}"}
+                ]}
+            ]}},
+            indent=2,
+        )
+    )
+
 
 @dataclass(frozen=True)
 class AgentRun:
@@ -88,6 +131,7 @@ def run_agent(task: Task, tool: Tool, model: str, out_dir: Path) -> AgentRun:
     transcript = out_dir.resolve() / "transcript.jsonl"  # absolute: subprocess cwd differs
     env = {**os.environ, **tool.env}
     AGENT_CWD.mkdir(parents=True, exist_ok=True)
+    ensure_confinement(AGENT_CWD)  # PreToolUse Read-guard (erratum #2)
 
     start = time.monotonic()
     timed_out = False

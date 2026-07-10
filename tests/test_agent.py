@@ -1,7 +1,14 @@
 import json
+import subprocess
+import sys
 from pathlib import Path
 
-from mobile_agent_bench.agent import build_command, final_answer_text, verify_task
+from mobile_agent_bench.agent import (
+    build_command,
+    ensure_confinement,
+    final_answer_text,
+    verify_task,
+)
 from mobile_agent_bench.schema import Task, Tool, Verify
 
 
@@ -48,6 +55,36 @@ def test_build_command_confines_agent_to_tool_under_test(tmp_path):
     assert "Read" not in denied
     # ToolSearch must NOT be denied — MCP tools are deferred and need it to load.
     assert "ToolSearch" not in denied
+
+
+def test_read_guard_blocks_source_allows_screenshots(tmp_path):
+    """Erratum #2: the PreToolUse Read-guard denies reads of app source / SPEC
+    (ground truth reachable via a guessed absolute path) while leaving screenshot
+    paths and the tools' own logs readable."""
+    ensure_confinement(tmp_path)
+    guard = tmp_path / ".mab_read_guard.py"
+    settings = tmp_path / ".claude" / "settings.json"
+    assert guard.exists() and settings.exists()
+    cfg = json.loads(settings.read_text())
+    assert cfg["hooks"]["PreToolUse"][0]["matcher"] == "Read"
+
+    def rc(path: str) -> int:
+        payload = json.dumps({"tool_name": "Read", "tool_input": {"file_path": path}})
+        return subprocess.run(
+            [sys.executable, str(guard)], input=payload, capture_output=True, text=True
+        ).returncode
+
+    # ground truth => denied (exit 2)
+    assert rc("/Users/somebody/projects/mobile-agent-bench/target-app/app/src/main/java/CheckoutViewModel.kt") == 2
+    assert rc("/Users/somebody/forge/BenchTarget/app/src/main/java/Foo.kt") == 2
+    assert rc("/anywhere/SPEC.md") == 2
+    # screenshots + tool-own logs => allowed (exit 0)
+    assert rc("/var/folders/bz/T/nerve-output/abc/serial_0003_screenshot.png") == 0
+    assert rc("/tmp/benchtarget_item013_crash.png") == 0
+    assert rc("/Users/somebody/.maestro/maestro.log") == 0
+    # a non-Read tool is never touched by the guard
+    payload = json.dumps({"tool_name": "mcp__linc-nerve__nerve_tap", "tool_input": {}})
+    assert subprocess.run([sys.executable, str(guard)], input=payload, capture_output=True, text=True).returncode == 0
 
 
 def test_answer_verification_pass_and_fail(tmp_path):

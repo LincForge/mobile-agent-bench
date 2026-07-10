@@ -107,3 +107,39 @@ confined harness. Filed as an improvement; a strong v2 target.
 "mentions/dismisses X" for reasoning tasks. v2 should replace these with an
 LLM-judge (or per-task match/reject CI tests, improvement 8881e5a3) and treat the
 regex as a first-pass screen only.
+
+## 2026-07-10 — ERRATUM #2: Read-of-source confinement hole (closed) + c9 pre-fix
+
+**Read hole.** `Read` was allowed so tools could hand the agent screenshot
+*paths* (in /tmp), but nothing restricted WHERE it read. No-search (no
+Bash/Grep/Glob) blocked repo *discovery*, but a lucky absolute-path guess
+defeated it. Blast radius across the whole grid (audited every non-sandbox Read):
+- **maestro/c10/run-5** guessed the real path
+  `…/mobile-agent-bench/target-app/…/CheckoutViewModel.kt`, read the source, and
+  computed the frozen 0.755 from the formula — a genuine ground-truth leak. VOID.
+- **linc/c10/run-5** guessed *wrong* paths (`/forge/BenchTarget/…`,
+  `/lincforge/BenchTarget/…`) → reads failed → obtained nothing (0/5 genuine).
+- Everything else was a tool reading its OWN logs/config (agent-device
+  `.agent-device/…/app.log`, maestro `.maestro/*`) or `/dev/null` — not ground
+  truth. **a1–b7 are clean.**
+
+**Fix.** `agent.ensure_confinement()` writes a PreToolUse Read-guard hook into the
+agent cwd (a separate process the agent can't disable). It denies Read of paths
+matching `mobile-agent-bench|target-app|/src/(main|test)/|\.kt$|\.java$|SPEC\.md$`
+while leaving screenshots (`.png` in /tmp) and tool logs readable — fair to every
+tool. Validated end-to-end: a live confined agent's source Read was denied and it
+refused to route around the guard. Unit-tested (`test_read_guard_*`).
+
+**Action.** The entire c10 row was voided to `results_invalid/c10-erratum2/` and
+is being re-run under the hook (so no c10 transcript carries even a leak
+*attempt*). a1–b7 are NOT re-run: the hook is a no-op for cells that never
+attempted a source read, and all of a1–b7 were audited clean — so their results
+are identical with or without it.
+
+## 2026-07-10 — c9 verify pre-fixed (before any c9 cell ran)
+
+Pre-testing c9's pattern (the lesson from b7/c10/b6) found a latent false positive:
+the alternation included bare `block`, which matched "**block**ing" inside a SHIP
+verdict ("no blocking issues, SHIP" false-PASSED the ship-gate). Dropped bare
+`block`/`not ready`; kept explicit DO-NOT-SHIP forms + no-go. No c9 cell had run,
+so nothing was re-graded — a clean pre-emptive grader fix.

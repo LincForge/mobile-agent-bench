@@ -13,7 +13,14 @@ app:
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
-  pattern: '(?=.*(do not ship|don''t ship|should not ship|not ready|no[- ]go|block))(?=.*(tier|dropdown))'
+  # Requires a clear DO-NOT-SHIP verdict + reference to the tier/dropdown defect.
+  # AMENDED 2026-07-10 (pre-emptive, before any c9 cell ran): the original
+  # alternation included bare `block`, which matched "blocking" inside a SHIP
+  # verdict ("no blocking issues, SHIP" false-PASSED the gate). Dropped bare
+  # `block`/`not ready`; kept explicit DO-NOT-SHIP forms + no-go. Whether the
+  # answer actually LOCALIZES the tier-propagation defect (vs mentioning tier
+  # incidentally) is eyeball-adjudicated per the task notes.
+  pattern: '(?=.*(do not ship|don''t ship|should not ship|do-?not-?ship|no[- ]go))(?=.*(tier|dropdown))'
 timeout_s: 900
 notes: >-
   The gate story (doc 044 task 9). Device carries the `seeded` flavor build
