@@ -13,7 +13,15 @@ app:
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
-  pattern: '0[.,]755'
+  # Must ASSERT 0.755 as the obtained value, not merely mention it. AMENDED
+  # 2026-07-10 (see AMENDMENTS.md): the bare `0[.,]755` false-PASSED answers
+  # that gave 0.755 only as the low end of a UI back-division RANGE while
+  # explicitly disclaiming they couldn't obtain it (e.g. maestro: "range from
+  # about 0.755 to 0.770 — I can't pin it down from UI alone"). The negative
+  # lookahead rejects 0.755 immediately followed by a range separator + number
+  # ("0.755-0.770", "0.755 to 0.770"). Grounding (did the tool actually read the
+  # running process vs guess?) is still eyeball-audited against the transcript.
+  pattern: '0[.,]755(?!\s*(?:[-–—]|to\b|and\b|\.\.)\s*\d)'
 timeout_s: 900
 notes: >-
   Runtime inspection (doc 044 task 10). Ground truth 0.755 (frozen in

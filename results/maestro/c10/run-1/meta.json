@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "PASS",
+  "regraded_utc": "2026-07-10T13:36:17+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T13:09:47+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 42142,
+    "cache_read_tokens": 737703,
+    "input_tokens": 3894,
+    "num_turns": 17,
+    "output_tokens": 5614,
+    "source": "result-record",
+    "total_billed": 789353,
+    "total_cost_usd": 0.5707589,
+    "total_uncached": 51650
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='0[.,]755(?!\\\\s*(?:[-\u2013\u2014]|to\\\\b|and\\\\b|\\\\.\\\\.)\\\\s*\\\\d)' answer[-500:]=\"49.50, $50.49], which back-calculates to a discountFactor range of roughly **0.755\u20130.770** \u2014 so I can't pin down the exact double the code computed, only this range/estimate.\\n\\nTo get the actual precise runtime value you'd need `adb logcat` (if the ViewModel logs it), an attached JDWP/Android Studio debugger breakpointed in `applyDiscount()`, or an instrumented build \u2014 none of which I have access to here. Let me know if you can grant adb/shell access to the device and I'll capture the real value.\"",
+  "wall_time_s": 137.19
+}

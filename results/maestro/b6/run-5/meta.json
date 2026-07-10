@@ -1,4 +1,7 @@
 {
+  "adjudicated_from": "PASS",
+  "adjudicated_utc": "2026-07-10T13:37:17+00:00",
+  "adjudication": "manual eyeball-audit (task notes): conclusion misdiagnoses the flake as a 'non-deterministic sync status check' and explicitly rules out the correct cause (\"isn't a simple ... launch-count alternation, which rules out a simple persisted counter\"); the regex matched the substring 'launch-count' inside that dismissal. Correct cause is the deterministic persisted launchCount%5 in {2,4}. FAIL.",
   "agent_exit_code": 0,
   "capability_row": false,
   "device": {
@@ -30,7 +33,7 @@
     "total_uncached": 73314
   },
   "tool": "maestro",
-  "verdict": "PASS",
+  "verdict": "FAIL",
   "verify_detail": " it inherits this app-level ~60% success rate directly \u2014 explaining the \"passes about 3 times out of 5\" symptom almost exactly.\\n\\n**Recommendation for the test team:** this isn\\'t a test-authoring bug (no need for extra waits/retries) \u2014 the app itself needs either a deterministic sync-status value for test/bench builds, or the test needs to first assert on/handle the `Sync status` text and only assert the button when it\\'s `Sync idle` (or trigger a state that guarantees idle before asserting).'",
   "wall_time_s": 243.68
 }
