@@ -12,7 +12,9 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import json
 import os
+import re
 import statistics
 import sys
 from pathlib import Path
@@ -98,6 +100,53 @@ def cmd_run(args: argparse.Namespace) -> int:
     return 1 if failures and args.strict else 0
 
 
+def cmd_regrade(args: argparse.Namespace) -> int:
+    """Re-apply the current answer-verify patterns to already-captured
+    transcripts, updating meta.json verdicts — no device, no re-run. Used when a
+    verify pattern is corrected after the fact (see AMENDMENTS.md): the tool's
+    answer is frozen evidence in the transcript; only the grader changes. Only
+    ``answer``-type tasks are re-gradable offline (``shell``/device-state tasks
+    need the live device); timed-out runs stay FAIL and are never promoted.
+    """
+    tasks = {t.id: t for t in load_all_tasks(ROOT / "tasks")}
+    root = results_root()
+    scanned = changed = 0
+    skipped_nonanswer: set[str] = set()
+    now = datetime.datetime.now(datetime.UTC).isoformat(timespec="seconds")
+    for meta_path in sorted(root.glob("*/*/run-*/meta.json")):
+        rec = json.loads(meta_path.read_text())
+        tid = rec.get("task")
+        if args.task != "all" and tid != args.task:
+            continue
+        task = tasks.get(tid)
+        if task is None:
+            continue
+        if task.verify.type != "answer":
+            skipped_nonanswer.add(tid)
+            continue
+        if rec.get("timed_out"):
+            continue  # a timed-out run can never be promoted to PASS
+        scanned += 1
+        answer = agent_mod.final_answer_text(meta_path.parent / "transcript.jsonl")
+        matched = re.search(task.verify.pattern, answer, re.IGNORECASE | re.DOTALL)
+        new_verdict = "PASS" if matched else "FAIL"
+        if new_verdict == rec.get("verdict"):
+            continue
+        changed += 1
+        cell = meta_path.parent.relative_to(root)
+        print(f"{'DRY ' if args.dry_run else ''}REGRADE {cell}: {rec.get('verdict')} -> {new_verdict}")
+        if not args.dry_run:
+            rec["regraded_from"] = rec.get("verdict")
+            rec["regraded_utc"] = now
+            rec["verdict"] = new_verdict
+            rec["verify_detail"] = f"pattern={task.verify.pattern!r} answer[-500:]={answer[-500:]!r}"
+            agent_mod.write_meta(meta_path.parent, rec)
+    print(f"scanned {scanned} answer-cells; {changed} verdict change(s){' (dry-run)' if args.dry_run else ''}")
+    if skipped_nonanswer:
+        print(f"skipped non-answer tasks (device-state, not re-gradable offline): {sorted(skipped_nonanswer)}")
+    return 0
+
+
 def cmd_report(_args: argparse.Namespace) -> int:
     import json
 
@@ -142,6 +191,14 @@ def main() -> int:
 
     p_rep = sub.add_parser("report", help="aggregate results to a markdown table")
     p_rep.set_defaults(func=cmd_report)
+
+    p_reg = sub.add_parser(
+        "regrade",
+        help="re-apply current answer-verify patterns to stored transcripts (no device)",
+    )
+    p_reg.add_argument("--task", default="all", help="task id or 'all'")
+    p_reg.add_argument("--dry-run", action="store_true", help="preview changes without writing")
+    p_reg.set_defaults(func=cmd_regrade)
 
     args = parser.parse_args()
     return args.func(args)

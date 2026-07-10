@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:37:08+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 43673,
+    "cache_read_tokens": 338613,
+    "input_tokens": 3389,
+    "num_turns": 11,
+    "output_tokens": 4290,
+    "source": "result-record",
+    "total_billed": 389965,
+    "total_cost_usd": 0.4388409,
+    "total_uncached": 51352
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "ime` values.\\n2. If that\\'s not possible, I can use screen recording as a rough proxy (terminate app \u2192 start recording \u2192 launch \u2192 stop once UI settles), but this only gives an \"approximate duration\" per the tool\\'s own description, confounded by my tool-call round-trip latency \u2014 not something I\\'d label as a precise cold-start benchmark.\\n\\nHow would you like to proceed \u2014 can you enable shell/adb access for this session, or should I go with the rougher screen-recording proxy (clearly caveated)?'",
+  "wall_time_s": 69.68
+}

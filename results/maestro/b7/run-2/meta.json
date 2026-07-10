@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "FAIL",
+  "regraded_utc": "2026-07-10T06:52:07+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:25:05+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 135827,
+    "cache_read_tokens": 2513332,
+    "input_tokens": 4202,
+    "num_turns": 32,
+    "output_tokens": 18878,
+    "source": "result-record",
+    "total_billed": 2672239,
+    "total_cost_usd": 1.8654395999999998,
+    "total_uncached": 158907
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]=' n\u22121) / \u224812.7 ms (population)\\n\\nResults are tight (spread of only 33ms, ~1.9% CV), indicating a stable, reproducible cold start.\\n\\n**Caveat:** No `adb shell am start -W` access was available in this environment (Maestro-only tool surface, no shell), so this measures wall-clock time from issuing the launch command to the \"Catalog\" button becoming visible/interactive \u2014 very close to but not identical to ActivityManager\\'s `TotalTime` metric, and includes a small constant automation-overhead per call.'",
+  "wall_time_s": 395.57
+}

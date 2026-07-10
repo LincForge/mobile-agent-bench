@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:41:49+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 32256,
+    "cache_read_tokens": 350167,
+    "input_tokens": 3246,
+    "num_turns": 9,
+    "output_tokens": 3541,
+    "source": "result-record",
+    "total_billed": 389210,
+    "total_cost_usd": 0.3621411,
+    "total_uncached": 39043
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "reenshot-polling method above, clearly labeled as low-precision/noisy (not suitable for real benchmarking claims).\\n2. **You enable real ADB access** (e.g., grant a shell/Bash tool, or confirm Termux/adb is reachable) so I can run `adb shell am force-stop` + `am start -W` for authoritative measurements \u2014 this is the standard, correct way to do this and only takes a moment to wire up.\\n\\nI'd recommend option 2 for a result you can actually trust and report. Let me know how you'd like to proceed.\"",
+  "wall_time_s": 61.78
+}

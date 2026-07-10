@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:40:46+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 448,
+    "cache_read_tokens": 61399,
+    "input_tokens": 2,
+    "num_turns": 1,
+    "output_tokens": 43,
+    "source": "result-record",
+    "total_billed": 61892,
+    "total_cost_usd": 0.6764036999999998,
+    "total_uncached": 493
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?s)(\\\\d{2,6}\\\\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)' answer[-500:]='Monitor task completed successfully \u2014 all 5 cold-start measurements were already captured and reported to the user. Nothing further to do.'",
+  "wall_time_s": 111.6
+}

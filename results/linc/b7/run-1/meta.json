@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "FAIL",
+  "regraded_utc": "2026-07-10T06:52:07+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:06:12+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 55708,
+    "cache_read_tokens": 1524809,
+    "input_tokens": 4276,
+    "num_turns": 25,
+    "output_tokens": 5151,
+    "source": "result-record",
+    "total_billed": 1589944,
+    "total_cost_usd": 0.8824856999999998,
+    "total_uncached": 65135
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]=' (equivalent to `am start -W` TotalTime):\\n\\n| Run | Cold start (ms) |\\n|---|---|\\n| 1 | 472 |\\n| 2 | 440 |\\n| 3 | 437 |\\n| 4 | 435 |\\n| 5 | 444 |\\n\\n- **Median:** 440 ms\\n- **Mean:** 445.6 ms\\n- **Standard deviation (sample, n\u22121):** \u224815.1 ms (variance \u2248229.3 ms\u00b2)\\n- **Standard deviation (population):** \u224813.5 ms (variance \u2248183.4 ms\u00b2)\\n\\nRuns were fairly tight except the first, which ran slightly higher (472ms) \u2014 plausibly a one-time cache/filesystem warm-up effect from the very first cold start in the session.'",
+  "wall_time_s": 105.35
+}

@@ -35,3 +35,35 @@ re-run and no result is altered. The improvements observed on nerve during this
 run (`6a78b78b`, `46093171`, `c3409161`, `2d8b11f4`) are deferred to a future
 **v2** grid (fresh pre-registration) so the delta can be published cleanly
 without moving the target mid-measurement.
+
+## 2026-07-10 — b7 verify pattern corrected (bug) + transcripts re-graded
+
+**What / why.** The b7 (cold-start timing) verify pattern was
+`(?s)(\d{2,6}\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)`.
+It required five **inline** `NN ms` strings to appear *before* the word
+"median". Every capable agent instead reported the five figures in a **table**
+(bare numbers, "ms" in the column header) with median/variance below — so the
+only `\d ms` matches fell in the stats lines, out of order, and the pattern
+returned no match. Result: **all 15 b7 cells recorded FAIL**, including
+objectively-correct answers from all three tools (e.g. linc/run-2 reported
+462/449/453/455/438 ms, median 453 ms, stdev 8.85 ms, variance 78.3 ms²,
+measured from the OS `Displayed`/`TotalTime` logcat metric). This was a
+**grader bug, tool-agnostic** — it rejected the competitors' correct answers too.
+
+**Fix.** The pattern now encodes the task's stated intent with order-independent
+lookaheads (searched `IGNORECASE|DOTALL`): median + a variance/stdev term + `ms`
+units + ≥5 numeric figures — without assuming answer layout.
+
+**Re-grade, not re-run.** The agents' answers are frozen evidence in the
+transcripts; only the grader was wrong. A new `bench regrade` subcommand
+re-applies the corrected pattern to the stored transcripts and updates
+`meta.json` (recording `regraded_from` + `regraded_utc`); timed-out runs are
+never promoted. Re-running on-device was rejected as less defensible (it would
+re-roll answers). A full-grid `regrade --dry-run` audit confirmed **only b7**
+cells were affected — every other answer-task's recorded verdicts were already
+correct. (Device-state tasks a2/a3 verify against the live device and cannot be
+re-graded offline; both were 5/5 at run time.)
+
+**Effect on b7:** linc 5/5, maestro 2/5, mobile-mcp 1/5 (was 0/0/0). The fix
+was defined from the task's stated intent, not to make any tool pass; the human
+transcript eyeball-audit for fabrication (per the task notes) still applies.

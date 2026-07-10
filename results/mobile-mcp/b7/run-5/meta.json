@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:42:51+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34175,
+    "cache_read_tokens": 303682,
+    "input_tokens": 3244,
+    "num_turns": 8,
+    "output_tokens": 3764,
+    "source": "result-record",
+    "total_billed": 344865,
+    "total_cost_usd": 0.3630486,
+    "total_uncached": 41183
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?s)(\\\\d{2,6}\\\\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)' answer[-500:]='Multiple Android devices are available: Pixel Watch 2, Pixel 8 Pro, SM-G970U (Galaxy S10 5G), and SM-T570 (Galaxy Tab A). Which one should I use for the BenchTarget cold-start measurement?'",
+  "wall_time_s": 60.37
+}
