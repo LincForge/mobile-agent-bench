@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": -1,
+  "capability_row": false,
+  "device": {
+    "android_version": "12",
+    "build": "SP1A.210812.016",
+    "model": "SM-G970U",
+    "sdk": "31"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-09T14:01:45+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 85076,
+    "cache_read_tokens": 4833096,
+    "input_tokens": 10794,
+    "num_turns": 99,
+    "output_tokens": 1717,
+    "source": "summed-messages",
+    "total_billed": 4930683,
+    "total_cost_usd": null,
+    "total_uncached": 97587
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]=''",
+  "wall_time_s": 600.04
+}

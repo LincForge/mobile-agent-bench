@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T13:40:55+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 41730,
+    "cache_read_tokens": 669663,
+    "input_tokens": 3890,
+    "num_turns": 15,
+    "output_tokens": 5532,
+    "source": "result-record",
+    "total_billed": 720815,
+    "total_cost_usd": 0.5466229,
+    "total_uncached": 51152
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": " rounded (no cents shown), and the true internal float could differ once un-rounded.\\n\\nTo get the actual runtime value with confidence, I'd need one of: shell/adb access to grep logcat if the method logs it, a debugger attached to the app process with a breakpoint in `applyDiscount()`, or the app's source/decompiled code to read the formula. None of those are available to me right now \u2014 let me know if you can grant adb/shell access or point me at the source, and I can get you the exact figure.\"",
+  "wall_time_s": 126.41
+}
