@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:13:17+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 29687,
+    "cache_read_tokens": 307948,
+    "input_tokens": 1303,
+    "num_turns": 15,
+    "output_tokens": 3930,
+    "source": "result-record",
+    "total_billed": 342868,
+    "total_cost_usd": 0.33407440000000005,
+    "total_uncached": 34920
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "er (e.g., if the UI rounds the total to the nearest dollar, or if `discountFactor` is applied to a differently-rounded per-unit price). I don't want to present that approximation as the actual measured value.\\n\\nIf you want the real answer, I'd need one of:\\n- Access to the app's source (to read the `applyDiscount()` logic directly), or\\n- adb/logcat access (if the ViewModel logs the value) or a JDWP/debugger attach point.\\n\\nLet me know if either becomes available and I'll get the exact value.\"",
+  "wall_time_s": 86.56
+}

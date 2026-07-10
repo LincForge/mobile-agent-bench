@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:24:49+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17267,
+    "cache_read_tokens": 189164,
+    "input_tokens": 810,
+    "num_turns": 14,
+    "output_tokens": 3470,
+    "source": "result-record",
+    "total_billed": 210711,
+    "total_cost_usd": 0.2155332,
+    "total_uncached": 21547
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "ble a shell/Bash or ADB-exec tool for me, I can run the proper `adb shell am force-stop dev.lincforge.benchtarget` + `adb shell am start -W dev.lincforge.benchtarget/<launch-activity>` sequence 5 times and report real `TotalTime` values with median/stddev.\\n2. Without shell access, the best I could do is a rough visual proxy (screen recordings of each launch, timestamped by frame), which would be low-precision and I'd rather not present as real ms measurements.\\n\\nHow would you like to proceed?\"",
+  "wall_time_s": 54.63
+}

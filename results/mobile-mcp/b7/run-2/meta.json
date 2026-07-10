@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:22:49+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 12454,
+    "cache_read_tokens": 117437,
+    "input_tokens": 804,
+    "num_turns": 10,
+    "output_tokens": 3948,
+    "source": "result-record",
+    "total_billed": 134643,
+    "total_cost_usd": 0.1722891,
+    "total_uncached": 17206
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "\\n2. Given I have no adb/shell/timer access, would you like me to:\\n   - (a) approximate cold-start time using screen recordings (start recording \u2192 force-stop app \u2192 launch app \u2192 stop recording, then estimate elapsed time from the video), which will be rough and not true millisecond precision, or\\n   - (b) hold off until a shell/adb tool is available so I can run `am start -W` for accurate `TotalTime` measurements?\\n\\nOption (b) is what I\\'d recommend for numbers you can trust as \"milliseconds.\"'",
+  "wall_time_s": 54.69
+}

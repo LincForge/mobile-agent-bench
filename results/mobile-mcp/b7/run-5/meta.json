@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:25:49+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 13135,
+    "cache_read_tokens": 71792,
+    "input_tokens": 800,
+    "num_turns": 9,
+    "output_tokens": 4504,
+    "source": "result-record",
+    "total_billed": 90231,
+    "total_cost_usd": 0.17100959999999998,
+    "total_uncached": 18439
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "tart benchmark \u2014 this is the correct, precise approach.\\n2. **Degraded/approximate**: using only the mobile-mcp tools, I could force-stop the app, launch it, and poll screenshots/UI elements to see when the UI appears \u2014 but I have no clock tool to timestamp these polls, so I could not actually produce meaningful millisecond numbers this way. This option isn't viable as-is.\\n\\nDo you have a way to expose adb/shell access for this session, or is there another tool you'd like me to use for timing?\"",
+  "wall_time_s": 59.15
+}

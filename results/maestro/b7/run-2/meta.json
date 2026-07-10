@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:12:08+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 40873,
+    "cache_read_tokens": 50101,
+    "input_tokens": 1287,
+    "num_turns": 7,
+    "output_tokens": 2190,
+    "source": "result-record",
+    "total_billed": 94451,
+    "total_cost_usd": 0.29768629999999996,
+    "total_uncached": 44350
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]='I found 4 connected real Android devices. Before I proceed, which one should I use for this benchmark?\\n\\n- `<REDACTED-2>`\\n- `<REDACTED-1>`\\n- `<REDACTED-0>`\\n- `<REDACTED-3>`'",
+  "wall_time_s": 43.34
+}

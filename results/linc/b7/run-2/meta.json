@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T16:16:46+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 59692,
+    "cache_read_tokens": 1596916,
+    "input_tokens": 1489,
+    "num_turns": 34,
+    "output_tokens": 10228,
+    "source": "result-record",
+    "total_billed": 1668325,
+    "total_cost_usd": 0.9958157999999999,
+    "total_uncached": 71409
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "| 5 | 26310 | 451 |\\n\\n**Summary:**\\n- Mean: 445.8 ms\\n- Median: 445 ms\\n- Standard deviation: \u22482.95 ms (sample, n\u22121) / \u22482.64 ms (population, n)\\n- Variance: \u22488.7 ms\u00b2 (sample) / \u22486.96 ms\u00b2 (population)\\n\\nResults are very tight (range 444\u2013451 ms), indicating a stable, low-variance cold start. I reserved the device exclusively during the run to avoid interference (noticed unrelated logcat entries beforehand that turned out to just be my own force-stop side effects, confirmed once I checked PIDs).'",
+  "wall_time_s": 197.76
+}

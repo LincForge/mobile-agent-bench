@@ -193,6 +193,23 @@ provably never invoked the removed tools (v1 outcome ≡ v3 outcome for them). T
 the third confinement erratum (source-read hole #2, shell-escape #3); v2 starts from
 this hardened baseline.
 
+**Outcome (re-run complete, every re-run cell verified `Monitor=0`).** Removing the
+shell escape changed exactly the cells that had leaned on it — and left the
+legitimately-earned results untouched:
+
+| cell | v1 (contaminated) | v3 (clean) | reading |
+|------|-------------------|-----------|---------|
+| linc/b7        | 5/5 | **5/5** | unchanged — linc's cold-start timing came from nerve's MCP (metrics/logcat) all along |
+| maestro/b7     | 2/5 | **2/5** | unchanged — its passes used Maestro's own force-stop+timing |
+| mobile-mcp/b7  | 1/5 | **0/5** | its lone pass had used a Monitor `adb` shell |
+| maestro/b5     | 3/5 | **0/5** | maestro's flaky-behavior detection was *entirely* raw `adb logcat` via Monitor; with no shell it scores 0 (one run hit the 900s timeout) |
+| maestro/c10    | jdb 0.755 | **0/5** | the sole pass was the raw-`jdb` breakpoint read; gone |
+
+Net: maestro's apparent strength on b5/c10 was borrowed from a raw adb/jdb shell,
+not from Maestro. linc's numbers were escape-independent (it solved via nerve's
+structured surface), so they held. The published v1 grid uses these v3 numbers for
+b5(maestro)/b7(all)/c10(maestro); the other cells were certified escape-free.
+
 ## 2026-07-10 — device-interference audit (no cells voided) + scheduled job neutralized
 
 **Trigger.** The CEO glimpsed the SniperPulse home screen on the scored Pixel

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T16:13:27+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 52177,
+    "cache_read_tokens": 688860,
+    "input_tokens": 1545,
+    "num_turns": 23,
+    "output_tokens": 4880,
+    "source": "result-record",
+    "total_billed": 747462,
+    "total_cost_usd": 0.5982570000000001,
+    "total_uncached": 58602
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "old start (Pixel 8 Pro, Android 16)\\n\\n| Run | Time (ms) |\\n|-----|-----------|\\n| 1   | 473       |\\n| 2   | 432       |\\n| 3   | 444       |\\n| 4   | 434       |\\n| 5   | 444       |\\n\\n- **Median:** 444 ms\\n- **Mean:** 445.4 ms\\n- **Standard deviation:** \u224814.7 ms (population) / \u224816.4 ms (sample, n\u22121)\\n- **Variance:** \u2248215.0 ms\u00b2 (population) / \u2248268.8 ms\u00b2 (sample)\\n\\nCold starts were tight and consistent (range 432\u2013473 ms, ~4% spread), suggesting stable startup behavior with no major outliers.'",
+  "wall_time_s": 93.25
+}
