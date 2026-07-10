@@ -143,3 +143,41 @@ the alternation included bare `block`, which matched "**block**ing" inside a SHI
 verdict ("no blocking issues, SHIP" false-PASSED the ship-gate). Dropped bare
 `block`/`not ready`; kept explicit DO-NOT-SHIP forms + no-go. No c9 cell had run,
 so nothing was re-graded — a clean pre-emptive grader fix.
+
+## 2026-07-10 — device-interference audit (no cells voided) + scheduled job neutralized
+
+**Trigger.** The CEO glimpsed the SniperPulse home screen on the scored Pixel
+during the c10 window and flagged possible interference from another session or
+automation — a benchmark-integrity concern (a foreign app in the foreground
+mid-run would disrupt the agent's BenchTarget interaction).
+
+**Investigation.** Two questions: (1) did any *completed* run capture foreign
+foreground contamination, and (2) what launched SniperPulse.
+
+1. **Transcript classification.** Grepped every `results/` transcript for
+   `sniperpulse` and classified each hit by context. **35 transcripts mention it;
+   0 show it as a foreground/resumed activity** — every mention is inside a
+   device/app-enumeration tool result (`nerve_apps` / `mobile_list_apps` listing
+   *installed* packages; SniperPulse is installed on this shared dev device, so
+   it appears in any package dump). Benign enumeration, not contamination. The
+   three c10 re-run transcripts likewise show `foreground_sniper=none`.
+
+2. **Source of the sighting.** The launchd job `com.linc.daily-device-tests`
+   (`StartCalendarInterval` 05:00 local) runs a crucible **BVT** pass that builds
+   and launches apps — including SniperPulse — on the physical fleet. Its logs
+   show it fired **once today, 05:00–05:13 local (12:00–12:13 UTC)**, leaving
+   SniperPulse on-screen afterward. The c10 re-runs ran **14:31–14:37 UTC** —
+   ~2.5 h later, **zero temporal overlap**. The CEO saw the *residue* of the
+   05:13 job, cleared by the first c10 `reset` (`force-stop`). It also plausibly
+   explains the two earlier "external kills" (BVT grabbing the device / issuing
+   force-stops mid-run), though those cells were re-run regardless.
+
+**Conclusion — no cell voided.** No completed transcript carries foreground
+contamination; the only fire today did not overlap any run. Nothing to void.
+
+**Neutralization (going forward).** `com.linc.daily-device-tests` was booted out
+of the user launchd domain (`launchctl bootout gui/$UID/…`) so it cannot fire at
+05:00 during the remaining grid — critical because the agent-device column runs
+unattended and could span 05:00. The plist is left in place; re-enable after the
+grid with `launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.linc.daily-device-tests.plist`.
+Exclusive scored-device access is now the standing condition for the rest of v1.
