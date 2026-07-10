@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T14:31:21+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 137662,
+    "cache_read_tokens": 9160969,
+    "input_tokens": 5515,
+    "num_turns": 87,
+    "output_tokens": 24167,
+    "source": "result-record",
+    "total_billed": 9328313,
+    "total_cost_usd": 3.9540067,
+    "total_uncached": 167344
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "but getting the *exact* runtime `discountFactor` value would require either a debuggable build of the app (to attach Spectra and read the variable live) or source-level access to `CheckoutViewModel` \u2014 neither of which is available in this environment. I don't want to report a guessed/interpolated number as if it were the observed value.\\n\\nWould you like me to try requesting a debuggable build be registered/deployed, or is the $65.59 \u2192 $50 rounded-total observation sufficient for your purposes?\"",
+  "wall_time_s": 509.44
+}

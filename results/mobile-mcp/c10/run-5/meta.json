@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T16:01:34+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33151,
+    "cache_read_tokens": 998689,
+    "input_tokens": 3566,
+    "num_turns": 25,
+    "output_tokens": 6497,
+    "source": "result-record",
+    "total_billed": 1041903,
+    "total_cost_usd": 0.6073697000000001,
+    "total_uncached": 43214
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": " one of these would get it:\\n1. Grant shell/adb access so I can run `adb logcat` while triggering the action (if the app logs the value, or if I can attach a debugger/breakpoint).\\n2. Point me to the app's source (if `CheckoutViewModel` is in a repo I can read) so I can read the actual formula and compute it exactly for qty=7.\\n3. If the app has a debug/verbose mode that prints internal state, enable it and I'll re-run the interaction.\\n\\nLet me know which of these is feasible and I'll proceed.\"",
+  "wall_time_s": 145.25
+}

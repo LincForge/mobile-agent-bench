@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:59:08+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34844,
+    "cache_read_tokens": 1307679,
+    "input_tokens": 3725,
+    "num_turns": 31,
+    "output_tokens": 8108,
+    "source": "result-record",
+    "total_billed": 1354356,
+    "total_cost_usd": 0.7348617,
+    "total_uncached": 46677
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "ted to a whole dollar). I'd be fabricating precision I don't actually have if I reported it as the exact internal value.\\n\\nIf you want the real number, the reliable options are: (1) point me at the app's source/APK so I can read `applyDiscount()` directly, (2) enable a debug log line that prints `discountFactor` and let me pull it via `adb logcat` (would need shell/adb tooling added to this session), or (3) attach a debugger and set a breakpoint. Let me know which you'd like and I can proceed.\"",
+  "wall_time_s": 169.48
+}

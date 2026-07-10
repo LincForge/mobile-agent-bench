@@ -50,6 +50,12 @@ def test_build_command_confines_agent_to_tool_under_test(tmp_path):
     # ground-truth-discovery vectors).
     for banned in ("Bash", "Write", "Edit", "Grep", "Glob", "WebFetch", "WebSearch", "Task"):
         assert banned in denied, f"{banned} must be denied"
+    # Erratum #3: the harness orchestration surface must be denied too — `Monitor`
+    # runs arbitrary shell (`command` field) in a background loop, which confined
+    # agents used to run raw adb/jdb and bypass the tool-under-test.
+    for banned in ("Monitor", "ScheduleWakeup", "TaskCreate", "TaskStop",
+                   "CronCreate", "Workflow", "Skill", "SendMessage"):
+        assert banned in denied, f"{banned} (orchestration/exec) must be denied"
     # Read is ALLOWED (CEO 2026-07-09): tools that hand back screenshot file paths
     # need it; without Bash/Grep/Glob the agent can't discover ground-truth paths.
     assert "Read" not in denied

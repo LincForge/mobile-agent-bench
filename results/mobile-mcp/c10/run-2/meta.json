@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:52:28+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 61318,
+    "cache_read_tokens": 3304730,
+    "input_tokens": 4284,
+    "num_turns": 67,
+    "output_tokens": 19634,
+    "source": "result-record",
+    "total_billed": 3389966,
+    "total_cost_usd": 1.6673829999999996,
+    "total_uncached": 85236
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "duced totals ($9, $17, $25) implying a much higher factor (~0.91\u20131.0) at low quantity, so the discount is quantity-tiered/scaling, not constant.\\n\\nTo pin down the exact value, I'd need one of: adb/logcat access to this device, the app's source code, or a debug UI that exposes the raw computation \u2014 none of which were reachable with the tools available in this session. Let me know if you can grant shell access (e.g., via Termux/adb) or point me at the source repo, and I can get the exact figure.\"",
+  "wall_time_s": 395.05
+}

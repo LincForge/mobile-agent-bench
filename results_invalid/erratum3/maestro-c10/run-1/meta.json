@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:22:59+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 35321,
+    "cache_read_tokens": 574153,
+    "input_tokens": 4035,
+    "num_turns": 21,
+    "output_tokens": 6458,
+    "source": "result-record",
+    "total_billed": 619967,
+    "total_cost_usd": 0.4938409,
+    "total_uncached": 45814
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": " somewhere in the range **\u22480.762\u20130.777**. That's a back-of-envelope bound, not a measured value \u2014 I don't know the actual formula (rounding point, tiered discount logic, etc.), so I won't present a specific decimal as fact.\\n\\nTo get the real runtime value you'd need one of: a logcat line the app emits during `applyDiscount()`, a debugger breakpoint in `CheckoutViewModel`, or the source file itself. If you can give me shell/adb access (or point me at the source), I can get you the exact figure.\"",
+  "wall_time_s": 154.89
+}

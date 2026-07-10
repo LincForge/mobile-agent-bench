@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:45:52+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 30551,
+    "cache_read_tokens": 1180108,
+    "input_tokens": 3717,
+    "num_turns": 27,
+    "output_tokens": 7223,
+    "source": "result-record",
+    "total_billed": 1221599,
+    "total_cost_usd": 0.6575384,
+    "total_uncached": 41491
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "0\" was rounded/truncated for display.\\n\\nIf you want the exact value, one of these would get it reliably:\\n1. Grant me shell/adb access so I can `adb logcat` while triggering the action (if the method logs `discountFactor`, or I attach a debugger/breakpoint).\\n2. Point me to the app\\'s source or a decompiled APK so I can read the formula directly.\\n3. Confirm if there\\'s a debug/verbose mode in the app itself that surfaces internal calculation values.\\n\\nLet me know which you\\'d like to pursue.'",
+  "wall_time_s": 148.86
+}

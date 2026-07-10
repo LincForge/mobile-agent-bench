@@ -40,9 +40,25 @@ from .tokens import TokenReport, parse_transcript
 # process runs from AGENT_CWD, outside the repo), so ground-truth stays
 # unreachable while file-based screenshots still work. ToolSearch is allowed
 # (MCP tools are deferred; it loads their schemas, never touches the filesystem).
+# ERRATUM #3 (2026-07-10): the deny list covered shell/fs/web/subagent built-ins
+# but NOT the harness *orchestration* surface — and `Monitor` takes a `command`
+# field and runs arbitrary shell in a background loop. Confined agents used it to
+# run raw `adb logcat` / `adb shell pidof` / `adb forward`+`jdb` (a debugger),
+# reading `discountFactor` straight from the running process — bypassing the
+# tool-under-test entirely (and, since Monitor can `cat`, defeating the erratum-#2
+# Read-guard). All three columns' agents had it. Every non-device built-in
+# (orchestration, cron, worktree, resource, plan, notify) is now denied — only
+# Read (path-guarded), ToolSearch (loads deferred MCP schemas), and the
+# tool-under-test's MCP surface remain. See AMENDMENTS.md.
 CONFINE_DISALLOWED_TOOLS = (
     "Bash,BashOutput,KillShell,KillBash,Edit,MultiEdit,Write,NotebookEdit,"
-    "Glob,Grep,WebFetch,WebSearch,Task,Agent,TodoWrite,ExitPlanMode"
+    "Glob,Grep,WebFetch,WebSearch,Task,Agent,TodoWrite,ExitPlanMode,"
+    # erratum #3 — harness orchestration surface (Monitor = the shell-exec hole):
+    "Monitor,ScheduleWakeup,TaskCreate,TaskUpdate,TaskList,TaskGet,TaskOutput,"
+    "TaskStop,CronCreate,CronDelete,CronList,ListMcpResourcesTool,"
+    "ReadMcpResourceTool,ReadMcpResourceDirTool,EnterPlanMode,EnterWorktree,"
+    "ExitWorktree,PushNotification,RemoteTrigger,SendMessage,DesignSync,"
+    "Artifact,AskUserQuestion,Skill,Workflow"
 )
 
 # Neutral working directory for the agent process — outside the benchmark repo,
