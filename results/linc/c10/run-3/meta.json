@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:01:23+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 89539,
+    "cache_read_tokens": 3376967,
+    "input_tokens": 4871,
+    "num_turns": 52,
+    "output_tokens": 14524,
+    "source": "result-record",
+    "total_billed": 3485901,
+    "total_cost_usd": 1.7834960999999996,
+    "total_uncached": 108934
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "ly a rough approximation of `discountFactor`, not its exact runtime value.\\n\\nTo actually get the exact value, I'd need one of: a debuggable build of the app installed on the device, an explicit debug log statement for `discountFactor` added to the source, or direct source/APK access \u2014 none of which I currently have through the available tools. Let me know if you can provide a debug build or enable `android:debuggable=true`, and I can re-run this with the live debugger to get the precise value.\"",
+  "wall_time_s": 304.59
+}

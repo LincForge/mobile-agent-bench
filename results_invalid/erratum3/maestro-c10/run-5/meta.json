@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:43:22+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 68371,
+    "cache_read_tokens": 822540,
+    "input_tokens": 4037,
+    "num_turns": 23,
+    "output_tokens": 7913,
+    "source": "result-record",
+    "total_billed": 902861,
+    "total_cost_usd": 0.7884880000000001,
+    "total_uncached": 80321
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": " / 65.59 \u2248 **0.754 to 0.770** (midpoint \u2248 0.762)\\n\\nThis is a reverse-engineered range from the observable UI, not a confirmed runtime read of the variable \u2014 I\\'d be guessing at a precise figure like \"0.75\" or \"0.7623\" if I stated one as fact.\\n\\nTo actually get the exact value, I\\'d need one of: adb/logcat access (if the app logs it), a debugger attached to the running process, or the app\\'s source/decompiled bytecode. Let me know if you can grant one of those and I\\'ll get the precise number.'",
+  "wall_time_s": 185.6
+}

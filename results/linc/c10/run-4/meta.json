@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:08:31+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 130966,
+    "cache_read_tokens": 6557828,
+    "input_tokens": 5103,
+    "num_turns": 76,
+    "output_tokens": 19936,
+    "source": "result-record",
+    "total_billed": 6713833,
+    "total_cost_usd": 3.0681873999999993,
+    "total_uncached": 156005
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "d:**\\n$50 / $65.59 \u2248 0.762, but the displayed total is almost certainly rounded to the nearest dollar for display, so the true `discountFactor` could be anywhere roughly in **0.755\u20130.778** and still render as \"$50.\" I don\\'t have enough precision to give you the exact double value.\\n\\nTo get the real number, I\\'d need either a debuggable build of BenchTarget installed, or raw adb/shell access to pull and decompile the APK. Let me know if you can provide either and I\\'ll finish the job properly.'",
+  "wall_time_s": 427.67
+}

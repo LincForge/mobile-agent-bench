@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T14:37:47+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 86349,
+    "cache_read_tokens": 4552751,
+    "input_tokens": 5042,
+    "num_turns": 63,
+    "output_tokens": 17700,
+    "source": "result-record",
+    "total_billed": 4661842,
+    "total_cost_usd": 2.1652392999999996,
+    "total_uncached": 109091
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "ue.\\n\\n**Bottom line:** I performed the exact interaction requested, but I cannot report a verified numeric value for `discountFactor` \u2014 the app isn't debuggable and doesn't log it. To get the real value, the app would need to be reinstalled from a debug build (`android:debuggable=true`) so `spectra_attach` can breakpoint `applyDiscount()` and read the variable directly. Let me know if you'd like me to proceed differently (e.g., if you can point me to a debug APK or the project's build config).\"",
+  "wall_time_s": 384.94
+}

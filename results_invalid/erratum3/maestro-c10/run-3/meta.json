@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:37:20+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 120739,
+    "cache_read_tokens": 4702034,
+    "input_tokens": 33117,
+    "num_turns": 53,
+    "output_tokens": 23244,
+    "source": "result-record",
+    "total_billed": 4879134,
+    "total_cost_usd": 2.583754200000001,
+    "total_uncached": 177100
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "ity = 7) to trigger it.\\n5. The breakpoint hit at method entry; I single-stepped (`next`) past the point where `discountFactor` is assigned, then ran `locals`, which reported: `discountFactor = 0.755`.\\n6. Resumed the thread (`cont`), detached jdb, and removed the port forward to leave the app in a clean state.\\n\\nThis confirms the exact runtime value for quantity = 7 during `CheckoutViewModel.applyDiscount()` is **0.755** (a ~24.5% discount), consistent with the displayed rounded total of $50.'",
+  "wall_time_s": 437.32
+}

@@ -144,6 +144,55 @@ verdict ("no blocking issues, SHIP" false-PASSED the ship-gate). Dropped bare
 `block`/`not ready`; kept explicit DO-NOT-SHIP forms + no-go. No c9 cell had run,
 so nothing was re-graded — a clean pre-emptive grader fix.
 
+## 2026-07-10 — ERRATUM #3: Monitor shell-escape (confinement bypass) + affected rows re-run
+
+**The hole.** `CONFINE_DISALLOWED_TOOLS` denied the shell/fs/web/subagent built-ins
+(Bash, Grep, Glob, Task, …) but **not the harness orchestration surface** — and the
+built-in **`Monitor`** tool takes a `command` field and runs **arbitrary shell** in a
+background loop (`persistent:true` spawns a background task whose output the agent
+then Reads). Confined agents used `Monitor` to run raw `adb logcat`, `adb shell
+pidof`, and `adb forward`+**`jdb`** (a Java debugger) — e.g. `maestro/c10/run-3`
+attached jdb to the running process, hit a breakpoint in
+`CheckoutViewModel.applyDiscount()`, and read `discountFactor = 0.755` directly.
+This bypasses the tool-under-test entirely (the exact adb-bypass the confinement
+existed to prevent) and, because `Monitor` can also `cat`, structurally defeats the
+erratum-#2 Read-guard. All three tool columns' agents had `Monitor`.
+
+**Blast radius (measured, not assumed).** Parsed every transcript for `Monitor`
+tool_use whose `command` ran a device shell. All 61 `Monitor` calls were adb-family
+(none `cat` source, so the Read-guard was not defeated *in practice*).
+`ScheduleWakeup`/`TaskCreate` do **not** exec (no `command` field; they only carried
+adb strings as prompt/description text). **8 of 120 completed cells** actually ran
+the escape:
+
+| task | linc | maestro | mobile-mcp |
+|------|------|---------|------------|
+| b5   | 0/5  | **3/5** | 0/5 |
+| b7   | **1/5** | **1/5** | **2/5** |
+| c10  | 0/5  | **1/5** | 0/5 |
+
+(a1–a4, b6, and all unlisted cells: **0** Monitor-shell calls.)
+
+**Fix.** Every non-device built-in is now denied — the orchestration surface
+(`Monitor`, `ScheduleWakeup`, `Task*`), cron, worktree, MCP-resource, plan, notify,
+`Workflow`, `Skill`, `SendMessage`, `AskUserQuestion`, `Artifact`. Only `Read`
+(path-guarded, erratum #2), `ToolSearch` (loads deferred MCP schemas), and the
+tool-under-test's MCP surface remain. Unit-tested (`test_build_command_confines…`
+now asserts `Monitor`/`ScheduleWakeup`/`TaskCreate`/`Workflow`/… are denied).
+
+**Remediation (CEO decision 2026-07-10 — "affected rows only").** The 112 cells
+with zero Monitor-shell calls are *positively certified* clean (no shell output
+existed to influence the answer) and are **confinement-invariant** — they stand.
+Voided to `results_invalid/erratum3/` and re-run under the fixed confinement:
+- **b7 — all three tools** (all were contaminated) → 15 runs.
+- **maestro/b5** (linc/b5, mobile-mcp/b5 were clean → stand) → 5 runs.
+- **maestro/c10** (linc/c10, mobile-mcp/c10 were clean → stand) → 5 runs.
+
+Clean cells of a partially-contaminated task keep their v1 results because they
+provably never invoked the removed tools (v1 outcome ≡ v3 outcome for them). This is
+the third confinement erratum (source-read hole #2, shell-escape #3); v2 starts from
+this hardened baseline.
+
 ## 2026-07-10 — device-interference audit (no cells voided) + scheduled job neutralized
 
 **Trigger.** The CEO glimpsed the SniperPulse home screen on the scored Pixel

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T15:19:00+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 89106,
+    "cache_read_tokens": 4834165,
+    "input_tokens": 5499,
+    "num_turns": 83,
+    "output_tokens": 32451,
+    "source": "result-record",
+    "total_billed": 4961221,
+    "total_cost_usd": 2.4888465,
+    "total_uncached": 127056
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "on't have enough information to know the app's exact rounding rule (round/floor/truncate) or whether other computation happens before the display truncates to whole dollars.\\n\\n**I did not obtain the exact runtime `discountFactor` value.** To get it precisely, the app would need a debuggable build, or you could grant me another introspection path (e.g., a debug APK to install, root/`run-as` access, or source access to `CheckoutViewModel.kt`). Let me know if you'd like me to pursue any of those.\"",
+  "wall_time_s": 627.89
+}
