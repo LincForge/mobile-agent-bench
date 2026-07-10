@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:20:41+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28075,
+    "cache_read_tokens": 290205,
+    "input_tokens": 1303,
+    "num_turns": 14,
+    "output_tokens": 4592,
+    "source": "result-record",
+    "total_billed": 324175,
+    "total_cost_usd": 0.3290145,
+    "total_uncached": 33970
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "the ViewModel \u2014 it could easily be a \"clean\" value like 0.75, 0.76, or something quantity-dependent that just happens to round to $50 here.\\n\\nTo get the exact runtime value, I\\'d need one of: source access to `CheckoutViewModel.kt`, a logcat statement/debug build that prints the factor, or a JDWP/debugger attach to the running process. Let me know if any of those are available (e.g., if this is a debug build with logging, or if you can point me at the source), and I can pursue an exact answer.'",
+  "wall_time_s": 87.59
+}

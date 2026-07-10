@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:20:51+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 76828,
+    "cache_read_tokens": 927776,
+    "input_tokens": 1321,
+    "num_turns": 23,
+    "output_tokens": 10199,
+    "source": "result-record",
+    "total_billed": 1016124,
+    "total_cost_usd": 0.8969507999999999,
+    "total_uncached": 88348
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "ion interface (no raw `adb shell`/`am start -W`), so timing was captured in-flow via `Date.now()` from just before `launchApp` to the first appearance of the home screen\\'s \"Catalog\" element, then relayed off-device by writing the value into the app\\'s own text field and reading it back via UI inspection. This is a close proxy for \"time to first meaningful content\" rather than the exact ActivityManager `TotalTime` metric, but each run was a genuine cold start (process force-stopped beforehand).'",
+  "wall_time_s": 216.09
+}

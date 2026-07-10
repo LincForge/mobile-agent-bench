@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T16:22:31+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 23417,
+    "cache_read_tokens": 102181,
+    "input_tokens": 1289,
+    "num_turns": 9,
+    "output_tokens": 3538,
+    "source": "result-record",
+    "total_billed": 130425,
+    "total_cost_usd": 0.2287953,
+    "total_uncached": 28244
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "ian)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]=\"I found the Maestro MCP tools, but there are **4 real Android devices** connected, and Maestro doesn't expose raw ADB shell (so I can't use `adb shell am start -W` for precise timing \u2014 I'll have to time `launchApp` via Maestro's own instrumentation/timestamps instead).\\n\\nWhich device should I use for BenchTarget?\\n- `<REDACTED-2>`\\n- `<REDACTED-1>`\\n- `<REDACTED-0>`\\n- `<REDACTED-3>`\"",
+  "wall_time_s": 53.13
+}

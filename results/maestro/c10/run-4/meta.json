@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:19:13+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28579,
+    "cache_read_tokens": 344041,
+    "input_tokens": 1305,
+    "num_turns": 14,
+    "output_tokens": 4244,
+    "source": "result-record",
+    "total_billed": 378169,
+    "total_cost_usd": 0.3429553,
+    "total_uncached": 34128
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "nded for display, so that would be an estimate, not the actual runtime value \u2014 and I don't want to hand you a fabricated-looking precise number.\\n\\nTo get the real value, one of these would work:\\n- Point me at the app's source (or the decompiled APK) so I can read the formula.\\n- Attach a debugger to the process and set a breakpoint in `applyDiscount()`.\\n- If the app logs it, give me a way to pull logcat.\\n\\nWant me to try any of those, or is the source code available somewhere I should look?\"",
+  "wall_time_s": 96.17
+}

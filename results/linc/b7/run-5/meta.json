@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T16:24:23+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 58418,
+    "cache_read_tokens": 1810581,
+    "input_tokens": 1497,
+    "num_turns": 38,
+    "output_tokens": 8839,
+    "source": "result-record",
+    "total_billed": 1879335,
+    "total_cost_usd": 1.0314603000000002,
+    "total_uncached": 68754
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "d-start results \u2014 Pixel 8 Pro, Android 16 (<REDACTED-1>):**\\n\\n| Run | Cold-start time |\\n|-----|-----------------|\\n| 1   | 491 ms |\\n| 2   | 441 ms |\\n| 3   | 446 ms |\\n| 4   | 455 ms |\\n| 5   | 461 ms |\\n\\n- **Median:** 455 ms\\n- **Mean:** 458.8 ms\\n- **Standard deviation:** \u224817.5 ms (population), \u224819.6 ms (sample, n\u22121)\\n- **Variance:** \u2248307.4 ms\u00b2 (population), \u2248384.2 ms\u00b2 (sample)\\n\\nRuns were tight and consistent (range 441\u2013491 ms), suggesting stable cold-start performance with no outliers.'",
+  "wall_time_s": 163.26
+}

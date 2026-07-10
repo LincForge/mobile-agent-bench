@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:11:48+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 109071,
+    "cache_read_tokens": 2306148,
+    "input_tokens": 1357,
+    "num_turns": 47,
+    "output_tokens": 13515,
+    "source": "result-record",
+    "total_billed": 2430091,
+    "total_cost_usd": 1.5537853999999998,
+    "total_uncached": 123943
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "ly before/after the crash showing the app replaced by the Android home launcher (confirms process death, not a hang or in-app error screen).\\n- Maestro Viewer was live at http://127.0.0.1:9999/ during the session if you want to review the run history there.\\n\\n**Bottom line:** the crash is real, reliably reproducible, and isolated to catalog **Item 013**'s export flow \u2014 but I can't hand you the exception class/message without device log access, which wasn't available in my toolset this session.\"",
+  "wall_time_s": 448.06
+}

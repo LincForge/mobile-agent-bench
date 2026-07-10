@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:47:13+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 73798,
+    "cache_read_tokens": 2125627,
+    "input_tokens": 1369,
+    "num_turns": 46,
+    "output_tokens": 14053,
+    "source": "result-record",
+    "total_billed": 2214847,
+    "total_cost_usd": 1.2960920999999999,
+    "total_uncached": 89220
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "enchTarget.\\n- Repeated, consistent reproduction: Items 001\u2013012 detail+export all succeed; Item 013 crashes every time on entry to its detail screen.\\n\\n**Recommendation:** to get the exact exception class/message, someone with device shell access should run `adb logcat -b crash` (or `adb logcat *:E`) while repeating the steps above \u2014 I'd expect to see it in the same second the launcher reappears. If you have access to a shell tool in this environment, let me know and I can capture it directly.\"",
+  "wall_time_s": 380.65
+}

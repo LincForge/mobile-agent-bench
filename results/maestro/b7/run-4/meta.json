@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:17:14+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 35062,
+    "cache_read_tokens": 527954,
+    "input_tokens": 1309,
+    "num_turns": 22,
+    "output_tokens": 8354,
+    "source": "result-record",
+    "total_billed": 572679,
+    "total_cost_usd": 0.49869719999999995,
+    "total_uncached": 44725
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " a `stopApp` force-stop to guarantee a dead process) to the moment Maestro\\'s UI hierarchy confirms the \"Checkout\" button on the home screen is visible. This is a close proxy for true cold-start latency but includes Maestro\\'s own polling granularity and won\\'t exactly match the OS-reported `TotalTime` from `am start -W`. Run 5\\'s lower value (1148 ms) could reflect normal variance or a warmer OS-level cache despite the process restart \u2014 with only 5 samples I can\\'t rule that out statistically.'",
+  "wall_time_s": 268.24
+}

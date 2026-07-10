@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:04:19+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 85370,
+    "cache_read_tokens": 2610480,
+    "input_tokens": 1373,
+    "num_turns": 58,
+    "output_tokens": 19732,
+    "source": "result-record",
+    "total_billed": 2716955,
+    "total_cost_usd": 1.5961819999999998,
+    "total_uncached": 106475
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "ems 001\u2013013 visible)\\n- Screenshot of Item 001's detail screen with working Export button (control case, no crash)\\n- Screenshot taken synchronously right after tapping Item 013, showing the device already back at the home launcher (crash confirmed)\\n- Live Maestro Viewer available for your own inspection at **http://127.0.0.1:9999/** (open it in your embedded browser/preview pane)\\n\\nI recommend re-running the repro with `adb logcat` attached to capture the actual exception for the bug ticket.\"",
+  "wall_time_s": 464.73
+}

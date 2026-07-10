@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:17:35+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31096,
+    "cache_read_tokens": 326520,
+    "input_tokens": 1303,
+    "num_turns": 17,
+    "output_tokens": 5901,
+    "source": "result-record",
+    "total_billed": 364820,
+    "total_cost_usd": 0.37765499999999996,
+    "total_uncached": 38300
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": " \u2014 raw price = $9.37 \u00d7 7 = $65.59; discounted total shown = $50 \u2192 implied factor \u2248 50 / 65.59 \u2248 **0.7623**. But this is only an approximation, since the displayed \"$50\" is very likely rounded/truncated for display and may not reflect the exact double-precision value computed internally. I\\'d treat this number as a rough estimate, not the verified runtime value.\\n\\nIf you can grant access to logcat (e.g., tell me how to invoke adb here, or point me to app source), I can get you the exact figure.'",
+  "wall_time_s": 108.12
+}

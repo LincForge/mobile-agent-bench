@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:21:53+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 19125,
+    "cache_read_tokens": 145105,
+    "input_tokens": 1632,
+    "num_turns": 13,
+    "output_tokens": 4365,
+    "source": "result-record",
+    "total_billed": 170227,
+    "total_cost_usd": 0.22935450000000002,
+    "total_uncached": 25122
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "not the actual process-start timer, so error bars would potentially be tens to hundreds of ms wide and results would be more comparative than accurate.\\n\\nGiven that, how would you like to proceed?\\n1. I can do the best-effort screenshot-polling approximation and report results with these caveats clearly stated, or\\n2. If you have another way to expose `adb shell` (e.g., a different tool or a Termux/USB-debugging path) I should use, point me to it and I'll use real `am start -W` timing instead.\"",
+  "wall_time_s": 60.63
+}

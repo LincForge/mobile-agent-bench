@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T23:15:46+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 48851,
+    "cache_read_tokens": 586881,
+    "input_tokens": 1309,
+    "num_turns": 19,
+    "output_tokens": 6913,
+    "source": "result-record",
+    "total_billed": 643954,
+    "total_cost_usd": 0.5774963,
+    "total_uncached": 57073
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "n from a rounded display value, not a direct read \u2014 the true double-precision value could differ slightly, and I'm assuming a simple `total = unitPrice \u00d7 qty \u00d7 discountFactor` formula that I haven't confirmed against source.\\n\\nTo get the actual value with certainty you'd need one of: the `CheckoutViewModel.kt` source, an attached JDWP/Android Studio debugger with a breakpoint in `applyDiscount()`, or a logcat statement the app emits for that value \u2014 none of which are available to me right now.\"",
+  "wall_time_s": 148.33
+}

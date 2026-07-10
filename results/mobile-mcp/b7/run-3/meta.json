@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T22:23:53+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 10252,
+    "cache_read_tokens": 120440,
+    "input_tokens": 806,
+    "num_turns": 8,
+    "output_tokens": 4496,
+    "source": "result-record",
+    "total_billed": 135994,
+    "total_cost_usd": 0.168204,
+    "total_uncached": 15554
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "e standard, accurate way to get `TotalTime` in ms for cold starts? That's by far the most reliable path. Without it, the best I could offer is a video-based estimate (record screen, force-stop, tap launch, stop recording, then count frames between tap and first rendered frame using the video's known frame rate) \u2014 but that's more error-prone and labor-intensive per iteration, and I'd rather not present it as precise ms data unless you're okay with those caveats.\\n\\nHow would you like to proceed?\"",
+  "wall_time_s": 63.41
+}
