@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "FAIL",
+  "regraded_utc": "2026-07-10T06:52:07+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:17:51+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 73471,
+    "cache_read_tokens": 1862379,
+    "input_tokens": 4385,
+    "num_turns": 29,
+    "output_tokens": 7741,
+    "source": "result-record",
+    "total_billed": 1947976,
+    "total_cost_usd": 1.1295117,
+    "total_uncached": 85597
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]='(the standard Android cold-start metric).\\n\\n| Run | Time (ms) |\\n|-----|-----------|\\n| 1   | 460 |\\n| 2   | 445 |\\n| 3   | 429 |\\n| 4   | 432 |\\n| 5   | 431 |\\n\\n**Summary:**\\n- Mean: 439.4 ms\\n- **Median: 432 ms**\\n- Sample standard deviation (n\u22121): **\u224813.1 ms** (variance \u2248 172.3 ms\u00b2)\\n- Population standard deviation: \u224811.7 ms (variance \u2248 137.8 ms\u00b2)\\n\\nCold-start times were tight and consistent (range 429\u2013460 ms, ~3% relative std dev), suggesting a lightweight app with stable startup behavior on this device.'",
+  "wall_time_s": 138.2
+}

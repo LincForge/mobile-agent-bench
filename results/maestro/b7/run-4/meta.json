@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:35:11+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 451,
+    "cache_read_tokens": 66016,
+    "input_tokens": 147,
+    "num_turns": 1,
+    "output_tokens": 85,
+    "source": "result-record",
+    "total_billed": 66699,
+    "total_cost_usd": 0.8591409,
+    "total_uncached": 683
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?s)(\\\\d{2,6}\\\\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)' answer[-500:]=\"The monitor task has completed and closed out \u2014 the benchmark is fully done, results already delivered above (median 449 ms, sample stdev \u224811.1 ms across the 5 runs). Nothing further to do unless you'd like additional runs or a different device tested.\"",
+  "wall_time_s": 130.32
+}

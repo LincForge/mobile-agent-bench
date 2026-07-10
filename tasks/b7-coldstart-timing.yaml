@@ -13,7 +13,14 @@ app:
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
-  pattern: '(?s)(\d{2,6}\s*ms.*?){5}.*(median).*(variance|standard deviation|std|stdev)'
+  # Order-independent lookaheads (searched IGNORECASE|DOTALL): median + a
+  # variance measure + ms units + >=5 numeric figures. AMENDED 2026-07-10
+  # (see AMENDMENTS.md): the original `(\d ms.*?){5}.*median.*variance` required
+  # five INLINE `NN ms` before the word "median" and so false-FAILED every
+  # correct answer that put the five figures in a table (ms in the header) with
+  # median/variance below — it rejected all three tools' valid answers. This
+  # encodes the stated intent without assuming answer layout.
+  pattern: '(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|σ))(?=.*ms)(?=(?:.*?\d{2,4}(?:\.\d+)?){5})'
 timeout_s: 900
 notes: >-
   Measurement discipline task (doc 044 task 7). PASS = five plausible ms

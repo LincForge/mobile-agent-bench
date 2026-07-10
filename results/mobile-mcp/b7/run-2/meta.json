@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "FAIL",
+  "regraded_utc": "2026-07-10T06:52:07+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T06:38:54+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 41462,
+    "cache_read_tokens": 820054,
+    "input_tokens": 6650,
+    "num_turns": 18,
+    "output_tokens": 6764,
+    "source": "result-record",
+    "total_billed": 874930,
+    "total_cost_usd": 0.6169002,
+    "total_uncached": 54876
+  },
+  "tool": "mobile-mcp",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|\u03c3))(?=.*ms)(?=(?:.*?\\\\d{2,4}(?:\\\\.\\\\d+)?){5})' answer[-500:]=\"rge.benchtarget)\\n\\n| Run | TotalTime (ms) |\\n|-----|-----------------|\\n| 1   | 451 |\\n| 2   | 438 |\\n| 3   | 442 |\\n| 4   | 473 |\\n| 5   | 450 |\\n\\n- **Median:** 450 ms\\n- **Mean:** 450.8 ms\\n- **Standard deviation:** \u224812.1 ms (population) / \u224813.6 ms (sample, n\u22121)\\n\\nThe `TotalTime` field from `am start -W` is the standard cold-start metric (time from launch intent to the first frame being drawn/reported ready), and all five runs' `LaunchState: COLD` confirms the process was not resident before each launch.\"",
+  "wall_time_s": 105.05
+}
