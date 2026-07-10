@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T12:42:07+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 111666,
+    "cache_read_tokens": 3421676,
+    "input_tokens": 4875,
+    "num_turns": 53,
+    "output_tokens": 19092,
+    "source": "result-record",
+    "total_billed": 3557309,
+    "total_cost_usd": 1.9982077999999996,
+    "total_uncached": 135633
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "tiplier of roughly 50 / 65.59 \u2248 **0.762**, but this is a back-calculation from a rounded on-screen dollar amount, not the actual `discountFactor` double precision value used inside `applyDiscount()` \u2014 rounding in the display layer means I can't reconstruct the exact internal value with confidence.\\n\\nIf you can make a debuggable build available (or point me at the source/project registration), I can re-run this and pull the exact value via breakpoint/`spectra_evaluate` instead of estimating it.\"",
+  "wall_time_s": 334.43
+}

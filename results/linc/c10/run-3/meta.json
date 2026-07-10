@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T12:47:47+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 75504,
+    "cache_read_tokens": 2889936,
+    "input_tokens": 5015,
+    "num_turns": 53,
+    "output_tokens": 16394,
+    "source": "result-record",
+    "total_billed": 2986849,
+    "total_cost_usd": 1.5816638,
+    "total_uncached": 96913
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": " \u2248 0.762`. But since the displayed total has no cents shown, this could be masking rounding, and I don't know the app's actual formula (tiers, rounding order, etc.) \u2014 so I won't present 0.762 as the true internal value.\\n\\nIf you can enable debugging (e.g., point me at a debug-variant build/APK, register the project's source in the Forge registry, or confirm `android:debuggable=true` for a reinstall), I can attach properly, breakpoint at the exact line, and read `discountFactor` with certainty.\"",
+  "wall_time_s": 338.96
+}

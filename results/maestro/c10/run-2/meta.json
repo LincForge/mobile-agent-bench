@@ -1,0 +1,38 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "regraded_from": "PASS",
+  "regraded_utc": "2026-07-10T13:36:17+00:00",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T13:12:09+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 40695,
+    "cache_read_tokens": 680056,
+    "input_tokens": 4037,
+    "num_turns": 16,
+    "output_tokens": 6062,
+    "source": "result-record",
+    "total_billed": 730850,
+    "total_cost_usd": 0.5519268,
+    "total_uncached": 50794
+  },
+  "tool": "maestro",
+  "verdict": "FAIL",
+  "verify_detail": "pattern='0[.,]755(?!\\\\s*(?:[-\u2013\u2014]|to\\\\b|and\\\\b|\\\\.\\\\.)\\\\s*\\\\d)' answer[-500:]=\"ng from $49.50\u2013$50.49 depending on the app's rounding rule), the true internal value could plausibly range from about **0.755 to 0.770** \u2014 I can't pin down more precision than that from UI alone.\\n\\nIf you want the exact runtime value, I'd need one of: adb/logcat access (if the ViewModel logs it), a debugger attached to the app process, or the app's source/decompiled code \u2014 none of which are available to me in this session. Let me know if you can grant one of those and I'll get the precise figure.\"",
+  "wall_time_s": 141.33
+}

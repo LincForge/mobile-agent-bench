@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T13:07:29+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 147252,
+    "cache_read_tokens": 9647930,
+    "input_tokens": 5435,
+    "num_turns": 101,
+    "output_tokens": 39146,
+    "source": "result-record",
+    "total_billed": 9839763,
+    "total_cost_usd": 4.382079999999999,
+    "total_uncached": 191833
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "sion text to read from the UI either.\\n\\n**Best derivable estimate (not a confirmed runtime value):**\\n```\\ndiscountFactor \u2248 Total / (base_price \u00d7 quantity) = 50 / 65.59 \u2248 0.762\\n```\\nThis is only as precise as the app's displayed total (which may be rounded or truncated for display), so I can't confirm this matches the exact in-memory double. If you have access to a debug-flagged build of BenchTarget or can enable JDWP on this device, I can redo this with the debugger to get the precise value.\"",
+  "wall_time_s": 782.6
+}

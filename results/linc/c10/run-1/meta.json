@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T12:36:32+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 79942,
+    "cache_read_tokens": 2904003,
+    "input_tokens": 4706,
+    "num_turns": 49,
+    "output_tokens": 11160,
+    "source": "result-record",
+    "total_billed": 2999811,
+    "total_cost_usd": 1.5330698999999999,
+    "total_uncached": 95808
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "isplayed total $50 implies a discount factor of roughly **0.762** (50 \u00f7 65.59), but that's a rough back-calculation from a UI value already rounded to the nearest dollar \u2014 not the actual runtime double from inside the method, and I won't present it as such.\\n\\nTo get the real number I'd need either a debuggable build installed on the device, or a Log statement added inside `applyDiscount()`. Want me to check if a debug build can be installed, or pull the source to compute it statically instead?\"",
+  "wall_time_s": 272.2
+}

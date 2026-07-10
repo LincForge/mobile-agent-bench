@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-10T12:54:25+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 131829,
+    "cache_read_tokens": 4825644,
+    "input_tokens": 5072,
+    "num_turns": 65,
+    "output_tokens": 20586,
+    "source": "result-record",
+    "total_billed": 4983131,
+    "total_cost_usd": 2.5633622,
+    "total_uncached": 157487
+  },
+  "tool": "linc",
+  "verdict": "FAIL",
+  "verify_detail": "t implies a discount factor of roughly **0.76** (50 / 65.59 \u2248 0.7623). But this is a back-calculation from a rounded display value, not the actual double-precision value computed at runtime inside the method \u2014 I won't represent it as the true internal value.\\n\\nIf you can either (a) point me to the debug/`.forge.yaml`-registered project name for this app, or (b) confirm it's fine to install a debug-flavored build, I can reattach the debugger and read `discountFactor` directly at the breakpoint.\"",
+  "wall_time_s": 397.03
+}
