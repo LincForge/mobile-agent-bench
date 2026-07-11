@@ -1,0 +1,42 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "ed1e50b8b96a5ff6bafed097f34790d1",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-11T17:25:59+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28441,
+    "cache_read_tokens": 513248,
+    "input_tokens": 32,
+    "num_turns": 16,
+    "output_tokens": 2192,
+    "source": "result-record",
+    "total_billed": 543913,
+    "total_cost_usd": 0.35827839999999994,
+    "total_uncached": 30665
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*3' answer[-500:]='Launched BenchTarget on the Pixel Watch 2, tapped \"Ping\" three times. The app now displays:\\n\\n**Pings: 3**'",
+  "wall_time_s": 55.95
+}
