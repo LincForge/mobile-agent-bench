@@ -200,6 +200,28 @@ def final_answer_text(transcript: Path) -> str:
     return answer
 
 
+def transcript_assistant_text(transcript: Path) -> str:
+    """All assistant text blocks concatenated — the solved-but-unfinalized
+    diagnostic scans this when a timed-out run has no final result record."""
+    chunks: list[str] = []
+    with transcript.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if rec.get("type") != "assistant":
+                continue
+            content = (rec.get("message") or {}).get("content") or []
+            for block in content:
+                if isinstance(block, dict) and block.get("type") == "text":
+                    chunks.append(block.get("text") or "")
+    return "\n".join(chunks)
+
+
 def verify_task(task: Task, serial_env: dict[str, str], transcript: Path) -> tuple[str, str]:
     """Run the task's frozen end-state assertion.
 
