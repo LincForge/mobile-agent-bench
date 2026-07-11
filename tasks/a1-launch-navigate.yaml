@@ -13,5 +13,10 @@ reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
   pattern: 'BENCH-STABLE'
+  match_samples:
+    - 'The Build channel value shown on the Diagnostics screen is BENCH-STABLE.'
+  reject_samples:
+    - 'The Build channel value shown on the Diagnostics screen is BENCH-DEV.'
+    - 'I could not reach the Diagnostics screen to read the Build channel.'
 timeout_s: 600
 notes: 3-screens-deep navigation + element-text assertion (doc 044 task 1).

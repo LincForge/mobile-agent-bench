@@ -14,5 +14,9 @@ reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
   pattern: '(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)'
+  match_samples:
+    - 'The Home screen offers four navigation targets: Catalog, Form, About and Checkout.'
+  reject_samples:
+    - 'The Home screen offers three navigation targets: Catalog, Form and About.'
 timeout_s: 600
 notes: Agent perception check — must name all four Home nav targets (doc 044 task 4).

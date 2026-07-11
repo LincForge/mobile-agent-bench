@@ -7,6 +7,7 @@ missing any locked field so a half-written task can't silently produce rows.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -30,14 +31,35 @@ class Verify:
     #            final answer text (frozen ground truth); "manual": UNVERIFIED
     cmd: str | None = None
     pattern: str | None = None
+    # Frozen grader evidence (answer type, required): sample answers the pattern
+    # MUST match / MUST reject. Validated below at load time, so a flawed grader
+    # (v1 shipped three — see AMENDMENTS.md) refuses to load before any cell runs.
+    match_samples: tuple[str, ...] = ()
+    reject_samples: tuple[str, ...] = ()
+
+    def matches(self, text: str) -> bool:
+        """THE grading predicate — verify_task, regrade, and the sample
+        validation all go through here so grader semantics cannot drift."""
+        return re.search(self.pattern, text, re.IGNORECASE | re.DOTALL) is not None
 
     def __post_init__(self) -> None:
         if self.type not in VALID_VERIFY_TYPES:
             raise ConfigError(f"verify.type must be one of {sorted(VALID_VERIFY_TYPES)}, got {self.type!r}")
         if self.type == "shell" and not self.cmd:
             raise ConfigError("verify.type=shell requires verify.cmd")
-        if self.type == "answer" and not self.pattern:
-            raise ConfigError("verify.type=answer requires verify.pattern")
+        if self.type == "answer":
+            if not self.pattern:
+                raise ConfigError("verify.type=answer requires verify.pattern")
+            if not self.match_samples:
+                raise ConfigError("verify.type=answer requires match_samples (frozen grader evidence)")
+            if not self.reject_samples:
+                raise ConfigError("verify.type=answer requires reject_samples (frozen grader evidence)")
+            for s in self.match_samples:
+                if not self.matches(s):
+                    raise ConfigError(f"match sample not matched by pattern {self.pattern!r}: {s!r}")
+            for s in self.reject_samples:
+                if self.matches(s):
+                    raise ConfigError(f"reject sample matched by pattern {self.pattern!r}: {s!r}")
 
 
 @dataclass(frozen=True)
@@ -96,6 +118,8 @@ def load_task(path: Path) -> Task:
             type=raw["verify"]["type"],
             cmd=raw["verify"].get("cmd"),
             pattern=raw["verify"].get("pattern"),
+            match_samples=tuple(raw["verify"].get("match_samples", [])),
+            reject_samples=tuple(raw["verify"].get("reject_samples", [])),
         ),
         timeout_s=int(raw["timeout_s"]),
         notes=raw.get("notes", ""),

@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import subprocess
 import tempfile
 import time
@@ -216,7 +215,7 @@ def verify_task(task: Task, serial_env: dict[str, str], transcript: Path) -> tup
         return "UNVERIFIED", "task declares manual verification"
     if task.verify.type == "answer":
         answer = final_answer_text(transcript)
-        matched = re.search(task.verify.pattern, answer, re.IGNORECASE | re.DOTALL)
+        matched = task.verify.matches(answer)
         return ("PASS" if matched else "FAIL"), f"pattern={task.verify.pattern!r} answer[-500:]={answer[-500:]!r}"
     proc = subprocess.run(
         task.verify.cmd,

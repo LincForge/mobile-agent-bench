@@ -17,6 +17,13 @@ reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
   pattern: '(?=.*IllegalStateException)(?=.*export buffer not initialized)(?=.*Item 013)'
+  match_samples:
+    - >-
+      Reproduced: opening Item 013 and tapping Export crashes with
+      java.lang.IllegalStateException: export buffer not initialized.
+  reject_samples:
+    - 'Opening Item 013 and tapping Export crashes with a NullPointerException.'
+    - 'The app crashes with IllegalStateException: export buffer not initialized on some item I could not identify.'
 timeout_s: 900
 notes: >-
   Repro-from-vague-report + evidence quality (doc 044 task 5). PASS requires the

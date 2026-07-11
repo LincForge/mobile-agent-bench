@@ -14,7 +14,6 @@ import argparse
 import datetime
 import json
 import os
-import re
 import statistics
 import sys
 from pathlib import Path
@@ -138,8 +137,7 @@ def cmd_regrade(args: argparse.Namespace) -> int:
             continue  # a timed-out run can never be promoted to PASS
         scanned += 1
         answer = agent_mod.final_answer_text(meta_path.parent / "transcript.jsonl")
-        matched = re.search(task.verify.pattern, answer, re.IGNORECASE | re.DOTALL)
-        new_verdict = "PASS" if matched else "FAIL"
+        new_verdict = "PASS" if task.verify.matches(answer) else "FAIL"
         if new_verdict == rec.get("verdict"):
             continue
         changed += 1
