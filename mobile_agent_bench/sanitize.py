@@ -14,7 +14,7 @@ from pathlib import Path
 
 import yaml
 
-from .device import LOCAL_CONFIG
+from .device import LOCAL_CONFIG, connected_serials
 
 # Always-on patterns: home directories and macOS/Linux usernames leak via tool
 # results (file paths in MCP tool output), regardless of local config.
@@ -37,8 +37,24 @@ def _local_redactions() -> list[tuple[re.Pattern, str]]:
     return pats
 
 
+def _runtime_serial_redactions() -> list[tuple[re.Pattern, str]]:
+    """Redact EVERY serial adb currently sees (improvement ca4499a4): tool
+    output can enumerate the whole attached fleet, not just the configured
+    bench serial. Sorted so the placeholder index is stable across adb
+    ordering (idempotent re-sanitization); adb absence/failure degrades to no
+    extra redactions — a third-party clone behaves identically.
+    """
+    try:
+        serials = sorted(set(connected_serials()))
+    except Exception:
+        return []
+    return [
+        (re.compile(re.escape(s)), f"<DEVICE_SERIAL-{i}>") for i, s in enumerate(serials)
+    ]
+
+
 def sanitize_text(text: str, extra_literals: list[str] | None = None) -> str:
-    patterns = list(_DEFAULT_PATTERNS) + _local_redactions()
+    patterns = list(_DEFAULT_PATTERNS) + _local_redactions() + _runtime_serial_redactions()
     for j, literal in enumerate(extra_literals or []):
         if literal:
             patterns.append((re.compile(re.escape(literal)), f"<REDACTED-X{j}>"))

@@ -95,6 +95,20 @@ def clear_uiautomation_holders(serial: str | None = None) -> list[str]:
     return stopped
 
 
+def connected_serials() -> list[str]:
+    """Every serial adb can currently see, whatever its state — a transcript
+    can leak any of them (nerve_discover output lists the whole fleet), so the
+    sanitizer redacts them all. No serial/-s arg: this is a host-level query.
+    """
+    proc = subprocess.run(["adb", "devices"], capture_output=True, text=True, timeout=10)
+    serials: list[str] = []
+    for line in proc.stdout.splitlines()[1:]:  # first line is the banner
+        parts = line.split()
+        if len(parts) >= 2:
+            serials.append(parts[0])
+    return serials
+
+
 def local_apk_md5(apk_path: Path) -> str:
     """md5 of the repo-built pinned APK; refuses to run without the artifact."""
     if not apk_path.exists():
