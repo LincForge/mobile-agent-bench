@@ -14,6 +14,11 @@ reset: [wake, force-stop, clear-data]
 verify:
   type: answer
   pattern: 'Pings:\s*3'
+  match_samples:
+    - 'After three taps the watch app displays "Pings: 3".'
+  reject_samples:
+    - 'After three taps the watch app still displays "Pings: 2" — one tap did not register.'
+    - 'I could not launch the app on the watch.'
 timeout_s: 900
 notes: >-
   CAPABILITY ROW (doc 044 task 8): reported separately, never averaged into

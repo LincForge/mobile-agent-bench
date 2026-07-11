@@ -95,7 +95,10 @@ def test_read_guard_blocks_source_allows_screenshots(tmp_path):
 
 
 def test_answer_verification_pass_and_fail(tmp_path):
-    task = _task(Verify(type="answer", pattern="BENCH-STABLE"))
+    task = _task(Verify(
+        type="answer", pattern="BENCH-STABLE",
+        match_samples=("is BENCH-STABLE",), reject_samples=("is BENCH-DEV",),
+    ))
     ok = _transcript(tmp_path, "The build channel is BENCH-STABLE.")
     verdict, _ = verify_task(task, {}, ok)
     assert verdict == "PASS"
@@ -105,7 +108,11 @@ def test_answer_verification_pass_and_fail(tmp_path):
 
 
 def test_answer_verification_lookaheads(tmp_path):
-    task = _task(Verify(type="answer", pattern="(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)"))
+    task = _task(Verify(
+        type="answer", pattern="(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)",
+        match_samples=("Catalog, Form, About, Checkout",),
+        reject_samples=("Catalog, Form, About",),
+    ))
     partial = _transcript(tmp_path, "I can see Catalog, Form and About buttons.")
     assert verify_task(task, {}, partial)[0] == "FAIL"
     full = _transcript(tmp_path, "Buttons: Catalog, Form, About, Checkout.")

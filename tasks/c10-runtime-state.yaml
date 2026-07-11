@@ -23,6 +23,17 @@ verify:
   # ("0.755-0.770", "0.755 to 0.770"). Grounding (did the tool actually read the
   # running process vs guess?) is still eyeball-audited against the transcript.
   pattern: '0[.,]755(?!\s*(?:[-–—]|to\b|and\b|\.\.)\s*\d)'
+  match_samples:
+    - >-
+      The runtime value of discountFactor was 0.755, read at a spectra
+      breakpoint inside CheckoutViewModel.applyDiscount().
+  reject_samples:
+    # The 2026-07-10 amendment's regression guard: bare `0[.,]755` false-PASSED
+    # exactly this hedged back-division range shape.
+    - >-
+      Back-dividing the rounded total gives a range from about 0.755 to 0.770,
+      so I could not pin down the exact factor from the UI alone.
+    - 'The discount factor appears to be roughly 0.76 based on the displayed total.'
 timeout_s: 900
 notes: >-
   Runtime inspection (doc 044 task 10). Ground truth 0.755 (frozen in

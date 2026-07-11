@@ -22,6 +22,22 @@ verify:
   # median/variance below — it rejected all three tools' valid answers. This
   # encodes the stated intent without assuming answer layout.
   pattern: '(?=.*median)(?=.*(?:variance|standard deviation|stdev|std|σ))(?=.*ms)(?=(?:.*?\d{2,4}(?:\.\d+)?){5})'
+  # The multi-line table sample IS the amendment's regression guard: the
+  # original inline-only pattern false-FAILED exactly this answer shape.
+  match_samples:
+    - |-
+      | run | cold start (ms) |
+      |---|---|
+      | 1 | 812 |
+      | 2 | 799 |
+      | 3 | 843 |
+      | 4 | 805 |
+      | 5 | 820 |
+      Median 812 ms, standard deviation 16.4 ms.
+    - 'Cold starts: 812, 799, 843, 805 and 820 ms. Median 812 ms, variance 268.'
+  reject_samples:
+    - 'Median cold start was around 800 ms across my runs.'
+    - 'Five runs measured: 812, 799, 843, 805 and 820 ms.'
 timeout_s: 900
 notes: >-
   Measurement discipline task (doc 044 task 7). PASS = five plausible ms

@@ -22,6 +22,15 @@ verify:
   # answer actually LOCALIZES the tier-propagation defect (vs mentioning tier
   # incidentally) is eyeball-adjudicated per the task notes.
   pattern: '(?=.*(do not ship|don''t ship|should not ship|do-?not-?ship|no[- ]go))(?=.*(tier|dropdown))'
+  match_samples:
+    - >-
+      Verdict: DO NOT SHIP. The Tier dropdown selection is not propagated to
+      the checkout summary — a ship-blocking defect.
+  reject_samples:
+    # The 2026-07-10 amendment's regression guard: bare `block` in the original
+    # pattern false-PASSED exactly this SHIP-verdict shape ("no blocking issues").
+    - 'I found no blocking issues in this build. Verdict: SHIP.'
+    - 'DO NOT SHIP — the export feature crashes when saving.'
 timeout_s: 900
 notes: >-
   The gate story (doc 044 task 9). Device carries the `seeded` flavor build
