@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T01:24:16+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 136476,
+    "cache_read_tokens": 5138085,
+    "input_tokens": 1401,
+    "num_turns": 73,
+    "output_tokens": 18205,
+    "source": "result-record",
+    "total_billed": 5294167,
+    "total_cost_usd": 2.6382554999999996,
+    "total_uncached": 156082
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": " **submit button has no text/content-description**, so it's unlabeled for screen readers (TalkBack).\\n\\nEverything else \u2014 Catalog list/detail navigation (all 13 items, including the last), About/Diagnostics static content, Subscribe toggle, Name field, and quantity floor-at-1 behavior \u2014 worked correctly.\\n\\nRecommend fixing the Tier-submission bug and the stale-total bug (both are state-binding issues, likely quick fixes) before this build ships, and filing the three polish items as follow-ups.\"",
+  "wall_time_s": 569.84
+}

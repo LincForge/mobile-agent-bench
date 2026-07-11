@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T02:15:22+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 76068,
+    "cache_read_tokens": 4698426,
+    "input_tokens": 994,
+    "num_turns": 102,
+    "output_tokens": 21973,
+    "source": "result-record",
+    "total_billed": 4797461,
+    "total_cost_usd": 2.1992138,
+    "total_uncached": 99035
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "ssing or malformed Compose semantics \u2014 worth a follow-up check as it affects accessibility tooling/testing and possibly TalkBack users.\\n\\n### Why this blocks shipping\\nThe app's primary navigation is non-functional for 3 of 4 sections, the one reachable secondary feature (Export) crashes the app deterministically, and three quarters of the app's screens (Form, About, Checkout) are entirely unverified/unreachable in this build. This isn't a polish issue \u2014 the app is largely unusable as shipped.\"",
+  "wall_time_s": 548.66
+}

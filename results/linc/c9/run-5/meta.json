@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T00:34:00+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 108104,
+    "cache_read_tokens": 12542158,
+    "input_tokens": 1854,
+    "num_turns": 173,
+    "output_tokens": 32226,
+    "source": "result-record",
+    "total_billed": 12684342,
+    "total_cost_usd": 4.900929399999999,
+    "total_uncached": 142184
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "unctional today.\\n\\n### Why DO NOT SHIP\\nItems 1\u20133 are correctness bugs in the two flows that most resemble real product surfaces (checkout pricing and form submission) \u2014 these are exactly the kind of defects that would corrupt user-facing data or charge the wrong amount in a real app. Items 4\u20135 show at least two controls are entirely non-functional. Given this is a purpose-built bench/target app, these are plausibly seeded defects, but by the app's own functional bar, it should not ship as-is.\"",
+  "wall_time_s": 846.75
+}
