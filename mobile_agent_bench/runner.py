@@ -169,17 +169,27 @@ def cmd_report(_args: argparse.Namespace) -> int:
     for r in rows:
         by_cell.setdefault((r["tool"], r["task"]), []).append(r)
 
-    print("| tool | task | tier | runs | pass | median wall s | median tokens | wall stdev |")
-    print("|---|---|---|---|---|---|---|---|")
+    # Token medians at full granularity (improvement 5e37e19d): total_billed
+    # folds cache reads in, so it alone hides exactly the efficiency difference
+    # the bench reports on — uncached and output medians are broken out per
+    # cell. Every meta.json already carries the fields (tokens.as_dict).
+    print(
+        "| tool | task | tier | runs | pass | median wall s "
+        "| median billed | median uncached | median output | wall stdev |"
+    )
+    print("|---|---|---|---|---|---|---|---|---|---|")
     for (tool, task), cell in sorted(by_cell.items()):
         walls = [r["wall_time_s"] for r in cell]
-        toks = [r["tokens"]["total_billed"] for r in cell]
+        billed = [r["tokens"]["total_billed"] for r in cell]
+        uncached = [r["tokens"]["total_uncached"] for r in cell]
+        output = [r["tokens"]["output_tokens"] for r in cell]
         passes = sum(r["verdict"] == "PASS" for r in cell)
         cap = " (capability row)" if cell[0].get("capability_row") else ""
         stdev = f"{statistics.stdev(walls):.1f}" if len(walls) > 1 else "n/a"
         print(
             f"| {tool} | {task}{cap} | {cell[0]['tier']} | {len(cell)} | {passes}/{len(cell)} "
-            f"| {statistics.median(walls):.1f} | {statistics.median(toks):,} | {stdev} |"
+            f"| {statistics.median(walls):.1f} | {statistics.median(billed):,} "
+            f"| {statistics.median(uncached):,} | {statistics.median(output):,} | {stdev} |"
         )
     return 0
 
