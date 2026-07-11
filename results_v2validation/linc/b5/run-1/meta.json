@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T13:28:21+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 103998,
+    "cache_read_tokens": 6110784,
+    "input_tokens": 186,
+    "num_turns": 97,
+    "output_tokens": 13833,
+    "source": "result-record",
+    "total_billed": 6228801,
+    "total_cost_usd": 2.665995200000001,
+    "total_uncached": 118017
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "fter tapping Export on Item 013.\\n- Screenshots/UI-tree snapshots for Items 001\u2013012 (all in-bounds, no crash) and Item 013 detail screen prior to the crashing tap, saved under `/tmp/nerve-output/02dab642b068/` (files `<REDACTED-1>_0003` through `0033_state.png`).\\n\\nItems 001\u2013012 export cleanly with no observable effect (no toast/dialog), so the defect is isolated to Item 013's `ExportPolicy`, which appears to reference an export buffer that is never initialized for that specific catalog entry.\"",
+  "wall_time_s": 496.91
+}
