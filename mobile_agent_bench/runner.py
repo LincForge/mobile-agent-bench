@@ -26,6 +26,7 @@ from .device import (
     clear_uiautomation_holders,
     device_fingerprint,
     device_serial,
+    ensure_pinned_app,
     reset_app_state,
 )
 from .schema import Task, Tool, load_all_tasks, load_all_tools
@@ -50,6 +51,7 @@ def load_bench_config() -> dict:
 def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
     serial = device_serial()
     holders_cleared = clear_uiautomation_holders(serial=serial)
+    app_pin = ensure_pinned_app(task.app_package, Path(task.app_apk), serial=serial)
     reset_log = reset_app_state(task.app_package, task.reset, serial=serial)
     result = agent_mod.run_agent(task, tool, model, out_dir)
     verdict, verify_detail = agent_mod.verify_task(
@@ -70,6 +72,7 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
         "verify_detail": verify_detail[-500:],
         "reset_steps": reset_log,
         "uiautomation_holders_cleared": holders_cleared,
+        "app_pin": app_pin,
         "tokens": result.tokens.as_dict(),
         "device": device_fingerprint(serial),
         "capability_row": task.capability_row,

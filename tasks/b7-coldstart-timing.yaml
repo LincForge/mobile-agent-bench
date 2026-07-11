@@ -10,6 +10,7 @@ prompt: |
   (standard deviation or variance) across the runs.
 app:
   package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer

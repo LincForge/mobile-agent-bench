@@ -9,6 +9,7 @@ prompt: |
   the app then displays.
 app:
   package: dev.lincforge.benchtarget
+  apk: target-app/wear/build/outputs/apk/debug/wear-debug.apk
 reset: [wake, force-stop, clear-data]
 verify:
   type: answer
