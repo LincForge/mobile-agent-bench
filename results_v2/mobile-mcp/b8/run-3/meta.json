@@ -1,0 +1,44 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "ed1e50b8b96a5ff6bafed097f34790d1",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-11T17:16:18+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 11585,
+    "cache_read_tokens": 390376,
+    "input_tokens": 40,
+    "num_turns": 20,
+    "output_tokens": 2813,
+    "source": "result-record",
+    "total_billed": 404814,
+    "total_cost_usd": 0.22960980000000003,
+    "total_uncached": 14438
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*3' answer[-500:]='Done. After launching BenchTarget on the Google Pixel Watch 2 device and tapping \"Ping\" three times, the app now displays counter text: **\"Pings: 3\"**.\\n\\nNote: `mobile_launch_app` failed for this package (despite it being installed), so I opened it manually via the watch\\'s app drawer instead.'",
+  "wall_time_s": 78.36
+}
