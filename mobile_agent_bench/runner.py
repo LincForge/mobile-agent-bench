@@ -56,7 +56,19 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
     verdict, verify_detail = agent_mod.verify_task(
         task, {"BENCH_DEVICE_SERIAL": serial}, result.transcript_path
     )
+    # Solved-but-unfinalized (v2 pre-registration): a timed-out run stays FAIL
+    # for every scored metric, but is flagged diagnostically when the task was
+    # materially solved at budget expiry — verification itself passed (shell
+    # end-state), or the frozen answer pattern appears in the assistant text
+    # the agent produced before the kill. Mechanical, no eyeball adjudication.
+    solved_unfinalized = False
     if result.timed_out:
+        if verdict == "PASS":
+            solved_unfinalized = True
+        elif task.verify.type == "answer":
+            solved_unfinalized = task.verify.matches(
+                agent_mod.transcript_assistant_text(result.transcript_path)
+            )
         verdict = "FAIL"  # a timed-out run can never count as complete
     record = {
         "task": task.id,
@@ -68,6 +80,7 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
         "timed_out": result.timed_out,
         "agent_exit_code": result.exit_code,
         "verdict": verdict,
+        "solved_unfinalized": solved_unfinalized,
         "verify_detail": verify_detail[-500:],
         "reset_steps": reset_log,
         "uiautomation_holders_cleared": holders_cleared,
@@ -174,21 +187,23 @@ def cmd_report(_args: argparse.Namespace) -> int:
     # the bench reports on — uncached and output medians are broken out per
     # cell. Every meta.json already carries the fields (tokens.as_dict).
     print(
-        "| tool | task | tier | runs | pass | median wall s "
+        "| tool | task | tier | runs | pass | solved-unfin | median wall s "
         "| median billed | median uncached | median output | wall stdev |"
     )
-    print("|---|---|---|---|---|---|---|---|---|---|")
+    print("|---|---|---|---|---|---|---|---|---|---|---|")
     for (tool, task), cell in sorted(by_cell.items()):
         walls = [r["wall_time_s"] for r in cell]
         billed = [r["tokens"]["total_billed"] for r in cell]
         uncached = [r["tokens"]["total_uncached"] for r in cell]
         output = [r["tokens"]["output_tokens"] for r in cell]
         passes = sum(r["verdict"] == "PASS" for r in cell)
+        # diagnostic only — never counted toward pass (v1 metas lack the field)
+        sbu = sum(bool(r.get("solved_unfinalized")) for r in cell)
         cap = " (capability row)" if cell[0].get("capability_row") else ""
         stdev = f"{statistics.stdev(walls):.1f}" if len(walls) > 1 else "n/a"
         print(
             f"| {tool} | {task}{cap} | {cell[0]['tier']} | {len(cell)} | {passes}/{len(cell)} "
-            f"| {statistics.median(walls):.1f} | {statistics.median(billed):,} "
+            f"| {sbu} | {statistics.median(walls):.1f} | {statistics.median(billed):,} "
             f"| {statistics.median(uncached):,} | {statistics.median(output):,} | {stdev} |"
         )
     return 0
