@@ -279,3 +279,23 @@ of the user launchd domain (`launchctl bootout gui/$UID/…`) so it cannot fire 
 unattended and could span 05:00. The plist is left in place; re-enable after the
 grid with `launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.linc.daily-device-tests.plist`.
 Exclusive scored-device access is now the standing condition for the rest of v1.
+
+## 2026-07-11 — v2 precondition amended: phone keeps its keyguard (CEO decision, before any v2 row)
+
+`PREREGISTRATION-v2.md` froze the device precondition as "lock-free (no secure
+keyguard)". The bench phone is a personal device and the CEO decided to keep
+its PIN. Amended precondition, effective before any v2 comparative row ran:
+
+- The CEO unlocks the phone at the start of each run session; the harness
+  operator sets `svc power stayon usb` for the duration, so the screen never
+  sleeps and the keyguard never re-engages mid-grid, and restores
+  `svc power stayon false` afterwards.
+- A cell that encounters `deviceLocked=1` (dumpsys trust) is invalid and
+  re-runs after re-unlock — a locked screen blinds every tool identically,
+  so this is a no-row condition, not a FAIL.
+
+**No rows affected** — no v2 comparative cell had run when this was amended.
+The same-day pipeline smoke (throwaway a1 cell + APK digest-pin swap exercise,
+results outside `results_v2/`, unpublished) validated hygiene → pin → reset →
+verify end-to-end on the unlocked phone: a1 PASS 36 s, seeded/stock swap
+installed+verified, idempotent re-check clean.
