@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:58:34+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 71219,
+    "cache_read_tokens": 1906547,
+    "input_tokens": 823,
+    "num_turns": 49,
+    "output_tokens": 12764,
+    "source": "result-record",
+    "total_billed": 1991353,
+    "total_cost_usd": 1.1939061,
+    "total_uncached": 84806
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "ing a JVM/Kotlin debugger with a breakpoint in that method, which isn't available in my current toolset.\\n\\nI won't guess a number for `discountFactor`. Do you want me to:\\n1. Keep trying blind coordinate taps (I can attempt the flow without visual confirmation, at low reliability), or\\n2. Check if there's a debug/test build variant or adb logging flag that surfaces this value, or\\n3. Point me to the app's source so I can at least explain how the value is computed (without a live runtime read)?\"",
+  "wall_time_s": 319.74
+}

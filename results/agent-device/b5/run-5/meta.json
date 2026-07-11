@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T05:12:41+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 152907,
+    "cache_read_tokens": 11799304,
+    "input_tokens": 1151,
+    "num_turns": 166,
+    "output_tokens": 25056,
+    "source": "result-record",
+    "total_billed": 11978418,
+    "total_cost_usd": 4.837245200000003,
+    "total_uncached": 179114
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "screen (showing the \"Catalog entry for Item 013.\" text and Export button) were captured just prior to the crash.\\n\\n**Root cause hint for engineering:** `ExportPolicy.export()` throws when some \"export buffer\" hasn\\'t been initialized. Given items 001\u2013012 export fine and 013 does not, this is likely a state/lazy-init bug tied to something specific about item 013 (e.g., an index/boundary condition, or a buffer that\\'s only initialized for a subset of items) rather than a generic export-flow bug.'",
+  "wall_time_s": 666.95
+}

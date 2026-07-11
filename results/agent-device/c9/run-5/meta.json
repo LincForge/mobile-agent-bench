@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T08:01:45+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 123200,
+    "cache_read_tokens": 7586846,
+    "input_tokens": 939,
+    "num_turns": 116,
+    "output_tokens": 30361,
+    "source": "result-record",
+    "total_billed": 7741346,
+    "total_cost_usd": 3.4741818,
+    "total_uncached": 154500
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "oks like a platform/hardware quirk unrelated to the app.\\n\\n### Recommendation\\n1. Fix or root-cause the startup jank (2.3s stalled frame, up to 179 skipped frames) \u2014 likely heavy work on the main thread during `MainActivity`'s first Compose pass.\\n2. Re-run this evaluation on a session where `screenshot`/`snapshot` are confirmed to return live device state, since none of BenchTarget's actual screens were verified this round.\\n3. Confirm debug logging is disabled/stripped in the shipping build.\"",
+  "wall_time_s": 742.36
+}

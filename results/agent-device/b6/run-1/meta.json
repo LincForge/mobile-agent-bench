@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T05:23:50+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 116188,
+    "cache_read_tokens": 7667641,
+    "input_tokens": 967,
+    "num_turns": 144,
+    "output_tokens": 28100,
+    "source": "result-record",
+    "total_billed": 7812896,
+    "total_cost_usd": 3.422601299999998,
+    "total_uncached": 145255
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "`SyncComponent` performs a fallible sync-availability check on some cold starts (gated by a `skip` flag derived from an unreliably-persisted `launchCount`), and that check fails intermittently, hiding the \"Retry sync\" button. The UI test should either wait for the sync state to settle rather than asserting immediately on navigation, or the app should make the sync-availability determination deterministic (not timing-dependent on service/binder readiness) and persist `launchCount` synchronously.'",
+  "wall_time_s": 668.15
+}

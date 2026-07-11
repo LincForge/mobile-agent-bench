@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:43:26+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 93543,
+    "cache_read_tokens": 4721878,
+    "input_tokens": 901,
+    "num_turns": 107,
+    "output_tokens": 46317,
+    "source": "result-record",
+    "total_billed": 4862639,
+    "total_cost_usd": 2.6759734,
+    "total_uncached": 140761
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": ", and I have no reliable path to the phone/tablet device it's presumably meant to run on. I did not perform the quantity/discount interaction, so I have no genuine runtime value for `discountFactor` to report \u2014 I don't want to guess a number.\\n\\nCould you either: (1) give me the exact device name or serial for the correct phone/tablet, or (2) fix/restart the `agent-device` daemon's `devices`/`apps` tool so I can enumerate devices? I can proceed immediately once I have a working device selector.\"",
+  "wall_time_s": 774.45
+}

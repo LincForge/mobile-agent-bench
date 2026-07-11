@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T04:22:53+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31609,
+    "cache_read_tokens": 526670,
+    "input_tokens": 781,
+    "num_turns": 21,
+    "output_tokens": 2936,
+    "source": "result-record",
+    "total_billed": 561996,
+    "total_cost_usd": 0.394715,
+    "total_uncached": 35326
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]=\"The BenchTarget app is now open on its first screen (Pixel 8 Pro device). Here's what's displayed:\\n\\n**App title:** BenchTarget\\n\\n**Navigation buttons (in order):**\\n1. Catalog\\n2. Form\\n3. About\\n4. Checkout\\n\\nThe screen is otherwise empty below these four purple buttons, with no other visible controls.\"",
+  "wall_time_s": 74.88
+}

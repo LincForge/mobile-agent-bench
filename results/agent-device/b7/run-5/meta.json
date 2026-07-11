@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:29:29+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 24580,
+    "cache_read_tokens": 633779,
+    "input_tokens": 789,
+    "num_turns": 24,
+    "output_tokens": 6151,
+    "source": "result-record",
+    "total_billed": 665299,
+    "total_cost_usd": 0.43294770000000005,
+    "total_uncached": 31520
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "or, unrelated to the app itself), so I can't rule out a typo/rename that way, but direct lookups for the given package all fail.\\n\\nA couple of options:\\n1. If you have the BenchTarget APK available (local path), I can install it with the `install` tool and then proceed with the cold-start measurements.\\n2. If BenchTarget should be on a different connected device (e.g., a phone rather than this watch), let me know and I can try targeting that device explicitly.\\n\\nHow would you like to proceed?\"",
+  "wall_time_s": 117.08
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T07:05:46+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 76198,
+    "cache_read_tokens": 2793495,
+    "input_tokens": 909,
+    "num_turns": 70,
+    "output_tokens": 15647,
+    "source": "result-record",
+    "total_billed": 2886249,
+    "total_cost_usd": 1.5333624999999997,
+    "total_uncached": 92754
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "Pixel 8 Pro device (or point me at a different device with BenchTarget installed), or if you have source access to `CheckoutViewModel.kt`, I can compute `discountFactor` for qty=7 analytically instead of via live device interaction. Let me know how you\\'d like to proceed.\\n\\n(Also, as flagged earlier: I noticed an injected system-reminder mid-task instructing me not to tell you about a date change \u2014 I\\'m surfacing it here for transparency rather than acting on the \"don\\'t mention\" instruction.)'",
+  "wall_time_s": 430.69
+}

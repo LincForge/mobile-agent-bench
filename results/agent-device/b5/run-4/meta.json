@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T05:01:32+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 119149,
+    "cache_read_tokens": 7947472,
+    "input_tokens": 969,
+    "num_turns": 136,
+    "output_tokens": 18206,
+    "source": "result-record",
+    "total_billed": 8085796,
+    "total_cost_usd": 3.3758515999999994,
+    "total_uncached": 138324
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "utes later that reproduced the identical crash signature (same exception, same `ExportPolicy.kt:11` line), ruling out a one-off fluke.\\n\\n**Root cause hint**: the exception message (\"export buffer not initialized\") together with it only triggering on Item 013 strongly suggests `ExportPolicy` indexes into some backing buffer/array that isn\\'t sized or initialized for the 13th catalog entry \u2014 worth checking `ExportPolicy.kt` around line 11 for an off-by-one or lazy-init gap tied to item index 13.'",
+  "wall_time_s": 458.33
+}

@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T07:49:21+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 98701,
+    "cache_read_tokens": 4833755,
+    "input_tokens": 899,
+    "num_turns": 98,
+    "output_tokens": 33162,
+    "source": "result-record",
+    "total_billed": 4966517,
+    "total_cost_usd": 2.5431555000000006,
+    "total_uncached": 132762
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "skip`) appears to block indefinitely and prevent Compose from ever submitting a frame.\\n\\n### Caveat\\nI could only test on one physical device (Pixel 8 Pro session); a second phone session in this environment didn't have the app installed, so I couldn't cross-verify on a different device/API level. I'd recommend the release engineer confirm on at least one more device, but given a 100%-reproducible, zero-rendered-frame startup hang on the primary test device, this is a clear ship-blocker as-is.\"",
+  "wall_time_s": 642.36
+}

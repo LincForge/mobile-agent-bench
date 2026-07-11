@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T04:23:51+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 24973,
+    "cache_read_tokens": 384300,
+    "input_tokens": 773,
+    "num_turns": 17,
+    "output_tokens": 2195,
+    "source": "result-record",
+    "total_billed": 412241,
+    "total_cost_usd": 0.30104400000000003,
+    "total_uncached": 27941
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]=\"The BenchTarget app launched successfully on the Pixel 8 Pro. Here's the first screen:\\n\\n**App title:** BenchTarget\\n\\n**Navigation buttons (top to bottom):**\\n1. **Catalog**\\n2. **Form**\\n3. **About**\\n4. **Checkout**\\n\\nNo other navigation elements are visible on this screen.\"",
+  "wall_time_s": 57.18
+}
