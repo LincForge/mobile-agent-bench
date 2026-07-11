@@ -299,3 +299,13 @@ The same-day pipeline smoke (throwaway a1 cell + APK digest-pin swap exercise,
 results outside `results_v2/`, unpublished) validated hygiene → pin → reset →
 verify end-to-end on the unlocked phone: a1 PASS 36 s, seeded/stock swap
 installed+verified, idempotent re-check clean.
+
+## 2026-07-11 — v2 run window widened to 2026-07-11 → 2026-07-20 (no rows had run)
+
+`PREREGISTRATION-v2.md` set the comparative-run window at 2026-07-13 →
+2026-07-20; the 07-13 start was chosen only for phone-unlock uncertainty. The
+watch became run-ready on 07-11 (back on adb, no keyguard) and b8 needs no
+phone, so the window START moves to 2026-07-11. The hard stop is unchanged.
+**No rows affected** — no v2 comparative cell had run when this was amended.
+b8 genuineness condition at run start: BenchTarget installed ONLY on the watch
+(phone off-bench; verified absent from both other attached devices).
