@@ -10,6 +10,7 @@ prompt: |
   where it lives as precisely as you can.
 app:
   package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/seeded/debug/app-seeded-debug.apk
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer

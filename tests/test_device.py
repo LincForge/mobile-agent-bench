@@ -82,6 +82,11 @@ def test_run_one_clears_holders_before_reset_and_records(monkeypatch, tmp_path):
     )
     monkeypatch.setattr(
         runner,
+        "ensure_pinned_app",
+        lambda pkg, apk, serial=None: {"package": pkg, "apk_md5": "d" * 32, "action": "verified"},
+    )
+    monkeypatch.setattr(
+        runner,
         "reset_app_state",
         lambda pkg, steps, serial=None: order.append("reset") or list(steps),
     )
@@ -104,7 +109,9 @@ def test_run_one_clears_holders_before_reset_and_records(monkeypatch, tmp_path):
 
     task = Task(
         id="t", tier="A", name="t", prompt="p",
-        app_package="dev.lincforge.benchtarget", reset=("force-stop",),
+        app_package="dev.lincforge.benchtarget",
+        app_apk="target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk",
+        reset=("force-stop",),
         verify=Verify(type="manual"), timeout_s=60,
     )
     tool = Tool(id="x", name="x", mcp_config="tools/x.mcp.json")

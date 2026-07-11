@@ -15,8 +15,9 @@ from mobile_agent_bench.schema import Task, Tool, Verify
 def _task(verify: Verify) -> Task:
     return Task(
         id="t", tier="A", name="t", prompt="do the thing",
-        app_package="dev.lincforge.benchtarget", reset=("force-stop",),
-        verify=verify, timeout_s=60,
+        app_package="dev.lincforge.benchtarget",
+        app_apk="target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk",
+        reset=("force-stop",), verify=verify, timeout_s=60,
     )
 
 

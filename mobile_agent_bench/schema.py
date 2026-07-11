@@ -47,6 +47,8 @@ class Task:
     name: str
     prompt: str
     app_package: str
+    app_apk: str  # repo-relative pinned APK; run_one refuses a cell whose
+    #               installed base.apk digest differs (see device.ensure_pinned_app)
     reset: tuple[str, ...]
     verify: Verify
     timeout_s: int
@@ -79,12 +81,16 @@ def load_task(path: Path) -> Task:
     missing = REQUIRED_TASK_FIELDS - raw.keys()
     if missing:
         raise ConfigError(f"{path}: missing required fields {sorted(missing)}")
+    app = raw["app"]
+    if not isinstance(app, dict) or "package" not in app or "apk" not in app:
+        raise ConfigError(f"{path}: app must declare both package and apk (pinned APK path)")
     return Task(
         id=raw["id"],
         tier=raw["tier"],
         name=raw["name"],
         prompt=raw["prompt"].strip(),
-        app_package=raw["app"]["package"],
+        app_package=app["package"],
+        app_apk=app["apk"],
         reset=tuple(raw["reset"]),
         verify=Verify(
             type=raw["verify"]["type"],
