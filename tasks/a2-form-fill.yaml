@@ -9,6 +9,7 @@ prompt: |
   text shown after submitting.
 app:
   package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
 reset: [wake, home, force-stop, clear-data]
 verify:
   type: shell
