@@ -73,6 +73,20 @@ needs the project registered (Forge/`.forge.yaml`) — and Forge is retired. The
 runtime-debug differentiator did not deliver on an unregistered app under confinement.
 The one maestro "pass" was the erratum-#3 raw-`jdb` escape (voided).
 
+## b8 (watch capability row) — pre-registered expectation NOT borne out
+
+b8 = **linc 5/5, maestro 5/5, mobile-mcp 5/5** (all Monitor=0, 59–87s, no timeouts).
+The pre-registration expected "only the LINC stack completes it" — but on this simple
+launch + tap-Ping×3 + read-counter task, **all three tools drove the Pixel Watch 2
+successfully**. Genuineness confirmed: hygiene had uninstalled BenchTarget from the
+phone, so each agent necessarily operated on the watch, and each answer reports the
+correct "Pings: 3". (mobile-mcp's launch tool errored on Wear; its agent opened the
+app via the watch app drawer instead — a minor mobile-mcp Wear-launch rough edge, not
+a capability failure.) Reported separately per the capability-row rule; not averaged
+into cross-tool means. **Honest correction to the pre-registered assumption: Wear OS
+launch/interaction is not a LINC-exclusive capability** at this task's difficulty.
+(agent-device b8 pending.)
+
 ## v2 targets (priority order)
 
 1. **`8bba730a`** nerve Compose element extraction — highest leverage; would cut

@@ -1,0 +1,35 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T03:12:42+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 19941,
+    "cache_read_tokens": 193656,
+    "input_tokens": 1295,
+    "num_turns": 12,
+    "output_tokens": 2072,
+    "source": "result-record",
+    "total_billed": 216964,
+    "total_cost_usd": 0.21337979999999998,
+    "total_uncached": 23308
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "answer[-500:]='Done. After launching BenchTarget and tapping \"Ping\" three times on the watch (`<REDACTED-2>`), the app now displays: **\"Pings: 3\"**.\\n\\nSide note: while identifying devices, I spotted an unrelated phone (`<REDACTED-0>`) running an app called \"LINC Bench Probe\" \u2014 a name suspiciously close to the LincForge/BenchTarget package. I didn\\'t interact with it since it wasn\\'t the watch and wasn\\'t part of the task, but flagging it in case it\\'s not something you expected on that device.'",
+  "wall_time_s": 77.53
+}
