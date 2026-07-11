@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T01:14:45+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 166597,
+    "cache_read_tokens": 7572432,
+    "input_tokens": 1429,
+    "num_turns": 88,
+    "output_tokens": 24401,
+    "source": "result-record",
+    "total_billed": 7764859,
+    "total_cost_usd": 3.6423096,
+    "total_uncached": 192427
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "er it does anything at all.\\n\\n### Why DO NOT SHIP\\nTwo of the four sections (Form and Checkout) have confirmed, reproducible correctness bugs in their core logic \u2014 not edge cases, but the primary happy path (select a tier and submit; adjust quantity and check the total). Combined with a layout bug that can eject users from the app unexpectedly, this build should not go out as-is. Recommend fixing #1 and #2 (logic bugs), and #3 (inset/padding) before the next candidate; #4\u2013#6 can be follow-ups.'",
+  "wall_time_s": 730.6
+}

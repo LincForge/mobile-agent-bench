@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T01:56:49+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 79532,
+    "cache_read_tokens": 4824470,
+    "input_tokens": 978,
+    "num_turns": 94,
+    "output_tokens": 30584,
+    "source": "result-record",
+    "total_billed": 4935564,
+    "total_cost_usd": 2.386922999999999,
+    "total_uncached": 111094
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": " Flagged with lower confidence (could be tooling-side), but worth engineering follow-up since it would also affect TalkBack and automated testing.\\n\\n### Why DO NOT SHIP\\nThis isn't a matter of polish \u2014 the majority of the app's surface area is unreachable, the one path that does work is mislabeled, its main action button crashes the app, and the list beneath it can't be trusted to open the item you tap. This needs to go back to engineering before any release candidate evaluation is meaningful.\"",
+  "wall_time_s": 571.75
+}

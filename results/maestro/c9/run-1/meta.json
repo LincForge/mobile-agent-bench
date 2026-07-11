@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T00:43:57+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 135237,
+    "cache_read_tokens": 5776975,
+    "input_tokens": 1417,
+    "num_turns": 75,
+    "output_tokens": 22547,
+    "source": "result-record",
+    "total_billed": 5936176,
+    "total_cost_usd": 2.8876765000000004,
+    "total_uncached": 159201
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "t stack on repeated taps; About/Diagnostics screens behave as expected for an offline benchmark app (per its own description, it has no network access, so \"Retry sync\" being a no-op is by design).\\n\\n**Why DO NOT SHIP:** Finding #1 is a clean, 100%-reproducible crash reachable via the most obvious interaction in the app\\'s primary feature (browsing the catalog to its end). Combined with two separate correctness bugs in checkout pricing and form data capture, this release candidate is not ready.'",
+  "wall_time_s": 595.87
+}

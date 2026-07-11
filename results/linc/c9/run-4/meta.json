@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T00:19:52+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 123448,
+    "cache_read_tokens": 14307344,
+    "input_tokens": 2004,
+    "num_turns": 161,
+    "output_tokens": 32162,
+    "source": "result-record",
+    "total_billed": 14464958,
+    "total_cost_usd": 5.522039199999997,
+    "total_uncached": 157614
+  },
+  "tool": "linc",
+  "verdict": "PASS",
+  "verify_detail": "bility and blocks any automated testing or QA tooling that relies on the accessibility tree.\\n\\n### Why DO NOT SHIP\\nDefects #1 and #2 are silent data/pricing-correctness bugs in the two most business-critical flows (registration and checkout) \u2014 they don\\'t crash, so they\\'re the kind of bug that reaches production undetected and causes real customer/financial harm. Combined with a dead \"Export\" action and missing form validation, this build needs fixes and a re-test pass before it should ship.'",
+  "wall_time_s": 752.21
+}

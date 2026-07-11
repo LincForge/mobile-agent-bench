@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T01:47:16+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 83527,
+    "cache_read_tokens": 5228186,
+    "input_tokens": 5121,
+    "num_turns": 93,
+    "output_tokens": 22672,
+    "source": "result-record",
+    "total_billed": 5339506,
+    "total_cost_usd": 2.425766800000001,
+    "total_uncached": 111320
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": "n.\\n- The one feature that is reachable (Catalog \u2192 Detail) has both a data-integrity bug (wrong item shown) and a fatal crash on its primary action button.\\n- These are not edge cases \u2014 they are hit via the app's main, first-screen navigation.\\n\\nRecommend blocking release and filing bugs against: Home screen button wiring (`Screens.kt`, Home composable), Catalog list item click/index handling (`Screens.kt`, Catalog composable), and `ExportPolicy.export()` initialization (`ExportPolicy.kt:11`).\"",
+  "wall_time_s": 478.36
+}

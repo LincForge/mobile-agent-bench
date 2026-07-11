@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T01:02:33+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 125664,
+    "cache_read_tokens": 4922713,
+    "input_tokens": 1409,
+    "num_turns": 72,
+    "output_tokens": 19980,
+    "source": "result-record",
+    "total_billed": 5069766,
+    "total_cost_usd": 2.5354208999999996,
+    "total_uncached": 147053
+  },
+  "tool": "maestro",
+  "verdict": "PASS",
+  "verify_detail": "ounding is clean, no crashes across the whole session.\\n\\nFindings #1 and #2 are the blockers \u2014 they're reproducible, silent data-correctness bugs in the two screens (Form, Checkout) that most resemble real transactional flows, and both would visibly show wrong information to a user before they'd notice anything was off. I'd fix those and add the name-required validation before shipping; the button-label and Export-feedback issues are worth cleaning up but wouldn't block a release on their own.\"",
+  "wall_time_s": 525.23
+}

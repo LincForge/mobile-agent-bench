@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T02:06:12+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 84396,
+    "cache_read_tokens": 6297442,
+    "input_tokens": 998,
+    "num_turns": 105,
+    "output_tokens": 27216,
+    "source": "result-record",
+    "total_billed": 6410052,
+    "total_cost_usd": 2.8075436,
+    "total_uncached": 112610
+  },
+  "tool": "mobile-mcp",
+  "verdict": "FAIL",
+  "verify_detail": " clear, testable action inside Catalog (Export) has a logged, deterministic fatal crash.\\n\\nGiven navigation itself is broken and a core action crashes the app outright, this build should not ship. Recommend blocking release until: (a) the main-menu button click handlers are fixed/rewired to their correct destinations, (b) the catalog list's item-to-detail index binding is fixed, and (c) `ExportPolicy` buffer initialization is fixed (or guarded) before `export()` is invoked from `DetailScreen`.\"",
+  "wall_time_s": 562.17
+}
