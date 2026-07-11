@@ -5,18 +5,28 @@ claude-sonnet-5, Pixel 8 Pro, under hardened confinement (post errata #1–3).
 agent-device column and b8 (watch capability) pending. All cells verified
 `Monitor=0` (no shell escape)._
 
-## Scoreboard (adjudicated)
+_Update 2026-07-11: agent-device column complete (all Monitor=0). Full 4-tool grid below._
 
-| task | linc | maestro | mobile-mcp | note |
-|------|------|---------|------------|------|
-| a1–a4 | 5/5 | 5/5 | 5/5 | pure UI interaction — everyone passes |
-| b5 | 1/5 | 0/5 | **5/5** | crash-repro-from-vague-report |
-| b6 | **5/5** | 0/5 | 0/5 | flaky-behavior root cause |
-| b7 | **5/5** | 2/5 | 0/5 | cold-start timing + variance |
-| c9 | 2/5 | **4/5** | 0/5 | seeded ship-gate (tier defect) |
-| c10 | 0/5 | 0/5 | 0/5 | runtime `discountFactor` (needs debugger) |
+## Scoreboard (adjudicated, 4 tools)
 
-Completion (45 cells/tool): **linc 73%**, maestro 58%, mobile-mcp 56%.
+| task | linc | maestro | mobile-mcp | agent-device | note |
+|------|------|---------|------------|--------------|------|
+| a1–a4 | 5/5 | 5/5 | 5/5 | 5/5 | pure UI interaction — everyone passes |
+| b5 | 1/5 | 0/5 | **5/5** | **5/5** | crash-repro-from-vague-report |
+| b6 | **5/5** | 0/5 | 0/5 | 3/5 | flaky-behavior root cause — linc sole clean winner |
+| b7 | **5/5** | 2/5 | 0/5 | 4/5 | cold-start timing + variance |
+| c9 | 2/5 | **4/5** | 0/5 | 0/5 | seeded ship-gate (tier defect) |
+| c10 | 0/5 | 0/5 | 0/5 | 0/5 | runtime `discountFactor` — no tool solved it under clean confinement |
+| b8 (cap-row) | 5/5 | 5/5 | 5/5 | 5/5 | Wear OS — not linc-exclusive after all |
+
+Completion (a1–c10, 45 cells/tool, b8 excluded): **linc 73%**, **agent-device 71%**,
+maestro 58%, mobile-mcp 56%.
+
+**Read:** linc and agent-device are a near-tie at the top; agent-device beats linc on
+b5 (5/5 vs 1/5 — exactly the Compose element-blindness tax `8bba730a` inflicts on
+linc). linc's durable edges are **b6** (sole clean winner) and **c9**. c10 is 0 across
+the board — the runtime-inspection differentiator (`ab10e2d5`) is unrealized for
+everyone, so it's linc's to win in v2 if spectra is fixed.
 
 ## Efficiency (the other axis)
 

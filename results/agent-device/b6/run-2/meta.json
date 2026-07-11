@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T05:34:18+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 94839,
+    "cache_read_tokens": 6156988,
+    "input_tokens": 937,
+    "num_turns": 117,
+    "output_tokens": 32797,
+    "source": "result-record",
+    "total_billed": 6285561,
+    "total_cost_usd": 2.9116813999999995,
+    "total_uncached": 128573
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "ly deterministic app behavior tied to a stored launch-count value that cycles mod 5 and intentionally suppresses the Retry-sync button (rendering \"Sync unavailable\" with no button at all) on 2 of every 5 app starts. A UI test that asserts the button is always visible on a cold launch will fail whenever the persisted counter lands on remainder 2 or 4 \u2014 the test needs to either reset/control that counter before asserting, or account for the \"Sync unavailable\" (no-button) state as a valid outcome.'",
+  "wall_time_s": 626.72
+}

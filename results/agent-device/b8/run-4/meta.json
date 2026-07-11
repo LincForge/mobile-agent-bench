@@ -1,0 +1,35 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": true,
+  "device": {
+    "android_version": "13",
+    "build": "TWD9.240205.001.A3",
+    "model": "Google Pixel Watch 2",
+    "sdk": "33"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T08:08:48+00:00",
+  "task": "b8",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28055,
+    "cache_read_tokens": 545082,
+    "input_tokens": 779,
+    "num_turns": 22,
+    "output_tokens": 2310,
+    "source": "result-record",
+    "total_billed": 576226,
+    "total_cost_usd": 0.3695235999999999,
+    "total_uncached": 31144
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*3' answer[-500:]='Done. After launching BenchTarget on the Pixel Watch 2 and tapping \"Ping\" three times, the app displays the counter text: **\"Pings: 3\"**.'",
+  "wall_time_s": 88.23
+}

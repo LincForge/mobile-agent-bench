@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:22:45+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28442,
+    "cache_read_tokens": 790017,
+    "input_tokens": 799,
+    "num_turns": 28,
+    "output_tokens": 6495,
+    "source": "result-record",
+    "total_billed": 825753,
+    "total_cost_usd": 0.5081810999999998,
+    "total_uncached": 35736
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "**Median:** 3095 ms\\n- **Sample standard deviation (n\u22121):** \u2248371.3 ms (variance \u2248137,883 ms\u00b2)\\n- **Population standard deviation (n):** \u2248332.1 ms (variance \u2248110,306 ms\u00b2)\\n\\nNote: this uses the `open` tool\\'s `startup.durationMs` (method: `open-command-roundtrip`), the closest available cold-start signal on this device \u2014 it doesn\\'t have raw `adb shell` access, so it\\'s not a direct `am start -W` \"TotalTime\" reading, but each run is genuinely from a killed process via force-stop before relaunch.'",
+  "wall_time_s": 139.86
+}

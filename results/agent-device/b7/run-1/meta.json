@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:20:24+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 48180,
+    "cache_read_tokens": 1398147,
+    "input_tokens": 807,
+    "num_turns": 36,
+    "output_tokens": 11482,
+    "source": "result-record",
+    "total_billed": 1458616,
+    "total_cost_usd": 0.8838771,
+    "total_uncached": 60469
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": ".8 ms\\n- **Standard deviation:** \u2248512.3 ms (sample, n-1) / \u2248458.2 ms (population, n)\\n- **Variance:** \u2248262,471 ms\u00b2 (sample) / \u2248209,977 ms\u00b2 (population)\\n\\nNote: the measurement method is `open-command-roundtrip` \u2014 it times from issuing the launch command to the app being ready, and force-stop was applied before each run to guarantee cold start. This includes a small fixed overhead from the automation round-trip itself, so treat these as slightly upper-bound estimates of true cold-start latency.'",
+  "wall_time_s": 212.68
+}

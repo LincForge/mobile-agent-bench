@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T07:38:37+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 145991,
+    "cache_read_tokens": 8009894,
+    "input_tokens": 903,
+    "num_turns": 112,
+    "output_tokens": 28022,
+    "source": "result-record",
+    "total_billed": 8184810,
+    "total_cost_usd": 3.7026491999999998,
+    "total_uncached": 174916
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "ozen frames) on every cold launch, which alone would fail typical performance gating. Combined with my inability to confirm the app renders any usable, interactive UI afterward, I can't sign off on this build. Recommended next steps: (1) investigate `SyncComponent init` for blocking main-thread work at startup, (2) get this build onto a device with a working display/capture pipeline (or reboot/replace the current Pixel 8 Pro unit) and re-run a full functional pass before making a ship decision.\"",
+  "wall_time_s": 628.31
+}

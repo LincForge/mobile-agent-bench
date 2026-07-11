@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:01:49+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 165976,
+    "cache_read_tokens": 10449261,
+    "input_tokens": 947,
+    "num_turns": 118,
+    "output_tokens": 33859,
+    "source": "result-record",
+    "total_billed": 10650043,
+    "total_cost_usd": 4.642130299999997,
+    "total_uncached": 200782
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "trong, well-evidenced lead rather than a directly-observed fact, and suggest re-running with working screen capture (or pulling the SharedPreferences key backing `launchCount` alongside a live UI dump) to confirm the causal link before filing a fix.\\n\\n**Recommended fix/verification for the team:** reset or mock the `launchCount` SharedPreferences value before each test run (or have the test read/log it), and inspect `SyncComponent`'s `skip` computation in source to get the precise periodicity.\"",
+  "wall_time_s": 749.14
+}

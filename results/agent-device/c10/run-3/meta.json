@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:53:13+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 123031,
+    "cache_read_tokens": 6910316,
+    "input_tokens": 901,
+    "num_turns": 98,
+    "output_tokens": 25519,
+    "source": "result-record",
+    "total_billed": 7059767,
+    "total_cost_usd": 3.1974728000000003,
+    "total_uncached": 149451
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "8 Pro device.\\n2. Install BenchTarget on another working device (e.g., the SM G970U or SM T570 Android devices, or an iOS/simulator equivalent if one exists) and I retry there.\\n3. If you have the BenchTarget source checked out locally on this machine, point me at the path and I can inspect `CheckoutViewModel.applyDiscount()` directly and reason about `discountFactor` from the code, though that wouldn\\'t be a \"runtime-observed\" value \u2014 it\\'d be static analysis.\\n\\nHow would you like to proceed?'",
+  "wall_time_s": 586.27
+}

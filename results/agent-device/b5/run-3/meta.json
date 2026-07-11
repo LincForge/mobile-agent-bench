@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T04:53:53+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 133352,
+    "cache_read_tokens": 9446016,
+    "input_tokens": 1011,
+    "num_turns": 167,
+    "output_tokens": 22498,
+    "source": "result-record",
+    "total_billed": 9602877,
+    "total_cost_usd": 3.9751337999999996,
+    "total_uncached": 156861
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": " to the home launcher (confirming the app process died): `/var/folders/bz/hl7cbz_x2634qr0d_wwd9ww00000gn/T/agent-device-screenshot-xyGLhj/screenshot.png`\\n- Verified via `appstate` that the foreground package changed from `dev.lincforge.benchtarget` to `com.google.android.apps.nexuslauncher` at the moment of the crash.\\n- Items 001\u2013012 were each individually opened and exported successfully with no crash, narrowing the fault to Item 013 specifically (device: Pixel 8 Pro, serial `<REDACTED-1>`).'",
+  "wall_time_s": 620.2
+}

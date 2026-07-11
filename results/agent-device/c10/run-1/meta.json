@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T06:30:30+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 29702,
+    "cache_read_tokens": 339238,
+    "input_tokens": 767,
+    "num_turns": 16,
+    "output_tokens": 3085,
+    "source": "result-record",
+    "total_billed": 372792,
+    "total_cost_usd": 0.3292534,
+    "total_uncached": 33554
+  },
+  "tool": "agent-device",
+  "verdict": "FAIL",
+  "verify_detail": "box UI interaction alone. To get that exact runtime value I'd need one of:\\n- A debug log line the app emits (via `logs`) that prints `discountFactor`,\\n- Source access to read the method and compute it deterministically from the quantity=7 input, or\\n- Attaching a debugger/tracing tool that can inspect the live value.\\n\\nLet me know which of these is available (source repo, or a build with debug logging) and I'll proceed \u2014 I don't want to guess at the number without one of those verifications.\"",
+  "wall_time_s": 60.08
+}

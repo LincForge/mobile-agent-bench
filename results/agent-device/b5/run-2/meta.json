@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T04:43:31+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 133419,
+    "cache_read_tokens": 6907897,
+    "input_tokens": 933,
+    "num_turns": 135,
+    "output_tokens": 17089,
+    "source": "result-record",
+    "total_billed": 7059338,
+    "total_cost_usd": 3.1327311000000004,
+    "total_uncached": 151441
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "gnal. PID: 21974 SIG: 9` confirming the process was killed after the crash.\\n\\n**Root cause hint for engineering:** `ExportPolicy.export()` at `ExportPolicy.kt:11` throws `IllegalStateException(\"export buffer not initialized\")`, called from `DetailScreen` at `Screens.kt:90`. This suggests Item 013\\'s catalog entry either fails to populate/initialize the export buffer during screen setup, or there\\'s an indexing issue (e.g., off-by-one or a lazy-init that isn\\'t triggered) specific to that item.'",
+  "wall_time_s": 484.34
+}
