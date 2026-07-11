@@ -1,0 +1,36 @@
+{
+  "agent_exit_code": 0,
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "started_utc": "2026-07-11T03:32:57+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 47529,
+    "cache_read_tokens": 1216728,
+    "input_tokens": 807,
+    "num_turns": 38,
+    "output_tokens": 4103,
+    "source": "result-record",
+    "total_billed": 1269167,
+    "total_cost_usd": 0.7148354000000001,
+    "total_uncached": 52439
+  },
+  "tool": "agent-device",
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='I navigated Home \u2192 About \u2192 Diagnostics in the BenchTarget app. The Diagnostics screen shows:\\n\\n**Build channel: BENCH-STABLE**'",
+  "wall_time_s": 128.85
+}
