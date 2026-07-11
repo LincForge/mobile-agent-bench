@@ -210,6 +210,38 @@ not from Maestro. linc's numbers were escape-independent (it solved via nerve's
 structured surface), so they held. The published v1 grid uses these v3 numbers for
 b5(maestro)/b7(all)/c10(maestro); the other cells were certified escape-free.
 
+## 2026-07-11 — cross-tool UiAutomation contamination vector disclosed (no verdicts changed) + per-cell hygiene added
+
+**The vector.** Post-grid root-cause work on linc's element blindness (P0-A,
+fixed in linc-nerve#105 @`e46a225`) found that a **leaked `dev.mobile.maestro`
+instrumentation driver** — left alive on the bench phone by grid cells of a
+*competing* tool column — holds the device's single UiAutomation connection,
+making the system SIGKILL every subsequent `uiautomator dump` ("Killed",
+rc 137). The v1 reset steps (`force-stop <app>`, `clear-data`, `home`, `wake`)
+only touch the app under test, so a driver leaked by one cell survived into
+later cells: a cross-tool contamination vector created by the harness's own
+grid, not by any tool under test.
+
+**Effect on v1 (disclosure, no re-grade).** Every v1 linc transcript shows
+`element_count: 0`; the leaked-holder condition was found live on the bench
+during post-grid diagnosis and dump recovery was reproduced by force-stopping
+the driver. The environmental trigger does not excuse the scored failure —
+nerve converting a failed dump into a silent empty tree was a genuine tool
+defect (a robust tool must surface or heal the conflict, as its competitors'
+drivers implicitly do by re-acquiring UiAutomation) — so **all v1 verdicts
+stand as recorded**. But the efficiency/latency readings for affected linc
+cells (e.g. a1 median 135 s vs ~34 s post-fix) should be read with the
+environmental factor in mind.
+
+**Fix (v2-forward).** The harness now runs a **per-cell UiAutomation-holder
+hygiene step** before every run, for every tool identically: exact-name match
+of running processes against a known-driver allowlist (`dev.mobile.maestro`,
+uiautomator2/appium servers — never the similarly-named Pixel Watch companion
+app) → `am force-stop` each → record the result as
+`uiautomation_holders_cleared` in the run meta, so v2 cell provenance shows a
+clean device at cell start. Unit-tested (`tests/test_device.py`); improvement
+`9c816108`.
+
 ## 2026-07-10 — device-interference audit (no cells voided) + scheduled job neutralized
 
 **Trigger.** The CEO glimpsed the SniperPulse home screen on the scored Pixel

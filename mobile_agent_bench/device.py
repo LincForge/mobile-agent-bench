@@ -16,6 +16,21 @@ import yaml
 
 LOCAL_CONFIG = Path("bench.local.yaml")
 
+# Known automation drivers that hold the device's single UiAutomation
+# connection. A driver left alive by one cell SIGKILLs every later
+# `uiautomator dump` ("Killed", rc 137), blinding whichever tool runs next —
+# v1's maestro cells did exactly this to nerve (bench P0-A / improvement
+# 9c816108). Exact process names only: these are test drivers, never user
+# apps. com.google.android.apps.wearables.maestro.companion (Pixel Watch
+# companion) contains "maestro" as a substring and must never match.
+UIAUTOMATION_HOLDER_PKGS = (
+    "dev.mobile.maestro",  # mobile.dev maestro driver
+    "com.github.uiautomator",  # uiautomator2 server
+    "com.github.uiautomator.test",
+    "io.appium.uiautomator2.server",
+    "io.appium.uiautomator2.server.test",
+)
+
 
 class DeviceError(RuntimeError):
     pass
@@ -58,6 +73,25 @@ def reset_app_state(package: str, steps: tuple[str, ...], serial: str | None = N
             raise DeviceError(f"unknown reset step {step!r}")
         log.append(step)
     return log
+
+
+def clear_uiautomation_holders(serial: str | None = None) -> list[str]:
+    """Force-stop leaked UiAutomation-holder drivers; return what was stopped.
+
+    Runs before EVERY cell, for every tool identically (fairness), so no tool
+    inherits a device blinded by the previous cell's leaked driver. Matches
+    exact process names against ``UIAUTOMATION_HOLDER_PKGS`` only. adb errors
+    propagate — a cell must not start on a device whose hygiene is unknown.
+    """
+    serial = serial or device_serial()
+    ps_out = adb("shell", "ps", "-A", "-o", "NAME", serial=serial).stdout
+    running = {line.strip() for line in ps_out.splitlines()}
+    stopped: list[str] = []
+    for pkg in UIAUTOMATION_HOLDER_PKGS:
+        if pkg in running:
+            adb("shell", "am", "force-stop", pkg, serial=serial)
+            stopped.append(pkg)
+    return stopped
 
 
 def device_fingerprint(serial: str | None = None) -> dict:

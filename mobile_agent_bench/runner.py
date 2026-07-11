@@ -22,7 +22,12 @@ from pathlib import Path
 import yaml
 
 from . import agent as agent_mod
-from .device import device_fingerprint, device_serial, reset_app_state
+from .device import (
+    clear_uiautomation_holders,
+    device_fingerprint,
+    device_serial,
+    reset_app_state,
+)
 from .schema import Task, Tool, load_all_tasks, load_all_tools
 
 ROOT = Path(".")
@@ -44,6 +49,7 @@ def load_bench_config() -> dict:
 
 def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
     serial = device_serial()
+    holders_cleared = clear_uiautomation_holders(serial=serial)
     reset_log = reset_app_state(task.app_package, task.reset, serial=serial)
     result = agent_mod.run_agent(task, tool, model, out_dir)
     verdict, verify_detail = agent_mod.verify_task(
@@ -63,6 +69,7 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
         "verdict": verdict,
         "verify_detail": verify_detail[-500:],
         "reset_steps": reset_log,
+        "uiautomation_holders_cleared": holders_cleared,
         "tokens": result.tokens.as_dict(),
         "device": device_fingerprint(serial),
         "capability_row": task.capability_row,
