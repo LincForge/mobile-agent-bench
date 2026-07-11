@@ -18,6 +18,12 @@ reset: [wake, home, force-stop, clear-data]
 verify:
   type: answer
   pattern: 'launch\s?-?\s?(count|counter|number)|(counter|count).{0,60}launch|every fifth|(3rd|third).{0,40}(5th|fifth)'
+  match_samples:
+    - >-
+      The Retry sync button's visibility depends on the persisted cold-start
+      launch counter: launchCount % 5 in {2,4} skips the init that shows it.
+  reject_samples:
+    - 'The button flickers because of an animation timing race after resume; I found no persistent cause.'
 timeout_s: 900
 notes: >-
   Ground truth (frozen in target-app/SPEC.md): visibility depends on the
