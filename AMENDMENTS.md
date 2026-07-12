@@ -340,3 +340,37 @@ before relaunch (23:54):
 host. The b8 capability column (published earlier the same day) ran on the
 watch under its own disclosed conditions and stands. First relaunch cell:
 linc/a1/run-1 PASS 43.8 s, confirming cause (1).
+
+## 2026-07-12 — orphaned UiAutomation holder zeroed maestro's relaunched column (24 cells voided, none published) + hygiene hardened
+
+Every maestro cell of the relaunched phone grid (23:54 → pause) failed fast
+with `dadb.open(tcp:7001)` timeouts. Live diagnosis on the paused bench:
+`dumpsys accessibility` showed a live `Ui Automation[...]` registration with
+no known holder process running; maestro's driver died at boot with
+`UiAutomationService ... already registered!`. The holder was an anonymous
+`app_process` under the shell uid — agent-device's snapshot helper, orphaned
+when the FALSE-START grid was killed mid-cell (see previous entry). An
+orphaned *registration* blocks every later UiAutomation registration (exactly
+the maestro driver's boot path) while passive `uiautomator dump` reads keep
+working — which is why linc/mobile-mcp/agent-device columns were unaffected.
+
+**Voided (never published):** all 24 relaunched maestro cells (a1–a4 ×5, b5
+×4) — environmental, not tool behavior — plus the mid-flight
+agent-device/b5/run-4 killed at pause (unsanitized partial transcript,
+deleted; re-runs). All other relaunched cells stand: dumps were unimpaired
+and each cell's meta carries its own hygiene/pin receipts.
+
+**Fixes (before any re-run):**
+1. Per-cell hygiene extended (harness change, disclosed): the holder allowlist
+   gains agent-device's helper APKs (`com.callstack.agentdevice.snapshothelper`
+   / `.multitouchhelper`), and hygiene now also kills anonymous shell-uid
+   `app_process` orphans by pid — the no-package holder class force-stop cannot
+   reach. Applies before EVERY cell, identically for every tool; this also
+   removes the pre-warmed-helper advantage agent-device's own cells previously
+   inherited from its leftovers.
+2. Grid wrapper clears the adb port-forward table between cells. ~230 stale
+   scrcpy forwards (leaked by the pinned nerve's streaming — filed as a nerve
+   improvement, pin unchanged) had accumulated on the bench pair; forward-table
+   pollution is a plausible contributor to maestro's b8 connection struggles
+   and is now prevented from recurring. Disclosed as environment maintenance,
+   identical for every tool.

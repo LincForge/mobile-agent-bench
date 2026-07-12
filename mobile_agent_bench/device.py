@@ -30,6 +30,10 @@ UIAUTOMATION_HOLDER_PKGS = (
     "com.github.uiautomator.test",
     "io.appium.uiautomator2.server",
     "io.appium.uiautomator2.server.test",
+    # agent-device (Callstack) helper APKs — joined the bench after the v1
+    # allowlist; the snapshot helper registers a UiAutomation connection.
+    "com.callstack.agentdevice.snapshothelper",
+    "com.callstack.agentdevice.multitouchhelper",
 )
 
 
@@ -92,6 +96,18 @@ def clear_uiautomation_holders(serial: str | None = None) -> list[str]:
         if pkg in running:
             adb("shell", "am", "force-stop", pkg, serial=serial)
             stopped.append(pkg)
+    # An automation server orphaned by a killed agent session survives as an
+    # anonymous `app_process` under the shell uid — no package to force-stop.
+    # It holds a UiAutomation *registration*, so passive dumps still work but
+    # every later registration dies ("already registered!"), silently blinding
+    # driver-based tools (maestro). Kill such orphans by pid. Nothing else on a
+    # bench device legitimately runs as a persistent shell-uid app_process.
+    detail = adb("shell", "ps", "-A", "-o", "USER,PID,NAME", serial=serial).stdout
+    for line in detail.splitlines():
+        parts = line.split()
+        if len(parts) >= 3 and parts[0] == "shell" and parts[2] == "app_process":
+            adb("shell", "kill", parts[1], serial=serial)
+            stopped.append(f"app_process:{parts[1]}")
     return stopped
 
 
