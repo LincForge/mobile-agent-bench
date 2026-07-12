@@ -309,3 +309,34 @@ phone, so the window START moves to 2026-07-11. The hard stop is unchanged.
 **No rows affected** — no v2 comparative cell had run when this was amended.
 b8 genuineness condition at run start: BenchTarget installed ONLY on the watch
 (phone off-bench; verified absent from both other attached devices).
+
+## 2026-07-11 — phone-grid false start voided (31 cells, none published) + environment controlled
+
+The first phone-grid launch (21:51–23:47 local) was stopped and its 31 cells
+deleted before any publication. Two harness-side contaminations, both fixed
+before relaunch (23:54):
+
+1. **Operator device reservation blocked the linc column (0/7).** The grid
+   operator had reserved the bench phone in `nerve_pool` (10 h, to shield the
+   grid from the 05:00 nightly device job). The linc cells' own nerve server
+   honors that same reservation ledger, so every linc agent saw the phone as
+   held by another session and refused to drive it — transcripts show the
+   agent declining to "preempt that other active session's device
+   reservation". Harness-inflicted; competitors don't read `nerve_pool`, so
+   only linc was handicapped. Fix: reservation released; the nightly job was
+   instead neutralized for the grid window via `launchctl bootout` (the exact
+   v1 mechanism, re-enabled after the grid).
+2. **Non-benchmark devices confused maestro (1/7).** Two Samsung devices
+   (o1-project residents, one still carrying the retired "LINC Bench Probe"
+   app) were attached alongside the benchmark pair; maestro burned full 600 s
+   budgets enumerating and exploring them. v1's grid ran with only the
+   benchmark devices attached. Fix: the Samsungs were physically unplugged;
+   the grid environment is now exactly the pre-registered device set (Pixel
+   8 Pro + Pixel Watch 2). mobile-mcp and agent-device passed their false-start
+   cells despite the noise; their cells were voided anyway so every published
+   v2 phone row runs under identical conditions.
+
+**No published row is affected** — the false-start cells never left the bench
+host. The b8 capability column (published earlier the same day) ran on the
+watch under its own disclosed conditions and stands. First relaunch cell:
+linc/a1/run-1 PASS 43.8 s, confirming cause (1).
