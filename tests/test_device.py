@@ -66,6 +66,43 @@ def test_clear_stops_every_listed_holder(monkeypatch):
     assert cleared == ["dev.mobile.maestro", "io.appium.uiautomator2.server"]
 
 
+def test_clear_stops_agent_device_helpers(monkeypatch):
+    """agent-device's helper APKs joined the bench after the v1 allowlist was
+    written; its snapshot helper registers a UiAutomation connection and, if
+    orphaned, blocks every later UiAutomation *registration* (maestro's driver
+    dies with 'already registered!') while passive dumps keep working."""
+    calls: list = []
+    _patch_adb(monkeypatch, "NAME\ncom.callstack.agentdevice.snapshothelper\n", calls)
+    cleared = device.clear_uiautomation_holders(serial="S")
+    assert cleared == ["com.callstack.agentdevice.snapshothelper"]
+
+
+def test_clear_kills_orphan_shell_app_process(monkeypatch):
+    """An automation server orphaned by a killed agent session survives as an
+    anonymous `app_process` under the shell uid (adbd's child) — no package to
+    force-stop, so hygiene must kill it by pid. Discovered live 2026-07-12:
+    a mid-cell grid abort left agent-device's helper holding UiAutomation,
+    silently zeroing maestro's entire column."""
+
+    def fake_adb(*args, serial=None, timeout=60):
+        if args[:2] == ("shell", "ps"):
+            if "-o" in args and "USER,PID,NAME" in args:
+                return _completed(
+                    "USER PID NAME\nshell 1355 adbd\nshell 27673 app_process\nroot 2 kthreadd\n"
+                )
+            return _completed("NAME\ncom.android.systemui\n")
+        return _completed()
+
+    kills: list = []
+    monkeypatch.setattr(device, "adb", lambda *a, serial=None, timeout=60: (
+        kills.append(a) if a[:2] == ("shell", "kill") else None,
+        fake_adb(*a, serial=serial),
+    )[1])
+    cleared = device.clear_uiautomation_holders(serial="S")
+    assert "app_process:27673" in cleared
+    assert ("shell", "kill", "27673") in kills
+
+
 def test_run_one_clears_holders_before_reset_and_records(monkeypatch, tmp_path):
     """Fairness wiring: hygiene runs before the task reset, identically for
     every tool, and the run meta records what was cleared."""
