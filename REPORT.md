@@ -465,5 +465,9 @@ From [`docs/v2-deep-dive.md`](docs/v2-deep-dive.md), in priority order:
   recorded per-cell
 - [x] Vendor conflict and the v2-specific validity threat stated in the body,
   not a footnote
-- [ ] **CEO sign-off to publish externally** ← awaiting decision
+- [x] **CEO sign-off to publish externally** — granted 2026-07-13: publish v1
+  and v2 together, as one document. The v1 loss is load-bearing evidence, not
+  a preamble to the v2 result.
+- [ ] Mechanics of publication (repo visibility, announcement) — tracked
+  separately; this report is the artifact, not the act
 - [ ] v3 gated on a fresh pre-registration (candidate list above)
