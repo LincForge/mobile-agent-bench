@@ -396,3 +396,23 @@ reservation because the linc column's own nerve honors the same ledger
 (2026-07-12 entry). Until reservation owner-passthrough exists, grid
 protection remains procedural: nightly neutralized + no interactive device
 sessions during runs.
+
+## 2026-07-13 — post-grid lock-window audit: four b5 cells were no-rows, re-run (final b5 numbers)
+
+The close-out transcript audit (grep for keyguard/PIN/lock-screen language
+across all 200 cells) found a ~20-minute secure-lock window on 2026-07-12
+(ending 13:37 UTC): the personal-device PIN re-engaged as the phone was picked
+up ahead of that day's pause, a few minutes before the operator's clean-pause
+ran. Four consecutive b5 cells encountered the locked device and are no-rows
+per the 2026-07-11 keep-PIN amendment (a locked screen blinds every tool
+identically): agent-device/b5/run-4, linc/b5/run-5, maestro/b5/run-5,
+mobile-mcp/b5/run-5. All four were voided and re-run on the unlocked device;
+the published run dirs are the clean re-runs (linc PASS, agent-device PASS,
+mobile-mcp PASS, maestro FAIL). Two other lock-language hits were adjudicated
+and STAND: agent-device/a4/run-3 ("locked by an existing session named
+'watch'" is agent-device's own session-lock concept — the cell then described
+the watch screen, the same disambiguation failure as its other a4 miss) and
+maestro/b8/run-5 (the locked PHONE was a non-target device on the watch row;
+the fail was targeting, disclosed at publication). v3 should record
+`dumpsys trust` per cell in meta and auto-void no-rows instead of relying on
+post-hoc transcript audits.

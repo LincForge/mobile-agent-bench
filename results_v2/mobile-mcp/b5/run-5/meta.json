@@ -20,26 +20,26 @@
     "clear-data"
   ],
   "solved_unfinalized": false,
-  "started_utc": "2026-07-12T13:36:52+00:00",
+  "started_utc": "2026-07-13T20:25:26+00:00",
   "task": "b5",
   "tier": "B",
   "timed_out": false,
   "tokens": {
-    "cache_creation_tokens": 26823,
-    "cache_read_tokens": 754705,
-    "input_tokens": 60,
-    "num_turns": 30,
-    "output_tokens": 5508,
+    "cache_creation_tokens": 142314,
+    "cache_read_tokens": 7970222,
+    "input_tokens": 232,
+    "num_turns": 119,
+    "output_tokens": 16184,
     "source": "result-record",
-    "total_billed": 787096,
-    "total_cost_usd": 0.47086850000000013,
-    "total_uncached": 32391
+    "total_billed": 8128952,
+    "total_cost_usd": 3.4891256000000004,
+    "total_uncached": 158730
   },
   "tool": "mobile-mcp",
   "uiautomation_holders_cleared": [
     "dev.mobile.maestro"
   ],
-  "verdict": "FAIL",
-  "verify_detail": "n)(?=.*export buffer not initialized)(?=.*Item 013)' answer[-500:]=\"I've tried three common PINs (0000, 1234, 1111) and all failed. I don't want to keep guessing since repeated failures can trigger an escalating lockout (or a wipe after enough attempts) on the device.\\n\\nDo you have the device's PIN, or is there another way you'd like me to unlock it (e.g., fingerprint/face auth isn't available to me as an agent, so I'd need the PIN, or you could unlock it manually and hand control back to me)?\"",
-  "wall_time_s": 120.02
+  "verdict": "PASS",
+  "verify_detail": "n, confirming the app process died\\n- Screen recording started during the systematic sweep: `/tmp/benchtarget_repro.mp4`\\n- Device: Pixel 8 Pro emulator (Android 16), device ID `<REDACTED-1>`\\n\\nThe crash is a straightforward unhandled `IllegalStateException` \u2014 `ExportPolicy`'s internal export buffer isn't initialized when Item 013's export is triggered, suggesting a state/init bug specific to that catalog entry (or a class of entries sharing some property) rather than a generic export failure.\"",
+  "wall_time_s": 536.43
 }
