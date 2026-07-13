@@ -17,3 +17,7 @@ target-app/local.properties
 !results/**  # raw run logs are the product; never ignore them
 IMPROVEMENTS.md  # generated from reactor data (linc-export-improvements) — never commit
 IMPROVEMENTS.md
+
+# stray device-recording artifacts (nerve/agent-device tooling)
+recording-*.mp4
+recording-*.gesture-telemetry.json
