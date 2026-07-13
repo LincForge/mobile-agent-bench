@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:13:06+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 67912,
+    "cache_read_tokens": 2919575,
+    "input_tokens": 118,
+    "num_turns": 60,
+    "output_tokens": 14521,
+    "source": "result-record",
+    "total_billed": 3002126,
+    "total_cost_usd": 1.5022194999999996,
+    "total_uncached": 82551
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "ity issue \u2014 core tap-to-count interaction is otherwise reliable and performant \u2014 but it undermines the one piece of data the app exists to track. Worth a follow-up fix (persist the count) before or shortly after this build ships, depending on whether this app is meant to hold a running total or is only ever used for one uninterrupted session.\\n\\nNo other functional defects, and no stability issues, were found \u2014 I recommend shipping this build, with a fast-follow fix for the counter persistence.'",
+  "wall_time_s": 365.27
+}

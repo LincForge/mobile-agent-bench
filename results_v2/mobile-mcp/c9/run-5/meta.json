@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:06:59+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 91476,
+    "cache_read_tokens": 8406356,
+    "input_tokens": 4377,
+    "num_turns": 117,
+    "output_tokens": 23000,
+    "source": "result-record",
+    "total_billed": 8525209,
+    "total_cost_usd": 3.4295898000000022,
+    "total_uncached": 118853
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "tate preserved).\\n- Catalog list scrolls smoothly through 50+ items with correct item\u2192detail navigation at various indices.\\n- Checkout quantity stepper correctly clamps at a minimum of 1.\\n- Form's Name text field and Subscribe toggle are captured correctly.\\n\\n**Recommendation:** Fix the Export crash (blocker) and the Tier-drop bug (data correctness) before shipping; the Checkout staleness bug should also be fixed, as pricing correctness is user-facing. Diagnostics feedback is a nice-to-have.\"",
+  "wall_time_s": 559.32
+}

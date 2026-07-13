@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:36:28+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 9494,
+    "cache_read_tokens": 73949,
+    "input_tokens": 10,
+    "num_turns": 6,
+    "output_tokens": 1471,
+    "source": "result-record",
+    "total_billed": 84924,
+    "total_cost_usd": 0.1019477,
+    "total_uncached": 10975
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='0[.,]755(?!\\\\s*(?:[-\u2013\u2014]|to\\\\b|and\\\\b|\\\\.\\\\.)\\\\s*\\\\d)' answer[-500:]='Maestro Viewer is available at http://127.0.0.1:9999/ if you want to watch live. There are two connected Android devices \u2014 which one should I use: `<REDACTED-2>` or `<REDACTED-1>`?'",
+  "wall_time_s": 24.81
+}

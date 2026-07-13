@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:14:23+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 70115,
+    "cache_read_tokens": 1602587,
+    "input_tokens": 76,
+    "num_turns": 38,
+    "output_tokens": 14166,
+    "source": "result-record",
+    "total_billed": 1686944,
+    "total_cost_usd": 1.1149590999999999,
+    "total_uncached": 84357
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "start-based coin flip) \u2014 and conditionally renders the `Retry sync` button only in the \"idle\" branch. The UI test\\'s `assertVisible(\"Retry sync\")` is correct given the \"idle\" state but will legitimately fail whenever the app lands on \"Sync unavailable,\" at a rate matching the observed ~40% failure. The fix belongs on the app/product side (make the initial diagnostics state deterministic for test builds, or have the test explicitly handle/assert both states) rather than in test wait/retry logic.'",
+  "wall_time_s": 397.11
+}

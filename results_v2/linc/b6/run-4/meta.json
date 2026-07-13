@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T15:08:43+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 78332,
+    "cache_read_tokens": 4762590,
+    "input_tokens": 150,
+    "num_turns": 77,
+    "output_tokens": 15561,
+    "source": "result-record",
+    "total_billed": 4856633,
+    "total_cost_usd": 2.1334139999999997,
+    "total_uncached": 94043
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "r is odd, simulating a \"sync unavailable\" state. Since nothing resets that counter between test runs, whether the assertion sees the button depends on parity of accumulated launches \u2014 not on any real timing race, network condition, or animation. Fix options: either clear app data before each test run (forces `launchCount=0`, deterministically even), or have the test/BVT harness ignore or account for the odd-launch \"Sync unavailable\" state rather than hard-asserting the button is always visible.'",
+  "wall_time_s": 365.23
+}

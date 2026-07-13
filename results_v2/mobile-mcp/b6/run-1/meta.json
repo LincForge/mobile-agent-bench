@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:02:31+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 44745,
+    "cache_read_tokens": 841052,
+    "input_tokens": 78,
+    "num_turns": 40,
+    "output_tokens": 8218,
+    "source": "result-record",
+    "total_billed": 894093,
+    "total_cost_usd": 0.6450696,
+    "total_uncached": 53041
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "is a separate, real bug but occurs on a different screen (Catalog/Form/Checkout detail export) and is unrelated to the Diagnostics \"Retry sync\" flake \u2014 flagging it in case it\\'s useful, but it did not correlate with any of my Diagnostics runs.\\n\\n**Recommendation for the test:** the assertion should wait for/assert on the \"Sync status\" text first (or the test fixture should force a deterministic sync state before asserting), since \"Retry sync\" visibility is conditional UI, not a stable element.'",
+  "wall_time_s": 178.81
+}

@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T12:55:27+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 98898,
+    "cache_read_tokens": 3709814,
+    "input_tokens": 140,
+    "num_turns": 70,
+    "output_tokens": 25089,
+    "source": "result-record",
+    "total_billed": 3833941,
+    "total_cost_usd": 2.0838012,
+    "total_uncached": 124127
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "confirms the app is a self-contained benchmark target with no network access (so no remote crash reporting to check either).\\n- The Recents/Overview card for BenchTarget after the crash shows a frozen snapshot of the catalog list (items 001\u2013013 visible, 013 greyed at the cutoff), with no crash badge/indicator.\\n\\n**Recommendation:** if you can grant a shell/adb tool for this session, I can re-run steps 1\u20134 while tailing `adb logcat -b crash` to capture the exact exception class and stack trace.'",
+  "wall_time_s": 709.64
+}

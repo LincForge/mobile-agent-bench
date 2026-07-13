@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T15:14:38+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 75581,
+    "cache_read_tokens": 1971885,
+    "input_tokens": 78,
+    "num_turns": 41,
+    "output_tokens": 13625,
+    "source": "result-record",
+    "total_billed": 2061169,
+    "total_cost_usd": 1.2504355,
+    "total_uncached": 89284
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " time, or persisted state. Since \"Retry sync\" is conditionally composed only in the \"idle\" branch, the test is flaky because it\\'s asserting on a UI element whose existence depends on this per-launch random outcome rather than on any deterministic app condition. Fix would be either to make the underlying \"sync availability\" simulation deterministic for tests (e.g., inject/mock it in test builds) or have the test explicitly handle/assert both states rather than assuming the button always exists.'",
+  "wall_time_s": 352.43
+}

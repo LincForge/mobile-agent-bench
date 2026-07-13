@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T15:54:07+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 116705,
+    "cache_read_tokens": 12502090,
+    "input_tokens": 304,
+    "num_turns": 153,
+    "output_tokens": 32099,
+    "source": "result-record",
+    "total_billed": 12651198,
+    "total_cost_usd": 4.933950000000001,
+    "total_uncached": 149108
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "ntity stepper correctly floors at a minimum of 1 (no negative/zero quantity).\\n- About \u2192 Diagnostics \"Retry sync\" no-ops, consistent with the app\\'s stated \"no network access\" design \u2014 not a bug.\\n\\n### Recommendation\\nFix the Export crash (or at least confirm/root-cause it, since crash logs show it firing dozens of times very recently), wire the Form\\'s Tier state into the submit handler, and fix the Checkout pricing calculation to match the displayed unit price \u2014 then re-test before shipping.'",
+  "wall_time_s": 869.91
+}

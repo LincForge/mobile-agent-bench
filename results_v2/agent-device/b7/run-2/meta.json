@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:48:08+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 18124,
+    "cache_read_tokens": 557052,
+    "input_tokens": 46,
+    "num_turns": 23,
+    "output_tokens": 4610,
+    "source": "result-record",
+    "total_billed": 579832,
+    "total_cost_usd": 0.3458496,
+    "total_uncached": 22780
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " (ms):** 1318, 1298, 1335, 1342, 1321\\n\\n- **Median:** 1321 ms\\n- **Mean:** 1322.8 ms\\n- **Sample standard deviation (n-1):** \u224817.02 ms (variance \u2248289.7 ms\u00b2)\\n- **Population standard deviation:** \u224815.22 ms (variance \u2248231.76 ms\u00b2)\\n\\nDevice: Google Pixel Watch 2 (serial <REDACTED-2>). Note: a second connected device (Samsung SM G970U, session \"sanity\") was unreachable (`adb: device not found`), so this run targeted the Pixel Watch 2, which was the only device with the app installed and available.'",
+  "wall_time_s": 157.1
+}

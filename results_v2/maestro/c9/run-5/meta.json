@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T17:57:38+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 128592,
+    "cache_read_tokens": 3957873,
+    "input_tokens": 118,
+    "num_turns": 74,
+    "output_tokens": 26687,
+    "source": "result-record",
+    "total_billed": 4113270,
+    "total_cost_usd": 2.3602688999999994,
+    "total_uncached": 155397
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "out screen states the app \"has no network access, collects nothing,\" so these may be intentional stubs \u2014 but if real, they need at least a confirmation/error state.\\n\\n### Why DO NOT SHIP\\nItems 1 and 2 are functional correctness bugs in exactly the two flows (checkout pricing, tier registration) most likely to have real business/billing consequences if this is anything beyond a pure UI demo. Combined with the accessibility gap and the visual glyph defect, this build isn\\'t ready to ship as-is.'",
+  "wall_time_s": 679.05
+}

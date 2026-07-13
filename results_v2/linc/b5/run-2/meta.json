@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T09:55:15+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 112257,
+    "cache_read_tokens": 6771406,
+    "input_tokens": 204,
+    "num_turns": 103,
+    "output_tokens": 17198,
+    "source": "result-record",
+    "total_billed": 6901065,
+    "total_cost_usd": 2.9642648000000005,
+    "total_uncached": 129659
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "`dev.lincforge.benchtarget` immediately after the tap, versus `\"running\":true` after every successful export on items 001\u2013012.\\n- Screen-transition debug logs (`D BenchTarget: screen transition: ...`) corroborate the navigation path (home \u2192 catalog \u2192 detail) leading up to the crash.\\n\\nNote: the device had a stuck/leaked UiAutomation instrumentation (pre-existing, unrelated to this bug) that prevented UI-element-tree dumps, so navigation was done via screenshot-based coordinate tapping instead.'",
+  "wall_time_s": 486.38
+}

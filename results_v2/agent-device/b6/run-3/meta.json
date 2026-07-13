@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": -1,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": true,
+  "started_utc": "2026-07-12T15:02:36+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 263280,
+    "cache_read_tokens": 11833592,
+    "input_tokens": 370,
+    "num_turns": 185,
+    "output_tokens": 4099,
+    "source": "summed-messages",
+    "total_billed": 12101341,
+    "total_cost_usd": null,
+    "total_uncached": 267749
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='launch\\\\s?-?\\\\s?(count|counter|number)|(counter|count).{0,60}launch|every fifth|(3rd|third).{0,40}(5th|fifth)' answer[-500:]=''",
+  "wall_time_s": 900.06
+}
