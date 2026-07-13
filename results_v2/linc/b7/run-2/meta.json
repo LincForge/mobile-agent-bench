@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:39:45+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33608,
+    "cache_read_tokens": 879097,
+    "input_tokens": 50,
+    "num_turns": 26,
+    "output_tokens": 7657,
+    "source": "result-record",
+    "total_billed": 920412,
+    "total_cost_usd": 0.5810841,
+    "total_uncached": 41315
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " ms\\n**Standard deviation (sample, n-1):** \u224817.5 ms (variance \u2248306.3 ms\u00b2)\\n**Standard deviation (population):** \u224815.65 ms (variance \u2248245.0 ms\u00b2)\\n\\nMethod: for each iteration, `nerve_kill` (force-stop) ensured the process was fully terminated, then `nerve_launch` started it, and the timing was read from the logcat `Displayed dev.lincforge.benchtarget/.MainActivity: +Nms` line \u2014 the same \"TotalTime\" metric `am start -W` reports, timestamped by the OS itself rather than by round-trip tool latency.'",
+  "wall_time_s": 162.19
+}

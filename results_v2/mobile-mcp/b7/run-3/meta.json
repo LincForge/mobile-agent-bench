@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:51:48+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 14352,
+    "cache_read_tokens": 183109,
+    "input_tokens": 20,
+    "num_turns": 10,
+    "output_tokens": 5284,
+    "source": "result-record",
+    "total_billed": 202765,
+    "total_cost_usd": 0.2210667,
+    "total_uncached": 19656
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "port the real `TotalTime` values.\\n2. **Screen-recording approach**: I record the screen, force-stop + relaunch the app during the recording, then you (or a video tool) inspect frame timestamps to find launch-tap-to-first-frame \u2014 I don't currently have a frame-accurate video reader, so this would need you to eyeball the clip or point me at a tool that can.\\n3. If there's another tool I'm missing that exposes adb/shell or timing, let me know and I'll look it up.\\n\\nHow would you like to proceed?\"",
+  "wall_time_s": 74.99
+}

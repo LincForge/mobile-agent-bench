@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T09:13:33+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 27983,
+    "cache_read_tokens": 208324,
+    "input_tokens": 18,
+    "num_turns": 12,
+    "output_tokens": 1390,
+    "source": "result-record",
+    "total_billed": 237715,
+    "total_cost_usd": 0.2519762,
+    "total_uncached": 29391
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]='The BenchTarget app launched successfully. The first screen shows:\\n\\n- **App title:** BenchTarget\\n- **Navigation buttons** (in order, top to bottom):\\n  1. **Catalog**\\n  2. **Form**\\n  3. **About**\\n  4. **Checkout**\\n\\nAll four items are rendered as full-width buttons, and no navigation has occurred away from this initial screen.'",
+  "wall_time_s": 29.91
+}

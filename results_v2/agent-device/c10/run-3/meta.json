@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": -1,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:53:37+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 473067,
+    "cache_read_tokens": 23520940,
+    "input_tokens": 412,
+    "num_turns": 206,
+    "output_tokens": 2951,
+    "source": "summed-messages",
+    "total_billed": 23997370,
+    "total_cost_usd": null,
+    "total_uncached": 476430
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='0[.,]755(?!\\\\s*(?:[-\u2013\u2014]|to\\\\b|and\\\\b|\\\\.\\\\.)\\\\s*\\\\d)' answer[-500:]=''",
+  "wall_time_s": 900.06
+}

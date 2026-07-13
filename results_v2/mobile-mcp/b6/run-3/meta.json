@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:47:34+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 25030,
+    "cache_read_tokens": 1802393,
+    "input_tokens": 136,
+    "num_turns": 68,
+    "output_tokens": 12769,
+    "source": "result-record",
+    "total_billed": 1840328,
+    "total_cost_usd": 0.8836208999999997,
+    "total_uncached": 37935
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "domized at process init (e.g., a `Random`/time-seeded roll with roughly 60/40 odds toward \"idle\"), intentionally built into this bench-target app to produce exactly this kind of nondeterministic UI test failure.\\n\\n**Recommendation for the test:** the UI test should not assert unconditional visibility of \"Retry sync.\" It should either assert on \"Sync status\" text directly, or assert the button\\'s visibility *is consistent with* the status field, or seed/mock the sync state before the assertion.'",
+  "wall_time_s": 297.09
+}

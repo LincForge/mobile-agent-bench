@@ -374,3 +374,25 @@ and each cell's meta carries its own hygiene/pin receipts.
    pollution is a plausible contributor to maestro's b8 connection struggles
    and is now prevented from recurring. Disclosed as environment maintenance,
    identical for every tool.
+
+## 2026-07-13 — mid-grid BVT interference: one cell voided + re-run (maestro/c9/run-4)
+
+During c9 round 4, an unrelated interactive session's SniperPulse BVT drove
+the bench phone: `com.sniperpulse.app.dev` installed 09:55:22 local, repeated
+foreground-stealing launches and deep links 09:55:49 → 09:58:47 (logcat
+ActivityTaskManager receipts preserved). The operator cancelled it within
+~3 minutes. Exactly one cell overlapped the window: **maestro/c9/run-4**
+(09:47 → 10:01) — it PASSED despite the interference, but is voided and
+re-run anyway per the no-foreground-contamination standard (fairness cuts
+both ways; the published run-4 is the clean re-run). Neighboring cells
+verified clean by timestamps: linc/c9/run-4 ended 09:47:09 (before the
+install), agent-device/c9/run-3 ended 09:37, mobile-mcp/c9/run-4 launched
+BenchTarget 10:01:24 (after the last foreign event).
+
+Root cause is structural and filed for the tool stack (improvement
+`bbb8d0b6`): interactive crucible BVT paths don't consult `nerve_pool`
+reservations (the nightly does), and the grid itself cannot hold a
+reservation because the linc column's own nerve honors the same ledger
+(2026-07-12 entry). Until reservation owner-passthrough exists, grid
+protection remains procedural: nightly neutralized + no interactive device
+sessions during runs.

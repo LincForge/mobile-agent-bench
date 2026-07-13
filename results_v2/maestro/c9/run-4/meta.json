@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T17:46:17+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 179851,
+    "cache_read_tokens": 7796158,
+    "input_tokens": 168,
+    "num_turns": 103,
+    "output_tokens": 35628,
+    "source": "result-record",
+    "total_billed": 8011805,
+    "total_cost_usd": 3.9535783999999996,
+    "total_uncached": 215647
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "an app bug).\\n- Catalog list scrolling/navigation and back-stack behavior.\\n- Checkout quantity stepper correctly floors at 1 and caps at 10 under aggressive spam-tapping; no crashes anywhere in ~200+ interactions across both devices.\\n- \"Apply discount\" is idempotent when quantity is unchanged.\\n\\nGiven a checkout screen that can display an incorrect total and a form that silently records the wrong tier selection, this build should not ship until those two logic bugs are fixed and re-verified.'",
+  "wall_time_s": 860.97
+}

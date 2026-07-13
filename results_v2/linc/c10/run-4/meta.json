@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:55:15+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 14799,
+    "cache_read_tokens": 449907,
+    "input_tokens": 38,
+    "num_turns": 20,
+    "output_tokens": 3397,
+    "source": "result-record",
+    "total_billed": 468141,
+    "total_cost_usd": 0.27553910000000004,
+    "total_uncached": 18234
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [
+    "com.callstack.agentdevice.snapshothelper"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "used execution at breakpoint entry.\\n5. Harvested locals via `spectra_method_locals`, which stepped through the method's first lines and captured:\\n   - `discountFactor = 0.755` (materialized at line 26)\\n   - `totalDollars = 50` (materialized at line 27, after the discount was applied to the qty-7 subtotal)\\n\\nThis confirms the discount rate applied for a quantity of 7 in this build is 0.755 (a 24.5% discount), consistent with the resulting total (~$65.59 base \u00d7 0.755 \u2248 $49.5, rounded to $50).\"",
+  "wall_time_s": 95.68
+}

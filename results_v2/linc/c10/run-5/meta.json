@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T19:03:21+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 20693,
+    "cache_read_tokens": 705818,
+    "input_tokens": 54,
+    "num_turns": 29,
+    "output_tokens": 4527,
+    "source": "result-record",
+    "total_billed": 731092,
+    "total_cost_usd": 0.40467439999999993,
+    "total_uncached": 25274
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "Discount()` and hit the armed breakpoint.\\n5. Harvested locals via `spectra_method_locals`, which stepped through the method body and captured:\\n   - `discountFactor = 0.755`\\n   - `totalDollars = 50`\\n6. Verified against the UI: after the app resumed (dismissing a brief ANR dialog caused by the debugger pause), the Checkout screen displayed \"Total: $50\" for quantity 7 \u2014 consistent with the harvested `totalDollars`, confirming the captured `discountFactor` corresponds to this exact interaction.'",
+  "wall_time_s": 147.73
+}

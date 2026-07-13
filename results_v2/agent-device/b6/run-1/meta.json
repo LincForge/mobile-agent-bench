@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:08:17+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 104625,
+    "cache_read_tokens": 3686914,
+    "input_tokens": 118,
+    "num_turns": 65,
+    "output_tokens": 17452,
+    "source": "result-record",
+    "total_billed": 3809109,
+    "total_cost_usd": 1.9967281999999997,
+    "total_uncached": 122195
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " pass rate depending on where in the sequence the test starts.\\n\\n### Fix direction\\nThis is an app-side bug/flaw (not a test bug): `SyncComponent` should not deterministically alternate a user-visible \"sync unavailable\" state purely off a launch counter with no real sync check behind it. Either the app logic needs fixing, or (if intentional test scaffolding) the test needs to force `launchCount` to a known parity (e.g., clear app data before each run) before asserting the button\\'s visibility.'",
+  "wall_time_s": 344.14
+}

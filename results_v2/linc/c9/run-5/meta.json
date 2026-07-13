@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T17:31:54+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 86260,
+    "cache_read_tokens": 7736380,
+    "input_tokens": 262,
+    "num_turns": 138,
+    "output_tokens": 27104,
+    "source": "result-record",
+    "total_billed": 7850006,
+    "total_cost_usd": 3.246515999999999,
+    "total_uncached": 113626
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "## Why DO NOT SHIP\\nNo crashes, ANRs, or memory issues were observed, and simple flows (navigation, text entry, toggles, list scrolling/paging, quantity stepper bounds) are solid. However, the Checkout total bug is a real billing-correctness defect, and the Tier-not-saved bug corrupts submitted data \u2014 both are core-functionality failures, not polish issues. Combined with two dead buttons and a validation gap, this build should not ship until at least defects #1 and #2 are fixed and re-verified.'",
+  "wall_time_s": 687.02
+}

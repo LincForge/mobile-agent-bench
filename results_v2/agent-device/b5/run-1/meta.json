@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T09:47:06+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 89249,
+    "cache_read_tokens": 6218897,
+    "input_tokens": 208,
+    "num_turns": 122,
+    "output_tokens": 16070,
+    "source": "result-record",
+    "total_billed": 6324424,
+    "total_cost_usd": 2.6435561000000005,
+    "total_uncached": 105527
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "ncher screen confirming the app was killed and returned to the launcher after the tap.\\n- Device diagnostic (`androidPidVisible: false`) confirmed the app process died after the tap, corroborating the crash.\\n\\nThis strongly suggests `ExportPolicy` has some per-item initialization path that isn\\'t populated for item index 13 (0-based index 12) specifically \u2014 worth checking whatever seeds/initializes the \"export buffer\" for catalog entries, as it appears to skip or fail for this particular item.'",
+  "wall_time_s": 440.98
+}

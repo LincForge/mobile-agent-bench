@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:32:13+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 96980,
+    "cache_read_tokens": 6106620,
+    "input_tokens": 182,
+    "num_turns": 109,
+    "output_tokens": 22735,
+    "source": "result-record",
+    "total_billed": 6226517,
+    "total_cost_usd": 2.756217,
+    "total_uncached": 119897
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "xist in the view hierarchy at all, roughly 50% of the time, based on what looks like a millisecond-parity coin-flip in `SyncComponent` at startup. A ~50/50 split naturally produces \"passes about 3 times out of 5\" over a small number of runs. Fix should be on the app/test side: either make the \"idle\" bootstrap state deterministic in test builds, or have the test assert on both valid sync states (idle \u2192 button visible; unavailable \u2192 button absent) instead of assuming the button is always present.'",
+  "wall_time_s": 541.23
+}

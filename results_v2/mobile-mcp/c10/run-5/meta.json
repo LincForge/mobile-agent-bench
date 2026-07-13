@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T19:06:26+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 13529,
+    "cache_read_tokens": 364468,
+    "input_tokens": 40,
+    "num_turns": 20,
+    "output_tokens": 4804,
+    "source": "result-record",
+    "total_billed": 382841,
+    "total_cost_usd": 0.2633934,
+    "total_uncached": 18373
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": " present it as the real internal value.\\n\\n**To actually get this value**, one of the following would be needed:\\n- Access to a shell/adb tool to run `adb logcat` if the app logs it, or `adb shell` with a debugger (e.g., attaching JDWP)\\n- Read access to the app's source/decompiled code to see the `applyDiscount()` formula\\n- A debug build that surfaces the value in the UI\\n\\nLet me know if you can grant me a shell tool or point me to the source code \u2014 I can pick this up right away with either.\"",
+  "wall_time_s": 107.04
+}

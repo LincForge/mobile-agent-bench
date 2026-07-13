@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T09:06:31+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 18290,
+    "cache_read_tokens": 179968,
+    "input_tokens": 16,
+    "num_turns": 8,
+    "output_tokens": 1112,
+    "source": "result-record",
+    "total_billed": 199386,
+    "total_cost_usd": 0.18113540000000003,
+    "total_uncached": 19418
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]=\"The BenchTarget app launched successfully on the Pixel 8 Pro. Here's what's on the first screen:\\n\\n**App title:** BenchTarget\\n\\n**Navigation buttons (top to bottom):**\\n1. **Catalog**\\n2. **Form**\\n3. **About**\\n4. **Checkout**\\n\\nThat's the full content of the screen \u2014 a title header followed by four purple pill-shaped navigation buttons, with the rest of the screen empty.\"",
+  "wall_time_s": 32.16
+}

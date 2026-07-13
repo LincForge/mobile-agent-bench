@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T13:01:39+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 30410,
+    "cache_read_tokens": 736115,
+    "input_tokens": 46,
+    "num_turns": 25,
+    "output_tokens": 6116,
+    "source": "result-record",
+    "total_billed": 772687,
+    "total_cost_usd": 0.49587450000000005,
+    "total_uncached": 36572
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "lation), \u224817.1 ms (sample, n\u22121)**\\n**Variance: \u2248234 ms\u00b2 (population), \u2248292.5 ms\u00b2 (sample, n\u22121)**\\n\\nNotes:\\n- Each run force-stopped the app (`am force-stop`, ensuring the process was fully killed) immediately before launching, then read the time from Android's own `Displayed <pkg>/.MainActivity: +Xms` log line \u2014 the same TotalTime metric `am start -W` reports.\\n- Run 1 (270ms) is the outlier, likely first-launch effects (e.g., cold filesystem cache); runs 2\u20135 are tightly clustered (228\u2013237ms).\"",
+  "wall_time_s": 134.43
+}

@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T13:36:52+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 26823,
+    "cache_read_tokens": 754705,
+    "input_tokens": 60,
+    "num_turns": 30,
+    "output_tokens": 5508,
+    "source": "result-record",
+    "total_billed": 787096,
+    "total_cost_usd": 0.47086850000000013,
+    "total_uncached": 32391
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "n)(?=.*export buffer not initialized)(?=.*Item 013)' answer[-500:]=\"I've tried three common PINs (0000, 1234, 1111) and all failed. I don't want to keep guessing since repeated failures can trigger an escalating lockout (or a wipe after enough attempts) on the device.\\n\\nDo you have the device's PIN, or is there another way you'd like me to unlock it (e.g., fingerprint/face auth isn't available to me as an agent, so I'd need the PIN, or you could unlock it manually and hand control back to me)?\"",
+  "wall_time_s": 120.02
+}
