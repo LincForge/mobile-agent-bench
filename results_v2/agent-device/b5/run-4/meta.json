@@ -1,5 +1,5 @@
 {
-  "agent_exit_code": -1,
+  "agent_exit_code": 0,
   "app_pin": {
     "action": "verified",
     "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
@@ -19,27 +19,25 @@
     "force-stop",
     "clear-data"
   ],
-  "solved_unfinalized": true,
-  "started_utc": "2026-07-12T13:32:26+00:00",
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T20:36:43+00:00",
   "task": "b5",
   "tier": "B",
-  "timed_out": true,
+  "timed_out": false,
   "tokens": {
-    "cache_creation_tokens": 465300,
-    "cache_read_tokens": 28136097,
-    "input_tokens": 518,
-    "num_turns": 259,
-    "output_tokens": 5802,
-    "source": "summed-messages",
-    "total_billed": 28607717,
-    "total_cost_usd": null,
-    "total_uncached": 471620
+    "cache_creation_tokens": 136993,
+    "cache_read_tokens": 9847516,
+    "input_tokens": 268,
+    "num_turns": 169,
+    "output_tokens": 19884,
+    "source": "result-record",
+    "total_billed": 10004661,
+    "total_cost_usd": 4.075995799999999,
+    "total_uncached": 157145
   },
   "tool": "agent-device",
-  "uiautomation_holders_cleared": [
-    "dev.mobile.maestro"
-  ],
-  "verdict": "FAIL",
-  "verify_detail": "pattern='(?=.*IllegalStateException)(?=.*export buffer not initialized)(?=.*Item 013)' answer[-500:]=''",
-  "wall_time_s": 900.06
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": ") immediately before the crash, and of the home launcher screen immediately after (app force-closed).\\n- Full logcat excerpts saved at `/Users/<REDACTED>/.agent-device/sessions/phone/app.log` containing both crash stack traces in full.\\n\\nThe crash is isolated to `ExportPolicy.export()` at `ExportPolicy.kt:11`, thrown when the \"export buffer\" hasn\\'t been initialized for that catalog entry \u2014 consistent with a per-item initialization bug specific to Item 013 (items 001\u2013012 initialize correctly).'",
+  "wall_time_s": 674.45
 }
