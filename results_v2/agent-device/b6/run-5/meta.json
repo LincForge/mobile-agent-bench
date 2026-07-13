@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:31:29+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 160366,
+    "cache_read_tokens": 11519046,
+    "input_tokens": 230,
+    "num_turns": 129,
+    "output_tokens": 29517,
+    "source": "result-record",
+    "total_billed": 11709159,
+    "total_cost_usd": 4.862134800000001,
+    "total_uncached": 190113
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "tion and ProfileInstaller work (both logged on every run), which is what makes the test pass ~3/5 times rather than being a stable pass or fail.\\n\\nThis is an app-level timing bug racing against OS cold-start housekeeping, not flakiness in the test's assertion logic itself \u2014 the fix belongs in `SyncComponent`'s timeout handling (e.g., start the deadline when the Diagnostics screen actually composes rather than at process start, or remove/extend the arbitrary timeout) rather than in the UI test.\"",
+  "wall_time_s": 631.81
+}

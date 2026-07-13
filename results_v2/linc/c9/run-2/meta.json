@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T15:31:01+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 65117,
+    "cache_read_tokens": 4322063,
+    "input_tokens": 180,
+    "num_turns": 92,
+    "output_tokens": 16300,
+    "source": "result-record",
+    "total_billed": 4403660,
+    "total_cost_usd": 1.933056899999999,
+    "total_uncached": 81597
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "HIP\\nDefect #1 is a functional/financial-correctness bug in the checkout flow \u2014 showing a stale, wrong total is the kind of bug that should block a release regardless of how \"smooth\" the rest of the app feels. Defect #2 silently discards user input on a core form. Defects #3/#4 are dead controls that give the impression of being interactive but do nothing, which is a broken-affordance problem. None of these are edge-case only \u2014 all four reproduced on the very first, straightforward interaction.'",
+  "wall_time_s": 590.46
+}

@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:59:00+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 11153,
+    "cache_read_tokens": 372625,
+    "input_tokens": 40,
+    "num_turns": 20,
+    "output_tokens": 4810,
+    "source": "result-record",
+    "total_billed": 388628,
+    "total_cost_usd": 0.25167449999999997,
+    "total_uncached": 16003
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": " the range of roughly 0.755\u20130.770, but the display rounding means I can't back out a precise value \u2014 reporting one would be a guess dressed up as a measurement.\\n\\nTo actually get the exact `discountFactor`, you'd need one of: an `adb logcat` capture if the method logs it, a debugger attached to the app process with a breakpoint in `applyDiscount()`, or a look at the method's source/decompiled code. If you can provide the source file or enable a logcat statement, I can go get the precise value.\"",
+  "wall_time_s": 100.94
+}

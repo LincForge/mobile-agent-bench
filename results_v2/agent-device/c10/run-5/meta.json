@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T19:08:52+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 39662,
+    "cache_read_tokens": 576771,
+    "input_tokens": 38,
+    "num_turns": 20,
+    "output_tokens": 5904,
+    "source": "result-record",
+    "total_billed": 622375,
+    "total_cost_usd": 0.5003763000000001,
+    "total_uncached": 45604
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " explanations worth checking with you:\\n1. This task/device pairing may be wrong \u2014 the Checkout flow might live in a different app build or on a different (phone) device that isn't currently connected to this session.\\n2. The installed APK may be an older/stripped build that predates the Checkout feature.\\n\\nLet me know if you have a different device serial, a specific APK to install, or another way to point me at the build that actually contains the Checkout screen, and I'll pick this back up.\"",
+  "wall_time_s": 144.72
+}

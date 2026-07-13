@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T13:59:30+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 67439,
+    "cache_read_tokens": 2079818,
+    "input_tokens": 96,
+    "num_turns": 48,
+    "output_tokens": 12846,
+    "source": "result-record",
+    "total_billed": 2160199,
+    "total_cost_usd": 1.2223374,
+    "total_uncached": 80381
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "serts \"Retry sync\" is visible immediately after a cold launch will therefore pass only when that race happens to resolve before the screen renders, which lines up with the observed ~60% pass rate.\\n\\nI don\\'t have shell/logcat access in this environment to pinpoint the exact coroutine/thread involved \u2014 that would be the next step for the engineering team (grep the sync-engine init code for what backs the Diagnostics status field and whether the read happens before a `await`/callback completes).'",
+  "wall_time_s": 366.0
+}

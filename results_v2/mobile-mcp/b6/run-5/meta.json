@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:20:55+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 27401,
+    "cache_read_tokens": 1767181,
+    "input_tokens": 132,
+    "num_turns": 67,
+    "output_tokens": 13111,
+    "source": "result-record",
+    "total_billed": 1807825,
+    "total_cost_usd": 0.8924013,
+    "total_uncached": 40644
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "g) \u2014 the test is correctly detecting real nondeterministic UI behavior, not the flaky element itself. Without logcat/source access I can\\'t pinpoint the exact line, but the reproduction is precise: assert on cold start and check `Sync status` text \u2014 button presence follows it exactly.\\n\\nOne aside: an early swipe accidentally opened the system notification shade / a Bluetooth quick-settings dialog on your device instead of the app. I backed out via \"Done\" and Home without changing any settings.'",
+  "wall_time_s": 390.2
+}

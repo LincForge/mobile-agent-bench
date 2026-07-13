@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T10:57:13+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 150886,
+    "cache_read_tokens": 8347851,
+    "input_tokens": 212,
+    "num_turns": 136,
+    "output_tokens": 27738,
+    "source": "result-record",
+    "total_billed": 8526687,
+    "total_cost_usd": 3.8270962999999996,
+    "total_uncached": 178836
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "ks in the same log (`before-export-item001` \u2026 `before-export-item013`) corroborate that items 1\u201312 export cleanly and only item013 triggers the fault.\\n\\n**Root cause hint:** the exception message (\"export buffer not initialized\") combined with it only affecting item 013 suggests `ExportPolicy` has an uninitialized/lazily-initialized buffer that isn\\'t set up for at least this one catalog entry (possibly index-dependent, e.g. an off-by-one or a buffer that\\'s only primed for the first N items).'",
+  "wall_time_s": 660.41
+}

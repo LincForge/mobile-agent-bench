@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T15:39:35+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 127365,
+    "cache_read_tokens": 4115552,
+    "input_tokens": 110,
+    "num_turns": 65,
+    "output_tokens": 18958,
+    "source": "result-record",
+    "total_billed": 4261985,
+    "total_cost_usd": 2.2842515999999997,
+    "total_uncached": 146433
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "of any kind. There's no way for a user (or QA) to tell whether it succeeded, failed, or does anything at all.\\n\\n## Why DO NOT SHIP\\nDefects #1\u2013#3 are high severity and trivially reproducible on first pass through the app: one boots the user out of the app via a basic list scroll/tap, and two produce incorrect data in exactly the screens (form submission, checkout total) where correctness matters most. These aren't exotic edge cases \u2014 they showed up in the very first exploration of each screen.\"",
+  "wall_time_s": 511.96
+}

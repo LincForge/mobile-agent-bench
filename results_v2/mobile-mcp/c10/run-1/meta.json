@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:17:36+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 12926,
+    "cache_read_tokens": 354265,
+    "input_tokens": 36,
+    "num_turns": 20,
+    "output_tokens": 4166,
+    "source": "result-record",
+    "total_billed": 371393,
+    "total_cost_usd": 0.24714250000000001,
+    "total_uncached": 17128
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": ".\\n2. I don't know the app's internal rounding order (round subtotal \u2192 apply factor, vs. apply factor \u2192 round total), which changes the back-calculated factor.\\n\\nIf you want the exact value, I'd need one of: (a) a logcat/shell tool so I can grep for a debug log line in the app, (b) access to source so I can read the `applyDiscount()` implementation directly, or (c) a debug/dev-menu inside the app itself that surfaces internal state. Let me know if any of those are available and I'll pursue it.\"",
+  "wall_time_s": 80.71
+}

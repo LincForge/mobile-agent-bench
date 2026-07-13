@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T12:18:13+00:00",
+  "task": "a3",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 32070,
+    "cache_read_tokens": 548795,
+    "input_tokens": 46,
+    "num_turns": 23,
+    "output_tokens": 4565,
+    "source": "result-record",
+    "total_billed": 585476,
+    "total_cost_usd": 0.42635049999999997,
+    "total_uncached": 36681
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "",
+  "wall_time_s": 144.58
+}

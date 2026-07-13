@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:42:35+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 69397,
+    "cache_read_tokens": 1784898,
+    "input_tokens": 80,
+    "num_turns": 40,
+    "output_tokens": 11749,
+    "source": "result-record",
+    "total_billed": 1866124,
+    "total_cost_usd": 1.1291063999999997,
+    "total_uncached": 81226
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " value computed once at app/process startup (e.g., an unseeded `Random()` or a time/uptime-based coin flip in the sync-state initializer), not a genuine network check or a UI-paint race.\\n\\n**Conclusion for the test author:** The test needs to either pin/mock the sync status for determinism, or first assert the \"Sync idle\" precondition (or wait for it) before asserting the button, since the button is architecturally absent \u2014 not just temporarily hidden \u2014 whenever sync resolves to \"unavailable.\"'",
+  "wall_time_s": 353.41
+}

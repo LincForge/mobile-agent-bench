@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T10:26:59+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 181752,
+    "cache_read_tokens": 17873472,
+    "input_tokens": 362,
+    "num_turns": 230,
+    "output_tokens": 32229,
+    "source": "result-record",
+    "total_billed": 18087815,
+    "total_cost_usd": 6.937793600000004,
+    "total_uncached": 214343
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "immediately after the crash showing the app was no longer in foreground.\\n- Items 001\u2013012 were verified individually (Export tapped on each) with no crash, isolating the defect to Item 013's data/detail screen specifically.\\n\\n**Root cause hint for engineering**: `ExportPolicy.kt:11` throws when its internal export buffer isn't initialized \u2014 likely Item 013's catalog entry hits a code path (e.g., lazy-init timing, or a specific item property) that skips buffer setup before `export()` is called.\"",
+  "wall_time_s": 882.17
+}

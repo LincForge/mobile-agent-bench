@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": -1,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T13:38:57+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 61823,
+    "cache_read_tokens": 1199110,
+    "input_tokens": 94,
+    "num_turns": 47,
+    "output_tokens": 842,
+    "source": "summed-messages",
+    "total_billed": 1261869,
+    "total_cost_usd": null,
+    "total_uncached": 62759
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "pattern=\"(?=.*(do not ship|don't ship|should not ship|do-?not-?ship|no[- ]go))(?=.*(tier|dropdown))\" answer[-500:]=''",
+  "wall_time_s": 900.03
+}

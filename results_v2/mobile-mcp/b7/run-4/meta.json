@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:57:59+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 13271,
+    "cache_read_tokens": 146711,
+    "input_tokens": 18,
+    "num_turns": 9,
+    "output_tokens": 4670,
+    "source": "result-record",
+    "total_billed": 164670,
+    "total_cost_usd": 0.1944453,
+    "total_uncached": 17959
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " I can run `am force-stop` + `am start -W` for clean, precise measurements.\\n2. If shell access isn't available, I can still do a best-effort approximation using `mobile_terminate_app` (force-stop) \u2192 `mobile_launch_app` \u2192 repeated `mobile_take_screenshot` polling to detect first fully-rendered frame, with wall-clock timestamps I track myself \u2014 but I'd flag the results as rough estimates with significant tool-overhead noise, not authoritative cold-start numbers.\\n\\nWhich would you like me to do?\"",
+  "wall_time_s": 65.65
+}

@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T07:11:26+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 43390,
+    "cache_read_tokens": 933666,
+    "input_tokens": 50,
+    "num_turns": 27,
+    "output_tokens": 7110,
+    "source": "result-record",
+    "total_billed": 984216,
+    "total_cost_usd": 0.6479218,
+    "total_uncached": 50550
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]=\"I've reached the Diagnostics screen. The **Build channel** value shown is:\\n\\n**`BENCH-STABLE`**\"",
+  "wall_time_s": 135.34
+}

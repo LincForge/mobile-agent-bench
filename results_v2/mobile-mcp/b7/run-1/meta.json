@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:34:43+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17812,
+    "cache_read_tokens": 128743,
+    "input_tokens": 14,
+    "num_turns": 8,
+    "output_tokens": 2946,
+    "source": "result-record",
+    "total_billed": 149515,
+    "total_cost_usd": 0.1904289,
+    "total_uncached": 20772
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " of jitter from tool round-trip overhead), so the numbers wouldn't be a reliable ms-precision benchmark, just a rough approximation.\\n\\nDo you want me to:\\n1. Proceed with the screenshot-polling approximation anyway (I'll clearly label its margin of error), or\\n2. Hold off \u2014 if you have another way for me to reach an ADB shell (e.g., a shell/terminal tool you can enable, or Termux is installed on that device), that would give real `am start -W` numbers.\\n\\nLet me know how you'd like to proceed.\"",
+  "wall_time_s": 48.71
+}

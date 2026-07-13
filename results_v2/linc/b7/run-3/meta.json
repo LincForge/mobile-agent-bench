@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:49:39+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 39382,
+    "cache_read_tokens": 863823,
+    "input_tokens": 42,
+    "num_turns": 23,
+    "output_tokens": 4854,
+    "source": "result-record",
+    "total_billed": 908101,
+    "total_cost_usd": 0.5690818999999999,
+    "total_uncached": 44278
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "1 | 253 |\\n| 2 | 250 |\\n| 3 | 230 |\\n| 4 | 234 |\\n| 5 | 230 |\\n\\n- **Mean:** 239.4 ms\\n- **Median:** 234 ms\\n- **Sample standard deviation (n-1):** \u224811.2 ms (variance \u2248125.8 ms\u00b2)\\n- **Population standard deviation:** \u224810.0 ms (variance \u2248100.6 ms\u00b2)\\n\\nEach run force-stopped the app (`nerve_kill`) before relaunching, confirming the process was fully torn down, then read Android's own `Displayed` timing from logcat \u2014 the standard cold-start metric (time from process creation to first frame drawn).\"",
+  "wall_time_s": 88.79
+}

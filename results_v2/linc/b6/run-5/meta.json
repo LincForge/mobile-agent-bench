@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:07:44+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 65216,
+    "cache_read_tokens": 2680725,
+    "input_tokens": 110,
+    "num_turns": 64,
+    "output_tokens": 15060,
+    "source": "result-record",
+    "total_billed": 2761111,
+    "total_cost_usd": 1.4225135,
+    "total_uncached": 80386
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [
+    "com.callstack.agentdevice.snapshothelper"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "ake rate) is strong enough to identify the mechanism, but I\\'d recommend the team point me at the Diagnostics ViewModel/composable source (or share the APK\\'s `dev.lincforge.benchtarget` package structure) if they want the exact randomization call pinned down line-by-line.\\n\\n**Recommendation for the test:** don\\'t assert \"Retry sync\" is unconditionally visible \u2014 assert on `Sync status == \"Sync idle\" implies Retry sync visible` (or force a deterministic sync state before the assertion) instead.'",
+  "wall_time_s": 397.59
+}

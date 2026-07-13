@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:19:11+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 56377,
+    "cache_read_tokens": 1375986,
+    "input_tokens": 78,
+    "num_turns": 39,
+    "output_tokens": 10478,
+    "source": "result-record",
+    "total_billed": 1442919,
+    "total_cost_usd": 0.9092467999999999,
+    "total_uncached": 66933
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "zers), and the \"Retry sync\" button\\'s visibility is gated on that value being \"idle.\" The UI test asserting the button is visible is correctly observing real app behavior \u2014 it fails whenever that per-launch coin flip lands on \"Sync unavailable,\" which happens ~40% of the time. Fixing this requires either making the app\\'s Diagnostics init deterministic/seeded for tests, or having the test explicitly wait for and handle both sync-status outcomes rather than assuming the button is always present.'",
+  "wall_time_s": 290.78
+}

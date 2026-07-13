@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:25:04+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 69572,
+    "cache_read_tokens": 3613211,
+    "input_tokens": 142,
+    "num_turns": 82,
+    "output_tokens": 17786,
+    "source": "result-record",
+    "total_billed": 3700711,
+    "total_cost_usd": 1.7693102999999997,
+    "total_uncached": 87500
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "mething the app explicitly surfaces (UI text, a log line, etc.).\\n\\n**Conclusion:** I cannot report a runtime value for `discountFactor` because the Checkout screen (and the `applyDiscount()` interaction) is not reachable in this build/install of the app on the connected device, and no observation tool exists to read that internal variable regardless. If you have a different build/device where this screen exists, or a debug logging flag that prints `discountFactor`, let me know and I can retry.'",
+  "wall_time_s": 446.44
+}
