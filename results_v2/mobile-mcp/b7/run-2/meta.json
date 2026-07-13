@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:45:29+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17259,
+    "cache_read_tokens": 228384,
+    "input_tokens": 24,
+    "num_turns": 12,
+    "output_tokens": 6354,
+    "source": "result-record",
+    "total_billed": 252021,
+    "total_cost_usd": 0.2681532,
+    "total_uncached": 23637
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "lTime numbers.\\n2. **Fallback:** I use `mobile_start_screen_recording`/`mobile_stop_screen_recording` around each terminate\u2192launch cycle and estimate load time from the recording, but this would be low-precision and noisy (my own polling/decision latency gets baked into the number), so I'd be reporting an approximation dressed up as a measurement.\\n\\nHow would you like me to proceed \u2014 can you grant shell/adb access, or should I go with the approximate screen-recording method (clearly caveated)?\"",
+  "wall_time_s": 90.74
+}

@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T09:23:07+00:00",
+  "task": "a4",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 9196,
+    "cache_read_tokens": 136023,
+    "input_tokens": 16,
+    "num_turns": 8,
+    "output_tokens": 1091,
+    "source": "result-record",
+    "total_billed": 146326,
+    "total_cost_usd": 0.1130679,
+    "total_uncached": 10303
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*Catalog)(?=.*Form)(?=.*About)(?=.*Checkout)' answer[-500:]='The BenchTarget app is running on a Wear OS device (Pixel Watch 2). The first screen shows:\\n\\n- **App title:** \"BenchTarget\"\\n- **Button:** \"Ping\" (a round button, currently the only tappable element)\\n- **Counter text (not interactive):** \"Pings: 0\"\\n\\nThere is only one navigation/interactive control on this screen \u2014 the **Ping** button. No other menus, tabs, or navigation options are present.'",
+  "wall_time_s": 27.58
+}

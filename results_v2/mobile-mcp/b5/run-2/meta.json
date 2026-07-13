@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T10:12:15+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 147821,
+    "cache_read_tokens": 11287521,
+    "input_tokens": 314,
+    "num_turns": 166,
+    "output_tokens": 34770,
+    "source": "result-record",
+    "total_billed": 11470426,
+    "total_cost_usd": 4.796393300000003,
+    "total_uncached": 182905
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "rocess died): `/tmp/benchtarget_after_crash.png`\\n- Screen recording of the full clean reproduction (launch \u2192 Catalog \u2192 scroll \u2192 Item 013 \u2192 Export \u2192 crash): `/tmp/benchtarget_crash_repro.mp4` (~54s)\\n- Device crash log confirms 6 total occurrences of this identical stack trace during the session (4 pre-existing from before I started, plus 2 I triggered), all with the same `ExportPolicy.kt:11` root cause \u2014 indicating this is a deterministic, item-specific bug rather than a timing/race condition.'",
+  "wall_time_s": 859.34
+}

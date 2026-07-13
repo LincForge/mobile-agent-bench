@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T13:53:22+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 64212,
+    "cache_read_tokens": 3089787,
+    "input_tokens": 112,
+    "num_turns": 59,
+    "output_tokens": 13663,
+    "source": "result-record",
+    "total_billed": 3167774,
+    "total_cost_usd": 1.5182540999999996,
+    "total_uncached": 77987
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [
+    "com.callstack.agentdevice.snapshothelper"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "ot a genuine race or environment issue. Since 3 of every 5 residues show the button, this lines up exactly with the \"passes 3 out of 5\" report.\\n\\n**Fix direction:** either have the UI test call `pm clear`/reinstall before each run to truly reset app state, or (better) have the app not gate `SyncComponent`\\'s initial rendered state on a persisted launch counter at all \u2014 the test should not depend on undocumented app-internal counters for what should be a static \"idle\" state on first sync check.'",
+  "wall_time_s": 283.85
+}

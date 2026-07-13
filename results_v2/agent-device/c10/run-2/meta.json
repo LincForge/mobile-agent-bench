@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T18:34:05+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 75119,
+    "cache_read_tokens": 2226174,
+    "input_tokens": 80,
+    "num_turns": 44,
+    "output_tokens": 8641,
+    "source": "result-record",
+    "total_billed": 2310014,
+    "total_cost_usd": 1.2491151999999999,
+    "total_uncached": 83840
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "tap-latency benchmark \u2014 it does not contain a Checkout screen, a quantity control, an \"Apply discount\" action, or a `CheckoutViewModel` class. I was not able to perform the requested interaction, and therefore I can\\'t report a real runtime value for `discountFactor` \u2014 doing so would mean fabricating a number rather than observing one. \\n\\nIf you have a different build/APK (e.g., a phone variant) that includes the Checkout feature, or can point me to another connected device, I can retry there.'",
+  "wall_time_s": 226.55
+}

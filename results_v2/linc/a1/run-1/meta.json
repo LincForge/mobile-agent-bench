@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T06:55:25+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 27624,
+    "cache_read_tokens": 368411,
+    "input_tokens": 24,
+    "num_turns": 12,
+    "output_tokens": 1657,
+    "source": "result-record",
+    "total_billed": 397716,
+    "total_cost_usd": 0.30187130000000006,
+    "total_uncached": 29305
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]=\"I've reached the Diagnostics screen. The **Build channel** value is:\\n\\n**BENCH-STABLE**\\n\\n(Navigation path: Home \u2192 About \u2192 Diagnostics, on device Pixel 8 Pro. Note: a Facebook Messenger notification banner briefly appeared over the About screen during navigation \u2014 unrelated to the app content and not something I interacted with.)\"",
+  "wall_time_s": 43.83
+}

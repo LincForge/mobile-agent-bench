@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T13:48:36+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 161561,
+    "cache_read_tokens": 10561502,
+    "input_tokens": 214,
+    "num_turns": 143,
+    "output_tokens": 27037,
+    "source": "result-record",
+    "total_billed": 10750314,
+    "total_cost_usd": 4.5447326,
+    "total_uncached": 188812
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "ely after the crash, and `appstate` showed the foreground app switched to `com.google.android.apps.nexuslauncher`, consistent with an unhandled fatal exception killing the app.\\n\\n**Root cause pointer for engineering:** `ExportPolicy.export()` at `ExportPolicy.kt:11` assumes some export buffer/state has been initialized before use; for Item 013 specifically that precondition isn't met, throwing `IllegalStateException` uncaught in the `DetailScreen` Export button click handler (`Screens.kt:90`).\"",
+  "wall_time_s": 701.6
+}

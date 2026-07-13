@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T12:01:04+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 147031,
+    "cache_read_tokens": 9073705,
+    "input_tokens": 170,
+    "num_turns": 110,
+    "output_tokens": 25572,
+    "source": "result-record",
+    "total_billed": 9246478,
+    "total_cost_usd": 3.9891724999999996,
+    "total_uncached": 172773
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "screen's first composition \u2014 which is itself sensitive to system load/background work (e.g. ProfileInstaller, JIT compile) and how fast the test taps through the navigation. Since the resolved state is baked in at first composition and never self-corrects, a UI test that reaches Diagnostics before that gate clears and skip is false will reliably fail the visibility assertion, while faster devices/skip=true launches will reliably pass \u2014 producing exactly the intermittent ~60% pass rate reported.\"",
+  "wall_time_s": 538.45
+}

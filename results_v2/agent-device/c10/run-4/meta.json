@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T19:00:52+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 41293,
+    "cache_read_tokens": 488845,
+    "input_tokens": 34,
+    "num_turns": 27,
+    "output_tokens": 4862,
+    "source": "result-record",
+    "total_billed": 535034,
+    "total_cost_usd": 0.4681425000000001,
+    "total_uncached": 46189
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " set to 7, and no runtime `discountFactor` to observe \u2014 that functionality doesn't exist in the build currently installed on this device.\\n\\nI'm not going to invent a numeric value for `discountFactor` since I have no evidence it exists. If you expected a different app/build (maybe a phone-form-factor version with a real checkout flow, vs. this Wear OS ping-counter build), let me know and I can check `apps` for other matching packages or you can point me at the correct build/package to install.\"",
+  "wall_time_s": 109.97
+}

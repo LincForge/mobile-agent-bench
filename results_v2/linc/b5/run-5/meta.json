@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T13:33:00+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 24124,
+    "cache_read_tokens": 137156,
+    "input_tokens": 12,
+    "num_turns": 7,
+    "output_tokens": 1130,
+    "source": "result-record",
+    "total_billed": 162422,
+    "total_cost_usd": 0.20359579999999997,
+    "total_uncached": 25266
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " buffer not initialized)(?=.*Item 013)' answer[-500:]='The Pixel 8 Pro (<REDACTED-1>) is behind a PIN lock screen (\"Enter PIN\"). Per policy I won\\'t attempt to guess/enter a PIN to unlock a secure keyguard \u2014 bench devices are normally provisioned lock-free. Could you either:\\n1. Unlock the device manually (enter the PIN), or\\n2. Remove the screen lock (Settings > Security > Screen lock > None) if this is a dedicated bench device,\\n\\nthen let me know and I\\'ll proceed with reproducing the crash.'",
+  "wall_time_s": 32.66
+}

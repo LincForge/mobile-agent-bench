@@ -1,0 +1,44 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "11bbce979e6960ee50c100e81b16aa3d"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T13:23:55+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 100249,
+    "cache_read_tokens": 10503820,
+    "input_tokens": 294,
+    "num_turns": 166,
+    "output_tokens": 29406,
+    "source": "result-record",
+    "total_billed": 10633769,
+    "total_cost_usd": 4.195308000000001,
+    "total_uncached": 129949
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "kout, Form) that exist specifically to validate state/data handling \u2014 and Checkout is nominally a pricing flow, where silently wrong or stale totals is the worst class of bug to ship. These aren't edge-case flakiness; every repro was 100% consistent across fresh app launches. The dead buttons (#5) further suggest incomplete wiring of the UI to business logic. None of this is disqualifying from a stability standpoint (no crashes were found anywhere), but the functional-correctness bar isn't met.\"",
+  "wall_time_s": 842.28
+}

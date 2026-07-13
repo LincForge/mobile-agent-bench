@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T13:09:49+00:00",
+  "task": "b7",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33736,
+    "cache_read_tokens": 965905,
+    "input_tokens": 64,
+    "num_turns": 32,
+    "output_tokens": 9805,
+    "source": "result-record",
+    "total_billed": 1009510,
+    "total_cost_usd": 0.6401564999999999,
+    "total_uncached": 43605
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "inating the timing.\\n- Timing method is `open-command-roundtrip` (time from launch dispatch to the app reporting foreground), which closely tracks Android's `am start -W` TotalTime metric but includes minor tool dispatch overhead.\\n- I discarded one earlier ad-hoc reading (446ms) taken before an explicit force-stop, since I couldn't verify the process was actually cold at that point \u2014 the very tight, consistent ~1310-1346ms spread of the 5 verified runs above indicates true cold-start behavior.\"",
+  "wall_time_s": 205.83
+}

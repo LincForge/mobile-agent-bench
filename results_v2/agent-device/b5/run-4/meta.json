@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": -1,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": true,
+  "started_utc": "2026-07-12T13:32:26+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 465300,
+    "cache_read_tokens": 28136097,
+    "input_tokens": 518,
+    "num_turns": 259,
+    "output_tokens": 5802,
+    "source": "summed-messages",
+    "total_billed": 28607717,
+    "total_cost_usd": null,
+    "total_uncached": 471620
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*IllegalStateException)(?=.*export buffer not initialized)(?=.*Item 013)' answer[-500:]=''",
+  "wall_time_s": 900.06
+}

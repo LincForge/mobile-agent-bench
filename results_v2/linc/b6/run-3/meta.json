@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:36:39+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 55908,
+    "cache_read_tokens": 1540672,
+    "input_tokens": 82,
+    "num_turns": 41,
+    "output_tokens": 14572,
+    "source": "result-record",
+    "total_billed": 1611234,
+    "total_cost_usd": 1.0172556,
+    "total_uncached": 70562
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "he app was launched before, by CI or other tests, rather than on anything the test itself controls.\\n\\n**Fix direction:** either make the test call `nerve_clear_app_data`/reinstall before each run so `launchCount` always starts at 0, or better, fix `SyncComponent` so the UI doesn\\'t get stuck at \"Sync unavailable\" with no retry affordance when the init check is skipped \u2014 that\\'s arguably the real product bug, since a user landing on launches #3/#5 of any 5-cycle has no way to retry sync at all.'",
+  "wall_time_s": 263.94
+}

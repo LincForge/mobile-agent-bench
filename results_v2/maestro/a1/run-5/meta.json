@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T11:58:25+00:00",
+  "task": "a1",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34238,
+    "cache_read_tokens": 727135,
+    "input_tokens": 56,
+    "num_turns": 28,
+    "output_tokens": 4643,
+    "source": "result-record",
+    "total_billed": 766072,
+    "total_cost_usd": 0.4940635000000001,
+    "total_uncached": 38937
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='BENCH-STABLE' answer[-500:]='I\\'m now on the Diagnostics screen, which shows \"Build channel: BENCH-STABLE\".\\n\\n**Build channel: BENCH-STABLE**\\n\\nNavigation path: launched BenchTarget \u2192 tapped **About** on the Home screen \u2192 tapped **Diagnostics** on the About screen.'",
+  "wall_time_s": 124.47
+}

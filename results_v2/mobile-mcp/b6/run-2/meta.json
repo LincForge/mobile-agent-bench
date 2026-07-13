@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "11bbce979e6960ee50c100e81b16aa3d",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-12T14:23:10+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 18943,
+    "cache_read_tokens": 1145639,
+    "input_tokens": 102,
+    "num_turns": 51,
+    "output_tokens": 10729,
+    "source": "result-record",
+    "total_billed": 1175413,
+    "total_cost_usd": 0.6193556999999998,
+    "total_uncached": 29774
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "it\\'s synthetic/injected non-determinism in the app itself, and the UI test is correctly detecting a real (intentional-looking) flaky element rather than suffering from a test-side timing bug.\\n\\n**Recommendation for the test:** don\\'t just add waits \u2014 the test needs to either assert on both valid states (button present when \"Sync idle\", assert its absence when \"Sync unavailable\" instead of failing), or the app\\'s synthetic randomness needs a fixed/injectable seed for deterministic test builds.'",
+  "wall_time_s": 236.98
+}

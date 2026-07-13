@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T17:16:02+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 108713,
+    "cache_read_tokens": 12241690,
+    "input_tokens": 330,
+    "num_turns": 188,
+    "output_tokens": 37169,
+    "source": "result-record",
+    "total_billed": 12387902,
+    "total_cost_usd": 4.884006,
+    "total_uncached": 146212
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "app_process:5933",
+    "app_process:5943"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "with an empty Name field, produces no confirmation, error, or validation message of any kind.\\n\\n### Not defects\\n- Diagnostics\\' \"Retry sync\" being a no-op is consistent with the app\\'s stated \"no network access\" design.\\n- Catalog is a bounded, correctly-terminating 100-item list; quantity stepper correctly floors at 1.\\n\\nGiven a confirmed fatal crash in the crash log plus a trivially reproducible state-destroying rotation bug, this build should not ship until both are fixed and re-verified.'",
+  "wall_time_s": 893.51
+}

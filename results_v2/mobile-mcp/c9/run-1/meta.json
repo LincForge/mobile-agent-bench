@@ -1,0 +1,43 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "43f21130ad526aa0188413021fc3f32b",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "CP1A.260505.005",
+    "model": "Pixel 8 Pro",
+    "sdk": "36"
+  },
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-07-13T13:50:42+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 103566,
+    "cache_read_tokens": 7944975,
+    "input_tokens": 210,
+    "num_turns": 112,
+    "output_tokens": 23407,
+    "source": "result-record",
+    "total_billed": 8072158,
+    "total_cost_usd": 3.357319499999999,
+    "total_uncached": 127183
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "er in Checkout correctly floors at 1 (no zero/negative quantity).\\n- Subscribe toggle and Tier dropdown selection UI work correctly.\\n- \"Retry sync\" no-op on Diagnostics is consistent with the app\\'s stated \"no network access\" design.\\n\\n**Bottom line:** a reproducible crash on a primary action plus a silent data-correctness bug in the Form flow plus state loss on rotation are three independent, user-facing defects. Ship blocked until at least the Export crash and Tier-submission bug are fixed.'",
+  "wall_time_s": 704.0
+}
