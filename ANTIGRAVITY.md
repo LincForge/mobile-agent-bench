@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FROM LINC.md — DO NOT EDIT -->
-<!-- LINC_CONTEXT_v1_hash:d1d8f79c4f02 -->
+<!-- LINC_CONTEXT_v1_hash:b651d00b096c -->
 
 
 # Mobile Agent Bench — Project Instructions
@@ -20,4 +20,5 @@ device bench. Scored device: Pixel 8 Pro (pre-registered); results in `BENCH_RES
 - **The wear APK launcher activity is dev.lincforge.benchtarget/.wear.MainActivity (module namespace ≠ applicationId) — launch via LAUNCHER intent/monkey, never a hardcoded .MainActivity component.**
 - **Tool stacks enumerate ALL connected adb devices, not just BENCH_DEVICE_SERIAL — every fleet serial must be on the bench.local.yaml redact list or sibling serials leak into transcripts.**
 - **`claude -p --strict-mcp-config` restricts ONLY MCP servers, NOT Claude Code built-in tools (Bash/Read/Grep/Glob) — for real tool-isolation also pass --disallowedTools AND run the agent from a neutral cwd outside the repo.**
+- **Bench 'uncached tokens' = cache_creation + input + output, and cache_creation DOMINATES — every mid-run ToolSearch schema load rewrites the prompt-cache prefix, so tool-description weight multiplies across the run. Vision tokens ≈ (w*h)/750: a 488x1080 PNG ≈ 702 tok/image vs mobile-mcp's 177x395 ≈ 93.**
 <!-- END AUTO-GENERATED FROM joey.db -->
