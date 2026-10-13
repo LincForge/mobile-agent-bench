@@ -1,0 +1,31 @@
+id: b11
+tier: B
+name: wearos-mode-switch-ping
+capability_row: true
+prompt: |
+  You are operating a real Wear OS smartwatch through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget) on the
+  WATCH, switch the mode from "Mode: Standard" to "Mode: Burst", then tap the
+  "Ping" button three times, and report the exact counter text displayed on the
+  watch screen.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/wear/build/outputs/apk/debug/wear-debug.apk
+reset: [wake, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: 'Pings:\s*15\s*\(Burst\)'
+  match_samples:
+    - 'After switching to Mode: Burst and tapping Ping three times, the watch displays "Pings: 15 (Burst)".'
+    - 'Pings: 15 (Burst)'
+  reject_samples:
+    - 'After three taps the watch displays "Pings: 3".'
+    - 'Pings: 15'
+    - 'I could not interact with the Wear OS smartwatch.'
+timeout_s: 900
+notes: >-
+  CAPABILITY ROW (unseen v3 Wear OS task): reported separately, never averaged
+  into cross-tool means. Requires toggling the mode chip (`Mode: Standard` ->
+  `Mode: Burst`, where each Ping increments by +5) and tapping `Ping` 3 times
+  to reach `Pings: 15 (Burst)`. Requires BENCH_DEVICE_SERIAL to point at the
+  Wear OS watch.

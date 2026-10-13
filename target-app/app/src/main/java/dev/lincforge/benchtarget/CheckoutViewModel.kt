@@ -27,6 +27,26 @@ class CheckoutViewModel {
         return "$$totalDollars"
     }
 
+    /**
+     * Task c11 (runtime-promo-signature): computes an internal, never-displayed,
+     * never-logged `auditToken` local variable while returning only generic
+     * confirmation text to the UI. Kept flat (3 statements) so JDB/Spectra
+     * `method_locals` reaches `auditToken` within default `max_steps`.
+     */
+    fun redeemPromo(code: String): String {
+        val normalized = code.trim().uppercase()
+        val auditToken = formatAuditToken(currentQuantity, normalized)
+        return if (auditToken.startsWith("AUD-")) "Promo applied" else "Invalid promo"
+    }
+
+    internal fun formatAuditToken(quantity: Int, normalized: String): String {
+        val raw = normalized.fold(quantity * 97) { acc, ch ->
+            (acc * 31 + ch.code) % 10000
+        }
+        val checksum = (raw + 7555) % 10000
+        return "AUD-$quantity-$normalized-${checksum.toString().padStart(4, '0')}"
+    }
+
     companion object {
         const val UNIT_PRICE = 9.37
     }

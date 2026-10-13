@@ -1,0 +1,30 @@
+id: a6
+tier: A
+name: multi-device-disambiguation
+prompt: |
+  Multiple Android devices may be connected to the host at the same time (including
+  both a phone and a smartwatch).
+  Task: Specifically on the Samsung Galaxy S24 phone (NOT the smartwatch), launch
+  the BenchTarget app (package dev.lincforge.benchtarget), navigate to About ->
+  Diagnostics, and report the exact "Node token" string shown on the Diagnostics
+  screen.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?=.*PHONE-NODE-742)(?!.*WATCH-NODE-999)'
+  match_samples:
+    - 'The Node token displayed on the Galaxy S24 Diagnostics screen is PHONE-NODE-742.'
+    - 'Node token: PHONE-NODE-742'
+  reject_samples:
+    - 'The Node token shown on the device is WATCH-NODE-999.'
+    - 'I found PHONE-NODE-742 on one device and WATCH-NODE-999 on the other, so it is one of those.'
+    - 'Could not disambiguate between the connected devices.'
+timeout_s: 600
+notes: >-
+  Unseen v3 Tier A task: multi-device disambiguation when both phone and watch
+  are attached to ADB. Tests explicit target selection (`nerve_discover`,
+  `agent-device` #1880 device-selection safety, `mobile_list_available_devices`,
+  `maestro` `list_devices`).

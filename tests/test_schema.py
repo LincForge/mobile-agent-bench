@@ -30,6 +30,25 @@ def test_only_the_watch_task_is_a_capability_row():
     assert [t.id for t in tasks if t.capability_row] == ["b8"]
 
 
+def test_all_committed_v3_tasks_load_and_anchors_are_byte_identical():
+    tasks_v3 = load_all_tasks(ROOT / "tasks_v3")
+    assert sorted(t.id for t in tasks_v3) == [
+        "a5", "a6", "b10", "b11", "b5", "b6", "b9", "c10", "c11", "c9",
+    ]
+    assert len(tasks_v3) == 10
+    assert [t.id for t in tasks_v3 if t.capability_row] == ["b11"]
+
+    for anchor_file in (
+        "b5-crash-repro.yaml",
+        "b6-flake-investigation.yaml",
+        "c9-ship-gate.yaml",
+        "c10-runtime-state.yaml",
+    ):
+        assert (ROOT / "tasks" / anchor_file).read_bytes() == (
+            ROOT / "tasks_v3" / anchor_file
+        ).read_bytes(), f"v3 anchor {anchor_file} drifted from v1/v2"
+
+
 def test_all_committed_tools_load_and_configs_exist():
     tools = load_all_tools(ROOT / "tools")
     assert sorted(t.id for t in tools) == ["agent-device", "linc", "maestro", "mobile-mcp"]

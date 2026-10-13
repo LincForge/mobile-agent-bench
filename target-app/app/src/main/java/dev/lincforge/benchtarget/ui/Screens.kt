@@ -1,8 +1,12 @@
 package dev.lincforge.benchtarget.ui
 
+import android.util.Log
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +17,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
@@ -33,8 +40,12 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.dp
 import dev.lincforge.benchtarget.AppModel
 import dev.lincforge.benchtarget.CheckoutViewModel
+import dev.lincforge.benchtarget.LOG_TAG
 import dev.lincforge.benchtarget.core.CatalogItems
+import dev.lincforge.benchtarget.core.DiagnosticsPolicy
 import dev.lincforge.benchtarget.core.ExportPolicy
+import dev.lincforge.benchtarget.core.IndexRebuilder
+import dev.lincforge.benchtarget.core.OrdersPolicy
 import dev.lincforge.benchtarget.core.Screen
 
 @Composable
@@ -42,6 +53,7 @@ private fun ScreenColumn(content: @Composable ColumnScopeAlias.() -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) { content() }
@@ -57,6 +69,7 @@ fun HomeScreen(model: AppModel) {
         Button(onClick = { model.navigate(Screen.FORM) }, modifier = Modifier.fillMaxWidth()) { Text("Form") }
         Button(onClick = { model.navigate(Screen.ABOUT) }, modifier = Modifier.fillMaxWidth()) { Text("About") }
         Button(onClick = { model.navigate(Screen.CHECKOUT) }, modifier = Modifier.fillMaxWidth()) { Text("Checkout") }
+        Button(onClick = { model.navigate(Screen.ORDERS) }, modifier = Modifier.fillMaxWidth()) { Text("Orders") }
     }
 }
 
@@ -76,6 +89,72 @@ fun CatalogScreen(model: AppModel) {
                 )
             }
         }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun OrdersScreen(model: AppModel) {
+    var contextOrder by remember { mutableStateOf<String?>(null) }
+    var confirmOrder by remember { mutableStateOf<String?>(null) }
+    val active = OrdersPolicy.activeOrders(model.archivedOrder)
+
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text("Orders", style = MaterialTheme.typography.headlineMedium)
+        Text("Long-press an order to open its action menu.")
+        model.archivedOrder?.let { archived ->
+            Text("Archived: $archived", style = MaterialTheme.typography.titleMedium)
+        }
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(active, key = { it }) { order ->
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        order,
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .combinedClickable(
+                                onClick = { /* standard tap is a no-op; archive requires long-press */ },
+                                onLongClick = { contextOrder = order },
+                            )
+                            .padding(vertical = 14.dp, horizontal = 8.dp),
+                    )
+                    DropdownMenu(
+                        expanded = contextOrder == order,
+                        onDismissRequest = { contextOrder = null },
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Archive order") },
+                            onClick = {
+                                confirmOrder = order
+                                contextOrder = null
+                            },
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    confirmOrder?.let { order ->
+        AlertDialog(
+            onDismissRequest = { confirmOrder = null },
+            title = { Text("Archive $order?") },
+            text = { Text("This removes $order from the active queue.") },
+            confirmButton = {
+                Button(onClick = {
+                    model.archiveOrder(order)
+                    confirmOrder = null
+                }) {
+                    Text("Confirm archive")
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { confirmOrder = null }) {
+                    Text("Cancel")
+                }
+            },
+        )
     }
 }
 
@@ -159,9 +238,13 @@ fun AboutScreen(model: AppModel) {
 
 @Composable
 fun DiagnosticsScreen(model: AppModel) {
+    var healthStatus by remember { mutableStateOf<String?>(null) }
+    var maintenanceStatus by remember { mutableStateOf<String?>(null) }
+
     ScreenColumn {
         Text("Diagnostics", style = MaterialTheme.typography.headlineMedium)
         Text("Build channel: BENCH-STABLE")
+        Text(DiagnosticsPolicy.nodeTokenText())
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text("Sync status", style = MaterialTheme.typography.titleMedium)
@@ -173,6 +256,40 @@ fun DiagnosticsScreen(model: AppModel) {
                 }
             }
         }
+        Button(onClick = {
+            Log.w(LOG_TAG, DiagnosticsPolicy.HEALTH_CHECK_LOG_MESSAGE)
+            healthStatus = DiagnosticsPolicy.HEALTH_CHECK_UI_TEXT
+        }) {
+            Text("Run health check")
+        }
+        healthStatus?.let { Text(it) }
+        Card(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text("Maintenance", style = MaterialTheme.typography.titleMedium)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = {
+                        Log.d(LOG_TAG, "maintenance op=verify_cache blocked_ms=12")
+                        maintenanceStatus = IndexRebuilder.verifyCache()
+                    }) {
+                        Text("Verify cache")
+                    }
+                    OutlinedButton(onClick = {
+                        Log.d(LOG_TAG, "maintenance op=compact_db blocked_ms=18")
+                        maintenanceStatus = IndexRebuilder.compactDb()
+                    }) {
+                        Text("Compact DB")
+                    }
+                }
+                OutlinedButton(onClick = {
+                    val res = IndexRebuilder.rebuildBlocking()
+                    Log.w(LOG_TAG, IndexRebuilder.STALL_LOG_MESSAGE)
+                    maintenanceStatus = res
+                }) {
+                    Text("Rebuild index")
+                }
+                maintenanceStatus?.let { Text(it) }
+            }
+        }
     }
 }
 
@@ -181,6 +298,8 @@ fun CheckoutScreen(model: AppModel) {
     val vm = remember { CheckoutViewModel() }
     var quantity by remember { mutableStateOf(vm.quantity) }
     var total by remember { mutableStateOf<String?>(null) }
+    var promoCode by remember { mutableStateOf("") }
+    var promoStatus by remember { mutableStateOf<String?>(null) }
 
     ScreenColumn {
         Text("Checkout", style = MaterialTheme.typography.headlineMedium)
@@ -199,5 +318,13 @@ fun CheckoutScreen(model: AppModel) {
         }
         Button(onClick = { total = vm.applyDiscount() }) { Text("Apply discount") }
         total?.let { Text("Total: $it", style = MaterialTheme.typography.headlineSmall) }
+        OutlinedTextField(
+            value = promoCode,
+            onValueChange = { promoCode = it },
+            label = { Text("Promo code") },
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Button(onClick = { promoStatus = vm.redeemPromo(promoCode) }) { Text("Redeem") }
+        promoStatus?.let { Text(it) }
     }
 }

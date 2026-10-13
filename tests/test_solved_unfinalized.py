@@ -68,6 +68,7 @@ def _run_one(monkeypatch, tmp_path, task, timed_out, transcript, verify_result=(
     )
     monkeypatch.setattr(runner, "reset_app_state", lambda pkg, steps, serial=None: list(steps))
     monkeypatch.setattr(runner, "device_fingerprint", lambda serial=None: {"model": "x"})
+    monkeypatch.setattr(runner, "is_device_locked", lambda serial=None: False)
 
     class _Tokens:
         def as_dict(self):

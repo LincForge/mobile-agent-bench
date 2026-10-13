@@ -98,3 +98,44 @@ propagation bug as the primary, ship-blocking finding.
 The app logs with tag `BenchTarget` (screen transitions, form submissions,
 sync-init decisions at DEBUG). No network access. No analytics. `INTERNET`
 permission absent.
+
+## Additive v3 specification (FROZEN at tag `v3-prereg`)
+
+All v1/v2 screens, labels, ground truths, and state contract fields remain
+backward-compatible so the 4 v1/v2 anchor tasks (`b5`, `b6`, `c9`, `c10`) run
+against the exact same ground truth. v3 adds the following surfaces for the 6
+unseen tasks (`a5`, `a6`, `b9`, `b10`, `b11`, `c11`):
+
+1. **Orders screen (`screen: "orders"`, task `a5`):**
+   - Navigated from **Home** → **Orders**.
+   - Renders `Order #101` … `Order #108`. Standard tap is a no-op; **long-press**
+     on an order opens a context `DropdownMenu` with item **Archive order**.
+   - Selecting **Archive order** opens an `AlertDialog` (`Archive <order>?`)
+     with **Confirm archive** and **Cancel**.
+   - Confirming removes `<order>` from the active list, displays
+     `Archived: <order>`, and persists `"archivedOrder": "<order>"` in
+     `state.json`.
+2. **Multi-device Node tokens (task `a6`):**
+   - Phone **Diagnostics** screen displays `Node token: PHONE-NODE-742`.
+   - Watch **MainActivity** displays `Node token: WATCH-NODE-999`.
+3. **Health check silent-error attribution (task `b9`):**
+   - Phone **Diagnostics** screen adds button **Run health check**.
+   - Tapping it displays only `Health check failed (code E-400)` on screen while
+     logging `W/BenchTarget: health_check E-400: clock_skew_ms=4720 exceeds max_skew_ms=1000 (upstream=time-west-2)` to logcat.
+4. **Maintenance main-thread stall isolation (task `b10`):**
+   - Phone **Diagnostics** screen adds a **Maintenance** card with buttons
+     **Verify cache**, **Compact DB**, and **Rebuild index**.
+   - **Rebuild index** synchronously invokes `IndexRebuilder.rebuildBlocking()`
+     on the main thread (`Thread.sleep(1850)`) and logs
+     `W/BenchTarget: stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder`.
+5. **Wear OS Burst mode (task `b11`, capability row):**
+   - Watch screen adds a mode toggle chip (**Mode: Standard** ↔ **Mode: Burst**).
+   - Default **Mode: Standard** preserves `b8` (`+1` per Ping, `Pings: <n>`).
+   - **Mode: Burst** increments by `+5` per Ping and displays
+     `Pings: <n> (Burst)` (3 taps in Burst mode → `Pings: 15 (Burst)`).
+6. **Checkout promo code runtime signature (task `c11`):**
+   - Phone **Checkout** screen adds text field **Promo code** and button
+     **Redeem** calling `CheckoutViewModel.redeemPromo(code: String)`.
+   - `redeemPromo` computes local variable `auditToken` (`"AUD-4-BENCH26-8419"`
+     for `quantity = 4`, `code = "BENCH26"`) and returns only generic text
+     `"Promo applied"` to the UI without logging or persisting `auditToken`.

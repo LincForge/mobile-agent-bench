@@ -186,3 +186,22 @@ def device_fingerprint(serial: str | None = None) -> dict:
         "sdk": prop("ro.build.version.sdk"),
         "build": prop("ro.build.id"),
     }
+
+
+def is_device_locked(serial: str | None = None) -> bool:
+    """Return True if the device keyguard/lockscreen is active (`dumpsys window`).
+
+    Prevents starting a benchmark cell on a locked device and records pre/post
+    lock state in every run's meta.json so mid-grid lock contamination is
+    caught mechanically at the cell boundary.
+    """
+    serial = serial or device_serial()
+    out = adb("shell", "dumpsys", "window", serial=serial).stdout
+    return any(
+        tok in out
+        for tok in (
+            "mDreamingLockscreen=true",
+            "isStatusBarKeyguard=true",
+            "mShowingLockscreen=true",
+        )
+    )

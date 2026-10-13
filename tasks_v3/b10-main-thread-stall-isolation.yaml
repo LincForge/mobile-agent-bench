@@ -1,0 +1,33 @@
+id: b10
+tier: B
+name: main-thread-stall-isolation
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Bug report: "One of the three Maintenance actions on BenchTarget's Diagnostics
+  screen ('Verify cache', 'Compact DB', or 'Rebuild index') freezes the main
+  thread for nearly two seconds."
+  Task: Open About -> Diagnostics in BenchTarget (package
+  dev.lincforge.benchtarget), test the three Maintenance buttons, and identify:
+  (1) which button causes the main-thread stall, (2) the exact `blocked_ms`
+  duration reported in the device logs, and (3) the component name responsible.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?=.*Rebuild index|.*rebuild_index)(?=.*1850)(?=.*IndexRebuilder)'
+  match_samples:
+    - >-
+      The "Rebuild index" button causes the main-thread stall: it blocks for
+      blocked_ms=1850 in component IndexRebuilder.
+    - '1. Button: Rebuild index (op=rebuild_index)\n2. blocked_ms: 1850\n3. Component: IndexRebuilder'
+  reject_samples:
+    - 'Rebuild index felt slowest (~2 seconds), but I could not read the exact blocked_ms or component name from logs.'
+    - 'Compact DB stalled for 1850ms in IndexRebuilder.'
+timeout_s: 900
+notes: >-
+  Unseen v3 Tier B task: interactive performance / main-thread stall isolation
+  across 3 candidate actions (`Verify cache`, `Compact DB`, `Rebuild index`).
+  Ground truth (`blocked_ms=1850`, `component=IndexRebuilder`) is only in logcat
+  (`W/BenchTarget`).

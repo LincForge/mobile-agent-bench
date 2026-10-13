@@ -9,4 +9,5 @@ notes: >-
   before targeting; screenshots as disambiguation supplement); the agent
   authors Maestro flow YAML via `cheat_sheet` and executes with `run`.
   Prereqs: Java 17+ with JAVA_HOME set, Android platform-tools. Benchmarked
-  CLI version recorded in each run's meta (installed 2026-07: 2.6.1).
+  CLI version recorded in each run's meta (2026-07 v1/v2: 2.6.1; 2026-10 v3:
+  2.11.0).

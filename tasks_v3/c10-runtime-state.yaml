@@ -1,0 +1,47 @@
+id: c10
+tier: C
+name: runtime-state-inspection
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: On the device, open the BenchTarget app's Checkout screen (package
+  dev.lincforge.benchtarget), set the quantity to 7, and press "Apply
+  discount". Question: what is the runtime value of the internal
+  `discountFactor` computed inside CheckoutViewModel.applyDiscount() for that
+  exact interaction? Report the numeric value and how you obtained it.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  # Must ASSERT 0.755 as the obtained value, not merely mention it. AMENDED
+  # 2026-07-10 (see AMENDMENTS.md): the bare `0[.,]755` false-PASSED answers
+  # that gave 0.755 only as the low end of a UI back-division RANGE while
+  # explicitly disclaiming they couldn't obtain it (e.g. maestro: "range from
+  # about 0.755 to 0.770 — I can't pin it down from UI alone"). The negative
+  # lookahead rejects 0.755 immediately followed by a range separator + number
+  # ("0.755-0.770", "0.755 to 0.770"). Grounding (did the tool actually read the
+  # running process vs guess?) is still eyeball-audited against the transcript.
+  pattern: '0[.,]755(?!\s*(?:[-–—]|to\b|and\b|\.\.)\s*\d)'
+  match_samples:
+    - >-
+      The runtime value of discountFactor was 0.755, read at a spectra
+      breakpoint inside CheckoutViewModel.applyDiscount().
+  reject_samples:
+    # The 2026-07-10 amendment's regression guard: bare `0[.,]755` false-PASSED
+    # exactly this hedged back-division range shape.
+    - >-
+      Back-dividing the rounded total gives a range from about 0.755 to 0.770,
+      so I could not pin down the exact factor from the UI alone.
+    - 'The discount factor appears to be roughly 0.76 based on the displayed total.'
+timeout_s: 900
+notes: >-
+  Runtime inspection (doc 044 task 10). Ground truth 0.755 (frozen in
+  target-app/SPEC.md). The factor is never displayed or logged, and the shown
+  total is rounded to whole dollars, so back-division from the UI yields
+  ~0.762 — a wrong answer. Reaching 0.755 requires inspecting the running
+  process (spectra breakpoint) or an equivalent capability such as pulling
+  and decompiling the APK; the path each stack takes is captured in the
+  transcript and reported qualitatively alongside PASS/FAIL. Agents do NOT
+  get the app source during any run (the repo publishes it, but runs execute
+  from a working directory without it — see PREREGISTRATION.md).

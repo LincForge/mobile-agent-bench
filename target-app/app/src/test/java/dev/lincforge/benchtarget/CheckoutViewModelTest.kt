@@ -51,4 +51,21 @@ class CheckoutViewModelTest {
             assertFalse(display.contains("."))
         }
     }
+
+    @Test
+    fun `quantity 4 with code BENCH26 computes exact auditToken AUD-4-BENCH26-8419`() {
+        val vm = CheckoutViewModel()
+        vm.setQuantity(4)
+        assertEquals("AUD-4-BENCH26-8419", vm.formatAuditToken(vm.quantity, "BENCH26"))
+    }
+
+    @Test
+    fun `redeemPromo returns generic confirmation and never leaks auditToken`() {
+        val vm = CheckoutViewModel()
+        vm.setQuantity(4)
+        val status = vm.redeemPromo("  bench26 ")
+        assertEquals("Promo applied", status)
+        assertFalse(status.contains("AUD-"))
+        assertFalse(status.contains("8419"))
+    }
 }
