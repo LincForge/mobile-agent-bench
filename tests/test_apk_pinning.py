@@ -214,6 +214,7 @@ def test_run_one_pins_app_after_hygiene_before_reset(monkeypatch, tmp_path):
         lambda pkg, steps, serial=None: order.append("reset") or list(steps),
     )
     monkeypatch.setattr(runner, "device_fingerprint", lambda serial=None: {"model": "x"})
+    monkeypatch.setattr(runner, "is_device_locked", lambda serial=None: False)
 
     class _Tokens:
         def as_dict(self):

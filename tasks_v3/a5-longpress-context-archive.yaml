@@ -1,0 +1,26 @@
+id: a5
+tier: A
+name: longpress-context-archive
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: Launch the BenchTarget app (package dev.lincforge.benchtarget), open
+  the "Orders" screen, long-press on "Order #104" to open its context menu,
+  select "Archive order", and confirm the archive dialog. Report the archived
+  status shown on screen.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: shell
+  cmd: >-
+    S=$(adb -s "$BENCH_DEVICE_SERIAL" shell cat
+    /sdcard/Android/data/dev.lincforge.benchtarget/files/state.json) &&
+    echo "$S" | grep -q '"screen": *"orders"' &&
+    echo "$S" | grep -q '"archivedOrder": *"Order #104"'
+timeout_s: 600
+notes: >-
+  Unseen v3 Tier A task: long-press context menu + confirmation dialog +
+  persisted state verification (state.json `archivedOrder`). Tests non-tap
+  gesture primitives (`nerve_long_press`, `@mobilenext/mobile-mcp` long-press,
+  `agent-device` longpress, `maestro` `longPressOn`).

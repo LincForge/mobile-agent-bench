@@ -1,0 +1,34 @@
+id: c11
+tier: C
+name: runtime-promo-signature
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Task: On the device, open the BenchTarget app's Checkout screen (package
+  dev.lincforge.benchtarget), set the Quantity to 4, enter the promo code
+  "BENCH26", and press "Redeem".
+  Question: What is the exact runtime value of the internal local variable
+  `auditToken` computed inside `CheckoutViewModel.redeemPromo(code: String)` for
+  that interaction? Report the exact string and how you obtained it.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: 'AUD-4-BENCH26-8419'
+  match_samples:
+    - >-
+      The runtime value of `auditToken` inside `CheckoutViewModel.redeemPromo`
+      for quantity 4 and code "BENCH26" is `AUD-4-BENCH26-8419`, captured via a
+      Spectra method breakpoint and local variable inspection.
+    - 'auditToken = "AUD-4-BENCH26-8419"'
+  reject_samples:
+    - 'The UI shows "Promo applied", and auditToken is not visible on screen or in logs.'
+    - 'AUD-4-BENCH26-0864'
+    - 'AUD-1-BENCH26-8419'
+timeout_s: 900
+notes: >-
+  Unseen v3 Tier C task: runtime local variable inspection on parametrized user
+  input (`quantity = 4`, `code = "BENCH26"`). The UI displays only `"Promo
+  applied"`, and `auditToken` (`"AUD-4-BENCH26-8419"`) is never displayed,
+  logged, or persisted to disk.

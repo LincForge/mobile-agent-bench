@@ -22,10 +22,12 @@ import yaml
 
 from . import agent as agent_mod
 from .device import (
+    DeviceError,
     clear_uiautomation_holders,
     device_fingerprint,
     device_serial,
     ensure_pinned_app,
+    is_device_locked,
     reset_app_state,
 )
 from .schema import Task, Tool, load_all_tasks, load_all_tools
@@ -38,9 +40,17 @@ def results_root() -> Path:
     """Where run artifacts land. Defaults to ``results/`` (the pre-registered
     layout for the Pixel 8 Pro canonical grid). Set BENCH_RESULTS_DIR to keep a
     second device's runs in a separate tree (e.g. ``results_s10`` for the
-    disclosed cross-device addendum) so run paths don't collide and resume-skip.
+    disclosed cross-device addendum, or ``results_v3`` for v3) so run paths
+    don't collide and resume-skip.
     """
     return Path(os.environ.get("BENCH_RESULTS_DIR", "results"))
+
+
+def tasks_root() -> Path:
+    """Where task YAMLs are loaded from. Defaults to ``tasks/`` (the frozen
+    v1/v2 suite). Set BENCH_TASKS_DIR=tasks_v3 for the v3 suite.
+    """
+    return Path(os.environ.get("BENCH_TASKS_DIR", "tasks"))
 
 
 def load_bench_config() -> dict:
@@ -52,7 +62,13 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
     holders_cleared = clear_uiautomation_holders(serial=serial)
     app_pin = ensure_pinned_app(task.app_package, Path(task.app_apk), serial=serial)
     reset_log = reset_app_state(task.app_package, task.reset, serial=serial)
+    locked_pre = is_device_locked(serial=serial)
+    if locked_pre:
+        raise DeviceError(
+            "target device is locked after reset (keyguard active) — unlock the device before running cells"
+        )
     result = agent_mod.run_agent(task, tool, model, out_dir)
+    locked_post = is_device_locked(serial=serial)
     verdict, verify_detail = agent_mod.verify_task(
         task, {"BENCH_DEVICE_SERIAL": serial}, result.transcript_path
     )
@@ -85,6 +101,8 @@ def run_one(task: Task, tool: Tool, model: str, out_dir: Path) -> dict:
         "reset_steps": reset_log,
         "uiautomation_holders_cleared": holders_cleared,
         "app_pin": app_pin,
+        "device_locked_pre": locked_pre,
+        "device_locked_post": locked_post,
         "tokens": result.tokens.as_dict(),
         "device": device_fingerprint(serial),
         "capability_row": task.capability_row,
@@ -97,7 +115,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     cfg = load_bench_config()
     model = args.model or cfg["model"]
     runs = args.runs or int(cfg.get("runs_per_task", 5))
-    tasks = {t.id: t for t in load_all_tasks(ROOT / "tasks")}
+    tasks = {t.id: t for t in load_all_tasks(tasks_root())}
     tools = {t.id: t for t in load_all_tools(ROOT / "tools")}
 
     sel_tasks = list(tasks.values()) if args.task == "all" else [tasks[args.task]]
@@ -130,7 +148,7 @@ def cmd_regrade(args: argparse.Namespace) -> int:
     ``answer``-type tasks are re-gradable offline (``shell``/device-state tasks
     need the live device); timed-out runs stay FAIL and are never promoted.
     """
-    tasks = {t.id: t for t in load_all_tasks(ROOT / "tasks")}
+    tasks = {t.id: t for t in load_all_tasks(tasks_root())}
     root = results_root()
     scanned = changed = 0
     skipped_nonanswer: set[str] = set()

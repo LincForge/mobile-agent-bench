@@ -12,6 +12,7 @@ enum class Screen(val key: String) {
     ABOUT("about"),
     DIAGNOSTICS("diagnostics"),
     CHECKOUT("checkout"),
+    ORDERS("orders"),
 }
 
 @Serializable
@@ -32,6 +33,7 @@ data class BenchState(
     val selectedItem: String? = null,
     val lastFormResult: FormResult? = null,
     val launchCount: Int? = null,
+    val archivedOrder: String? = null,
 )
 
 object StateJson {

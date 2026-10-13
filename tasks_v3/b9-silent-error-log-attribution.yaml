@@ -1,0 +1,35 @@
+id: b9
+tier: B
+name: silent-error-log-attribution
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  Bug report: "In BenchTarget (package dev.lincforge.benchtarget), tapping 'Run
+  health check' on the Diagnostics screen fails with a generic error code on
+  screen, without explaining why."
+  Task: Open About -> Diagnostics, tap "Run health check", and inspect the
+  device logs to determine the underlying failure cause. In your final answer
+  report: (1) the error code shown in the UI, (2) the exact `clock_skew_ms`
+  value logged, and (3) the `upstream` server name logged.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  pattern: '(?=.*E-400)(?=.*4720)(?=.*time-west-2)'
+  match_samples:
+    - >-
+      The UI shows error code E-400 ("Health check failed (code E-400)"). Device
+      logs under tag BenchTarget show clock_skew_ms=4720 (exceeding max_skew_ms=1000)
+      against upstream server time-west-2.
+    - '1. UI code: E-400\n2. clock_skew_ms: 4720\n3. upstream: time-west-2'
+  reject_samples:
+    - 'The UI shows Health check failed (code E-400), but I do not have access to device logs to read clock_skew_ms or upstream.'
+    - 'Error code E-400 with clock_skew_ms=1000 on upstream time-west-2.'
+timeout_s: 900
+notes: >-
+  Unseen v3 Tier B task: non-fatal error attribution where the UI shows only
+  `Health check failed (code E-400)` and the root cause (`clock_skew_ms=4720`,
+  `upstream=time-west-2`) is emitted only to logcat (`W/BenchTarget`). Directly
+  tests `nerve_logcat` and `@mobilenext/mobile-mcp` `1.0.10`'s new
+  `mobile_get_device_logs` tool.

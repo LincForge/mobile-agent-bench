@@ -38,6 +38,8 @@ class AppModel(
         private set
     var formResultText by mutableStateOf<String?>(null)
         private set
+    var archivedOrder by mutableStateOf<String?>(null)
+        private set
 
     fun persist() {
         writer.write(
@@ -46,6 +48,7 @@ class AppModel(
                 selectedItem = selectedItem,
                 lastFormResult = lastFormResult,
                 launchCount = launchCount,
+                archivedOrder = archivedOrder,
             ),
         )
     }
@@ -66,6 +69,12 @@ class AppModel(
         lastFormResult = submission.result
         formResultText = submission.resultText
         Log.d(LOG_TAG, "form submitted: ${submission.resultText}")
+        persist()
+    }
+
+    fun archiveOrder(order: String) {
+        archivedOrder = order
+        Log.d(LOG_TAG, "order archived: $order")
         persist()
     }
 

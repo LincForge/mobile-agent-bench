@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from mobile_agent_bench.runner import cmd_report, results_root
+from mobile_agent_bench.runner import cmd_report, results_root, tasks_root
 
 
 def test_results_root_defaults_to_results(monkeypatch):
@@ -12,6 +12,13 @@ def test_results_root_defaults_to_results(monkeypatch):
 def test_results_root_honors_env_override(monkeypatch):
     monkeypatch.setenv("BENCH_RESULTS_DIR", "results_s10")
     assert results_root() == Path("results_s10")
+
+
+def test_tasks_root_defaults_to_tasks_and_honors_env_override(monkeypatch):
+    monkeypatch.delenv("BENCH_TASKS_DIR", raising=False)
+    assert tasks_root() == Path("tasks")
+    monkeypatch.setenv("BENCH_TASKS_DIR", "tasks_v3")
+    assert tasks_root() == Path("tasks_v3")
 
 
 def _write_meta(root: Path, tool: str, task: str, n: int, billed: int, uncached: int, output: int):

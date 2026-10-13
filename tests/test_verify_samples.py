@@ -69,6 +69,17 @@ def test_all_committed_answer_tasks_carry_validated_samples():
         assert len(t.verify.reject_samples) >= 1, t.id
 
 
+def test_all_committed_v3_answer_tasks_carry_validated_samples():
+    tasks = load_all_tasks(ROOT / "tasks_v3")
+    answer_tasks = [t for t in tasks if t.verify.type == "answer"]
+    assert sorted(t.id for t in answer_tasks) == [
+        "a6", "b10", "b11", "b5", "b6", "b9", "c10", "c11", "c9",
+    ]
+    for t in answer_tasks:
+        assert len(t.verify.match_samples) >= 1, t.id
+        assert len(t.verify.reject_samples) >= 1, t.id
+
+
 def test_historical_grader_failures_are_encoded_as_samples():
     """The three v1 grader flaws (AMENDMENTS.md) must be frozen as samples so
     a future pattern edit that reintroduces one fails CI."""

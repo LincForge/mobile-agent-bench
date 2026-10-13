@@ -128,6 +128,7 @@ def test_run_one_clears_holders_before_reset_and_records(monkeypatch, tmp_path):
         lambda pkg, steps, serial=None: order.append("reset") or list(steps),
     )
     monkeypatch.setattr(runner, "device_fingerprint", lambda serial=None: {"model": "x"})
+    monkeypatch.setattr(runner, "is_device_locked", lambda serial=None: False)
 
     class _Tokens:
         def as_dict(self):
@@ -156,3 +157,52 @@ def test_run_one_clears_holders_before_reset_and_records(monkeypatch, tmp_path):
 
     assert order == ["hygiene", "reset"], "holders must be cleared before the task reset"
     assert record["uiautomation_holders_cleared"] == ["dev.mobile.maestro"]
+    assert record["device_locked_pre"] is False
+    assert record["device_locked_post"] is False
+
+
+def test_is_device_locked_parses_dumpsys_window(monkeypatch):
+    monkeypatch.setattr(
+        device,
+        "adb",
+        lambda *a, serial=None, timeout=60: _completed(
+            "  mDreamingLockscreen=false mShowingLockscreen=false isStatusBarKeyguard=false\n"
+        ),
+    )
+    assert device.is_device_locked(serial="S") is False
+
+    monkeypatch.setattr(
+        device,
+        "adb",
+        lambda *a, serial=None, timeout=60: _completed(
+            "  mDreamingLockscreen=true isStatusBarKeyguard=true\n"
+        ),
+    )
+    assert device.is_device_locked(serial="S") is True
+
+
+def test_run_one_refuses_to_start_on_locked_device(monkeypatch, tmp_path):
+    import pytest
+    from mobile_agent_bench import runner
+    from mobile_agent_bench.schema import Task, Tool, Verify
+
+    monkeypatch.setattr(runner, "device_serial", lambda: "S")
+    monkeypatch.setattr(runner, "clear_uiautomation_holders", lambda serial=None: [])
+    monkeypatch.setattr(
+        runner,
+        "ensure_pinned_app",
+        lambda pkg, apk, serial=None: {"package": pkg, "apk_md5": "d" * 32, "action": "verified"},
+    )
+    monkeypatch.setattr(runner, "reset_app_state", lambda pkg, steps, serial=None: list(steps))
+    monkeypatch.setattr(runner, "is_device_locked", lambda serial=None: True)
+
+    task = Task(
+        id="t", tier="A", name="t", prompt="p",
+        app_package="dev.lincforge.benchtarget",
+        app_apk="target-app/app/build/outputs/apk/stock/debug/app-stock-debug.apk",
+        reset=("force-stop",),
+        verify=Verify(type="manual"), timeout_s=60,
+    )
+    tool = Tool(id="x", name="x", mcp_config="tools/x.mcp.json")
+    with pytest.raises(device.DeviceError, match="locked"):
+        runner.run_one(task, tool, "m", tmp_path)

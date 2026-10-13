@@ -25,4 +25,23 @@ class WearLogicTest {
         assertTrue(Regex("\"screen\": *\"main\"").containsMatchIn(json))
         assertTrue(Regex("\"pings\": *2").containsMatchIn(json))
     }
+
+    @Test
+    fun `watch node token matches a6 distractor ground truth`() {
+        assertEquals("WATCH-NODE-999", WearLogic.WATCH_NODE_TOKEN)
+        assertEquals("Node token: WATCH-NODE-999", WearLogic.nodeTokenText())
+    }
+
+    @Test
+    fun `burst mode increments by 5 and formats Pings 15 Burst`() {
+        assertEquals("Mode: Standard", WearLogic.modeLabel(false))
+        assertEquals("Mode: Burst", WearLogic.modeLabel(true))
+        assertEquals(1, WearLogic.pingStep(false))
+        assertEquals(5, WearLogic.pingStep(true))
+        val text = WearLogic.pingsText(15, burstMode = true)
+        assertEquals("Pings: 15 (Burst)", text)
+        val json = WearLogic.stateJson(pings = 15, burstMode = true)
+        assertTrue(Regex("\"pings\": *15").containsMatchIn(json))
+        assertTrue(Regex("\"mode\": *\"burst\"").containsMatchIn(json))
+    }
 }

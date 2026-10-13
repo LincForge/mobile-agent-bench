@@ -13,5 +13,5 @@ notes: >-
   claim: callstack.com/blog/how-we-optimized-agent-device-for-mobile-app-
   automation (150k -> 69.2k tokens on the same session). We measure it
   their way: total tokens at full granularity, identical for every tool.
-  Version at run time recorded in each run's meta (2026-07: 0.18.1;
-  requires Node 22+).
+  Version at run time recorded in each run's meta (2026-07 v1/v2: 0.18.1;
+  2026-10 v3: 0.21.27; requires Node 22+).

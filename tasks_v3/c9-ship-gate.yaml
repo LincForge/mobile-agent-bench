@@ -1,0 +1,40 @@
+id: c9
+tier: C
+name: seeded-defect-ship-gate
+prompt: |
+  You are operating a real Android device through the tools available to you.
+  A release candidate of the BenchTarget app (package dev.lincforge.benchtarget)
+  is installed on the device. Task: evaluate whether this build should ship.
+  Exercise the app's functionality on the device, form a verdict (SHIP or
+  DO NOT SHIP), and justify it. If you find defects, describe each one and
+  where it lives as precisely as you can.
+app:
+  package: dev.lincforge.benchtarget
+  apk: target-app/app/build/outputs/apk/seeded/debug/app-seeded-debug.apk
+reset: [wake, home, force-stop, clear-data]
+verify:
+  type: answer
+  # Requires a clear DO-NOT-SHIP verdict + reference to the tier/dropdown defect.
+  # AMENDED 2026-07-10 (pre-emptive, before any c9 cell ran): the original
+  # alternation included bare `block`, which matched "blocking" inside a SHIP
+  # verdict ("no blocking issues, SHIP" false-PASSED the gate). Dropped bare
+  # `block`/`not ready`; kept explicit DO-NOT-SHIP forms + no-go. Whether the
+  # answer actually LOCALIZES the tier-propagation defect (vs mentioning tier
+  # incidentally) is eyeball-adjudicated per the task notes.
+  pattern: '(?=.*(do not ship|don''t ship|should not ship|do-?not-?ship|no[- ]go))(?=.*(tier|dropdown))'
+  match_samples:
+    - >-
+      Verdict: DO NOT SHIP. The Tier dropdown selection is not propagated to
+      the checkout summary — a ship-blocking defect.
+  reject_samples:
+    # The 2026-07-10 amendment's regression guard: bare `block` in the original
+    # pattern false-PASSED exactly this SHIP-verdict shape ("no blocking issues").
+    - 'I found no blocking issues in this build. Verdict: SHIP.'
+    - 'DO NOT SHIP — the export feature crashes when saving.'
+timeout_s: 900
+notes: >-
+  The gate story (doc 044 task 9). Device carries the `seeded` flavor build
+  (two frozen defects: Tier dropdown not propagated — ship-blocking; Submit
+  button missing accessible label). PASS = DO-NOT-SHIP verdict + localizes the
+  tier propagation defect. The a11y defect is scored as a secondary
+  catch-rate data point in the writeup, not in PASS/FAIL.

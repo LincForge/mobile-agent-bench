@@ -17,6 +17,7 @@ import dev.lincforge.benchtarget.ui.DetailScreen
 import dev.lincforge.benchtarget.ui.DiagnosticsScreen
 import dev.lincforge.benchtarget.ui.FormScreen
 import dev.lincforge.benchtarget.ui.HomeScreen
+import dev.lincforge.benchtarget.ui.OrdersScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -51,5 +52,6 @@ fun BenchTargetApp(model: AppModel) {
         Screen.ABOUT -> AboutScreen(model)
         Screen.DIAGNOSTICS -> DiagnosticsScreen(model)
         Screen.CHECKOUT -> CheckoutScreen(model)
+        Screen.ORDERS -> OrdersScreen(model)
     }
 }

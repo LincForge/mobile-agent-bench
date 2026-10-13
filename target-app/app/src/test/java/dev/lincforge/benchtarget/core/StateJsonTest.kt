@@ -54,7 +54,25 @@ class StateJsonTest {
 
     @Test
     fun `screen keys cover the spec enum`() {
-        val expected = listOf("home", "catalog", "detail", "form", "about", "diagnostics", "checkout")
+        val expected = listOf(
+            "home", "catalog", "detail", "form", "about", "diagnostics", "checkout", "orders",
+        )
         assertEquals(expected, Screen.entries.map { it.key })
+    }
+
+    @Test
+    fun `archivedOrder is omitted when null and matches a5 grep pattern when set`() {
+        val initial = StateJson.encode(BenchState(screen = "orders", launchCount = 1))
+        assertFalse(initial.contains("archivedOrder"))
+
+        val archived = StateJson.encode(
+            BenchState(
+                screen = "orders",
+                archivedOrder = "Order #104",
+                launchCount = 1,
+            ),
+        )
+        assertTrue(Regex("\"screen\": *\"orders\"").containsMatchIn(archived))
+        assertTrue(Regex("\"archivedOrder\": *\"Order #104\"").containsMatchIn(archived))
     }
 }
