@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FROM LINC.md — DO NOT EDIT -->
-<!-- LINC_CONTEXT_v1_hash:5cd135c58b1a -->
+<!-- LINC_CONTEXT_v1_hash:0041f13b0027 -->
 
 
 # Mobile Agent Bench — Project Instructions
@@ -22,3 +22,37 @@ device bench. Scored device: Pixel 8 Pro (pre-registered); results in `BENCH_RES
 - **A headless benchmark agent with Bash + the repo as cwd silently bypasses the tool-under-test (runs adb directly, reads ground truth from SPEC.md/source), voiding the comparison — block shell+search; a screenshot-Read is fine since without enumeration the agent can't discover the repo path.**
 - **`claude -p --strict-mcp-config` restricts ONLY MCP servers, NOT Claude Code built-in tools (Bash/Read/Grep/Glob) — for real tool-isolation also pass --disallowedTools AND run the agent from a neutral cwd outside the repo.**
 <!-- END AUTO-GENERATED FROM joey.db -->
+
+<!-- FLEET STANDARDS (linc-ops) -->
+
+## Design by Contract (fleet standard — compiled from linc-ops, do not edit here)
+
+**When it applies.** A change touches any of:
+1. a trust boundary: sensor / BLE / audio input, network or file parsing, DB load, MCP or CLI tool arguments, LLM output;
+2. a persisted ledger or derived total (spend, minutes, scores, rules, counts);
+3. floating-point values that feed a branch, a comparison, or a division;
+4. a lease, lock, or state machine;
+5. automation that reports success or failure.
+If none applies, this section does not apply.
+
+**Failure mode by zone.**
+| Zone | On violation |
+|---|---|
+| Input boundary | Reject or sanitize, count the drop, never crash. |
+| On-device app core | Fall into a defined state (Failed, or reset that one component) and log it. Never kill the process mid-session. |
+| Daemon / CLI / server core | Fail fast with an explicit `raise` / `check()` and let the supervisor restart it. Never use Python `assert` for runtime checks (`-O` strips it). |
+| Ledger / persisted state | Check the invariant before writing. Add a property test. |
+| Automation | Assert the observed outcome (PR reads MERGED, item count rose, exit code of the real command), never a proxy (grep success, last matching line, newest run of any workflow). |
+
+**Remember:** NaN compares false with everything, so a `when`/`if` chain over floats falls through to its `else`. Guard finiteness before branching. `maxOf`/`max` pass NaN through.
+
+**What a triggered change ships.**
+- A `[contract]` test for each precondition or invariant. It fails on origin/main and passes after the change.
+- At least one hostile-input case: NaN / ±Inf / empty / out-of-range, a malformed payload, or an unknown argument.
+- For ledgers and numeric code: a property test (Hypothesis / Kotest property).
+
+**Reviewing.** Bounce a triggered change with:
+- `dbc: missing contract` when it has no `[contract]` tests;
+- `dbc: wrong failure mode` when a contract's failure mode does not match its zone. Example: a `require()` that can crash an on-device app on sensor input.
+
+**Not required.** Assertion-density quotas, `require()` sprinkled through core code, and iteration-count minimums for property tests.
