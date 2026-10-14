@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T00:03:25+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 86867,
+    "cache_read_tokens": 3041434,
+    "input_tokens": 110,
+    "num_turns": 56,
+    "output_tokens": 13733,
+    "source": "result-record",
+    "total_billed": 3142144,
+    "total_cost_usd": 1.0933048,
+    "total_uncached": 100710
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "to BenchTarget (likely to exercise test-automation robustness), not a bug tied to network, battery, or any other device condition I could manipulate.\\n\\n**Fix for the test**: don\\'t assert \"Retry sync\" is unconditionally visible. Either assert conditionally on the \"Sync status\" text (idle \u2192 button present, unavailable \u2192 absent), or request BenchTarget add a deterministic override (e.g., a launch/deep-link extra like `extras={\"FORCE_SYNC_IDLE\": true}`) so the screen can be pinned for assertions.'",
+  "wall_time_s": 232.08
+}

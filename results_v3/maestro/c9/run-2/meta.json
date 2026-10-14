@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:43:27+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 166679,
+    "cache_read_tokens": 7917465,
+    "input_tokens": 158,
+    "num_turns": 86,
+    "output_tokens": 27083,
+    "source": "result-record",
+    "total_billed": 8111385,
+    "total_cost_usd": 2.521355,
+    "total_uncached": 193920
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "alog \u2192 correct removal from list) all behaved correctly.\\n- Quantity stepper correctly floors at 1 and caps at 10; no negative/zero quantities possible.\\n- No crashes on adversarial input (emoji, quotes, HTML/script tags, newlines/tabs, long strings) in the Name field \u2014 text rendered safely as plain text.\\n\\nGiven the Tier-drop bug and the broken discount math both sit in core transactional flows (registration tier, checkout total) and are 100% reproducible, I'd send this back rather than ship.\"",
+  "wall_time_s": 505.66
+}

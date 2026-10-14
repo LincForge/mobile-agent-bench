@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T21:15:40+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 140424,
+    "cache_read_tokens": 4883784,
+    "input_tokens": 156,
+    "num_turns": 83,
+    "output_tokens": 11313,
+    "source": "result-record",
+    "total_billed": 5035677,
+    "total_cost_usd": 1.6518947999999996,
+    "total_uncached": 151893
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "rmed non-reproduction on Items 001\u2013012 (same Export flow, no exception) by sequential manual testing before finding the trigger.\\n\\n**Root cause hint for engineering:** `ExportPolicy.export()` (ExportPolicy.kt:11) throws when its export buffer isn't initialized, and this path is reached specifically for Item 013 \u2014 suggesting an off-by-one or index-based initialization gap (e.g., buffer only pre-initialized for the first N items, or a 0-indexed vs 1-indexed mismatch landing on item index 12/13).\"",
+  "wall_time_s": 217.77
+}

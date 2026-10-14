@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T06:00:11+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 142789,
+    "cache_read_tokens": 7640221,
+    "input_tokens": 156,
+    "num_turns": 90,
+    "output_tokens": 31243,
+    "source": "result-record",
+    "total_billed": 7814409,
+    "total_cost_usd": 2.4119421999999995,
+    "total_uncached": 174188
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "t:** the test isn't flaky because of its own timing \u2014 it's flaky because the app's sync-status flag is decided from a counter that is asynchronously persisted and can be lost when the process is killed immediately after launch, which is standard behavior for an automated UI test harness. Fix options to suggest to the app team: persist the counter with `commit()` (or on process-death-safe storage) instead of `apply()`, or flush pending writes in `onStop()`/`onPause()` before allowing force-stop.\"",
+  "wall_time_s": 470.56
+}

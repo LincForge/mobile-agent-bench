@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "9ccbf77044370539f9a9c929477850d4"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T07:14:35+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33144,
+    "cache_read_tokens": 939645,
+    "input_tokens": 52,
+    "num_turns": 30,
+    "output_tokens": 5297,
+    "source": "result-record",
+    "total_billed": 978138,
+    "total_cost_usd": 0.373579,
+    "total_uncached": 38493
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "\" to trigger the method, which hit the breakpoint and paused the app (visible as a transient \"isn\\'t responding\" system dialog, dismissed afterward with no effect on the result).\\n5. Harvested the method\\'s locals while stepping through its first few lines, which captured:\\n   - `discountFactor` = `0.755`\\n   - `totalDollars` = `50`\\n6. The UI subsequently rendered \"Total: $50\" (7 \u00d7 $9.37 = $65.59 base, \u00d7 0.755 \u2248 $49.52, rounded/displayed as $50), consistent with the harvested `discountFactor`.'",
+  "wall_time_s": 126.66
+}

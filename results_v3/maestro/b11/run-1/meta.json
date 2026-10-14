@@ -1,0 +1,44 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "0f6e324ac9d8ce88691922aae4fd5eba",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "16",
+    "build": "BP2A.250325.020",
+    "model": "SM-L300",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:49:24+00:00",
+  "task": "b11",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 15508,
+    "cache_read_tokens": 197505,
+    "input_tokens": 18,
+    "num_turns": 10,
+    "output_tokens": 2135,
+    "source": "result-record",
+    "total_billed": 215166,
+    "total_cost_usd": 0.12291900000000001,
+    "total_uncached": 17661
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*15\\\\s*\\\\(Burst\\\\)' answer[-500:]='Task complete. The watch screen now shows the exact counter text: **\"Pings: 15 (Burst)\"**\\n\\nMode was switched from \"Mode: Standard\" to \"Mode: Burst\", and after 3 taps on \"Ping\" the counter reads 15 \u2014 Burst mode apparently multiplies each tap (5 pings per tap \u00d7 3 taps = 15), rather than incrementing by 1 like Standard mode would.'",
+  "wall_time_s": 70.94
+}

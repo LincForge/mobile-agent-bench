@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:24:48+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 56062,
+    "cache_read_tokens": 630119,
+    "input_tokens": 44,
+    "num_turns": 23,
+    "output_tokens": 5917,
+    "source": "result-record",
+    "total_billed": 692142,
+    "total_cost_usd": 0.40952979999999994,
+    "total_uncached": 62023
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "in this toolset \u2014 only UI interaction, screenshots, and logcat via mobile-mcp.\\n\\nA local variable inside a method body that is never logged, displayed, or otherwise surfaced is not observable from outside the process through any of the tools I have. If you need this value, the practical options are: add a temporary log statement in `CheckoutViewModel.redeemPromo` and rebuild, or attach a JVM/Android debugger (e.g., via Android Studio) to the running process and set a breakpoint in that method.'",
+  "wall_time_s": 185.8
+}

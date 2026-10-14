@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:58:09+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 51153,
+    "cache_read_tokens": 353793,
+    "input_tokens": 24,
+    "num_turns": 14,
+    "output_tokens": 4884,
+    "source": "result-record",
+    "total_billed": 409854,
+    "total_cost_usd": 0.3242586,
+    "total_uncached": 56061
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": " Kotlin source for `CheckoutViewModel.redeemPromo` (to see how it's computed, then recomputing it from the known inputs), attaching a JDWP/Android Studio debugger with a breakpoint, or the app itself logging/displaying it.\\n\\nIf you can point me to the app's source (a repo path, or tell me to pull the APK off the device for inspection) or want me to try a debugger-based approach, I can continue from there \u2014 otherwise I don't have a way to give you a real (non-fabricated) value for `auditToken`.\"",
+  "wall_time_s": 108.53
+}

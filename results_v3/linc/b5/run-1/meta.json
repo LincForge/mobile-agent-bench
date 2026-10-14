@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T18:11:55+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 85935,
+    "cache_read_tokens": 4341182,
+    "input_tokens": 178,
+    "num_turns": 95,
+    "output_tokens": 11443,
+    "source": "result-record",
+    "total_billed": 4438738,
+    "total_cost_usd": 1.3267624000000002,
+    "total_uncached": 97556
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "at.txt` (tag `AndroidRuntime`, contains the full stack trace above).\\n- UI element dumps confirming each catalog item\\'s detail screen layout (`Export` button bounds `[72,324][342,468]`) were consistent across items.\\n\\n**Likely root cause direction**: `ExportPolicy.kt:11` throws when some per-item \"export buffer\" isn\\'t initialized \u2014 worth checking whether Item 013\\'s catalog data (or every 13th item, or an item at a specific index boundary) skips an initialization step other items go through.'",
+  "wall_time_s": 309.63
+}

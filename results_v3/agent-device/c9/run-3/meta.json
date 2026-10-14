@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:31:32+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 209715,
+    "cache_read_tokens": 11117516,
+    "input_tokens": 166,
+    "num_turns": 101,
+    "output_tokens": 19447,
+    "source": "result-record",
+    "total_billed": 11346844,
+    "total_cost_usd": 3.257165199999999,
+    "total_uncached": 229328
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": ", a platform-compliance gap on modern Android.\\n\\n### Why DO NOT SHIP\\nThe Checkout and Form screens are core transactional flows, and both have confirmed broken state/logic (no total price, dead discount/redeem buttons, tier value silently discarded, no required-field validation). Orders is non-functional as a list. Diagnostics has both a guaranteed-failing status check and a genuine main-thread performance bug. These aren't edge cases \u2014 they reproduce on first interaction with default inputs.\"",
+  "wall_time_s": 337.26
+}

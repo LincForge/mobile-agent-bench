@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T04:20:43+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 198706,
+    "cache_read_tokens": 15283019,
+    "input_tokens": 246,
+    "num_turns": 146,
+    "output_tokens": 24572,
+    "source": "result-record",
+    "total_billed": 15506543,
+    "total_cost_usd": 4.0976398000000005,
+    "total_uncached": 223524
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "ate preserved), and the Orders long-press \u2192 context menu \u2192 confirmation dialog \u2192 archive flow (verified the archived order persists and stays removed).\\n\\n### Why DO NOT SHIP\\nThe Tier-binding bug and the Checkout pricing bug both corrupt core business data/money-handling on the first, most obvious interaction with those features \u2014 this is exactly the kind of defect that should block a release candidate. The main-thread freeze adds a clear, reproducible responsiveness regression on top of that.'",
+  "wall_time_s": 524.31
+}

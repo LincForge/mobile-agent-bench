@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "2b07633116643b8165fe7cd0550e1a58"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:12:26+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 127067,
+    "cache_read_tokens": 11590362,
+    "input_tokens": 254,
+    "num_turns": 161,
+    "output_tokens": 30220,
+    "source": "result-record",
+    "total_billed": 11747903,
+    "total_cost_usd": 3.1290484000000007,
+    "total_uncached": 157541
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "NOT SHIP\\nTwo of the app's five core flows \u2014 Checkout (wrong/undisclosed totals) and Form (silently drops the selected Tier) \u2014 produce incorrect data that would reach a backend or a customer's receipt in a real product. Combined with a validation-free promo code path and a main-thread stall in a user-facing action, this is not ship-ready; it needs the Checkout pricing logic rewritten, Form's Tier binding fixed, Redeem given real validation, and Rebuild index moved off the UI thread, at minimum.\"",
+  "wall_time_s": 594.93
+}

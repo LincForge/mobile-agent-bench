@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T18:43:30+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 70509,
+    "cache_read_tokens": 2007989,
+    "input_tokens": 86,
+    "num_turns": 43,
+    "output_tokens": 10718,
+    "source": "result-record",
+    "total_billed": 2089302,
+    "total_cost_usd": 0.7909858000000001,
+    "total_uncached": 81313
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [
+    "com.callstack.agentdevice.snapshothelper"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "ot cause:** BenchTarget's `SyncComponent` deliberately simulates a flaky sync dependency by consulting a persisted launch counter and skipping sync (hiding the Retry button) on the 3rd and 5th launch of every 5-launch cycle. The UI test is asserting on a non-deterministic-looking but actually cycle-deterministic piece of app state without resetting or controlling that counter, so results depend entirely on which position in the 5-launch cycle the test happens to land on at the start of the run.\"",
+  "wall_time_s": 220.45
+}

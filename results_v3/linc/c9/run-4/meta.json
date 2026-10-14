@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "2b07633116643b8165fe7cd0550e1a58"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T03:58:34+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 120935,
+    "cache_read_tokens": 10555536,
+    "input_tokens": 240,
+    "num_turns": 127,
+    "output_tokens": 22612,
+    "source": "result-record",
+    "total_billed": 10699323,
+    "total_cost_usd": 2.821447200000001,
+    "total_uncached": 143787
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "uld typically block a release. Combined with the Tier-selection bug (data silently wrong on submit) and the missing promo validation, this build has multiple distinct, independently reproduced functional defects spanning three of the five main sections (Orders, Checkout, Form). None of these are cosmetic; they affect core interactions (long-press menu, submit correctness, pricing display). I'd send this back to engineering with the four numbered defects above before considering another RC pass.\"",
+  "wall_time_s": 541.52
+}

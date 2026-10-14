@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T18:06:10+00:00",
+  "task": "a6",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 16427,
+    "cache_read_tokens": 182562,
+    "input_tokens": 18,
+    "num_turns": 9,
+    "output_tokens": 1534,
+    "source": "result-record",
+    "total_billed": 200541,
+    "total_cost_usd": 0.1175964,
+    "total_uncached": 17979
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*PHONE-NODE-742)(?!.*WATCH-NODE-999)' answer[-500:]='Found it on the Diagnostics screen.\\n\\n**Node token: `PHONE-NODE-742`**\\n\\n(Confirmed on the \"LINC Galaxy S24\" device, <REDACTED-0> \u2014 the SM-L300 watch was not touched.)'",
+  "wall_time_s": 37.81
+}

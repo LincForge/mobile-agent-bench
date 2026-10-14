@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:07:07+00:00",
+  "task": "b9",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 42727,
+    "cache_read_tokens": 591253,
+    "input_tokens": 38,
+    "num_turns": 21,
+    "output_tokens": 3219,
+    "source": "result-record",
+    "total_billed": 637237,
+    "total_cost_usd": 0.3214246,
+    "total_uncached": 45984
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " (code E-400)\"\\n2. **`clock_skew_ms`:** `4720`\\n3. **`upstream`:** `time-west-2`\\n\\nThe logcat (tag `BenchTarget`) shows the full picture the UI hides:\\n\\n```\\nW BenchTarget: health_check E-400: clock_skew_ms=4720 exceeds max_skew_ms=1000 (upstream=time-west-2)\\n```\\n\\nThe health check is failing because the device\\'s clock is skewed by 4720ms relative to the `time-west-2` upstream time server \u2014 well beyond the 1000ms tolerance. The UI only surfaces the generic `E-400` code without this detail.'",
+  "wall_time_s": 76.0
+}

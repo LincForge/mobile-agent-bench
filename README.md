@@ -5,10 +5,10 @@ tool stacks driven by the same confined AI agent, same pinned model, same
 physical devices, on ten pre-registered tasks — plus raw transcripts for every
 run.
 
-Two complete grids have been run and published: **v1** and **v2**, 200 cells
-each (10 tasks × 5 runs × 4 tools).
+Three complete grids have been run and published: **v1**, **v2**, and **v3**,
+200 cells each (10 tasks × 5 runs × 4 tools = **600 cells total**).
 
-**→ Read the [combined v1+v2 report](REPORT.md).**
+**→ Read the [combined v1+v2+v3 report](REPORT.md).**
 
 | Stack | Vendor |
 |---|---|
@@ -19,32 +19,41 @@ each (10 tasks × 5 runs × 4 tools).
 
 ## Results at a glance
 
-Completion over the 45 scored cells per tool (the Wear OS row is a capability
-row, reported separately and never averaged):
+Completion over the 45 scored phone cells per tool (the Wear OS row is a
+capability row, reported separately and never averaged), plus the **7-task UI +
+Logcat** phone subset (excluding the two JDWP debugger tasks `c10` and `c11`)
+and the **3-task UI-Only** subset (`a5, a6, c9`):
 
-| | v1 | v2 |
-|---|---|---|
-| linc | 73% | **44/45 (98%)** |
-| agent-device | 71% | 32/45 (71%) |
-| mobile-mcp | 56% | 28/45 (62%) |
-| Maestro | 58% | 20/45 (44%) |
+| | v1 (45 cells) | v2 (45 cells) | v3 7-task UI+Logcat (`n=35`) | v3 3-task UI-Only (`n=15`) | v3 9-task Phone (`n=45`) |
+|---|---|---|---|---|---|
+| linc | 33/45 (73%) | **44/45 (98%)** | **34/35 (97%)** | **15/15 (100%)** | **44/45 (98%)** |
+| agent-device | 32/45 (71%) | 32/45 (71%) | **34/35 (97%)** | **15/15 (100%)** | 34/45 (76%) |
+| mobile-mcp | 25/45 (56%) | 28/45 (62%) | 18/35 (51%) | **15/15 (100%)** | 20/45 (44%) |
+| Maestro | 26/45 (58%) | 20/45 (44%) | 14/35 (40%) | 13/15 (87%) *(14/15 adj.)* | 14/45 (31%) |
 
-The arc, and the reason both grids are published together: **v1 was a loss.**
-Our stack came first by two points, was the *slowest* column on the grid (7
-timeouts, against 1–3 for everyone else), and scored **0/5 on c10** — runtime
-state inspection, the one task our debugger uniquely exists for. So did every
-other tool: c10 was 0/0/0/0.
+The three-grid arc, and the reason all three grids are published together:
 
-Both root causes were filed as P0s against our own stack, fixed, pinned, and
-the byte-identical grid was re-run under a fresh pre-registration. c10 is now
-5/0/0/0 and the efficiency caveat is gone (138s median, 0 timeouts).
-
-**The strongest objection to that result is ours, and it's in the report:** we
-fixed defects on tasks we had already watched fail, and the competing tools
-were run as-shipped both times. Read the v2 delta as "the vendor can fix what
-this benchmark measures," not "the vendor generalizes." The two remedies —
-an independent re-run, or a v3 with unseen tasks — are named in
-[Limitations](REPORT.md#limitations--threats-to-validity).
+1. **v1 was a loss.** Our stack came first by two points, was the *slowest*
+   column on the grid (7 timeouts, against 1–3 for everyone else), and scored
+   **0/5 on c10** — runtime state inspection, the one task our debugger uniquely
+   exists for. So did every other tool: c10 was 0/0/0/0.
+2. **v2 fixed what v1 exposed — with an overfitting caveat.** Both root causes
+   were filed as P0s against our own stack, fixed, pinned, and the
+   byte-identical grid was re-run under `v2-prereg`. `c10` went to 5/0/0/0 and
+   median wall time dropped to 138s (0 timeouts). Because we fixed defects on
+   tasks we had already watched fail, we named the objection ourselves: read v2
+   as *"the vendor can fix what this benchmark measures,"* and Remedy 2 was a
+   **v3 with unseen tasks** and updated competitor releases.
+3. **v3 tested unseen tasks against upgraded competitors and the frozen
+   `linc-nerve==0.1.0` PyPI release — scored once with zero post-hoc re-runs.**
+   On the **7-task UI + Logcat phone subset (`n=35`)**, Callstack's upgraded
+   **`agent-device 0.21.27` and `linc` match at 34/35 (97.1%)** (`agent-device`
+   is faster at the per-task median on 5 of 7 tasks, `64.1s` vs `80.6s` pooled
+   median; `linc` uses fewer uncached tokens on 6 of 7 tasks, `$1.01/pass` vs
+   `$1.41/pass`). The 10-cell difference on the 9-task phone grid (`44/45` vs
+   `34/45`) comes entirely from `c10` and `c11`, which require a JVM debugger
+   (`linc-spectra` goes `10/10`, while tools without JDWP support go `0/10` or
+   `2/10` via UI curve-fitting).
 
 ## Disclosure
 
@@ -54,36 +63,42 @@ configuration for every competitor, harness + target app published as source,
 and a raw sanitized transcript behind every number. If you think a row is
 unfair, clone it and re-run it.
 
-Every deviation from either pre-registration is recorded with receipts in
+Every deviation from pre-registration is recorded with receipts in
 [`AMENDMENTS.md`](AMENDMENTS.md), including the interference we caught that
 *helped* us and the contaminated cells we voided that had already passed.
-Voided cells are kept in `results_invalid/` rather than deleted.
+Voided cells are kept in `results_invalid/` rather than deleted. In **v3**,
+in-harness lock detection (`is_device_locked` pre/post cell) ran across all 200
+cells with **0 locked cells and 0 amendments**.
 
 ## Reading order
 
-1. [`REPORT.md`](REPORT.md) — the combined v1+v2 report (start here)
+1. [`REPORT.md`](REPORT.md) — the combined v1+v2+v3 report (start here)
 2. [`PREREGISTRATION.md`](PREREGISTRATION.md) — the v1 frozen contract (`v1-prereg` tag)
-3. [`PREREGISTRATION-v2.md`](PREREGISTRATION-v2.md) — the v2 frozen contract (`v2-prereg` tag), incl. pinned stack SHAs
-4. [`AMENDMENTS.md`](AMENDMENTS.md) — every deviation, with receipts
-5. [`docs/v1-deep-dive.md`](docs/v1-deep-dive.md) · [`docs/v2-deep-dive.md`](docs/v2-deep-dive.md) — per-task analysis
+3. [`PREREGISTRATION-v2.md`](PREREGISTRATION-v2.md) — the v2 frozen contract (`v2-prereg` tag)
+4. [`PREREGISTRATION-v3.md`](PREREGISTRATION-v3.md) — the v3 frozen contract (`v3-prereg` tag), incl. unseen task hashes & PyPI wheel SHA-256
+5. [`AMENDMENTS.md`](AMENDMENTS.md) — every deviation, with receipts
+6. [`docs/v1-deep-dive.md`](docs/v1-deep-dive.md) · [`docs/v2-deep-dive.md`](docs/v2-deep-dive.md) · [`docs/v3-deep-dive.md`](docs/v3-deep-dive.md) — per-task analysis
 
-The `v1-prereg` and `v2-prereg` git tags are the integrity anchor: each was
-pushed *before* the first comparative cell of its grid ran. Git history is
-deliberately never rewritten in this repo.
+The `v1-prereg`, `v2-prereg`, and `v3-prereg` git tags are the integrity
+anchors: each was pushed *before* the first comparative cell of its grid ran.
+Git history is deliberately never rewritten in this repo.
 
 ## Layout
 
 ```
-REPORT.md              # combined v1+v2 report
+REPORT.md              # combined v1+v2+v3 report
 PREREGISTRATION.md     # the frozen v1 contract (v1-prereg tag)
 PREREGISTRATION-v2.md  # the frozen v2 contract (v2-prereg tag)
+PREREGISTRATION-v3.md  # the frozen v3 contract (v3-prereg tag)
 AMENDMENTS.md          # every post-freeze deviation, with rationale + receipts
-tasks/                 # 10 frozen task definitions (prompt + reset + verification + APK pin)
+tasks/                 # 10 frozen v1/v2 task definitions (prompt + reset + verification + APK pin)
+tasks_v3/              # 10 frozen v3 task definitions (4 v1/v2 anchors + 6 unseen tasks)
 tools/                 # 4 tool adapters (MCP config, vendor-recommended)
-target-app/            # BenchTarget: purpose-built open-source target app (SPEC.md frozen)
-mobile_agent_bench/    # harness: runner, agent invocation, token accounting, reset, sanitize
+target-app/            # BenchTarget: purpose-built open-source target app (SPEC.md + v3 additions)
+mobile_agent_bench/    # harness: runner, agent invocation, token accounting, lock guard, reset, sanitize
 results/               # v1 raw run logs: <tool>/<task>/run-<n>/{transcript.jsonl,meta.json}
 results_v2/            # v2 raw run logs, same shape
+results_v3/            # v3 raw run logs, same shape
 results_invalid/       # voided cells, kept as receipts (never deleted)
 ```
 
@@ -114,8 +129,9 @@ export BENCH_DEVICE_SERIAL=<your device serial>   # or bench.local.yaml (gitigno
 uv run bench run --tool mobile-mcp --task a1 --runs 5
 uv run bench report
 
-# reproduce the v2 grid's scoreboard from the published rows
+# reproduce the v2 or v3 grid's scoreboard from the published rows
 BENCH_RESULTS_DIR=results_v2 uv run bench report
+BENCH_RESULTS_DIR=results_v3 BENCH_TASKS_DIR=tasks_v3 uv run bench report
 ```
 
 - Machine-local MCP command paths go in `tools/<id>.local.mcp.json`
@@ -127,12 +143,12 @@ BENCH_RESULTS_DIR=results_v2 uv run bench report
 
 ## Status
 
-- [x] Harness, token accounting, scripted reset, confinement
+- [x] Harness, token accounting, scripted reset, confinement, in-harness lock guard
 - [x] Task suite + target-app spec frozen (`v1-prereg`)
 - [x] BenchTarget implementation matching the frozen spec
 - [x] **v1 grid complete** (200/200 cells) + report + deep-dive
 - [x] **v2 grid complete** (200/200 cells) under `v2-prereg` + combined report
-- [ ] v3 — unseen tasks, multi-device tier, in-harness lock detection
+- [x] **v3 grid complete** (200/200 cells) under `v3-prereg` (6 unseen tasks, PyPI `linc-nerve==0.1.0` freeze, updated competitor versions, 0 locked cells)
 
 ## If you build one of these tools
 

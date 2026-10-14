@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T18:06:44+00:00",
+  "task": "a6",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 32411,
+    "cache_read_tokens": 220360,
+    "input_tokens": 16,
+    "num_turns": 9,
+    "output_tokens": 1690,
+    "source": "result-record",
+    "total_billed": 254477,
+    "total_cost_usd": 0.190648,
+    "total_uncached": 34117
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*PHONE-NODE-742)(?!.*WATCH-NODE-999)' answer[-500:]='Found it. On the Diagnostics screen (device SM-S921U, serial <REDACTED-0> \u2014 the Galaxy S24, not the watch), the Node token is:\\n\\n**`PHONE-NODE-742`**'",
+  "wall_time_s": 32.21
+}

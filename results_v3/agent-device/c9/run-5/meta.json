@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T07:12:26+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 213352,
+    "cache_read_tokens": 15025480,
+    "input_tokens": 234,
+    "num_turns": 139,
+    "output_tokens": 24624,
+    "source": "result-record",
+    "total_billed": 15263690,
+    "total_cost_usd": 4.105212000000001,
+    "total_uncached": 238210
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": ") all behaved as expected. No crashes in ~25 minutes of testing.\\n\\n### Why DO NOT SHIP\\nFindings #1 and #2 are correctness bugs in the app's core transactional flows (pricing and data submission) \u2014 exactly the kind of defect that erodes trust or causes real financial/data discrepancies if this represents production-like functionality. Combined with a reproducible near-2-second UI freeze (#3) and a pattern of buttons giving no feedback, this build needs fixes and a re-test pass before shipping.\"",
+  "wall_time_s": 444.64
+}

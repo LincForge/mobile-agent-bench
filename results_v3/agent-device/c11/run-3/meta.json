@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T02:00:31+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 117994,
+    "cache_read_tokens": 1561705,
+    "input_tokens": 56,
+    "num_turns": 29,
+    "output_tokens": 7467,
+    "source": "result-record",
+    "total_billed": 1687222,
+    "total_cost_usd": 0.859099,
+    "total_uncached": 125517
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "only black-box UI automation and logcat.\\n\\nReporting a specific string for `auditToken` would mean inventing a value I have no evidence for. If you want this, I'd need one of: the app's source/decompiled code to reason about how it's computed, a debugger (e.g., `jdb`/Android Studio attach) with a breakpoint in `redeemPromo`, or confirmation that it's actually logged/exposed somewhere I haven't checked (e.g., a different log buffer, a debug menu in the app, or a network call I could intercept).\"",
+  "wall_time_s": 140.68
+}

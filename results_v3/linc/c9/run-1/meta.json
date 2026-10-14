@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "2b07633116643b8165fe7cd0550e1a58"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:53:49+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 138486,
+    "cache_read_tokens": 8334996,
+    "input_tokens": 186,
+    "num_turns": 154,
+    "output_tokens": 26729,
+    "source": "result-record",
+    "total_billed": 8500397,
+    "total_cost_usd": 2.4886052,
+    "total_uncached": 165401
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "nspect` showed a stable PID and empty crash signature throughout).\\n\\n### Why DO NOT SHIP\\nTwo of the five defects (#1 total-price bug, #2 tier-not-saved bug) sit directly in the purchase/registration path and would misquote or misrecord real transactions \u2014 that alone is disqualifying for a release candidate. The other three (#3 diagnostics, #4 promo validation, #5 dead Export button) are lower severity but still indicate the build wasn't smoke-tested end-to-end before being cut as a candidate.\"",
+  "wall_time_s": 581.62
+}

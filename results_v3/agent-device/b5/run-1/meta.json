@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T18:39:48+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 114966,
+    "cache_read_tokens": 5042631,
+    "input_tokens": 158,
+    "num_turns": 83,
+    "output_tokens": 17245,
+    "source": "result-record",
+    "total_billed": 5175000,
+    "total_cost_usd": 1.6411562000000002,
+    "total_uncached": 132369
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": ": \"recovering\"` for the Android log stream at the moment of the crash, confirming the app process actually died (not just backgrounded).\\n\\nNote: an earlier false alarm occurred while testing Item 012 \u2014 a tap on it visually overlapped the system navigation bar\\'s Home button due to layout near the bottom of the screen, which looked like a crash but wasn\\'t (confirmed by retapping slightly higher and completing its export successfully). The genuine crash is isolated to Item 013\\'s export action.'",
+  "wall_time_s": 322.52
+}

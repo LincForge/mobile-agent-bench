@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:28:03+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 60474,
+    "cache_read_tokens": 831677,
+    "input_tokens": 42,
+    "num_turns": 23,
+    "output_tokens": 6117,
+    "source": "result-record",
+    "total_billed": 898310,
+    "total_cost_usd": 0.4694854,
+    "total_uncached": 66633
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "e tool added to this session so I can run something like `adb -s <REDACTED-0> logcat -d | grep -i blocked_ms`, or\\n2. You pull that logcat output yourself and share it here, or\\n3. Point me to a peer session with shell access (e.g. `linc-d5` shows `shell` capability) if there's a way for you to relay this to it.\\n\\nWhich would you like to do? I can keep the app on the Diagnostics screen and re-run the specific button once we can capture logs, or run all three again if the logs need to be fresh.\"",
+  "wall_time_s": 123.92
+}

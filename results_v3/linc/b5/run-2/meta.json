@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T21:02:45+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 105565,
+    "cache_read_tokens": 5545059,
+    "input_tokens": 170,
+    "num_turns": 102,
+    "output_tokens": 12456,
+    "source": "result-record",
+    "total_billed": 5663250,
+    "total_cost_usd": 1.6561718,
+    "total_uncached": 118191
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "s of the Item 013 detail screen prior to tapping Export, confirming it renders the same as other items (no visible UI difference that would explain the crash \u2014 it's a code-path issue specific to this item's export, likely a buffer/state not lazily initialized for that particular catalog entry).\\n\\nThe root cause sits in `ExportPolicy.kt:11` \u2014 the export buffer is `null`/uninitialized specifically when invoked for Item 013's data, throwing an unguarded `IllegalStateException` on the main thread.\"",
+  "wall_time_s": 249.52
+}

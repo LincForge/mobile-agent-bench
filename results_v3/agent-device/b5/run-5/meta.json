@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T05:38:15+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 107089,
+    "cache_read_tokens": 6096297,
+    "input_tokens": 172,
+    "num_turns": 98,
+    "output_tokens": 16934,
+    "source": "result-record",
+    "total_billed": 6220492,
+    "total_cost_usd": 1.8172994000000002,
+    "total_uncached": 124195
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "tion bar (its row overlapped the on-screen nav buttons) and merely backgrounded the app without crashing it; the process stayed alive (confirmed via continued logcat activity for PID 19585). The real crash only occurs on Item 013's Export action.\\n\\n**Root cause (from stack trace):** `ExportPolicy.kt:11` throws because some export buffer/state isn't initialized before `export()` is called for this item \u2014 worth checking what differs about Item 013's data/initialization path versus items 001\u2013012.\"",
+  "wall_time_s": 256.98
+}

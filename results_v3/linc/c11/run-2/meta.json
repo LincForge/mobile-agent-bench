@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:20:21+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31186,
+    "cache_read_tokens": 724733,
+    "input_tokens": 42,
+    "num_turns": 27,
+    "output_tokens": 5433,
+    "source": "result-record",
+    "total_billed": 761394,
+    "total_cost_usd": 0.3241046,
+    "total_uncached": 36661
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "utomatically; this briefly stalled the main thread long enough to trigger an ANR dialog, which I dismissed via \"Wait\" to let the app recover (no data lost). The Checkout screen then confirmed \"Promo applied\" with Quantity 4 and code BENCH26 intact.\\n\\nThe token\\'s structure (`AUD-<quantity>-<code>-<suffix>`) confirms it\\'s derived from the quantity (4) and the normalized promo code (`BENCH26`) at the moment of redemption, plus what appears to be a random/session-derived numeric suffix (`8419`).'",
+  "wall_time_s": 129.62
+}

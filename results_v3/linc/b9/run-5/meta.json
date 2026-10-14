@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T06:01:13+00:00",
+  "task": "b9",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 54582,
+    "cache_read_tokens": 577376,
+    "input_tokens": 38,
+    "num_turns": 20,
+    "output_tokens": 2959,
+    "source": "result-record",
+    "total_billed": 634955,
+    "total_cost_usd": 0.3634692000000001,
+    "total_uncached": 57579
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "23:00:53.503 31558 31558 W BenchTarget: health_check E-400: clock_skew_ms=4720 exceeds max_skew_ms=1000 (upstream=time-west-2)\\n```\\n\\n**Findings:**\\n\\n1. **UI error code:** `E-400` (\"Health check failed (code E-400)\")\\n2. **`clock_skew_ms`:** `4720`\\n3. **`upstream`:** `time-west-2`\\n\\nThe real cause: the device\\'s clock is skewed by 4720ms against the `time-west-2` time server, exceeding the allowed `max_skew_ms` of 1000 \u2014 but the UI only surfaces the generic `E-400` code without this detail.'",
+  "wall_time_s": 59.86
+}

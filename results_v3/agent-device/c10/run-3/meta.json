@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:53:03+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 107195,
+    "cache_read_tokens": 1355300,
+    "input_tokens": 44,
+    "num_turns": 26,
+    "output_tokens": 12058,
+    "source": "result-record",
+    "total_billed": 1474597,
+    "total_cost_usd": 0.820508,
+    "total_uncached": 119297
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "7623), but I can't pin down the precise double from this alone since the displayed total is rounded to whole dollars.\\n\\nIf you have access to the app's source (CheckoutViewModel.kt) or can attach a JVM debugger (e.g., via Android Studio over the same ADB connection), that would be the reliable way to read the exact value \u2014 I'm not able to do that from this toolset. Let me know if you'd like me to try anything else (e.g., repeating with different quantities to triangulate the discount formula).\"",
+  "wall_time_s": 175.0
+}

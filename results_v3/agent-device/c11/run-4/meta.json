@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T04:49:51+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 80971,
+    "cache_read_tokens": 1526428,
+    "input_tokens": 52,
+    "num_turns": 27,
+    "output_tokens": 8548,
+    "source": "result-record",
+    "total_billed": 1615999,
+    "total_cost_usd": 0.7147536,
+    "total_uncached": 89571
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "ng, or decompiling the app to see how `auditToken` is derived \u2014 none of which is possible through device UI automation alone, and none of which I did.\\n\\nSo: the on-device actions are done and verified, but I don't have a legitimate way to state the exact value of `auditToken`, and I don't want to guess and present it as fact. If you have debugger access (e.g., Android Studio attached to this process) or can point me at a logging flag/build variant that prints it, I can pick this up from there.\"",
+  "wall_time_s": 149.2
+}

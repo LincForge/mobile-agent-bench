@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:59:14+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 267586,
+    "cache_read_tokens": 15455145,
+    "input_tokens": 196,
+    "num_turns": 121,
+    "output_tokens": 25419,
+    "source": "result-record",
+    "total_billed": 15748346,
+    "total_cost_usd": 4.415955000000001,
+    "total_uncached": 293201
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "ue: the \"Archive order\" context menu visually overlaps the next list row.)\\n\\n### Why DO NOT SHIP\\nA pricing-correctness bug in checkout, a core diagnostics feature that\\'s permanently broken, a reproducible full-UI freeze, three dead buttons, and no input validation on a registration form \u2014 found via a single pass with no deep fuzzing \u2014 indicate this candidate did not go through basic smoke testing. None of these are cosmetic; several directly affect money or make advertised features unusable.'",
+  "wall_time_s": 473.71
+}

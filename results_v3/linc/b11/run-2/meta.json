@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "0f6e324ac9d8ce88691922aae4fd5eba",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "16",
+    "build": "BP2A.250325.020",
+    "model": "SM-L300",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:27:52+00:00",
+  "task": "b11",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 17954,
+    "cache_read_tokens": 304785,
+    "input_tokens": 24,
+    "num_turns": 13,
+    "output_tokens": 1846,
+    "source": "result-record",
+    "total_billed": 324609,
+    "total_cost_usd": 0.151281,
+    "total_uncached": 19824
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*15\\\\s*\\\\(Burst\\\\)' answer[-500:]='Done. The watch screen shows the counter text: **\"Pings: 15 (Burst)\"** \u2014 each tap in Burst mode added 5 pings (3 taps \u00d7 5 = 15), confirming Burst mode multiplies the ping count.'",
+  "wall_time_s": 50.22
+}

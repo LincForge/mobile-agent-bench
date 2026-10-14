@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:35:39+00:00",
+  "task": "a6",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 20071,
+    "cache_read_tokens": 233533,
+    "input_tokens": 18,
+    "num_turns": 11,
+    "output_tokens": 1581,
+    "source": "result-record",
+    "total_billed": 255203,
+    "total_cost_usd": 0.1428366,
+    "total_uncached": 21670
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*PHONE-NODE-742)(?!.*WATCH-NODE-999)' answer[-500:]='On the Diagnostics screen for BenchTarget on the Samsung Galaxy S24 (SM-S921U), the **Node token** is:\\n\\n**`PHONE-NODE-742`**'",
+  "wall_time_s": 37.12
+}

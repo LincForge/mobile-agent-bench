@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T00:21:36+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 152116,
+    "cache_read_tokens": 8823830,
+    "input_tokens": 166,
+    "num_turns": 111,
+    "output_tokens": 22693,
+    "source": "result-record",
+    "total_billed": 8998805,
+    "total_cost_usd": 2.6004920000000005,
+    "total_uncached": 174975
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "he same installed app walks it through this 5-cycle, giving a stable 3-pass/2-fail pattern per 5 consecutive runs \u2014 exactly the flake rate reported.\\n\\n**Fix direction:** either have the test clear app data (or reinstall) before each run so `launchCount` starts from a known value, or have the app not gate this diagnostic button on an internal launch counter in test/bench builds; as written, the button\\'s presence is a function of \"which multiple-of-5 launch this is,\" not of any real sync state.'",
+  "wall_time_s": 418.63
+}

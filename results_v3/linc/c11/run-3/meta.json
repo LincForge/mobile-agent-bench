@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:55:05+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28027,
+    "cache_read_tokens": 789441,
+    "input_tokens": 50,
+    "num_turns": 27,
+    "output_tokens": 5173,
+    "source": "result-record",
+    "total_billed": 822691,
+    "total_cost_usd": 0.32182620000000006,
+    "total_uncached": 33250
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "normalized = \"BENCH26\"` (line 38)\\n   - `auditToken = \"AUD-4-BENCH26-8419\"` (line 39)\\n6. The harvest auto-resumed the app (one-shot), the promo applied successfully in the UI (\"Promo applied\"), and I dismissed the resulting transient ANR dialog caused by the brief debugger pause.\\n\\nThe value `AUD-4-BENCH26-8419` evidently encodes the quantity (4) and promo code (BENCH26) plus a trailing numeric suffix (8419), consistent with it being a runtime-computed audit token rather than a static string.'",
+  "wall_time_s": 119.47
+}

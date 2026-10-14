@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:25:53+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 162566,
+    "cache_read_tokens": 11722543,
+    "input_tokens": 256,
+    "num_turns": 138,
+    "output_tokens": 31409,
+    "source": "result-record",
+    "total_billed": 11916774,
+    "total_cost_usd": 3.309374600000001,
+    "total_uncached": 194231
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "validation (minor)**\\nSubmitting with an empty Name is silently accepted (\"Registered (Basic, subscribed=false)\") with no error indication.\\n\\n### Why DO NOT SHIP\\nDefects #1 and #2 are concrete, reproducible correctness bugs in core checkout and registration flows \u2014 not cosmetic issues. #1 in particular is a pricing bug, which is the class of defect that should never ship. I\\'d fix the discount formula and the Tier-submission wiring, then re-test Checkout and Form before reconsidering release.'",
+  "wall_time_s": 530.41
+}
