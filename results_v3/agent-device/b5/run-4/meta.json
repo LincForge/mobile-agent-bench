@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T02:44:41+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 199286,
+    "cache_read_tokens": 5635683,
+    "input_tokens": 130,
+    "num_turns": 75,
+    "output_tokens": 31974,
+    "source": "result-record",
+    "total_billed": 5867073,
+    "total_cost_usd": 2.2442805999999997,
+    "total_uncached": 231390
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": " right after the crash confirmed foreground package was `com.sec.android.app.launcher`, not `dev.lincforge.benchtarget`.\\n- Reproduced independently twice with identical behavior (same PID both times), ruling out a one-off flake.\\n\\n**Recommendation:** since no exception surfaces in logcat, engineering will likely need to attach a debugger (or add explicit logging/Crashlytics-style reporting) around the Item 012 catalog entry's detail/export code path to capture the actual underlying exception.\"",
+  "wall_time_s": 508.41
+}

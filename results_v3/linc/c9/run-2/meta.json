@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "2b07633116643b8165fe7cd0550e1a58"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:35:00+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 160985,
+    "cache_read_tokens": 14689374,
+    "input_tokens": 270,
+    "num_turns": 165,
+    "output_tokens": 40485,
+    "source": "result-record",
+    "total_billed": 14891114,
+    "total_cost_usd": 3.9872048000000007,
+    "total_uncached": 201740
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": ".\\n\\n### What worked well\\n- Catalog list/scroll/detail navigation, Orders long-press \u2192 confirm \u2192 archive flow (with correct list mutation and logging), app resilience to backgrounding, and the About screen's accurate network-access disclosure.\\n\\nGiven #1 and #2 affect core data correctness (a user's selected plan being ignored, and a checkout screen whose displayed total can't be trusted), this build should not ship until those are fixed and the dead/mislabeled controls (#3\u2013#5) are addressed.\"",
+  "wall_time_s": 803.82
+}

@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T03:30:25+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 31253,
+    "cache_read_tokens": 646703,
+    "input_tokens": 40,
+    "num_turns": 22,
+    "output_tokens": 3248,
+    "source": "result-record",
+    "total_billed": 681244,
+    "total_cost_usd": 0.2869126000000001,
+    "total_uncached": 34541
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "n\\n**Findings:**\\n1. **Culprit button:** \"Rebuild index\"\\n2. **Exact `blocked_ms`:** **1850 ms** (~1.85s, matching the \"nearly two seconds\" report)\\n3. **Responsible component:** `IndexRebuilder`\\n\\nLogcat evidence (tag `BenchTarget`):\\n```\\n10-13 20:30:14.920  6849  6849 W BenchTarget: stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder\\n```\\nThis was logged at warning level (vs. debug level for the other two ops), confirming the app itself flags it as the anomalous stall.'",
+  "wall_time_s": 80.62
+}

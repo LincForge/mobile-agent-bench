@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": -1,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T00:42:04+00:00",
+  "task": "b9",
+  "tier": "B",
+  "timed_out": true,
+  "tokens": {
+    "cache_creation_tokens": 339302,
+    "cache_read_tokens": 6825149,
+    "input_tokens": 192,
+    "num_turns": 96,
+    "output_tokens": 566,
+    "source": "summed-messages",
+    "total_billed": 7165209,
+    "total_cost_usd": null,
+    "total_uncached": 340060
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "pattern='(?=.*E-400)(?=.*4720)(?=.*time-west-2)' answer[-500:]=''",
+  "wall_time_s": 900.02
+}

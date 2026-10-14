@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:21:50+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 46236,
+    "cache_read_tokens": 545798,
+    "input_tokens": 32,
+    "num_turns": 19,
+    "output_tokens": 9680,
+    "source": "result-record",
+    "total_billed": 601746,
+    "total_cost_usd": 0.39096759999999997,
+    "total_uncached": 55948
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "fic number (e.g. \"0.76\") as if I measured it, since I didn\\'t.\\n\\nTo actually get the exact runtime value you\\'d need one of: (1) the app\\'s source for `CheckoutViewModel.applyDiscount()`, (2) a logcat line/log statement exposing it, or (3) attaching a JVM/Android debugger to breakpoint inside that function. None of those are available to me via Maestro. If you can point me at the source repo (it mentions being \"reproducible from source\") or enable adb/logcat access, I can get the exact figure.'",
+  "wall_time_s": 182.21
+}

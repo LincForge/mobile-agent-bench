@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "installed",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget",
+    "previous_md5": "2b07633116643b8165fe7cd0550e1a58"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T06:51:09+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 138354,
+    "cache_read_tokens": 11096633,
+    "input_tokens": 276,
+    "num_turns": 146,
+    "output_tokens": 26371,
+    "source": "result-record",
+    "total_billed": 11261634,
+    "total_cost_usd": 3.0370046,
+    "total_uncached": 165001
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "d state-binding defect, and two controls (Export, Retry sync) give users/testers no feedback that they did nothing \u2014 all three are precisely the kind of silent failures a \"reproducible benchmark target\" app can\\'t afford, since other tools and agents will treat this app\\'s behavior as ground truth. I\\'d block the release until the Tier binding is fixed and Export/Retry sync either do something observable or are confirmed as deliberately-inert fixtures (and documented as such in the About copy).'",
+  "wall_time_s": 517.95
+}

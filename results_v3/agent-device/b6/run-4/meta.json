@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T03:08:20+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 182866,
+    "cache_read_tokens": 5562270,
+    "input_tokens": 108,
+    "num_turns": 76,
+    "output_tokens": 35136,
+    "source": "result-record",
+    "total_billed": 5780380,
+    "total_cost_usd": 2.195494,
+    "total_uncached": 218110
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "e pass/fail state is read by the Diagnostics screen without any synchronization barrier). Since this flag/result varies launch-to-launch with identical user steps, a UI test that asserts the button is simply \"visible\" is racing against this internal, non-deterministic startup state rather than against anything the test itself controls. To fix the test, it would need to wait for a stable sync-completion signal (or the app would need to expose one) rather than asserting immediately on navigation.'",
+  "wall_time_s": 515.79
+}

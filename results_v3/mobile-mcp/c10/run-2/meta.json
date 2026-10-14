@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:13:47+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 100253,
+    "cache_read_tokens": 2068779,
+    "input_tokens": 78,
+    "num_turns": 46,
+    "output_tokens": 26353,
+    "source": "result-record",
+    "total_billed": 2195463,
+    "total_cost_usd": 1.0784538000000001,
+    "total_uncached": 126684
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": " $50 \u2713\\n4. (Note: this formula breaks down at qty=8 and qty=10, suggesting a tier change at higher quantities that doesn't affect qty=7.)\\n\\nSo for the exact interaction requested (qty=7, Apply discount), `discountFactor` = 1 / 1.3 = **0.7692307692307693**.\\n\\nThis is an inferred value from black-box output, not a direct read of the variable \u2014 I had no way to attach a debugger or inspect source in this environment, so treat it as high-confidence (6 consistent exact matches) rather than certain.\"",
+  "wall_time_s": 541.43
+}

@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T00:14:36+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 70832,
+    "cache_read_tokens": 1658736,
+    "input_tokens": 78,
+    "num_turns": 46,
+    "output_tokens": 17190,
+    "source": "result-record",
+    "total_billed": 1746836,
+    "total_cost_usd": 0.7871312,
+    "total_uncached": 88100
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "evice \u2014 the Diagnostics screen\\'s \"Sync status\" is set via an apparently unseeded random choice at each cold start (roughly a 60/40 split), and the \"Retry sync\" button is conditionally rendered only for the \"idle\" branch. The test is correctly asserting visibility of a button whose presence depends on this internal coin flip; it should either assert on a state that forces \"idle\" (if the app exposes a test hook/flag) or treat both states as valid and gate the assertion on the \"Sync status\" text.'",
+  "wall_time_s": 448.2
+}

@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:44:31+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 52833,
+    "cache_read_tokens": 670253,
+    "input_tokens": 36,
+    "num_turns": 21,
+    "output_tokens": 8523,
+    "source": "result-record",
+    "total_billed": 731645,
+    "total_cost_usd": 0.43068460000000003,
+    "total_uncached": 61392
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "actual instrumentation \u2014 attaching a JVM/Android debugger (e.g., via `adb` + a debugger or Frida script hooking `CheckoutViewModel.redeemPromo`) or decompiling/reading the app's source to understand how it's computed \u2014 none of which I did or have set up here.\\n\\nIf you want the real value, I'd need either the source code for `CheckoutViewModel` or permission to attach a debugger/Frida to the running process so I can hook the method and read the variable directly. Let me know which you'd prefer.\"",
+  "wall_time_s": 288.58
+}

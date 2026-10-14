@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:26:59+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 123910,
+    "cache_read_tokens": 1645783,
+    "input_tokens": 54,
+    "num_turns": 36,
+    "output_tokens": 7828,
+    "source": "result-record",
+    "total_billed": 1777575,
+    "total_cost_usd": 0.9031846000000001,
+    "total_uncached": 131792
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "en` here would mean fabricating it \u2014 black-box UI automation plus the logs/network available to me provide no evidence of what that variable holds or even that it's observable at all. If you want this value, I'd need one of: app-added logging that prints it, a JDWP/Android Studio debugger attached with a breakpoint in `redeemPromo`, or the decompiled/source code showing how it's derived (e.g., if it's a deterministic hash of code+quantity+timestamp, I could compute it myself from that formula).\"",
+  "wall_time_s": 128.44
+}

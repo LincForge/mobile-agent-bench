@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T04:47:20+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 33688,
+    "cache_read_tokens": 557066,
+    "input_tokens": 38,
+    "num_turns": 19,
+    "output_tokens": 7318,
+    "source": "result-record",
+    "total_billed": 598110,
+    "total_cost_usd": 0.31942119999999996,
+    "total_uncached": 41044
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "s, a debugger breakpoint, or an explicit log/UI surface for that variable, there's no reliable way for me to observe a local variable's runtime value from outside the process. Reporting a specific string here would be a guess, not an observation, so I'm not going to fabricate one.\\n\\nIf you can point me to a debug build with logging enabled, a decompiled APK/source, or grant adb shell access (e.g., `adb logcat` with a known debug tag, or `run-as`/`jdb` attach), I can try again with that access.\"",
+  "wall_time_s": 235.26
+}

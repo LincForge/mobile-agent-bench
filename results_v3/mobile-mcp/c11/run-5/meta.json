@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T07:46:38+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 96621,
+    "cache_read_tokens": 1441246,
+    "input_tokens": 62,
+    "num_turns": 33,
+    "output_tokens": 12046,
+    "source": "result-record",
+    "total_billed": 1549975,
+    "total_cost_usd": 0.7953172,
+    "total_uncached": 108729
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "g me through the same computation with the exact runtime inputs (timestamp, etc.) it uses. Neither capability is available to me here, so I don't have a legitimate way to obtain or verify that string.\\n\\nIf you want this answered for real, I'd need one of:\\n- A build of BenchTarget with debug logging of `auditToken` enabled, or\\n- Access to a debugger/Frida setup to hook the method on-device, or\\n- The decompiled/source code so we can trace the exact derivation and compute it from known inputs.\"",
+  "wall_time_s": 260.68
+}

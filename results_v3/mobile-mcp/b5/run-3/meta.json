@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:53:37+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 104794,
+    "cache_read_tokens": 6713381,
+    "input_tokens": 212,
+    "num_turns": 110,
+    "output_tokens": 15755,
+    "source": "result-record",
+    "total_billed": 6834142,
+    "total_cost_usd": 1.9198262000000008,
+    "total_uncached": 120761
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": " tap showed the app had been replaced by the launcher/Device Care, corroborating the crash.\\n\\n**Root cause indication:** `ExportPolicy.export()` (ExportPolicy.kt:11) throws `IllegalStateException` because some internal \"export buffer\" isn\\'t initialized for this item \u2014 worth checking whether Item 013 has a null/missing field (e.g., a lazy-initialized buffer that only gets set up for certain items, or an off-by-one on buffer allocation tied to list index) that the first 12 items don\\'t trigger.'",
+  "wall_time_s": 364.5
+}

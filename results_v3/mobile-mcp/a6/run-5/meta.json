@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T05:07:31+00:00",
+  "task": "a6",
+  "tier": "A",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 16552,
+    "cache_read_tokens": 181386,
+    "input_tokens": 18,
+    "num_turns": 10,
+    "output_tokens": 1320,
+    "source": "result-record",
+    "total_billed": 199276,
+    "total_cost_usd": 0.1157212,
+    "total_uncached": 17890
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*PHONE-NODE-742)(?!.*WATCH-NODE-999)' answer[-500:]='The Diagnostics screen shows:\\n\\n**Node token: `PHONE-NODE-742`**\\n\\n(Confirmed on the LINC Galaxy S24 / SM-S921U device, not the SM-L300 smartwatch.)'",
+  "wall_time_s": 37.15
+}

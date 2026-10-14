@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T21:41:06+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 175215,
+    "cache_read_tokens": 8453655,
+    "input_tokens": 164,
+    "num_turns": 92,
+    "output_tokens": 27296,
+    "source": "result-record",
+    "total_billed": 8656330,
+    "total_cost_usd": 2.6648790000000004,
+    "total_uncached": 202675
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "twork jitter \u2014 it's a fully deterministic, persistent state machine that two out of every five cold starts happens to render without the button.\\n\\n**Fix direction for the team:** the test either needs to reset app data (clear the `launchCount` pref / uninstall-reinstall) before each run so it always starts at a known-good phase, or the app's `SyncComponent` needs to stop driving a real UI affordance off of what looks like a canned/demo rotation counter rather than an actual sync-service state.\"",
+  "wall_time_s": 528.96
+}

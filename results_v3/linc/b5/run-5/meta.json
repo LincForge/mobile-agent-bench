@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T05:14:47+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 119062,
+    "cache_read_tokens": 7038621,
+    "input_tokens": 198,
+    "num_turns": 102,
+    "output_tokens": 15729,
+    "source": "result-record",
+    "total_billed": 7173610,
+    "total_cost_usd": 2.0416582,
+    "total_uncached": 134989
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pp has a bug\") confirming the process death.\\n- `nerve_inspect` confirming `process.running=false` for `dev.lincforge.benchtarget` immediately after tapping Export on Item 013.\\n- Negative-result checks (no crash, process stayed alive) for Items 001\u2013012, narrowing the fault to Item 013 specifically.\\n\\nThe defect is in `ExportPolicy.kt:11` \u2014 the export buffer appears not to be initialized for this particular catalog item before `export()` is called, causing an unhandled `IllegalStateException`.'",
+  "wall_time_s": 397.55
+}

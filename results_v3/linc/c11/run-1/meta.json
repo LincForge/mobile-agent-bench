@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:38:36+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 34536,
+    "cache_read_tokens": 777916,
+    "input_tokens": 42,
+    "num_turns": 26,
+    "output_tokens": 4751,
+    "source": "result-record",
+    "total_billed": 817245,
+    "total_cost_usd": 0.34132120000000005,
+    "total_uncached": 39329
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "26\"` \u2192 `auditToken = \"AUD-4-BENCH26-8419\"`, computed on line 39 of the method (line 38 computed `normalized`).\\n6. Confirmed the UI then showed \"Promo applied\", meaning the redemption completed normally after the debugger released the thread.\\n\\nThe token\\'s structure (`AUD-<quantity>-<code>-<suffix>`) confirms it\\'s derived from the quantity (4) and the entered promo code (BENCH26), with a trailing numeric suffix (8419) likely generated at runtime (e.g., a hash or random/time-based component).'",
+  "wall_time_s": 124.79
+}

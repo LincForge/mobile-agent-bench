@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:00:09+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 60504,
+    "cache_read_tokens": 1440658,
+    "input_tokens": 70,
+    "num_turns": 37,
+    "output_tokens": 15073,
+    "source": "result-record",
+    "total_billed": 1516305,
+    "total_cost_usd": 0.6810176,
+    "total_uncached": 75647
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "vice/emulator image). Since 2 of every 5 values of that counter hide the button outright, the test's pass rate converges to ~60%, matching the reported ~3/5.\\n\\n**Fix direction:** either have the test clear app data (`pm clear` / fresh install) before each run so `launchCount` always starts at a known value, or \u2014 better \u2014 have the app/test stop depending on an unbounded, persisted launch counter for sync-availability UI state, since that's an unintentional hidden dependency on test run history.\"",
+  "wall_time_s": 472.42
+}

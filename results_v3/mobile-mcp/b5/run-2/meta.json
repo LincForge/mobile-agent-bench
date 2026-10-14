@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T21:12:00+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 87967,
+    "cache_read_tokens": 2840060,
+    "input_tokens": 100,
+    "num_turns": 52,
+    "output_tokens": 11010,
+    "source": "result-record",
+    "total_billed": 2939137,
+    "total_cost_usd": 1.03018,
+    "total_uncached": 99077
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "hows the app has been killed and the device fell back to the Android home screen (consistent with an unhandled `FATAL EXCEPTION: main`).\\n- The root cause per the stack trace: `ExportPolicy.export()` throws `IllegalStateException(\"export buffer not initialized\")` at `ExportPolicy.kt:11`, invoked from the Export button\\'s click handler in `Screens.kt:169` \u2014 suggesting the export buffer isn\\'t initialized for this item (likely an off-by-one/index-dependent init bug tied to item 013 specifically).'",
+  "wall_time_s": 198.1
+}

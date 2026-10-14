@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:03:03+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 26574,
+    "cache_read_tokens": 465253,
+    "input_tokens": 34,
+    "num_turns": 18,
+    "output_tokens": 2529,
+    "source": "result-record",
+    "total_billed": 494390,
+    "total_cost_usd": 0.2247046,
+    "total_uncached": 29137
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='(?=.*Rebuild index|.*rebuild_index)(?=.*1850)(?=.*IndexRebuilder)' answer[-500:]='Found it: `stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder`.\\n\\n**Findings:**\\n1. **Culprit button:** \"Rebuild index\" \u2014 the other two (\"Verify cache\" 12ms, \"Compact DB\" 18ms) completed quickly.\\n2. **`blocked_ms`:** **1850 ms** (~1.85s, matching the \"nearly two seconds\" report).\\n3. **Component responsible:** `IndexRebuilder`.'",
+  "wall_time_s": 42.89
+}

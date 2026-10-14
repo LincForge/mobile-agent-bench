@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:09:38+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 167940,
+    "cache_read_tokens": 13768394,
+    "input_tokens": 278,
+    "num_turns": 154,
+    "output_tokens": 26015,
+    "source": "result-record",
+    "total_billed": 13962627,
+    "total_cost_usd": 3.6861448000000023,
+    "total_uncached": 194233
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "cs maintenance actions (cache/DB/index)\\n- Orders long-press context menu \u2192 Archive confirmation \u2192 correct list removal\\n- No crashes anywhere in the session\\n\\nNote: the app\\'s own About screen describes it as \"a purpose-built benchmark target application... so that agent runs are reproducible from source,\" so these defects may be intentionally seeded fixtures rather than accidental regressions \u2014 but treating this as a real release-readiness review, the pricing bug alone is a shipping blocker.'",
+  "wall_time_s": 540.32
+}

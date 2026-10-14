@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:46:58+00:00",
+  "task": "c11",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 128023,
+    "cache_read_tokens": 1575631,
+    "input_tokens": 50,
+    "num_turns": 30,
+    "output_tokens": 8157,
+    "source": "result-record",
+    "total_billed": 1711861,
+    "total_cost_usd": 0.9088881999999999,
+    "total_uncached": 136230
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "l variable that isn't logged or rendered.\\n\\nSo the true, verified answer is: **`auditToken`'s runtime value was not observable with the tools and access available in this session** \u2014 it's not printed to logcat and not shown in the UI. Reporting a specific string here would be fabricated. If you need the actual value, that would require either adding a log statement to the app's source and rebuilding, or attaching a debugger (e.g., via Android Studio) to set a breakpoint inside `redeemPromo()`.\"",
+  "wall_time_s": 145.13
+}

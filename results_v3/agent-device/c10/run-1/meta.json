@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T20:36:29+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 133037,
+    "cache_read_tokens": 2269531,
+    "input_tokens": 60,
+    "num_turns": 32,
+    "output_tokens": 15903,
+    "source": "result-record",
+    "total_billed": 2418531,
+    "total_cost_usd": 1.1452042000000002,
+    "total_uncached": 149000
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "aces, which only pins `discountFactor` to a range (roughly **0.755\u20130.777**, depending on whether the display truncates or rounds) rather than an exact value. I\\'m not going to report a specific number as \"the\" answer, since that would be an estimate dressed up as a measurement.\\n\\nIf you can point me to the BenchTarget source repo on disk, or there\\'s a shell/adb-capable tool you\\'d like me to use, I can get the exact value. Otherwise, let me know if you want the estimated range reported as-is.'",
+  "wall_time_s": 268.73
+}

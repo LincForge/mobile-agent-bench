@@ -1,0 +1,44 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "0f6e324ac9d8ce88691922aae4fd5eba",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "16",
+    "build": "BP2A.250325.020",
+    "model": "SM-L300",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T05:01:27+00:00",
+  "task": "b11",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 27959,
+    "cache_read_tokens": 352240,
+    "input_tokens": 24,
+    "num_turns": 12,
+    "output_tokens": 2837,
+    "source": "result-record",
+    "total_billed": 383060,
+    "total_cost_usd": 0.21070200000000003,
+    "total_uncached": 30820
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*15\\\\s*\\\\(Burst\\\\)' answer[-500:]='Done. After launching BenchTarget, switching the mode to Burst, and tapping Ping three times, the watch screen shows:\\n\\n**Counter: \"Pings: 15 (Burst)\"**\\n\\n(Burst mode adds 5 per tap: 5 \u2192 10 \u2192 15.)'",
+  "wall_time_s": 62.47
+}

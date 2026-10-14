@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T00:46:20+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 60763,
+    "cache_read_tokens": 961083,
+    "input_tokens": 46,
+    "num_turns": 26,
+    "output_tokens": 8079,
+    "source": "result-record",
+    "total_billed": 1029971,
+    "total_cost_usd": 0.5161506,
+    "total_uncached": 68888
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": ". If you can grant me shell/adb access (or another MCP tool that reads logcat), I'll continue and pull the exact log line.\\n2. You run `adb logcat -d | grep -i blocked_ms` (or filter by `dev.lincforge.benchtarget`) right after I trigger one of the buttons, and share the output with me \u2014 I'll tap the button on your signal.\\n\\nSeparately: do you want me to narrow down *which* button is the freezing one first by feel (timing the taps), or do you already suspect one and just want the log confirmed?\"",
+  "wall_time_s": 136.24
+}

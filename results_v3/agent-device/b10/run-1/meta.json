@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:44:05+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 40509,
+    "cache_read_tokens": 383954,
+    "input_tokens": 26,
+    "num_turns": 14,
+    "output_tokens": 2492,
+    "source": "result-record",
+    "total_billed": 426981,
+    "total_cost_usd": 0.2637988,
+    "total_uncached": 43027
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "uild_index blocked_ms=1850 component=IndexRebuilder`)\\n3. **Component responsible:** **`IndexRebuilder`**\\n\\nCorroborating evidence immediately following in the log:\\n- `Choreographer: Skipped 222 frames! The application may be doing too much work on its main thread.`\\n- `HWUI: Davey! duration=1870ms` \u2014 a janky frame matching the stall.\\n\\nThe other two Maintenance actions were clean: `verify_cache blocked_ms=12` and `compact_db blocked_ms=18` \u2014 both negligible, no frame-skip or Davey warnings.'",
+  "wall_time_s": 57.64
+}

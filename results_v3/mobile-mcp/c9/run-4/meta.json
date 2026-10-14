@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T04:11:57+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 159291,
+    "cache_read_tokens": 8213894,
+    "input_tokens": 194,
+    "num_turns": 134,
+    "output_tokens": 27736,
+    "source": "result-record",
+    "total_billed": 8401115,
+    "total_cost_usd": 2.5576908,
+    "total_uncached": 187221
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "iagnostics\" (About) buttons are silent no-ops with zero observable effect.\\n- Both the Form and the promo-code Redeem accept empty input without validation or error feedback.\\n\\nNone of these caused crashes (device logs and `mobile_list_crashes` stayed clean throughout), but the Tier-reporting and stale-total bugs are data-correctness defects in the two most \"transactional\" flows in the app (registration and checkout), which is exactly where a release candidate can\\'t have silent wrong answers.'",
+  "wall_time_s": 508.64
+}

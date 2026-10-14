@@ -1,0 +1,46 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "0f6e324ac9d8ce88691922aae4fd5eba",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": true,
+  "device": {
+    "android_version": "16",
+    "build": "BP2A.250325.020",
+    "model": "SM-L300",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:30:37+00:00",
+  "task": "b11",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 11324,
+    "cache_read_tokens": 223248,
+    "input_tokens": 22,
+    "num_turns": 12,
+    "output_tokens": 1683,
+    "source": "result-record",
+    "total_billed": 236277,
+    "total_cost_usd": 0.10681959999999999,
+    "total_uncached": 13029
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "pattern='Pings:\\\\s*15\\\\s*\\\\(Burst\\\\)' answer[-500:]='Done. The counter on the watch screen now reads:\\n\\n**\"Pings: 15 (Burst)\"**\\n\\n(Burst mode apparently multiplies each tap by 5 \u2014 3 taps \u00d7 5 = 15.)'",
+  "wall_time_s": 98.18
+}

@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T02:59:43+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 57796,
+    "cache_read_tokens": 2252769,
+    "input_tokens": 106,
+    "num_turns": 57,
+    "output_tokens": 14604,
+    "source": "result-record",
+    "total_billed": 2325275,
+    "total_cost_usd": 0.8279897999999999,
+    "total_uncached": 72506
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "ior consistent with an un-seeded random draw (e.g., `Math.random()` style check, roughly ~60% \"idle\") made fresh at each app start, with the UI conditionally showing \"Retry sync\" only when that draw lands on `idle`. The UI test is correctly asserting what it sees; the instability is a built-in non-determinism in the app\\'s own diagnostics/sync-status logic, which should be reported as an app bug (deterministic diagnostics, or a seam the test can control/mock) rather than a test flakiness issue.'",
+  "wall_time_s": 510.05
+}

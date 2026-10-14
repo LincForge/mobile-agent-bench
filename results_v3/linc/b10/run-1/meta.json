@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T19:25:58+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 28353,
+    "cache_read_tokens": 574469,
+    "input_tokens": 38,
+    "num_turns": 21,
+    "output_tokens": 3328,
+    "source": "result-record",
+    "total_billed": 606188,
+    "total_cost_usd": 0.2616618,
+    "total_uncached": 31719
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "e buttons on BenchTarget\\'s Diagnostics screen (device: Samsung SM-S921U, <REDACTED-0>). Results:\\n\\n| Button | log line |\\n|---|---|\\n| Verify cache | `blocked_ms=12` |\\n| Compact DB | `blocked_ms=18` |\\n| Rebuild index | `stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder` |\\n\\n**Answer:**\\n1. **Culprit button:** \"Rebuild index\"\\n2. **Blocked duration:** `blocked_ms=1850` (~1.85s, matching the reported \"nearly two seconds\")\\n3. **Responsible component:** `IndexRebuilder`'",
+  "wall_time_s": 52.93
+}

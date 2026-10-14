@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T23:42:30+00:00",
+  "task": "b5",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 112904,
+    "cache_read_tokens": 6132858,
+    "input_tokens": 198,
+    "num_turns": 103,
+    "output_tokens": 15454,
+    "source": "result-record",
+    "total_billed": 6261414,
+    "total_cost_usd": 1.8331236000000004,
+    "total_uncached": 128556
+  },
+  "tool": "linc",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": "null,\"running\":false}` \u2014 confirming process death \u2014 whereas the same check after every prior item (001\u2013012) showed the process alive with `\"crash_signature\":{\"status\":\"no_crash_found\"}`\\n- Screen recording saved at `/Users/<REDACTED>/.linc/nerve/recordings/android_<REDACTED-0>_1791934928.mp4` (note: capped at 180s by Android\\'s `screenrecord`, so it may not include the final crash moment, which occurred ~218s into the session)\\n\\nDevice used: Samsung SM-S921U, Android 16, serial `<REDACTED-0>`.'",
+  "wall_time_s": 288.93
+}

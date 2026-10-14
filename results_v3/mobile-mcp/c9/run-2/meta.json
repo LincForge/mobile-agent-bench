@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:51:18+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 151346,
+    "cache_read_tokens": 10336034,
+    "input_tokens": 240,
+    "num_turns": 128,
+    "output_tokens": 24777,
+    "source": "result-record",
+    "total_billed": 10512397,
+    "total_cost_usd": 2.9208408,
+    "total_uncached": 176363
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": "for any build with a purchase flow. Combined with a silently-broken Tier selector in the subscription form and several dead/no-feedback controls (Diagnostics, Export, Archive order, promo validation), this build shows a consistent pattern of UI state not being wired through to the underlying logic. None of these are cosmetic-only; they affect what users are told they're buying/selecting. I'd send this back with the Checkout recompute bug and Tier-selector bug as required fixes before re-review.\"",
+  "wall_time_s": 469.1
+}

@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T03:49:29+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 42032,
+    "cache_read_tokens": 539449,
+    "input_tokens": 34,
+    "num_turns": 17,
+    "output_tokens": 2329,
+    "source": "result-record",
+    "total_billed": 583844,
+    "total_cost_usd": 0.2993758,
+    "total_uncached": 44395
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " the stall clearly:\\n\\n1. **Which button**: **\"Rebuild index\"** causes the main-thread stall. The other two (Verify cache: `blocked_ms=12`, Compact DB: `blocked_ms=18`) returned almost instantly.\\n2. **`blocked_ms`**: **1850 ms** \u2014 logged as `D/BenchTarget: stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder`, corroborated by `Choreographer: Skipped 222 frames!` and an HWUI `Davey! duration=1866ms` jank frame right after.\\n3. **Component responsible**: **`IndexRebuilder`**.'",
+  "wall_time_s": 57.91
+}

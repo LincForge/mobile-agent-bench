@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T05:47:17+00:00",
+  "task": "b6",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 61407,
+    "cache_read_tokens": 777388,
+    "input_tokens": 34,
+    "num_turns": 18,
+    "output_tokens": 7793,
+    "source": "result-record",
+    "total_billed": 846622,
+    "total_cost_usd": 0.47910359999999996,
+    "total_uncached": 69234
+  },
+  "tool": "maestro",
+  "uiautomation_holders_cleared": [],
+  "verdict": "FAIL",
+  "verify_detail": "uring the app\\'s cold-start init** \u2014 not real network state. The \"Retry sync\" button is conditionally rendered only for the \"idle\" branch, so roughly 2 out of every 5 cold starts land on \"unavailable\" and legitimately render a screen with no retry button at all. The test is flaky because it hard-asserts the button is always visible without accounting for this valid alternate state; it needs to either stub/pin the sync status for the test, or assert conditionally based on the \"Sync status\" text.'",
+  "wall_time_s": 172.42
+}

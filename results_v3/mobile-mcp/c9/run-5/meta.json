@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "9ccbf77044370539f9a9c929477850d4",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T07:04:59+00:00",
+  "task": "c9",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 137514,
+    "cache_read_tokens": 11336156,
+    "input_tokens": 254,
+    "num_turns": 147,
+    "output_tokens": 29057,
+    "source": "result-record",
+    "total_billed": 11502981,
+    "total_cost_usd": 3.1083651999999993,
+    "total_uncached": 166825
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "PASS",
+  "verify_detail": ". The Orders archive bug compounds this: a destructive action is confirmed with specific language and silently fails. None of this requires edge-case or adversarial input to trigger; all are hit on the straightforward happy path within a couple of taps.\\n\\nIf this build needs to ship on a deadline regardless, the Checkout stale-total and Form tier-ignored bugs are the two that must be fixed at minimum before any release, since they involve the app reporting incorrect data as if it were correct.'",
+  "wall_time_s": 498.56
+}

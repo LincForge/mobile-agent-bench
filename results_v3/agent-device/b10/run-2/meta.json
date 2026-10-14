@@ -1,0 +1,45 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-13T22:21:34+00:00",
+  "task": "b10",
+  "tier": "B",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 42624,
+    "cache_read_tokens": 404036,
+    "input_tokens": 26,
+    "num_turns": 15,
+    "output_tokens": 2282,
+    "source": "result-record",
+    "total_billed": 448968,
+    "total_cost_usd": 0.2741752,
+    "total_uncached": 44932
+  },
+  "tool": "agent-device",
+  "uiautomation_holders_cleared": [],
+  "verdict": "PASS",
+  "verify_detail": " in the logs. Results:\\n\\n**(1) Culprit button:** **\"Rebuild index\"**\\n\\n**(2) `blocked_ms`:** **1850 ms** (logged as `stall_detected op=rebuild_index blocked_ms=1850 component=IndexRebuilder`), corroborated by Choreographer reporting 222 skipped frames and an HWUI \"Davey!\" frame of duration=1872ms immediately after.\\n\\n**(3) Component:** **`IndexRebuilder`**\\n\\nFor comparison, the other two ops were fast and logged no stall warning:\\n- `verify_cache blocked_ms=12`\\n- `compact_db blocked_ms=18`'",
+  "wall_time_s": 39.96
+}

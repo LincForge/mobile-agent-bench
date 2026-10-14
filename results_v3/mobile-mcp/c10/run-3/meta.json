@@ -1,0 +1,47 @@
+{
+  "agent_exit_code": 0,
+  "app_pin": {
+    "action": "verified",
+    "apk_md5": "2b07633116643b8165fe7cd0550e1a58",
+    "package": "dev.lincforge.benchtarget"
+  },
+  "capability_row": false,
+  "device": {
+    "android_version": "16",
+    "build": "BP4A.251205.006",
+    "model": "SM-S921U",
+    "sdk": "36"
+  },
+  "device_locked_post": false,
+  "device_locked_pre": false,
+  "model": "claude-sonnet-5",
+  "reset_steps": [
+    "wake",
+    "home",
+    "force-stop",
+    "clear-data"
+  ],
+  "solved_unfinalized": false,
+  "started_utc": "2026-10-14T01:50:07+00:00",
+  "task": "c10",
+  "tier": "C",
+  "timed_out": false,
+  "tokens": {
+    "cache_creation_tokens": 152422,
+    "cache_read_tokens": 5310886,
+    "input_tokens": 136,
+    "num_turns": 105,
+    "output_tokens": 41813,
+    "source": "result-record",
+    "total_billed": 5505257,
+    "total_cost_usd": 2.0902672000000004,
+    "total_uncached": 194371
+  },
+  "tool": "mobile-mcp",
+  "uiautomation_holders_cleared": [
+    "dev.mobile.maestro"
+  ],
+  "verdict": "FAIL",
+  "verify_detail": "\u2192 floor \u2192 $50`. No other simple model fit all 9 points.\\n\\nSo for quantity = 7: `discountFactor = 1.01 \u2212 0.035\u00d77 = 0.765`.\\n\\nCaveat: this was derived by black-box curve-fitting against the UI's rounded output, not by reading source or an in-process log/debugger (none was accessible from the tools available). The exact in-memory double may carry a few bits of floating-point noise around 0.765, but the value itself is 0.765 with high confidence given the perfect fit across 9 independent samples.\"",
+  "wall_time_s": 741.58
+}
