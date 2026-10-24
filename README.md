@@ -12,7 +12,7 @@ Three complete grids have been run and published: **v1**, **v2**, and **v3**,
 
 | Stack | Vendor |
 |---|---|
-| nerve + crucible + spectra | LincForge (that's us — see the disclosure below) |
+| [nerve](https://github.com/LincForge/nerve) + [crucible](https://github.com/LincForge/crucible) + [spectra](https://github.com/LincForge/spectra) | LincForge (that's us — see the disclosure below) |
 | Maestro MCP | mobile.dev |
 | mobile-mcp | mobile-next (community) |
 | agent-device | Callstack |
@@ -53,7 +53,11 @@ The three-grid arc, and the reason all three grids are published together:
    `$1.41/pass`). The 10-cell difference on the 9-task phone grid (`44/45` vs
    `34/45`) comes entirely from `c10` and `c11`, which require a JVM debugger
    (`linc-spectra` goes `10/10`, while tools without JDWP support go `0/10` or
-   `2/10` via UI curve-fitting).
+   `2/10` via UI curve-fitting). All three packages in the `linc` column are now
+   open-source (`Apache-2.0`) on GitHub and PyPI (`linc-nerve`, `linc-crucible`,
+   `linc-spectra`); note that the published `v3` grid was scored once against the
+   frozen pre-release commits `crucible@cf04279` and `spectra@c471dad` paired
+   with `linc-nerve==0.1.0`.
 
 ## Disclosure
 
