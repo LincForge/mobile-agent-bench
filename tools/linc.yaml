@@ -3,9 +3,11 @@ name: LINC nerve + crucible + spectra
 mcp_config: tools/linc.mcp.json
 notes: >-
   The stack under test from LincForge: nerve (device observe/act, 48 tools in
-  v3 (`linc-nerve==0.1.0` from PyPI), MJPEG streaming enabled per fairness
-  rules), crucible (quality analysis / ship gate), spectra (DAP runtime
-  debugging). All three run as MCP stdio servers via their console scripts.
-  The committed config assumes the `nerve` / `crucible` / `spectra` entry
-  points are on PATH; use tools/linc.local.mcp.json (gitignored) for
-  machine-specific interpreter paths.
+  v3 (`linc-nerve==0.1.0` from PyPI, https://github.com/LincForge/nerve), MJPEG
+  streaming enabled per fairness rules), crucible (quality analysis / ship gate,
+  https://github.com/LincForge/crucible; v3 pinned pre-release commit `cf04279`),
+  spectra (DAP/jdb runtime debugging, https://github.com/LincForge/spectra; v3
+  pinned pre-release commit `c471dad`). All three run as MCP stdio servers via
+  their console scripts. The committed config assumes the `nerve` / `crucible` /
+  `spectra` entry points are on PATH; use tools/linc.local.mcp.json (gitignored)
+  for machine-specific interpreter paths.
