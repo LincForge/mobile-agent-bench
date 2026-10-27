@@ -142,6 +142,11 @@ def build_command(task: Task, tool: Tool, model: str) -> list[str]:
 
 
 def run_agent(task: Task, tool: Tool, model: str, out_dir: Path) -> AgentRun:
+    from .meta_agent import is_meta_model, run_muse_agent
+
+    if is_meta_model(model):
+        return run_muse_agent(task, tool, model, out_dir)
+
     out_dir.mkdir(parents=True, exist_ok=True)
     transcript = out_dir.resolve() / "transcript.jsonl"  # absolute: subprocess cwd differs
     env = {**os.environ, **tool.env}
