@@ -1,6 +1,7 @@
 # machine-local configuration (never committed — sanitization rule)
 bench.local.yaml
 tools/*.local.mcp.json
+tools_addendum/*.local.mcp.json
 
 # python
 .venv/
