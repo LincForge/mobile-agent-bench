@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from mobile_agent_bench.runner import cmd_report, results_root, tasks_root
+from mobile_agent_bench.runner import ROOT, cmd_report, results_root, tasks_root, tools_root
 
 
 def test_results_root_defaults_to_results(monkeypatch):
@@ -19,6 +19,16 @@ def test_tasks_root_defaults_to_tasks_and_honors_env_override(monkeypatch):
     assert tasks_root() == Path("tasks")
     monkeypatch.setenv("BENCH_TASKS_DIR", "tasks_v3")
     assert tasks_root() == Path("tasks_v3")
+
+
+def test_tools_root_keeps_addendum_tools_out_of_the_frozen_set(monkeypatch):
+    """[contract] `--tool all` over tools/ must never pick up a non-preregistered
+    addendum column; BENCH_TOOLS_DIR selects the addendum tree explicitly."""
+    monkeypatch.delenv("BENCH_TOOLS_DIR", raising=False)
+    assert tools_root() == ROOT / "tools"
+    assert "linc-sam" not in {p.stem for p in (ROOT / "tools").glob("*.yaml")}
+    monkeypatch.setenv("BENCH_TOOLS_DIR", "tools_addendum")
+    assert tools_root() == ROOT / "tools_addendum"
 
 
 def _write_meta(root: Path, tool: str, task: str, n: int, billed: int, uncached: int, output: int):
