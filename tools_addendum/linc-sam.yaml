@@ -6,8 +6,9 @@ env:
 notes: >-
   NOT PRE-REGISTERED. Disclosed addendum column for the 2026-10 Meta Global AI
   Developer Hackathon: same crucible / spectra pins as the frozen `linc` column,
-  but nerve is the hackathon build (LincForge/linc-nerve#249 at e4205bd,
-  installed with the `[grounding]` extra) with SAM 3.1 visual grounding enabled
+  but nerve is `linc-nerve[grounding]==0.2.0` from PyPI (public release of
+  LincForge/linc-nerve#249; source https://github.com/LincForge/nerve tag
+  v0.2.0) with SAM 3.1 visual grounding enabled
   (`nerve_ground`, `nerve_tap(prompt=...)`, `visual_grounding_hint`). Grounding
   uploads screenshots to api.meta.ai. Results land in their own tree
   (BENCH_RESULTS_DIR) and are never pooled with the frozen v3 columns.
