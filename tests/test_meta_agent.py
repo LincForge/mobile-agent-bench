@@ -340,3 +340,56 @@ def test_run_agent_dispatches_open_weight_meta_models(tmp_path, monkeypatch):
     assert seen[0]["payload"]["temperature"] == 1.0
     assert seen[0]["payload"]["top_p"] == 0.95
     assert final_answer_text(run.transcript_path) == "Open-weight result: BENCH-STABLE"
+
+
+def test_contract_turn_cap_defaults_above_baseline_and_rejects_hostile_override():
+    """[contract] The wall-clock timeout_s is the binding budget, as for the Claude
+    baseline cells (c9 used up to 165 turns); BENCH_META_MAX_TURNS only overrides
+    with a positive int."""
+    from mobile_agent_bench.meta_agent import DEFAULT_MAX_TURNS, resolve_max_turns
+
+    assert DEFAULT_MAX_TURNS >= 300
+    assert resolve_max_turns({}) == DEFAULT_MAX_TURNS
+    assert resolve_max_turns({"BENCH_META_MAX_TURNS": "7"}) == 7
+    for hostile in ("", "0", "-3", "abc", "1e9", "nan", " 5\n"):
+        assert resolve_max_turns({"BENCH_META_MAX_TURNS": hostile}) == DEFAULT_MAX_TURNS
+
+
+def test_contract_turn_cap_exhaustion_is_not_a_clean_finish(tmp_path, monkeypatch):
+    """[contract] A run cut off by the turn cap must not write a result record or
+    exit 0 (the 2026-10-27 c9 cell was graded on a mid-task sentence)."""
+    monkeypatch.setenv("META_AI_API_KEY", "test-placeholder-key")
+    monkeypatch.setenv("BENCH_META_MAX_TURNS", "3")
+    mcp_cfg = _write_fake_mcp_server(tmp_path)
+    tool = Tool(id="linc", name="LINC", mcp_config=str(mcp_cfg))
+    task = _make_task()
+    calls: list[int] = []
+
+    def fake_post(url: str, api_key: str, payload: dict[str, Any], timeout_s: float) -> dict[str, Any]:
+        calls.append(1)
+        return {
+            "output": [
+                {
+                    "type": "message",
+                    "role": "assistant",
+                    "content": [{"type": "output_text", "text": "Moving on to the next section."}],
+                },
+                {
+                    "type": "function_call",
+                    "call_id": f"call_{len(calls)}",
+                    "name": "nerve_elements",
+                    "arguments": '{"device": "dev1"}',
+                },
+            ],
+            "usage": {"input_tokens": 10, "output_tokens": 5},
+        }
+
+    out_dir = tmp_path / "run-1"
+    run = run_muse_agent(task, tool, "muse-spark-1.3-contributor", out_dir, http_post=fake_post)
+
+    assert len(calls) == 3
+    assert run.exit_code == 2
+    assert not run.timed_out
+    records = [json.loads(line) for line in run.transcript_path.read_text().splitlines() if line]
+    assert not any(r.get("type") == "result" for r in records)
+    assert "max turns (3) reached" in (out_dir / "stderr.txt").read_text()

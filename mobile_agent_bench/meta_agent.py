@@ -37,7 +37,7 @@ import urllib.request
 import uuid
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Mapping
 
 from .agent import AGENT_CWD, AgentRun, ensure_confinement, resolve_mcp_config
 from .sanitize import sanitize_file
@@ -47,7 +47,11 @@ from .tokens import parse_transcript
 META_MODEL_PREFIXES = ("muse-", "meta-models/")
 DEFAULT_META_BASE_URL = "https://api.meta.ai/v1"
 DEFAULT_OPEN_WEIGHT_BASE_URL = "https://inference.baseten.co/v1"
-MAX_TURNS = 40
+# Safety stop only: the task's wall-clock timeout_s is the binding budget, as for
+# the Claude baseline cells (c9 used 101-165 turns). The original 40 cut the
+# 2026-10-27 c9 cell off at 131 s of a 900 s budget.
+DEFAULT_MAX_TURNS = 300
+MAX_TURNS_ENV = "BENCH_META_MAX_TURNS"
 MAX_READ_TEXT_BYTES = 65_536
 
 # Exact regex from agent.py READ_GUARD (Erratum #2): blocks app source & SPEC.md
@@ -673,6 +677,14 @@ def _chat_completion_to_responses_shape(chat_resp: dict[str, Any]) -> dict[str, 
     return {"output": output, "usage": chat_resp.get("usage") or {}, "_assistant_msg": msg}
 
 
+def resolve_max_turns(env: Mapping[str, str]) -> int:
+    """Turn cap from BENCH_META_MAX_TURNS; anything but a plain positive int falls back."""
+    raw = env.get(MAX_TURNS_ENV, "")
+    if re.fullmatch(r"[1-9][0-9]{0,5}", raw):
+        return int(raw)
+    return DEFAULT_MAX_TURNS
+
+
 def run_muse_agent(
     task: Task,
     tool: Tool,
@@ -705,6 +717,7 @@ def run_muse_agent(
     }
     num_turns = 0
     final_text = ""
+    max_turns = resolve_max_turns(env)
 
     mcp_config_path = resolve_mcp_config(tool)
     build_router = router_factory or McpToolRouter.from_config_path
@@ -747,7 +760,7 @@ def run_muse_agent(
             ]
 
         with transcript.open("w", encoding="utf-8") as sink:
-            for _turn in range(MAX_TURNS):
+            for _turn in range(max_turns):
                 remaining = deadline - time.monotonic()
                 if remaining <= 0:
                     timed_out = True
@@ -859,6 +872,11 @@ def run_muse_agent(
                                 ],
                             }
                         )
+            else:
+                # Loop ran out of turns while the model was still calling tools:
+                # a cut-off run, not a finished answer.
+                exit_code = 2
+                stderr_notes.append(f"max turns ({max_turns}) reached before a final answer")
 
             if not timed_out and exit_code == 0:
                 result_record = {
