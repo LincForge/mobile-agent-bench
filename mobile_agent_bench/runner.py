@@ -53,6 +53,15 @@ def tasks_root() -> Path:
     return Path(os.environ.get("BENCH_TASKS_DIR", "tasks"))
 
 
+def tools_root() -> Path:
+    """Where tool YAMLs are loaded from. Defaults to the frozen ``tools/`` set.
+    Set BENCH_TOOLS_DIR=tools_addendum for disclosed, non-preregistered columns
+    (e.g. the 2026-10 Meta hackathon ``linc-sam`` column), so ``--tool all`` over
+    the frozen set never includes them.
+    """
+    return ROOT / os.environ.get("BENCH_TOOLS_DIR", "tools")
+
+
 def load_bench_config() -> dict:
     return yaml.safe_load(BENCH_CONFIG.read_text())
 
@@ -116,7 +125,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     model = args.model or cfg["model"]
     runs = args.runs or int(cfg.get("runs_per_task", 5))
     tasks = {t.id: t for t in load_all_tasks(tasks_root())}
-    tools = {t.id: t for t in load_all_tools(ROOT / "tools")}
+    tools = {t.id: t for t in load_all_tools(tools_root())}
 
     sel_tasks = list(tasks.values()) if args.task == "all" else [tasks[args.task]]
     sel_tools = list(tools.values()) if args.tool == "all" else [tools[args.tool]]
