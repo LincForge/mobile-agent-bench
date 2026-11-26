@@ -4,7 +4,7 @@ _Scope: full pre-registered v3 grid (200/200 rows) — linc / maestro / mobile-m
 agent-device on a5, a6, b5, b6, b9, b10, c9, c10, c11 + the b11 Wear OS capability row,
 claude-sonnet-5 (`Claude Code 2.1.296`), Samsung Galaxy S24 (`SM-S921U`, Android 16 / SDK 36)
 + Samsung Galaxy Watch7 (`SM-L300`, Wear OS 6 / Android 16 / SDK 36), protocol frozen at tag
-`v3-prereg` (`PREREGISTRATION-v3.md`, commit `2dc566d`). Contestant versions: `linc-nerve==0.1.0`
+`v3-prereg` (`PREREGISTRATION-v3.md`, commit `ad9d24f`). Contestant versions: `linc-nerve==0.1.0`
 from PyPI (`LincForge/nerve@5477863`), `linc-crucible@cf04279`, `linc-spectra@c471dad`;
 `maestro 2.11.0`; `@mobilenext/mobile-mcp 1.0.10`; `agent-device 0.21.27`. Scored once on the
 frozen stack with zero post-fix re-runs._
