@@ -83,9 +83,13 @@ cells with **0 locked cells and 0 amendments**.
 5. [`AMENDMENTS.md`](AMENDMENTS.md) — every deviation, with receipts
 6. [`docs/v1-deep-dive.md`](docs/v1-deep-dive.md) · [`docs/v2-deep-dive.md`](docs/v2-deep-dive.md) · [`docs/v3-deep-dive.md`](docs/v3-deep-dive.md) — per-task analysis
 
-The `v1-prereg`, `v2-prereg`, and `v3-prereg` git tags are the integrity
-anchors: each was pushed *before* the first comparative cell of its grid ran.
-Git history is deliberately never rewritten in this repo.
+The `v1-prereg`, `v2-prereg`, and `v3-prereg` git tags mark the frozen
+contracts: each was pushed *before* the first comparative cell of its grid ran.
+On 2026-11-26 the history of this repo was rewritten once, to remove personal
+data captured in run transcripts (device identifiers, notifications, app lists,
+embedded screenshots). Harness and task files are byte-identical at every
+pre-registration tag, and commit dates are preserved, but every commit id
+changed. [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md) maps the old ids to the new.
 
 ## Layout
 
@@ -95,6 +99,7 @@ PREREGISTRATION.md     # the frozen v1 contract (v1-prereg tag)
 PREREGISTRATION-v2.md  # the frozen v2 contract (v2-prereg tag)
 PREREGISTRATION-v3.md  # the frozen v3 contract (v3-prereg tag)
 AMENDMENTS.md          # every post-freeze deviation, with rationale + receipts
+HISTORY-REWRITE.md     # 2026-11-26 history rewrite: old -> new commit ids for every tag
 tasks/                 # 10 frozen v1/v2 task definitions (prompt + reset + verification + APK pin)
 tasks_v3/              # 10 frozen v3 task definitions (4 v1/v2 anchors + 6 unseen tasks)
 tools/                 # 4 tool adapters (MCP config, vendor-recommended)

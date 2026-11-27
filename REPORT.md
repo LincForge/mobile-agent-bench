@@ -275,7 +275,7 @@ v2 **$209.02** (200 cells); v3 **$168.55** (200 cells: linc `$38.34`, maestro
 
 ### v2 → v3 (`v3-prereg` freeze)
 
-Everything below landed **before** the `v3-prereg` tag (`2dc566d`) and is
+Everything below landed **before** the `v3-prereg` tag (`ad9d24f`) and is
 documented in [`PREREGISTRATION-v3.md`](PREREGISTRATION-v3.md):
 
 1. **Upgraded competitor releases & frozen `linc` stack:**
@@ -724,7 +724,7 @@ Carried forward across all three grids:
   interference classes disclosed and voided pre-publication, per-cell hygiene
   and APK digest receipts in `meta.json`.
 - [x] **v3 (`results_v3/`):** all 200 cells complete under `v3-prereg`
-  (`2dc566d`; `linc-nerve==0.1.0` PyPI wheel
+  (`ad9d24f`; `linc-nerve==0.1.0` PyPI wheel
   `sha256:747798cf8c869e4e0f6d49426faada97221cfd55e70fef540afa3fe2d949ca19` +
   `crucible@cf04279` + `spectra@c471dad`; `maestro 2.11.0`;
   `@mobilenext/mobile-mcp 1.0.10`; `agent-device 0.21.27`), `0/200` locked-device
