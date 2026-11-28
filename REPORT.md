@@ -55,11 +55,16 @@ What makes the result checkable rather than merely asserted:
    it.** v1 recorded three confinement errata; v2 caught four interference
    classes before publication, one of which voided a cell that had *passed*;
    v3 ran with 0 locked-device cells (`device_locked_pre/post` recorded per
-   cell) and symmetric per-cell `logcat -b all -c` + UiAutomation hygiene.
+   cell) and UiAutomation hygiene, plus per-cell `logcat -b all -c` from wave 2
+   onward (160 cells; the 40 wave-1 cells ran without it, and the step was run
+   by a driver script that was not committed — see [`AMENDMENTS.md`](AMENDMENTS.md)).
 4. **Everything is re-runnable.** The harness, task files (`tasks/`,
    `tasks_v3/`), target-app source, adapters, and sanitized transcripts
-   (`results/`, `results_v2/`, `results_v3/`) are published. Every figure traces
-   to a stored raw run log.
+   (`results/`, `results_v2/`, `results_v3/`) are published. Every run keeps
+   its agent reasoning, tool calls, final answer and `meta.json`; tool outputs
+   from the v1 and v2 grids and all embedded screenshots were removed on
+   2026-11-26 because they were captured on personal devices (see
+   [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md)).
 
 The strongest criticism of v2 (that the vendor fixed defects on tasks it had
 already seen, while competitors ran on older versions) motivated **v3**:
@@ -71,6 +76,8 @@ aggregate including JDWP tasks `c10`/`c11`), and a strict score-once rule.
 
 ## TL;DR
 
+*(Automated regex grading figures below; see the 2026-11-27 Errata directly underneath.)*
+
 - **On the 7-task UI + logcat phone subset (`n=35`, excluding JVM debugger tasks
   `c10` and `c11`), `linc` and Callstack's `agent-device 0.21.27` match at
   34/35 (97.1%):** `1` win (`b5`: `5/5` vs `4/5`), `1` loss (`b6`: `4/5` vs `5/5`),
@@ -81,8 +88,8 @@ aggregate including JDWP tasks `c10`/`c11`), and a strict score-once rule.
   **5 of 7 tasks** (`64.1s` vs `80.6s` pooled median; `20` vs `21` turns), while
   `linc` is faster on **2 of 7** (`b5`, `b6`) and uses fewer uncached tokens at
   the median on **6 of 7 tasks** (`2.60M` vs `3.95M` total uncached tokens;
-  `$34.22` vs `$47.93` total spend, or **`$1.01` vs `$1.41` per successful
-  completion**).
+  `$34.22` vs `$47.93` total spend, or **`$1.01` vs `$1.41` per automated
+  pass**).
 - **The 22-point gap on the 9-task phone aggregate (`linc` 44/45 = 97.8% vs
   `agent-device` 34/45 = 75.6%) is a capability boundary, not a UI/logcat
   performance gap:** it comes entirely from `c10` and `c11`, which require
@@ -100,16 +107,22 @@ aggregate including JDWP tasks `c10`/`c11`), and a strict score-once rule.
   (`62.5s`) all score **5/5 (100%)**; `mobile-mcp 1.0.10` scores **4/5 (80%)**
   (watch display dimmed to ambient mode mid-flow in `run-4`).
 
+> **Errata (2026-11-27):** Automated regex grading over-credited `b6` and `c9`. Hand adjudication of passing runs on those two tasks gives `linc` 32/35 (42/45 on 9 tasks), `agent-device` 31–33/35 (31–33/45), `mobile-mcp` 18/35 (20/45), and `maestro` 10/35 (10/45; 10/15 UI-only). Passes on the other seven tasks and all FAIL cells have not been hand-audited, so these figures are partial corrections rather than a final regraded scoreboard.
+
 > **What this benchmark does and does not show**
 > - **Does show:** How four confined MCP tool surfaces behave across 600
 >   reproducible runs (`v1`, `v2`, `v3`) on deterministic UI, logcat, Wear OS,
->   and JVM runtime-inspection tasks, with raw sanitized transcripts for every
->   cell.
+>   and JVM runtime-inspection tasks, where every run keeps its agent reasoning,
+>   tool calls, final answer and `meta.json` (tool outputs from the v1 and v2
+>   grids and all embedded screenshots were removed on 2026-11-26 because they
+>   were captured on personal devices; see [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md)).
 > - **Does not show:** Generalization across arbitrary third-party apps or other
 >   LLM families. It tests **one Jetpack Compose target app (`BenchTarget`)** and
 >   **one pinned model (`claude-sonnet-5`)**; the task suite was authored by the
 >   `linc` vendor; `linc-crucible` includes vendor-tuned MCP tool descriptions
->   whereas competitors ran with their stock shipped tool schemas; and with 5
+>   whereas competitors ran with their stock shipped tool schemas (`crucible` was
+>   connected in all 50 v3 cells but made 0 tool calls in v2 or v3 because the
+>   target app is not registered in crucible's project registry); and with 5
 >   repeated runs per task, single-cell differences (`5/5` vs `4/5`) are within
 >   run-to-run noise.
 
@@ -117,7 +130,7 @@ aggregate including JDWP tasks `c10`/`c11`), and a strict score-once rule.
 
 ## Scoreboard
 
-### v3 (`v3-prereg`; 45 scored phone cells/tool + `b11` watch capability row)
+### v3 (`v3-prereg`; 45 scored phone cells/tool + `b11` watch capability row — automated regex grading)
 
 Tasks are grouped below by **required tool capability** so capability boundaries
 (`logcat` in Tier B; `JDWP` debugger in `c10`/`c11`) are visually distinct from
@@ -125,18 +138,18 @@ UI automation performance:
 
 | task | tier | type | capability required | linc (`0.1.0`) | agent-device (`0.21.27`) | mobile-mcp (`1.0.10`) | maestro (`2.11.0`) |
 |------|------|------|---------------------|----------------|--------------------------|-----------------------|--------------------|
-| `a5` (deep-link / clipboard) | A | unseen | UI + deep-link | **5/5** | **5/5** | **5/5** | **5/5** |
+| `a5` (long-press context menu archive) | A | unseen | UI + long-press | **5/5** | **5/5** | **5/5** | **5/5** |
 | `a6` (multi-device ambiguity) | A | unseen | UI + device target | **5/5** | **5/5** | **5/5** | 4/5 *(5/5 adj.)* |
 | `c9` (seeded defect ship-gate) | C | anchor | UI exploration | **5/5** | **5/5** | **5/5** | 4/5 |
 | **3-TASK UI-ONLY SUBSET (`n=15`, exploratory)** | A, C | **UI only** | **UI only** | **15/15 (100%)** | **15/15 (100%)** | **15/15 (100%)** | **13/15 (86.7%)** *(14/15 adj.)* |
 | `b5` (conditional crash triage) | B | anchor | UI + crash logcat | **5/5** | 4/5 | 2/5 *(3/5 adj.)* | 0/5 |
 | `b6` (flaky sync counter) | B | anchor | UI + app logcat | 4/5 | **5/5** | 1/5 | 1/5 |
-| `b9` (silent feature-flag gate) | B | unseen | UI + warn logcat | **5/5** | **5/5** | 0/5 | 0/5 |
-| `b10` (main-thread stall audit) | B | unseen | UI + warn logcat | **5/5** | **5/5** | 0/5 | 0/5 |
+| `b9` (silent health-check error attribution) | B | unseen | UI + warn logcat | **5/5** | **5/5** | 0/5 | 0/5 |
+| `b10` (main-thread stall isolation) | B | unseen | UI + warn logcat | **5/5** | **5/5** | 0/5 | 0/5 |
 | **7-TASK UI+LOGCAT SUBSET (`n=35`, pre-reg)** | A–C | **UI+logcat** | **UI + logcat** | **34/35 (97.1%)** | **34/35 (97.1%)** | 18/35 (51.4%) | 14/35 (40.0%) |
 | *Cell-level 95% Wilson CI (`n=35`)* | — | — | — | *`[85.5%, 99.5%]`* | *`[85.5%, 99.5%]`* | *`[35.6%, 67.0%]`* | *`[25.6%, 56.4%]`* |
 | `c10` (runtime variable inspect) | C | anchor | UI + JDWP locals | **5/5** | 0/5 | 2/5 *(UI math)* | 0/5 |
-| `c11` (swallowed exception state) | C | unseen | UI + JDWP locals | **5/5** | 0/5 | 0/5 | 0/5 |
+| `c11` (promo audit token read from a local variable) | C | unseen | UI + JDWP locals | **5/5** | 0/5 | 0/5 | 0/5 |
 | **9-TASK PHONE TOTAL (`n=45`, pre-reg)** | A–C | **all phone** | **UI + logcat + JDWP** | **44/45 (97.8%)** | 34/45 (75.6%) | 20/45 (44.4%) | 14/45 (31.1%) |
 | *Cell-level 95% Wilson CI (`n=45`)* | — | — | — | *`[88.4%, 99.6%]`* | *`[61.3%, 85.8%]`* | *`[30.9%, 58.8%]`* | *`[19.5%, 45.7%]`* |
 | **4-TASK UNSEEN UI+LOGCAT (`n=20`, `a5,a6,b9,b10`, expl.)** | A–B | **unseen** | **UI + logcat** | **20/20 (100%)** | **20/20 (100%)** | 10/20 (50.0%) | 9/20 (45.0%) |
@@ -144,13 +157,16 @@ UI automation performance:
 | **4-TASK ANCHOR SUBSET (`n=20`, `b5,b6,c9,c10`, pre-reg)** | B–C | **anchors** | **UI + logcat + JDWP** | **19/20 (95.0%)** | 14/20 (70.0%) | 10/20 (50.0%) | 5/20 (25.0%) |
 | `b11` (Wear OS capability row, `n=5`, pre-reg) | B | unseen (watch) | Wear OS UI | **5/5 (100%)** | **5/5 (100%)** | 4/5 (80%) *(5/5 adj.)* | **5/5 (100%)** |
 
+> **Errata (2026-11-27):** Automated regex grading over-credited `b6` and `c9`. Hand adjudication of passing runs on those two tasks gives `linc` 32/35 (42/45 on 9 tasks), `agent-device` 31–33/35 (31–33/45), `mobile-mcp` 18/35 (20/45), and `maestro` 10/35 (10/45; 10/15 UI-only). Passes on the other seven tasks and all FAIL cells have not been hand-audited, so these figures are partial corrections rather than a final regraded scoreboard.
+
 *Statistical note on confidence intervals:* The Wilson 95% intervals above
 measure **repeat-run binomial variance across `n=35` or `n=45` cells on these
-fixed tasks**, not generalization across arbitrary tasks. Because cells are
-clustered in 5-run groups across `K=7` (or `K=9`) tasks, task-level variance
-dominates; within any single task (`n=5`), `5/5` (`95% CI [56.6%, 100%]`) vs
-`4/5` (`[37.6%, 96.4%]`) and `1/5` vs `0/5` are indistinguishable from single-run
-noise. Full v3 analysis: [`docs/v3-deep-dive.md`](docs/v3-deep-dive.md).
+fixed tasks** (using automated regex counts), not generalization across
+arbitrary tasks. Because cells are clustered in 5-run groups across `K=7` (or
+`K=9`) tasks, task-level variance dominates; within any single task (`n=5`),
+`5/5` (`95% CI [56.6%, 100%]`) vs `4/5` (`[37.6%, 96.4%]`) and `1/5` vs `0/5`
+are indistinguishable from single-run noise. Full v3 analysis:
+[`docs/v3-deep-dive.md`](docs/v3-deep-dive.md).
 
 #### Sensitivity / adjudication table (judgment-call cells in v3)
 
@@ -161,7 +177,7 @@ three leniently changes no tool ranking on any subset:
 | Cell | Strict automated | Lenient / adjudicated | What happened | Impact on tool total (strict → lenient) |
 |---|---|---|---|---|
 | `maestro/a6/run-2` | FAIL | PASS | Agent found `PHONE-NODE-742` on the phone after screenshotting the watch and wrote *"confirmed distinct from the smartwatch (which showed WATCH-NODE-999)"*, tripping the negative lookahead `(?!.*WATCH-NODE-999)`. | `maestro` 9-task: `14/45 → 15/45` (`31.1% → 33.3%`); 3-task UI-only: `13/15 → 14/15` (`86.7% → 93.3%`) |
-| `mobile-mcp/b5/run-1` | FAIL (900s timeout) | Excluded or PASS | Ran in Wave 1 before per-cell `adb logcat -b all -c` was added; `mobile_list_crashes` saw an earlier cell's `Item 037` crash entry right after tapping `Item 001` and spent the remaining budget testing `Item 001..012` (`run-2..5` went `2/4` with clean buffers). | `mobile-mcp` 9-task: `20/45 → 20/44 (45.5%)` or `21/45 (46.7%)` |
+| `mobile-mcp/b5/run-1` | FAIL (900s timeout) | Excluded or PASS | Ran in Wave 1 before per-cell `adb logcat -b all -c` was added; `mobile_list_crashes` saw an earlier cell's `Item 013` crash entry right after tapping `Item 001` and spent the remaining budget testing `Item 001..012` (`run-2..5` went `2/4` with clean buffers). | `mobile-mcp` 9-task: `20/45 → 20/44 (45.5%)` or `21/45 (46.7%)` |
 | `mobile-mcp/b11/run-4` | FAIL | PASS | Galaxy Watch7 screen dimmed to ambient mode mid-flow on run 4; `mobile-mcp` has no wake/stayon primitive (`run-1,2,3,5` all passed). | `mobile-mcp` `b11` watch row: `4/5 → 5/5 (100%)` |
 
 ### v2 (adjudicated; 45 scored cells per tool, b8 excluded)
@@ -222,8 +238,10 @@ API spend** and **cost per successful completion (`$/pass`)**:
 |------|----------------------------|-------------------------------------------|------------------------------------|--------------------------------------|-----------------------------------------|-------------------------------|-------------------------------|-------------------|
 | linc (`0.1.0`) | **100.2s** / 80.6s | 2 / 7 (`b5, b6`) | **38.5k** / 57.6k | **2.95M** / **2.60M** | **6 / 7** (`a5,a6,b5,b6,b10,c9`) | **$37.50** / **$34.22** | **$0.85** / **$1.01** | **0** |
 | agent-device (`0.21.27`) | 140.7s / **64.1s** | **5 / 7** (`a5,a6,b9,b10,c9`) | 122.3k / **54.7k** | 5.31M / 3.95M | 1 / 7 (`b9`) | $58.50 / $47.93 | $1.72 / $1.41 | **0** |
-| maestro (`2.11.0`) | 172.4s / 181.1s | — | 80.6k / 86.6k | 3.88M / 3.22M | — | $34.56 / $29.61 | $2.47 / $2.12 | **0** |
-| mobile-mcp (`1.0.10`) | 508.6s / 508.6s | — | 126.7k / 166.8k | 6.85M / 5.68M | — | $34.64 / $27.95 | $1.73 / $1.55 | 13 |
+| maestro (`2.11.0`) | 172.4s / 181.1s | — | 80.6k / 86.6k | 3.88M / 3.22M | — | $34.56 / $29.70 | $2.47 / $2.12 | **0** |
+| mobile-mcp (`1.0.10`) | 508.6s / 508.6s | — | 126.7k / 166.8k | 6.85M / 5.68M | — | $79.49 / $69.02* | $3.97 / $3.83 | 13 |
+
+*`mobile-mcp` spend (`$79.49` on `n=45` / `$69.02` on `n=35`) includes `$44.85` for 13 timed-out cells whose `total_cost_usd` was `null` in `meta.json` and is priced from recorded token counts at the exact `claude-sonnet-5` rates (`$2/$10/$4/$0.20` per M input/output/cache-write/cache-read). Recorded non-timeout spend alone was `$34.64 / $24.17`. Cost/pass divides by automated regex passes; see the 2026-11-27 Errata above.*
 
 ### v2 (`n=45` scored phone cells)
 
@@ -268,8 +286,9 @@ each):
   paradox in pooled multi-task medians.
 
 Grid reproduction cost (`claude-sonnet-5` API spend): v1 **$216** (200 cells);
-v2 **$209.02** (200 cells); v3 **$168.55** (200 cells: linc `$38.34`, maestro
-`$35.14`, mobile-mcp `$35.66`, agent-device `$59.41`).
+v2 **$209.02** (200 cells); v3 **$213.39** (200 cells: linc `$38.34`, maestro
+`$35.14`, mobile-mcp `$80.50` [includes `$44.85` for 13 timed-out cells priced
+from token counts], agent-device `$59.41`).
 
 ## What changed between the grids
 
@@ -280,26 +299,29 @@ documented in [`PREREGISTRATION-v3.md`](PREREGISTRATION-v3.md):
 
 1. **Upgraded competitor releases & frozen `linc` stack:**
    - `linc`: `linc-nerve==0.1.0` installed from the public PyPI wheel
-     (`LincForge/nerve@5477863`, wheel
+     (`LincForge/nerve@5477863`, **105 commits** past v2 pin `783fc88`; wheel
      `sha256:747798cf8c869e4e0f6d49426faada97221cfd55e70fef540afa3fe2d949ca19`),
-     paired with git-pinned `linc-crucible@cf04279` (one commit past v2's
-     `a717296`, adding preflight/B2B packaging docs; no benchmark-task logic
-     changes) and `linc-spectra@c471dad` (two commits past v2's `badcee7`:
-     auto-detaching `spectra_method_locals` after capture so the paused target
-     process resumes automatically, and MCP tool annotations).
-   - `maestro`: upgraded `2.5.0` → **`2.11.0`**.
-   - `@mobilenext/mobile-mcp`: upgraded `0.2.2` → **`1.0.10`** (which adds
+     paired with git-pinned `linc-crucible@cf04279` (**60 commits** past v2's
+     `a717296`; `crucible` was connected in all 50 v3 cells but made 0 tool
+     calls in v2 or v3 because the target app is not registered in crucible's
+     project registry) and `linc-spectra@c471dad` (**12 commits** past v2's
+     `badcee7`: session handling and security fixes; resume-and-close after
+     capturing locals was already present at v2's `badcee7`, not added after
+     v2).
+   - `maestro`: upgraded `2.6.1` → **`2.11.0`**.
+   - `@mobilenext/mobile-mcp`: upgraded `0.0.60` → **`1.0.10`** (which adds
      `mobile_get_device_logs` and `mobile_list_crashes`).
-   - `agent-device`: upgraded `0.12.2` → **`0.21.27`**.
+   - `agent-device`: upgraded `0.18.1` → **`0.21.27`**.
 2. **Hybrid 10-task suite (`tasks_v3/`):**
    - **4 byte-identical v1/v2 anchors** (`b5`, `b6`, `c9`, `c10` — enforced by
      `test_all_committed_v3_tasks_load_and_anchors_are_byte_identical`).
-   - **6 unseen zero-pilot tasks** (`a5` deep-link/clipboard/back-stack, `a6`
-     multi-device ambiguity, `b9` silent feature-flag gate, `b10` main-thread
-     stall audit, `c11` swallowed exception state, and `b11` Wear OS Burst-mode
-     capability row). Target-app surfaces were unit-tested via `./gradlew test`
-     and `adb` reset commands were smoke-checked before freeze, with zero prior
-     LLM agent runs on any of the 4 stacks.
+   - **6 unseen zero-pilot tasks** (`a5` long-press context menu archive, `a6`
+     multi-device ambiguity, `b9` silent health-check error attribution, `b10`
+     main-thread stall isolation, `c11` promo audit token read from a local
+     variable, and `b11` Wear OS Burst-mode capability row). Target-app surfaces
+     were unit-tested via `./gradlew test` and `adb` reset commands were
+     smoke-checked before freeze, with zero prior LLM agent runs on any of the
+     4 stacks.
 3. **v3 harness hardening & execution order (applied symmetrically to all 4 tools):**
    - **Wave execution order:** Runs executed in 5 interleaved waves (`run-1`
      through `run-5`), iterating through tasks `a5..c11` in deterministic tool
@@ -309,10 +331,10 @@ documented in [`PREREGISTRATION-v3.md`](PREREGISTRATION-v3.md):
      verifies the target device is unlocked before launch and records
      `device_locked_pre` and `device_locked_post` in `meta.json` (`0/200`
      locked cells across v3).
-   - **Per-cell logcat ring-buffer hygiene (`adb logcat -b all -c`):** clears
-     `main`, `system`, `events`, and `crash` buffers before every cell so an
-     earlier cell's crash (`b5`) or diagnostic log (`b9`/`b10`) cannot leak into
-     a subsequent tool's `mobile_list_crashes` or `logcat` read.
+   - **Per-cell logcat ring-buffer hygiene (`adb logcat -b all -c`):** cleared
+     `main`, `system`, `events`, and `crash` buffers from wave 2 onward (160
+     cells); the 40 wave-1 cells ran without it. The step was run by a driver
+     script that was not committed (see [`AMENDMENTS.md`](AMENDMENTS.md)).
 
 ### v1 → v2 (`v2-prereg` freeze)
 
@@ -389,8 +411,8 @@ four primary findings:
    in the `adbd` log line captured inside
    `results_v3/mobile-mcp/b10/run-1/transcript.jsonl`), which starts streaming
    from the last 1 line of historical logcat and waits for `limit` matching lines
-   to arrive. Because the synchronous `Log.w` lines in `b9` (`Run Health Check`)
-   and `b10` (`Compact Local DB`) are emitted inside the button `onClick`
+   to arrive. Because the synchronous `Log.w` lines in `b9` (`Run health check`)
+   and `b10` (`Rebuild index`) are emitted inside the button `onClick`
    handler *before* the subsequent `mobile_get_device_logs` tool call opens its
    logcat stream (and with no per-call timeout when a `message=` filter matches
    zero future lines), the tool call blocks until the harness kills the run at
@@ -399,17 +421,18 @@ four primary findings:
    and `b10`.
 3. **`c10` (`5/0/2/0`) vs `c11` (`5/0/0/0`) — algebraic curve-fitting vs
    runtime stack-frame inspection:** In `mobile-mcp/c10/run-4` (`579.1s`,
-   `34,512` output tokens) and `run-5` (`855.0s`, `46,356` output tokens),
+   `34,512` output tokens) and `run-5` (`855.0s`, `51,812` output tokens),
    `claude-sonnet-5` solved `c10` without a debugger by tapping `Apply Discount`
    across quantities `q = 1..7`, recording the 7 rounded integer UI totals
    `(9, 17, 25, 32, 39, 44, 50)`, and solving the 7 rounding intervals to
-   recover `1 - 0.035q = 0.755` (`9.3×`–`12.5×` the output tokens and `6×`–`8.5×`
+   recover `1 - 0.035q = 0.755` (`9.3×`–`14.0×` the output tokens and `6×`–`8.5×`
    the wall time of `linc`'s `100.2s` JDWP stack-frame read). On `c11`
-   (`c11-caught-exception-state`), the swallowed `PromoExpiredException` catch
-   block displays a static `"Promo code expired"` string and has no UI-observable
-   channel by design for `auditToken` (`PROMO-BENCH26-7956`) or `rebateCents`
-   (`1355`): `linc` went **5/5 (`119.5s` median)** while `agent-device`,
-   `mobile-mcp`, and `maestro` went **0/15 combined**.
+   (`c11-runtime-promo-signature`), entering promo code `"BENCH26"` at quantity
+   `4` and tapping `Redeem` displays only `"Promo applied"` in the UI while
+   computing the local variable `auditToken` (`AUD-4-BENCH26-8419`) inside
+   `CheckoutViewModel.redeemPromo(code: String)`, with no UI-observable or
+   logcat channel by design: `linc` went **5/5 (`119.5s` median)** while
+   `agent-device`, `mobile-mcp`, and `maestro` went **0/15 combined**.
 4. **Score-once `linc` defects surfaced in v3 (disclosed, zero re-runs):**
    Scoring the frozen `linc` stack once surfaced two concrete defects in `linc`'s
    own column that are left unscored/unpatched in `results_v3/`:
@@ -455,11 +478,16 @@ agent-device's 0/5 in v1/v2 flipped to **5/5 in v3** (`0.21.27`).
 
 #### Tier B — device observability still decides it
 
-- **b6 (flake root-cause; ground truth is a persisted launch counter):** linc
-  4/5 (v2 and v3) and agent-device 4/5 in v2 → **5/5 in v3**. In v2, maestro and
-  mobile-mcp went 0/10 combined; in v3, each scored **1/5** (`mobile-mcp/b6/run-1`
-  via `mobile_get_device_logs`; `maestro/b6/run-3` by tabulating 6 consecutive
-  `clearState: false` launches and spotting runs 3 and 6 missing the button).
+- **b6 (flake root-cause; ground truth is a persisted launch counter `launchCount % 5 in {2, 4}`):** under automated regex grading, linc
+  4/5 (v2 and v3) and agent-device 4/5 in v2 → **5/5 in v3**, while in v3
+  maestro and mobile-mcp each scored **1/5** (`mobile-mcp/b6/run-1`
+  via `mobile_get_device_logs`; `maestro/b6/run-3` via regex match).
+  *Correction (2026-11-27):* `maestro/b6/run-3` observed runs 3 and 5 (not 3
+  and 6) missing the button and **explicitly ruled out a persisted launch
+  counter** (*"isn't a persisted mod-N counter either"*), passing only because
+  the regex matched the negated phrase; hand adjudication scores v3 `b6` as
+  `linc` 2/5, `agent-device` 3–4/5, `mobile-mcp` 1/5, `maestro` 0/5 (see
+  2026-11-27 Errata above).
 - **b7 (cold-start timing + variance, v1/v2):** linc and agent-device 5/5.
   mobile-mcp 0/5 — no shell surface for `am start -W`. maestro 1/5.
 - **b5 (crash repro from a vague report):** linc 1/5 (v1) → **5/5** (v2 and v3).
@@ -559,22 +587,34 @@ detectable.
    unlocked. Two other lock-language hits were adjudicated and stand
    (documented per-cell in the amendment).
 
-### v3 — zero voided cells, one disclosed Wave-1 crash-buffer carry-over
+### v3 — zero voided cells, post-freeze deviations, and two cross-cell state observations
 
 All 200 v3 cells ran to completion with `device_locked_pre = false` and
-`device_locked_post = false` (`0/200` locked cells) and zero mid-grid code
-changes. One cross-cell state observation from Wave 1 is disclosed:
+`device_locked_post = false` (`0/200` locked cells), with no change to the
+committed harness and two procedure changes mid-grid (CLI auto-update from
+`2.1.296` to `2.1.299` after cell 135, and per-cell `adb logcat -b all -c`
+clearing added from wave 2 onward via an uncommitted driver script; see
+[`AMENDMENTS.md`](AMENDMENTS.md) for all four post-freeze deviations). Two
+cross-cell state observations are disclosed:
 
 - **Cross-cell `logcat -b crash` carry-over on `mobile-mcp/b5/run-1`:** In Wave 1,
-  `linc/b5/run-1` triggered the `Item 037` crash (`IllegalStateException`),
-  which remained in Android's persistent `crash` ring buffer during
-  `maestro/b5/run-1` (which cannot read logs) and into `mobile-mcp/b5/run-1`.
-  When `mobile-mcp/b5/run-1` called `mobile_list_crashes` right after tapping
-  `Item 001`, it saw the earlier `Item 037` crash entry and misattributed it to
-  `Item 001`, spending the rest of its 900s budget re-testing `Item 001..012`.
-  Per-cell `adb logcat -b all -c` hygiene was added for all subsequent cells
-  (where `mobile-mcp` went `2/4` on `b5/run-2..5`), and per the pre-registered
-  score-once rule, `mobile-mcp/b5/run-1` stands in `results_v3/` as ran.
+  `linc/b5/run-1` triggered the `Item 013` crash (`IllegalStateException: export
+  buffer not initialized`), which remained in Android's persistent `crash` ring
+  buffer during `maestro/b5/run-1` (which cannot read logs) and into
+  `mobile-mcp/b5/run-1`. When `mobile-mcp/b5/run-1` called `mobile_list_crashes`
+  right after tapping `Item 001`, it saw the earlier `Item 013` crash entry and
+  misattributed it to `Item 001`, spending the rest of its 900s budget re-testing
+  `Item 001..012`. Per-cell `adb logcat -b all -c` hygiene was added from wave 2
+  onward (160 cells) via an uncommitted driver script (where `mobile-mcp` went
+  `2/4` on `b5/run-2..5`), and per the pre-registered score-once rule,
+  `mobile-mcp/b5/run-1` stands in `results_v3/` as ran.
+- **Host-side `agent-device` session log carry-over (20 of 50 cells):**
+  `agent-device` wrote to a persistent host-side session log
+  (`~/.agent-device/sessions/default/app.log`) that was not cleared between
+  cells. Carry-over from prior cells appeared in 20 of 50 `agent-device` cells,
+  including 8 cells containing another task's answer line; no cell saw its own
+  task's answer line, so there is no evidence of a score benefit, though
+  reading stale log lines added token overhead to the `agent-device` column.
 
 ## Per-cell detail
 
@@ -681,7 +721,8 @@ Carried forward across all three grids:
 
 - **Single model, single app.** One Compose app (`BenchTarget`), one model
   (`claude-sonnet-5`, invoked via `claude --model claude-sonnet-5` in Claude Code
-  `2.1.296` with default CLI sampling parameters), across two physical device
+  `2.1.296` — auto-updated to `2.1.299` after v3 cell 135 — with default CLI
+  sampling parameters), across two physical device
   pairs (Pixel 8 Pro + Pixel Watch 2 in v1/v2; Samsung Galaxy S24 `SM-S921U` +
   Galaxy Watch7 `SM-L300` in v3). Generalization to third-party production apps,
   other UI toolkits, and other models remains open.
@@ -707,11 +748,15 @@ Carried forward across all three grids:
   `linc` stack once with zero post-fix re-runs, the unseen tasks were still
   authored by LINC engineers who know the capabilities of `linc-nerve` and
   `linc-spectra`, and `linc-crucible` includes vendor-authored MCP tool
-  descriptions whereas competitors ran with their stock shipped tool schemas.
+  descriptions whereas competitors ran with their stock shipped tool schemas
+  (`crucible` was connected in all 50 v3 cells but made 0 tool calls in v2 or
+  v3 because the target app is not registered in crucible's project registry).
   That is why v3 leads with the **7-task UI + logcat phone subset (`n=35`, where
-  `linc` and `agent-device 0.21.27` match at `34/35 = 97.1%`)** and the **3-task
-  UI-only subset (`n=15`, where `maestro 2.11.0` scores `13/15` strict / `14/15`
-  adjudicated)** alongside the 9-task aggregate.
+  `linc` and `agent-device 0.21.27` match at `34/35 = 97.1%` automated / `32/35`
+  vs `31–33/35` after the 2026-11-27 `b6`/`c9` hand adjudication)** and the
+  **3-task UI-only subset (`n=15`, where `maestro 2.11.0` scores `13/15`
+  automated / `10/15` after `c9` hand adjudication)** alongside the 9-task
+  aggregate.
 
 ## Verification & reproducibility checklist
 

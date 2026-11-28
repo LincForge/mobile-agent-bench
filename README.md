@@ -2,8 +2,10 @@
 
 A reproducible benchmark of **agent-operated mobile-device tooling**: four MCP
 tool stacks driven by the same confined AI agent, same pinned model, same
-physical devices, on ten pre-registered tasks — plus raw transcripts for every
-run.
+physical devices, on ten pre-registered tasks — every run keeps its agent
+reasoning, tool calls, final answer and `meta.json`; tool outputs from the v1
+and v2 grids and all embedded screenshots were removed on 2026-11-26 because
+they were captured on personal devices (see [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md)).
 
 Three complete grids have been run and published: **v1**, **v2**, and **v3**,
 200 cells each (10 tasks × 5 runs × 4 tools = **600 cells total**).
@@ -12,7 +14,7 @@ Three complete grids have been run and published: **v1**, **v2**, and **v3**,
 
 | Stack | Vendor |
 |---|---|
-| [nerve](https://github.com/LincForge/nerve) + [crucible](https://github.com/LincForge/crucible) + [spectra](https://github.com/LincForge/spectra) | LincForge (that's us — see the disclosure below) |
+| [nerve](https://github.com/LincForge/nerve) + [crucible](https://github.com/LincForge/crucible) + [spectra](https://github.com/LincForge/spectra) | LincForge (that's us — see the disclosure below; `crucible` was connected in all 50 v3 cells but made 0 tool calls in v2 or v3 because the target app is not registered in crucible's project registry) |
 | Maestro MCP | mobile.dev |
 | mobile-mcp | mobile-next (community) |
 | agent-device | Callstack |
@@ -22,7 +24,8 @@ Three complete grids have been run and published: **v1**, **v2**, and **v3**,
 Completion over the 45 scored phone cells per tool (the Wear OS row is a
 capability row, reported separately and never averaged), plus the **7-task UI +
 Logcat** phone subset (excluding the two JDWP debugger tasks `c10` and `c11`)
-and the **3-task UI-Only** subset (`a5, a6, c9`):
+and the **3-task UI-Only** subset (`a5, a6, c9`). Figures below reflect
+automated regex grading; see the **2026-11-27 Errata** directly underneath:
 
 | | v1 (45 cells) | v2 (45 cells) | v3 7-task UI+Logcat (`n=35`) | v3 3-task UI-Only (`n=15`) | v3 9-task Phone (`n=45`) |
 |---|---|---|---|---|---|
@@ -30,6 +33,8 @@ and the **3-task UI-Only** subset (`a5, a6, c9`):
 | agent-device | 32/45 (71%) | 32/45 (71%) | **34/35 (97%)** | **15/15 (100%)** | 34/45 (76%) |
 | mobile-mcp | 25/45 (56%) | 28/45 (62%) | 18/35 (51%) | **15/15 (100%)** | 20/45 (44%) |
 | Maestro | 26/45 (58%) | 20/45 (44%) | 14/35 (40%) | 13/15 (87%) *(14/15 adj.)* | 14/45 (31%) |
+
+> **Errata (2026-11-27):** Automated regex grading over-credited `b6` and `c9`. Hand adjudication of passing runs on those two tasks gives `linc` 32/35 (42/45 on 9 tasks), `agent-device` 31–33/35 (31–33/45), `mobile-mcp` 18/35 (20/45), and `maestro` 10/35 (10/45; 10/15 UI-only). Passes on the other seven tasks and all FAIL cells have not been hand-audited, so these figures are partial corrections rather than a final regraded scoreboard.
 
 The three-grid arc, and the reason all three grids are published together:
 
@@ -47,32 +52,43 @@ The three-grid arc, and the reason all three grids are published together:
 3. **v3 tested unseen tasks against upgraded competitors and the frozen
    `linc-nerve==0.1.0` PyPI release — scored once with zero post-hoc re-runs.**
    On the **7-task UI + Logcat phone subset (`n=35`)**, Callstack's upgraded
-   **`agent-device 0.21.27` and `linc` match at 34/35 (97.1%)** (`agent-device`
-   is faster at the per-task median on 5 of 7 tasks, `64.1s` vs `80.6s` pooled
-   median; `linc` uses fewer uncached tokens on 6 of 7 tasks, `$1.01/pass` vs
-   `$1.41/pass`). The 10-cell difference on the 9-task phone grid (`44/45` vs
-   `34/45`) comes entirely from `c10` and `c11`, which require a JVM debugger
-   (`linc-spectra` goes `10/10`, while tools without JDWP support go `0/10` or
-   `2/10` via UI curve-fitting). All three packages in the `linc` column are now
-   open-source (`Apache-2.0`) on GitHub and PyPI (`linc-nerve`, `linc-crucible`,
-   `linc-spectra`); note that the published `v3` grid was scored once against the
-   frozen pre-release commits `crucible@cf04279` and `spectra@c471dad` paired
-   with `linc-nerve==0.1.0`.
+   **`agent-device 0.21.27` and `linc` match at 34/35 (97.1%) under automated
+   regex grading** (32/35 vs 31–33/35 after the 2026-11-27 hand adjudication of
+   `b6` and `c9`; `agent-device` is faster at the per-task median on 5 of 7
+   tasks, `64.1s` vs `80.6s` pooled median; `linc` uses fewer uncached tokens
+   on 6 of 7 tasks, `$1.01/pass` vs `$1.41/pass` on automated passes). The
+   10-cell difference on the 9-task phone grid (`44/45` vs `34/45` automated;
+   `42/45` vs `31–33/45` after `b6`/`c9` hand adjudication) comes entirely from
+   `c10` and `c11`, which require a JVM debugger (`linc-spectra` goes `10/10`,
+   while tools without JDWP support go `0/10` or `2/10` via UI curve-fitting).
+   All three packages in the `linc` column are now open-source (`Apache-2.0`)
+   on GitHub and PyPI (`linc-nerve`, `linc-crucible`, `linc-spectra`); note
+   that the published `v3` grid was scored once against the frozen pre-release
+   commits `crucible@cf04279` and `spectra@c471dad` paired with
+   `linc-nerve==0.1.0`, and `crucible` was connected in all 50 v3 cells but
+   made 0 tool calls in v2 or v3 because the target app is not registered in
+   crucible's project registry.
 
 ## Disclosure
 
 We are the vendor of one of the stacks under test. That is exactly why this
 repo exists in this shape: pre-registered criteria, vendor-recommended
 configuration for every competitor, harness + target app published as source,
-and a raw sanitized transcript behind every number. If you think a row is
-unfair, clone it and re-run it.
+and stored run logs behind every number (every run keeps its agent reasoning,
+tool calls, final answer and `meta.json`; tool outputs from the v1 and v2 grids
+and all embedded screenshots were removed on 2026-11-26 because they were
+captured on personal devices — see [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md)).
+If you think a row is unfair, clone it and re-run it.
 
 Every deviation from pre-registration is recorded with receipts in
 [`AMENDMENTS.md`](AMENDMENTS.md), including the interference we caught that
 *helped* us and the contaminated cells we voided that had already passed.
 Voided cells are kept in `results_invalid/` rather than deleted. In **v3**,
 in-harness lock detection (`is_device_locked` pre/post cell) ran across all 200
-cells with **0 locked cells and 0 amendments**.
+cells with **0 locked cells**. Four post-freeze deviations are recorded in
+[`AMENDMENTS.md`](AMENDMENTS.md) (v3): CLI auto-update after cell 135, per-cell
+logcat clearing added after wave 1, user plugins and hooks loaded in every
+cell, and transcripts re-sanitized on 2026-11-26 with history rewritten.
 
 ## Reading order
 
@@ -105,9 +121,9 @@ tasks_v3/              # 10 frozen v3 task definitions (4 v1/v2 anchors + 6 unse
 tools/                 # 4 tool adapters (MCP config, vendor-recommended)
 target-app/            # BenchTarget: purpose-built open-source target app (SPEC.md + v3 additions)
 mobile_agent_bench/    # harness: runner, agent invocation, token accounting, lock guard, reset, sanitize
-results/               # v1 raw run logs: <tool>/<task>/run-<n>/{transcript.jsonl,meta.json}
-results_v2/            # v2 raw run logs, same shape
-results_v3/            # v3 raw run logs, same shape
+results/               # v1 run logs: <tool>/<task>/run-<n>/{transcript.jsonl,meta.json} (tool outputs & screenshots removed 2026-11-26)
+results_v2/            # v2 run logs, same shape (tool outputs & screenshots removed 2026-11-26)
+results_v3/            # v3 run logs, same shape (embedded screenshots removed 2026-11-26)
 results_invalid/       # voided cells, kept as receipts (never deleted)
 ```
 
@@ -118,6 +134,9 @@ filesystem search, no web, no subagents, `--strict-mcp-config`, a neutral cwd,
 and a path-guarded `Read`. If a tool cannot see the UI tree, its agent is
 blind. That is the point: the benchmark measures the *tool surface*, not the
 model.
+
+In v3 the agent process also loaded the maintainer's user-level plugins and
+session-start hooks (same for all four columns). v1 and v2 did not.
 
 Closing that confinement took three errata in v1 (all in `AMENDMENTS.md`) —
 most notably a built-in tool that could run arbitrary shell, which some agents
