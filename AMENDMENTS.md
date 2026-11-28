@@ -416,3 +416,96 @@ maestro/b8/run-5 (the locked PHONE was a non-target device on the watch row;
 the fail was targeting, disclosed at publication). v3 should record
 `dumpsys trust` per cell in meta and auto-void no-rows instead of relying on
 post-hoc transcript audits.
+
+## v3
+
+The four post-freeze deviations below occurred after tag `v3-prereg`
+(`ad9d24f`, [`PREREGISTRATION-v3.md`](PREREGISTRATION-v3.md)), together with
+two inaccuracies in the frozen `PREREGISTRATION-v3.md` document (which is left
+unmodified per the pre-registration contract), one host-side state carry-over
+in `agent-device`, and the 2026-11-27 partial hand-adjudication errata.
+
+### 2026-10-14 — Post-freeze deviation 1: Claude Code CLI auto-update after cell 135
+
+- **What happened:** Cells 1–135 ran on `Claude Code 2.1.296`. Between cell 135
+  (`mobile-mcp/b6/run-4`, 2026-10-14T02:59:43Z) and cell 136
+  (`agent-device/b6/run-4`, 2026-10-14T03:08:20Z), the Claude Code CLI
+  auto-updated to `2.1.299`, which ran the remaining 65 cells (136–200).
+- **Pre-registration inaccuracy (`PREREGISTRATION-v3.md:55`):** The frozen
+  contract pins `Claude Code 2.1.296` for the grid; cells 136–200 actually ran
+  on `2.1.299` (recorded in each transcript's `system/init` event).
+- **Disposition:** Disclosed; no cells re-run per the score-once policy.
+
+### 2026-10-14 — Post-freeze deviation 2: Per-cell logcat clearing added after wave 1 via uncommitted driver script
+
+- **What happened:** Wave 1 (40 cells) ran without clearing Android logcat
+  buffers between cells, allowing `linc/b5/run-1`'s `Item 013` crash to remain
+  in the persistent `crash` buffer into `mobile-mcp/b5/run-1`. From wave 2
+  onward (160 cells), an uncommitted grid driver script
+  (`scripts/run_v3_grid.py`) ran `adb logcat -b all -c` before each cell.
+- **Harness diff:** `git diff v3-prereg -- mobile_agent_bench scripts` is empty
+  (no committed harness files changed mid-grid), because the logcat-clearing
+  step lived in the uncommitted driver script.
+- **Disposition:** Disclosed; `mobile-mcp/b5/run-1` stands in `results_v3/` as
+  ran.
+
+### 2026-10-13 — Post-freeze deviation 3: User-level plugins/hooks loaded and `ListAgents`/`ReportFindings` not in deny list
+
+- **What happened:** All 200 v3 cells launched `claude` with the maintainer's
+  user-level plugins and session-start hooks active (identical across all four
+  tool columns; v1 and v2 did not load them). Every v3 `system/init` event
+  lists 64 `skills` entries; across the 200 cells, agents issued 170
+  skill-seeking `ToolSearch` calls in 143 cells (`linc` 56, `agent-device` 44,
+  `mobile-mcp` 41, `maestro` 29), costing turns and tokens in every column.
+  In addition, `ListAgents` and `ReportFindings` were absent from
+  `CONFINE_DISALLOWED_TOOLS`: `ListAgents` was invoked in 8 cells, and
+  `maestro/b10/run-1` included peer-session names in its final answer.
+- **Disposition:** Disclosed; effect spanned all four columns and no cells were
+  re-run.
+
+### 2026-11-26 — Post-freeze deviation 4: History rewrite and transcript re-sanitization
+
+- **What happened:** On 2026-11-26 the full git history of this repository was
+  rewritten once with `git filter-repo` to remove personal data missed by the
+  original sanitizer (device identifiers, notifications, app lists, embedded
+  screenshots across all grids, four v2-era root `recording-*.mp4` files, and
+  tool-result payloads from the v1, v2, and invalid grids). Every run retains
+  its agent reasoning, tool calls, final answer, and `meta.json`.
+- **Receipts:** Harness and task files are byte-identical at every
+  pre-registration tag, commit dates are preserved, and tag names are
+  unchanged; commit SHAs changed and are mapped in
+  [`HISTORY-REWRITE.md`](HISTORY-REWRITE.md).
+
+### Pre-registration inaccuracy (`PREREGISTRATION-v3.md:60`) — Agent working directory
+
+- `PREREGISTRATION-v3.md:60` states that every agent subprocess spawns in
+  `/tmp/mobile-agent-bench-cwd`. In fact, `mobile_agent_bench/agent.py` sets
+  `AGENT_CWD = Path(tempfile.gettempdir()) / "mab-agent-cwd"` — a per-user
+  temporary directory on macOS (sanitized as `~/T/mab-agent-cwd` in v3
+  transcripts), still empty and outside the repository. `PREREGISTRATION-v3.md`
+  is left unmodified as the frozen contract.
+
+### Cross-cell host state — `agent-device` session log carry-over (20 of 50 cells)
+
+- `agent-device` writes to a persistent host-side session log
+  (`~/.agent-device/sessions/default/app.log`) that was not cleared between
+  cells. Carry-over from prior cells appeared in 20 of 50 `agent-device` cells,
+  including 8 cells that contained another task's answer line. No cell saw its
+  own task's answer line (so there is no evidence of a score benefit); reading
+  stale log lines added token overhead to the `agent-device` column.
+
+### 2026-11-27 — Partial hand-adjudication errata (`b6` and `c9` regex false positives)
+
+- Automated regex grading over-credited passing runs on `b6` (matching bare
+  `launchCount` / counter tokens even inside explicit denials, including
+  `linc/b6/run-2`, `linc/b6/run-3`, `agent-device/b6/run-4`,
+  `agent-device/b6/run-5` [borderline], and `maestro/b6/run-3`) and `c9`
+  (matching bare `tier` mentions even when claiming the Tier dropdown worked,
+  including `maestro/c9/run-1,4,5`, and a distinct defect in
+  `agent-device/c9/run-2`).
+- Hand adjudication of passing runs on those two tasks gives `linc` 32/35
+  (42/45 on 9 tasks), `agent-device` 31–33/35 (31–33/45), `mobile-mcp` 18/35
+  (20/45), and `maestro` 10/35 (10/45; 10/15 UI-only). Passes on the other
+  seven tasks and all FAIL cells have not been hand-audited, so these figures
+  are partial corrections rather than a final regraded scoreboard (see
+  [`REPORT.md`](REPORT.md)).
